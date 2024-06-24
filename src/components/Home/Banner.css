@@ -1,0 +1,36 @@
+.banner-container {
+    position: relative;
+}
+.carousel {
+    scroll-snap-type: x mandatory;
+    scroll-padding: 0 24px;
+}
+.carousel .item {
+    scroll-snap-align: start;
+}
+.control-dots {
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+    position: absolute;
+    margin-top: 140px !important;
+}
+.carousel .control-dots {
+    position: absolute;
+    bottom: -31px !important;
+    margin: 10px 0;
+    padding: 0;
+    text-align: center;
+    width: 100%;
+    z-index: 1;
+}
+.carousel.carousel-slider {
+    overflow: visible !important;
+}
+.pagination-wrapper {
+    display: flex;
+    gap: 5px;
+}
+.banner-clip-path {
+clip-path: circle(100.1% at 100% 100%);
+}
