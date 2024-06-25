@@ -12,8 +12,27 @@ import { News } from "../components/Home/News";
 import { Offers } from "../components/Home/Offers";
 import { ProductsWrapper } from "../components/Home/ProductsWrapper";
 import { Subscription } from "../components/Home/Subscription";
-
+import { useSelector, useDispatch } from "react-redux";
+import { categories, products } from "../../public/data";
+import { addToCart, addToCompare, addToFavorites } from "../redux/actions";
 const Home = () => {
+  const cart = useSelector((state) => state.cart);
+  const compare = useSelector((state) => state.compare);
+  const favorites = useSelector((state) => state.favorites);
+  const dispatch = useDispatch();
+
+  const handleAddToCart = (product) => {
+    dispatch(addToCart(product));
+  };
+
+  const handleAddToCompare = (product) => {
+    dispatch(addToCompare(product));
+  };
+
+  const handleAddToFavorites = (product) => {
+    dispatch(addToFavorites(product));
+  };
+
   return (
     <div className="bg-[#f8f7f3] flex flex-row justify-center w-full">
       <div className="bg-x-1l-ubo-z w-[1440px] h-[8262px] relative">

@@ -1,8 +1,12 @@
-import React from "react";
-import Logo from "../../assets/logo.svg"
-import DownImage from '../../assets/13--down.svg'
-import BurgerImg from '../../assets/17--burger.svg'
+import React, { useState } from "react";
+import Logo from "../../assets/logo.svg";
+import DownImage from "../../assets/13--down.svg";
+import BurgerImg from "../../assets/17--burger.svg";
+import SearchImg from "../../assets/24--search.svg";
+import { categories, products } from "../../../public/data";
+
 export const Header = () => {
+  const [isCategoryOpen, setIsCategoryOpen] = useState(false);
   return (
     <header className="absolute w-[1440px] h-[193px] top-0 left-0 bg-x-1l-ubo-z">
       <div className="absolute w-[1440px] h-px top-48 left-0 bg-m-b-3t-zi" />
@@ -101,14 +105,43 @@ export const Header = () => {
       <div className="absolute w-[616px] h-[41px] top-[63px] left-[211px]">
         <div className="relative w-[614px] h-[41px] bg-hc-0j-in rounded-[50px]">
           <div className="absolute w-[565px] h-[39px] top-px left-px bg-x-1l-ubo-z rounded-[50px]">
-            <div className="absolute top-2.5 left-[161px] font-1440-l2 font-[number:var(--1440-l2-font-weight)] text-ML-tw-1j text-[length:var(--1440-l2-font-size)] tracking-[var(--1440-l2-letter-spacing)] leading-[var(--1440-l2-line-height)] [font-style:var(--1440-l2-font-style)]">
-              Поиск
+            <div className="absolute search top-2.5 left-[161px] w-full font-1440-l2 font-[number:var(--1440-l2-font-weight)] text-ML-tw-1j text-[length:var(--1440-l2-font-size)] tracking-[var(--1440-l2-letter-spacing)] leading-[var(--1440-l2-line-height)] [font-style:var(--1440-l2-font-style)]">
+              <input
+                type="text"
+                placeholder="Поиск"
+                className="w-full placeholder:text-[#7A7687] h-full bg-transparent outline-none"
+              />
             </div>
-            <button className="all-[unset] box-border flex-col items-center justify-center gap-2 px-[15px] py-2.5 absolute top-0 left-0 bg-[#efefef] inline-flex rounded-[50px]">
+            <button
+              onClick={() => {
+                if (isCategoryOpen) {
+                  setIsCategoryOpen(false);
+                } else {
+                  setIsCategoryOpen(true);
+                }
+              }}
+              className="categroies all-[unset] box-border flex-col items-center justify-center gap-2 px-[15px] py-2.5 absolute top-0 left-0 bg-[#efefef] inline-flex rounded-[50px]"
+            >
               <div className="inline-flex items-center gap-[3px] relative flex-[0_0_auto]">
                 <div className="relative w-fit font-1440-l1 font-[number:var(--1440-l1-font-weight)] text-ML-tw-1j text-[length:var(--1440-l1-font-size)] tracking-[var(--1440-l1-letter-spacing)] leading-[var(--1440-l1-line-height)] [font-style:var(--1440-l1-font-style)]">
                   Все категории
                 </div>
+                {isCategoryOpen ? (
+                  <div className="absolute top-full left-0 mt-2 w-[400px] bg-white border border-gray-300 rounded-md shadow-lg">
+                    <ul>
+                      {categories.map((category, index) => (
+                        <li
+                          key={index}
+                          className="px-4 py-1 hover:bg-gray-200 cursor-pointer"
+                        >
+                          {category}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ) : (
+                  ""
+                )}
                 <img
                   className="relative w-[13px] h-[13px]"
                   alt="Element down"
@@ -118,9 +151,9 @@ export const Header = () => {
             </button>
           </div>
           <img
-            className="absolute top-2 left-[576px] w-6 h-6"
+            className="searchBtn absolute cursor-pointer top-2 left-[576px] w-6 h-6"
             alt="Element search"
-            src="search.svg"
+            src={SearchImg}
           />
         </div>
       </div>
