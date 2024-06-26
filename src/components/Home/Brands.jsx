@@ -11,8 +11,10 @@ export const Brands = () => {
   const settings = {
     dots: false,
     infinite: true,
-    speed: 500,
+    speed: 1000,
     slidesToShow: 4,
+    autoplay: true,
+    autoplaySpeed: 2000,
     slidesToScroll: 1,
     beforeChange: (current, next) => setCurrentSlide(next),
     arrows: false,
@@ -48,8 +50,8 @@ export const Brands = () => {
             </div>
           </div>
         </div>
-        <button className="all-[unset] box-border inline-flex gap-2.5 px-[30px] py-[11px] absolute top-0 left-[825px] bg-tx-u7vg items-center justify-center rounded-[50px]">
-          <div className="relative w-fit mt-[-1.00px] font-1440-l1 font-[number:var(--1440-l1-font-weight)] text-x-1l-ubo-z text-[length:var(--1440-l1-font-size)] tracking-[var(--1440-l1-letter-spacing)] leading-[var(--1440-l1-line-height)] [font-style:var(--1440-l1-font-style)]">
+        <button className="border border-transparent hover:border-[#088269] hover:text-[#088269] hover:bg-white duration-200 cursor-pointer text-x-1l-ubo-z box-border inline-flex gap-2.5 px-[30px] py-[11px] absolute top-0 left-[825px] bg-tx-u7vg items-center justify-center rounded-[50px]">
+          <div className="relative w-fit mt-[-1.00px] font-1440-l1 font-[number:var(--1440-l1-font-weight)] text-[length:var(--1440-l1-font-size)] tracking-[var(--1440-l1-letter-spacing)] leading-[var(--1440-l1-line-height)] [font-style:var(--1440-l1-font-style)]">
             Сертификаты
           </div>
         </button>

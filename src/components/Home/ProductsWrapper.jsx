@@ -4,6 +4,9 @@ import "slick-carousel/slick/slick.css";
 import LeftArrow from "../../assets/17--arrow---right.svg";
 import { categories, products, brands } from "../../../public/data";
 import "slick-carousel/slick/slick-theme.css";
+import LikeImg from '../../assets/24--favourites.svg'
+import CravnitImg from '../../assets/comparison.svg'
+
 export const ProductsWrapper = () => {
   const [category, setCategory] = useState("Новинки");
 
@@ -87,8 +90,8 @@ export const ProductsWrapper = () => {
               </div>
             </div>
             <div className="inline-flex items-start gap-2.5 px-0 py-0.5 relative flex-[0_0_auto]">
-              <img className="relative w-6 h-6" alt="Card icon" src="comparison.svg" />
-              <div className="relative w-6 h-6 bg-[url(/favourites.svg)] bg-[100%_100%]" />
+              <img className="relative cursor-pointer w-6 h-6" alt="Card icon" src={CravnitImg} />
+              <img className="relative cursor-pointer w-6 h-6" src={LikeImg} alt="" />
             </div>
           </div>
         </div>

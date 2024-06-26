@@ -3,6 +3,7 @@ import Logo from "../../assets/logo.svg";
 import DownImage from "../../assets/13--down.svg";
 import BurgerImg from "../../assets/17--burger.svg";
 import SearchImg from "../../assets/24--search.svg";
+import SearchImg1 from "../../assets/24--search1.svg";
 import { categories, products, brands } from "../../../public/data";
 import { NavLink, useNavigate } from 'react-router-dom';
 import BasketImg from '../../assets/24--basket.svg'
@@ -12,6 +13,7 @@ import LoginImg from '../../assets/24--login.svg'
 import CravnitImg from '../../assets/comparison.svg'
 
 export const Header = ({ onClose }) => {
+  const [isHovered, setIsHovered] = useState(false);
   const [isCategoryOpen, setIsCategoryOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
@@ -270,12 +272,14 @@ export const Header = ({ onClose }) => {
             </button>
           </div>
           <img
+          onMouseEnter={() => setIsHovered(true)}
+          onMouseLeave={() => setIsHovered(false)}
             className="searchBtn absolute cursor-pointer top-2 left-[576px] w-6 h-6"
             alt="Element search"
             onClick={() => {handleSearch()
               setIsSearchOpen(true);
             }}
-            src={SearchImg}
+            src={isHovered ? SearchImg1 : SearchImg}
           />
         </div>
       </div>
