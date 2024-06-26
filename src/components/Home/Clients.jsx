@@ -3,6 +3,7 @@ import './clients.css'
 import { products } from "../../../public/data";
 import { NavLink } from "react-router-dom";
 export const Clients = () => {
+  
   return (
     <div className="absolute w-[1440px] h-[686px] top-[3727px] left-0 bg-x-7rs-fx overflow-hidden">
       <div className="marquee inline-flex items-start gap-2.5 absolute top-[306px] left-[-100px]">

@@ -1,25 +1,49 @@
-import React from "react";
-
+import React, {useState, useRef} from "react";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import LeftArrow from "../../assets/17--arrow---right.svg";
+import { brands } from "../../../public/data";
 export const Brands = () => {
+   const [currentSlide, setCurrentSlide] = useState(0);
+  const sliderRef = useRef(null);
+
+  const settings = {
+    dots: false,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 4,
+    slidesToScroll: 1,
+    beforeChange: (current, next) => setCurrentSlide(next),
+    arrows: false,
+  };
+
+  const handlePrev = () => {
+    sliderRef.current.slickPrev();
+  };
+
+  const handleNext = () => {
+    sliderRef.current.slickNext();
+  };
   return (
     <div className="absolute w-[1440px] h-[361px] top-[4563px] left-0 bg-x-1l-ubo-z overflow-hidden">
       <div className="w-[980px] top-80 left-[395px] absolute h-[41px]">
         <div className="inline-flex items-center gap-2.5 absolute top-0 left-0">
-          <div className="relative w-[41px] h-[41px] bg-x-1l-ubo-z rounded-[40px] overflow-hidden border border-solid border-[#d5d1e1]">
+          <div onClick={handlePrev} className="cursor-pointer select-none duration-200 hover:border-[#088269] relative w-[41px] h-[41px] bg-x-1l-ubo-z rounded-[40px] overflow-hidden border border-solid border-[#d5d1e1]">
             <div className="relative w-[17px] h-[17px] top-3 left-3 rotate-90">
               <img
                 className="absolute top-0 left-0 -rotate-90 w-[17px] h-[17px]"
                 alt="Element arrow right"
-                src="left.svg"
+                src={LeftArrow}
               />
             </div>
           </div>
-          <div className="relative w-[41px] h-[41px] bg-x-1l-ubo-z rounded-[40px] overflow-hidden border border-solid border-[#d5d1e1] rotate-180">
+          <div onClick={handleNext} className="cursor-pointer select-none duration-200 hover:border-[#088269] relative w-[41px] h-[41px] bg-x-1l-ubo-z rounded-[40px] overflow-hidden border border-solid border-[#d5d1e1] rotate-180">
             <div className="relative w-[17px] h-[17px] top-3 left-3 rotate-90">
               <img
                 className="absolute top-0 left-0 -rotate-90 w-[17px] h-[17px]"
                 alt="Element arrow right"
-                src="right.svg"
+                src={LeftArrow}
               />
             </div>
           </div>
@@ -30,63 +54,22 @@ export const Brands = () => {
           </div>
         </button>
       </div>
-      <div className="inline-flex items-start gap-2.5 absolute top-0 left-[395px]">
-        <div className="relative w-[322px] h-[280px]">
+      <Slider ref={sliderRef} {...settings} className=" w-[1310px] h-[280px] inline-flex items-start gap-2.5 absolute top-0 left-[395px]">
+        {brands.map((brand, index) => (<div key={index} className="relative w-[322px] h-[280px]">
           <div className="relative w-80 h-[280px] bg-x-1l-ubo-z rounded-[10px] border border-solid border-[#e5e2ee]">
             <div className="absolute w-80 h-[196px] top-0 left-0 bg-z-vq-cz-3 rounded-[10px_10px_0px_0px] border border-solid border-[#e5e2ee]">
               <img
                 className="absolute w-[217px] h-[102px] top-[45px] left-[50px] object-cover"
                 alt="Cropped"
-                src="cropped-mouflogoblack-4-1.png"
+                src={brand.img}
               />
             </div>
             <p className="absolute w-[226px] top-[215px] left-6 font-1440-t1 font-[number:var(--1440-t1-font-weight)] text-ws-j7-it text-[length:var(--1440-t1-font-size)] tracking-[var(--1440-t1-letter-spacing)] leading-[var(--1440-t1-line-height)] [font-style:var(--1440-t1-font-style)]">
-              НМИЦ онкологии им. Н.Н. Блохина
+              {brand.name}
             </p>
           </div>
-        </div>
-        <div className="relative w-[322px] h-[280px]">
-          <div className="relative w-80 h-[280px] bg-x-1l-ubo-z rounded-[10px] border border-solid border-[#e5e2ee]">
-            <div className="absolute w-80 h-[196px] top-0 left-0 bg-z-vq-cz-3 rounded-[10px_10px_0px_0px] border border-solid border-[#e5e2ee]">
-              <img
-                className="absolute w-[166px] h-[111px] top-[45px] left-[76px] bg-blend-darken object-cover"
-                alt="Element"
-                src="5.png"
-              />
-            </div>
-            <p className="absolute w-[226px] top-[215px] left-6 font-1440-t1 font-[number:var(--1440-t1-font-weight)] text-ws-j7-it text-[length:var(--1440-t1-font-size)] tracking-[var(--1440-t1-letter-spacing)] leading-[var(--1440-t1-line-height)] [font-style:var(--1440-t1-font-style)]">
-              НМИЦ онкологии им. Н.Н. Блохина
-            </p>
-          </div>
-        </div>
-        <div className="relative w-[322px] h-[280px]">
-          <div className="relative w-80 h-[280px] bg-x-1l-ubo-z rounded-[10px] border border-solid border-[#e5e2ee]">
-            <div className="absolute w-80 h-[196px] top-0 left-0 bg-z-vq-cz-3 rounded-[10px_10px_0px_0px] border border-solid border-[#e5e2ee]">
-              <img
-                className="absolute w-[197px] h-[60px] top-[67px] left-[61px] bg-blend-darken object-cover"
-                alt="Custom logo"
-                src="custom-logo-2.png"
-              />
-            </div>
-            <p className="absolute w-[226px] top-[215px] left-6 font-1440-t1 font-[number:var(--1440-t1-font-weight)] text-ws-j7-it text-[length:var(--1440-t1-font-size)] tracking-[var(--1440-t1-letter-spacing)] leading-[var(--1440-t1-line-height)] [font-style:var(--1440-t1-font-style)]">
-              НМИЦ онкологии им. Н.Н. Блохина
-            </p>
-          </div>
-        </div>
-        <div className="mr-[-2.00px] relative w-[322px] h-[280px]">
-          <div className="absolute w-80 h-[280px] top-0 left-0 bg-x-1l-ubo-z rounded-[10px] border border-solid border-[#e5e2ee]">
-            <div className="absolute w-80 h-[196px] -top-px -left-px bg-z-vq-cz-3 rounded-[10px_10px_0px_0px] border border-solid border-[#e5e2ee]" />
-            <p className="absolute w-[226px] top-[215px] left-6 font-1440-t1 font-[number:var(--1440-t1-font-weight)] text-ws-j7-it text-[length:var(--1440-t1-font-size)] tracking-[var(--1440-t1-letter-spacing)] leading-[var(--1440-t1-line-height)] [font-style:var(--1440-t1-font-style)]">
-              НМИЦ онкологии им. Н.Н. Блохина
-            </p>
-          </div>
-          <img
-            className="absolute w-[195px] h-[42px] top-[24621px] left-[25357px] object-cover"
-            alt="Ortlieb unternehmen"
-            src="ortlieb-unternehmen-logo-2.png"
-          />
-        </div>
-      </div>
+        </div>))}
+      </Slider>
       <div className="absolute w-[220px] h-[22px] top-[60px] left-[65px] opacity-50 font-1440-t1 font-[number:var(--1440-t1-font-weight)] text-ws-j7-it text-[length:var(--1440-t1-font-size)] tracking-[var(--1440-t1-letter-spacing)] leading-[var(--1440-t1-line-height)] [font-style:var(--1440-t1-font-style)]">
         Эксклюзивные поставщики
       </div>

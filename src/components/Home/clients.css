@@ -2,7 +2,7 @@
   display: flex;
   overflow: hidden;
   white-space: nowrap;
-  animation: marquee 400s linear infinite;
+  animation: marquee 500s linear infinite;
 }
 
 @keyframes marquee {
