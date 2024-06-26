@@ -6,7 +6,15 @@ import { categories, products, brands } from "../../../public/data";
 import "slick-carousel/slick/slick-theme.css";
 export const ProductsWrapper = () => {
   const [category, setCategory] = useState("Новинки");
-  const filteredProducts = products.filter(product => product.category === category);
+
+
+  if (category === "Новинки" | category === "Реанимация") {
+  var filteredProducts = products.filter(product => product.category === category);
+}else {
+  var filteredProducts = products.filter(product => product.sale === true);
+
+}
+
    const [currentSlide, setCurrentSlide] = useState(0);
   const sliderRef = useRef(null);
 
@@ -61,7 +69,7 @@ export const ProductsWrapper = () => {
         </div>
       </button>
     </div>
-      <Slider ref={sliderRef} {...settings} className="inline-flex items-start gap-2.5 absolute top-0 left-[395px] w-[1310px] h-[522px]">
+      <Slider ref={sliderRef} {...settings} className="inline-flex items-start gap-3 absolute top-0 left-[395px] w-[1310px] h-[522px]">
       {filteredProducts.map((product, index) => (<div key={index} className="inline-flex flex-col items-center gap-5 pt-0 pb-[15px] px-0 relative flex-[0_0_auto] rounded-[10px] border border-solid border-[#e5e2ee]">
       <div className="relative w-80 h-[279px]">
         <div className="relative h-[279px]">
@@ -73,7 +81,7 @@ export const ProductsWrapper = () => {
             />
           </div>
           <div className="inline-flex items-center gap-[153px] absolute top-[15px] left-[15px]">
-            <div className="inline-flex items-center justify-center gap-2 px-2.5 py-1 relative flex-[0_0_auto] bg-[#e1efe6] rounded-[60px] border border-solid border-[#088269]">
+            <div className={`${product.category === "Новинки" ? 'inline-flex' : 'hidden'}  items-center justify-center gap-2 px-2.5 py-1 relative flex-[0_0_auto] bg-[#e1efe6] rounded-[60px] border border-solid border-[#088269]`} >
               <div className="relative w-fit mt-[-1.00px] font-1440-l1 font-[number:var(--1440-l1-font-weight)] text-[#088269] text-[length:var(--1440-l1-font-size)] tracking-[var(--1440-l1-letter-spacing)] leading-[var(--1440-l1-line-height)] [font-style:var(--1440-l1-font-style)]">
                 Новинка
               </div>
@@ -85,7 +93,7 @@ export const ProductsWrapper = () => {
           </div>
         </div>
       </div>
-      <div className="inline-flex flex-col items-start gap-[15px] relative flex-[0_0_auto]">
+      <div className="inline-flex pt-[20px] pl-[15px] flex-col items-start gap-[15px] relative flex-[0_0_auto]">
         <div className="inline-flex flex-col items-start gap-[30px] pl-[3px] pr-0 py-0 relative flex-[0_0_auto]">
           <div className="inline-flex flex-col items-start gap-2.5 relative flex-[0_0_auto]">
             <div className="relative w-[277px] mt-[-1.00px] font-1440-h3 font-[number:var(--1440-h3-font-weight)] text-ws-j7-it text-[length:var(--1440-h3-font-size)] tracking-[var(--1440-h3-letter-spacing)] leading-[var(--1440-h3-line-height)] [font-style:var(--1440-h3-font-style)]">
@@ -113,13 +121,13 @@ export const ProductsWrapper = () => {
     </div>))}
     </Slider>
       <div className="inline-flex flex-col items-start gap-2.5 absolute top-[78px] left-[65px]">
-      <div className="relative w-fit mt-[-1.00px] opacity-50 font-1440-t1 font-[number:var(--1440-t1-font-weight)] text-ws-j7-it text-[length:var(--1440-t1-font-size)] tracking-[var(--1440-t1-letter-spacing)] leading-[var(--1440-t1-line-height)] whitespace-nowrap [font-style:var(--1440-t1-font-style)]">
+      <div onClick={() => setCategory('Реанимация')} className={`relative cursor-pointer w-fit mt-[-1.00px] font-1440-t1 font-[number:var(--1440-t1-font-weight)] ${category === 'Реанимация' ? 'text-black' : 'opacity-50'} hover:text-black duration-200 text-[length:var(--1440-t1-font-size)] tracking-[var(--1440-t1-letter-spacing)] leading-[var(--1440-t1-line-height)] whitespace-nowrap [font-style:var(--1440-t1-font-style)]`}>
         Хиты продаж
       </div>
-      <div className="relative w-fit opacity-50 font-1440-t1 font-[number:var(--1440-t1-font-weight)] text-ws-j7-it text-[length:var(--1440-t1-font-size)] tracking-[var(--1440-t1-letter-spacing)] leading-[var(--1440-t1-line-height)] whitespace-nowrap [font-style:var(--1440-t1-font-style)]">
+      <div onClick={() => setCategory('Новинки')} className={` relative cursor-pointer w-fit font-1440-t1 font-[number:var(--1440-t1-font-weight)] ${category === 'Новинки' ? 'text-black' : 'opacity-50'} hover:text-black duration-200 text-[length:var(--1440-t1-font-size)] tracking-[var(--1440-t1-letter-spacing)] leading-[var(--1440-t1-line-height)] whitespace-nowrap [font-style:var(--1440-t1-font-style)]`}>
         Новинки
       </div>
-      <div className="relative w-fit opacity-50 font-1440-t1 font-[number:var(--1440-t1-font-weight)] text-ws-j7-it text-[length:var(--1440-t1-font-size)] tracking-[var(--1440-t1-letter-spacing)] leading-[var(--1440-t1-line-height)] whitespace-nowrap [font-style:var(--1440-t1-font-style)]">
+      <div onClick={() => setCategory('Акции')} className={`relative cursor-pointer w-fit font-1440-t1 font-[number:var(--1440-t1-font-weight)] ${category === 'Акции' ? 'text-black' : 'opacity-50'} hover:text-black duration-200 text-[length:var(--1440-t1-font-size)] tracking-[var(--1440-t1-letter-spacing)] leading-[var(--1440-t1-line-height)] whitespace-nowrap [font-style:var(--1440-t1-font-style)]`}>
         Акции
       </div>
     </div>
