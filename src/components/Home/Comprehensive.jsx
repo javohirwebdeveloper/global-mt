@@ -83,8 +83,8 @@ export const Comprehensive = () => {
             </div>
           </button>
         </div>
-        <button className="all-[unset] cursor-pointer box-border inline-flex gap-2.5 px-[30px] py-[11px] absolute top-0 left-[843px] border border-solid border-[#d5d1e1] items-center justify-center rounded-[50px]">
-          <div className="relative w-fit mt-[-1.00px] font-1440-l1 font-[number:var(--1440-l1-font-weight)] text-tx-u7vg text-[length:var(--1440-l1-font-size)] tracking-[var(--1440-l1-letter-spacing)] leading-[var(--1440-l1-line-height)] [font-style:var(--1440-l1-font-style)]">
+        <button className="all-[unset] duration-200 hover:bg-tx-u7vg hover:text-white text-tx-u7vg cursor-pointer box-border inline-flex gap-2.5 px-[30px] py-[11px] absolute top-0 left-[843px] border border-solid border-[#d5d1e1] items-center justify-center rounded-[50px]">
+          <div className="relative w-fit mt-[-1.00px] font-1440-l1 font-[number:var(--1440-l1-font-weight)] text-[length:var(--1440-l1-font-size)] tracking-[var(--1440-l1-letter-spacing)] leading-[var(--1440-l1-line-height)] [font-style:var(--1440-l1-font-style)]">
             Бесплатная консультация
           </div>
         </button>

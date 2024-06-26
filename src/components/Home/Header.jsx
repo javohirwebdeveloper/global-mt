@@ -5,6 +5,11 @@ import BurgerImg from "../../assets/17--burger.svg";
 import SearchImg from "../../assets/24--search.svg";
 import { categories, products, brands } from "../../../public/data";
 import { NavLink, useNavigate } from 'react-router-dom';
+import BasketImg from '../../assets/24--basket.svg'
+import LocationImg from '../../assets/13--location.svg'
+import LikeImg from '../../assets/24--favourites.svg'
+import LoginImg from '../../assets/24--login.svg'
+import CravnitImg from '../../assets/comparison.svg'
 
 export const Header = ({ onClose }) => {
   const [isCategoryOpen, setIsCategoryOpen] = useState(false);
@@ -57,7 +62,7 @@ export const Header = ({ onClose }) => {
         <img
           className="relative w-[13px] h-[13px]"
           alt="Element location"
-          src="location.svg"
+          src={LocationImg}
         />
       </div>
       <div className="inline-flex items-center gap-[25px] absolute top-[152px] left-[65px]">
@@ -92,43 +97,43 @@ export const Header = ({ onClose }) => {
       </div>
       <div className="absolute w-[1440px] h-px top-[130px] left-0 bg-m-b-3t-zi" />
       <div className="inline-flex items-end gap-[25px] absolute top-[62px] left-[1094px]">
-        <div className="inline-flex flex-col items-center gap-1 relative flex-[0_0_auto]">
+        <div className="text-[#7A7687] hover:text-[#000] duration-200 cursor-pointer inline-flex flex-col items-center gap-1 relative flex-[0_0_auto]">
           <img
             className="relative w-6 h-6"
             alt="Element login"
-            src="login.svg"
+            src={LoginImg}
           />
-          <div className="relative w-fit font-1440-t2 font-[number:var(--1440-t2-font-weight)] text-ML-tw-1j text-[length:var(--1440-t2-font-size)] tracking-[var(--1440-t2-letter-spacing)] leading-[var(--1440-t2-line-height)] [font-style:var(--1440-t2-font-style)]">
+          <div className="relative w-fit font-1440-t2 font-[number:var(--1440-t2-font-weight)] text-[length:var(--1440-t2-font-size)] tracking-[var(--1440-t2-letter-spacing)] leading-[var(--1440-t2-line-height)] [font-style:var(--1440-t2-font-style)]">
             Войти
           </div>
         </div>
-        <div className="inline-flex flex-col items-center gap-1 relative flex-[0_0_auto]">
+        <div className="text-[#7A7687] hover:text-[#000] duration-200 cursor-pointer inline-flex flex-col items-center gap-1 relative flex-[0_0_auto]">
           <img
             className="relative w-6 h-6"
             alt="Element favourites"
-            src="favourites.svg"
+            src={LikeImg}
           />
-          <div className="relative w-fit font-1440-t2 font-[number:var(--1440-t2-font-weight)] text-ML-tw-1j text-[length:var(--1440-t2-font-size)] tracking-[var(--1440-t2-letter-spacing)] leading-[var(--1440-t2-line-height)] [font-style:var(--1440-t2-font-style)]">
+          <div className="relative w-fit font-1440-t2 font-[number:var(--1440-t2-font-weight)] text-[length:var(--1440-t2-font-size)] tracking-[var(--1440-t2-letter-spacing)] leading-[var(--1440-t2-line-height)] [font-style:var(--1440-t2-font-style)]">
             Избранное
           </div>
         </div>
-        <div className="inline-flex flex-col items-center gap-1 relative flex-[0_0_auto]">
+        <div className="text-[#7A7687] hover:text-[#000] duration-200 cursor-pointer inline-flex flex-col items-center gap-1 relative flex-[0_0_auto]">
           <img
             className="relative w-6 h-6"
             alt="Element comparison"
-            src="comparison.svg"
+            src={CravnitImg}
           />
-          <div className="relative w-fit font-1440-t2 font-[number:var(--1440-t2-font-weight)] text-ML-tw-1j text-[length:var(--1440-t2-font-size)] tracking-[var(--1440-t2-letter-spacing)] leading-[var(--1440-t2-line-height)] [font-style:var(--1440-t2-font-style)]">
+          <div className="relative w-fit font-1440-t2 font-[number:var(--1440-t2-font-weight)] text-[length:var(--1440-t2-font-size)] tracking-[var(--1440-t2-letter-spacing)] leading-[var(--1440-t2-line-height)] [font-style:var(--1440-t2-font-style)]">
             Сравнить
           </div>
         </div>
-        <div className="inline-flex flex-col items-center gap-1 relative flex-[0_0_auto]">
+        <div className="text-[#7A7687] hover:text-[#000] duration-200 cursor-pointer inline-flex flex-col items-center gap-1 relative flex-[0_0_auto]">
           <img
             className="relative w-6 h-6"
             alt="Element basket"
-            src="basket.svg"
+            src={BasketImg}
           />
-          <div className="relative w-fit font-1440-t2 font-[number:var(--1440-t2-font-weight)] text-ML-tw-1j text-[length:var(--1440-t2-font-size)] tracking-[var(--1440-t2-letter-spacing)] leading-[var(--1440-t2-line-height)] [font-style:var(--1440-t2-font-style)]">
+          <div className="relative w-fit font-1440-t2 font-[number:var(--1440-t2-font-weight)] text-[length:var(--1440-t2-font-size)] tracking-[var(--1440-t2-letter-spacing)] leading-[var(--1440-t2-line-height)] [font-style:var(--1440-t2-font-style)]">
             Корзина
           </div>
         </div>

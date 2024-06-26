@@ -38,13 +38,13 @@ export const ProductsWrapper = () => {
   return (
     <div className="absolute w-[1440px] h-[603px] top-[2974px] left-0 bg-x-1l-ubo-z overflow-hidden">
        <div className="w-[980px] top-[562px] left-[395px] absolute h-[41px]">
-      <button className="all-[unset] box-border inline-flex gap-2.5 px-[30px] py-[11px] absolute top-0 left-[842px] bg-tx-u7vg items-center justify-center rounded-[50px]">
-        <div className="relative w-fit mt-[-1.00px] font-1440-l1 font-[number:var(--1440-l1-font-weight)] text-x-1l-ubo-z text-[length:var(--1440-l1-font-size)] tracking-[var(--1440-l1-letter-spacing)] leading-[var(--1440-l1-line-height)] [font-style:var(--1440-l1-font-style)]">
+      <button className="all-[unset] w-[138px] duration-200 cursor-pointer hover:bg-[#41AB95] h-[41px] box-border inline-flex gap-2.5 px-[30px] py-[11px] absolute top-0 left-[842px] bg-tx-u7vg items-center justify-center rounded-[50px]">
+        <div className="relative text-nowrap mt-[-1.00px] font-1440-l1 font-[number:var(--1440-l1-font-weight)] text-x-1l-ubo-z text-[length:var(--1440-l1-font-size)] tracking-[var(--1440-l1-letter-spacing)] leading-[var(--1440-l1-line-height)] [font-style:var(--1440-l1-font-style)]">
           Все товары
         </div>
       </button>
       <div className="inline-flex items-center gap-2.5 absolute top-0 left-0">
-        <button onClick={handlePrev} className="relative w-[41px] h-[41px] flex justify-center items-center bg-x-1l-ubo-z rounded-[40px] overflow-hidden border border-solid border-[#d5d1e1]">
+        <button onClick={handlePrev} className="relative cursor-pointer select-none duration-200 hover:border-[#088269] w-[41px] h-[41px] flex justify-center items-center bg-x-1l-ubo-z rounded-[40px] overflow-hidden border border-solid border-[#d5d1e1]">
           <div className="relative w-[17px] h-[17px] rotate-90">
             <img
               className="absolute top-0 left-0 -rotate-90 w-[17px] h-[17px]"
@@ -53,7 +53,7 @@ export const ProductsWrapper = () => {
             />
           </div>
         </button>
-        <button onClick={handleNext} className="relative w-[41px] h-[41px] flex justify-center items-center bg-x-1l-ubo-z rounded-[40px] overflow-hidden border border-solid border-[#d5d1e1] rotate-180">
+        <button onClick={handleNext} className="relative cursor-pointer select-none duration-200 hover:border-[#088269] w-[41px] h-[41px] flex justify-center items-center bg-x-1l-ubo-z rounded-[40px] overflow-hidden border border-solid border-[#d5d1e1] rotate-180">
           <div className="relative w-[17px] h-[17px] rotate-90">
             <img
               className="absolute top-0 left-0 -rotate-90 w-[17px] h-[17px]"
@@ -63,8 +63,8 @@ export const ProductsWrapper = () => {
           </div>
         </button>
       </div>
-      <button className="all-[unset] box-border flex w-[249px] gap-2.5 px-[30px] py-[11px] absolute top-0 left-[583px] border border-solid border-[#d5d1e1] items-center justify-center rounded-[50px]">
-        <div className="relative w-fit mt-[-1.00px] font-1440-l1 font-[number:var(--1440-l1-font-weight)] text-tx-u7vg text-[length:var(--1440-l1-font-size)] tracking-[var(--1440-l1-letter-spacing)] leading-[var(--1440-l1-line-height)] [font-style:var(--1440-l1-font-style)]">
+      <button className="all-[unset] duration-200 hover:bg-tx-u7vg hover:text-white text-tx-u7vg cursor-pointer box-border flex w-[249px] gap-2.5 px-[30px] py-[11px] absolute top-0 left-[583px] border border-solid border-[#d5d1e1] items-center justify-center rounded-[50px]">
+        <div className="relative w-fit mt-[-1.00px] font-1440-l1 font-[number:var(--1440-l1-font-weight)] text-[length:var(--1440-l1-font-size)] tracking-[var(--1440-l1-letter-spacing)] leading-[var(--1440-l1-line-height)] [font-style:var(--1440-l1-font-style)]">
           Бесплатная консультация
         </div>
       </button>
