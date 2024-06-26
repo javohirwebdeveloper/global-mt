@@ -144,29 +144,6 @@ export const Header = ({ onClose }) => {
       </p>
       <div className="absolute w-[616px] h-[41px] top-[63px] left-[211px]">
         <div className="relative w-[614px] h-[41px] bg-hc-0j-in rounded-[50px]">
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         <div className={`${isSearchOpen ? '' : '-translate-y-[120%] opacity-0'} h-[403px] overflow-y-auto  bg-white top-10 duration-200 flex flex-col w-[345px] items-start gap-2.5 p-[15px] relative bg-o-hk-1mn rounded-[5px] border border-solid border-[#e5e2ee] custom-scrollbar`}>
   {searchResults.brands?.length === 0 && searchResults.categories?.length === 0 && searchResults.products?.length === 0 && (
     <div className="mt-4">
@@ -239,16 +216,6 @@ export const Header = ({ onClose }) => {
     )}
   </div>
 </div>
-
-
-
-
-
-
-
-
-
-
           <div className="absolute w-[565px] h-[39px] top-px left-px bg-x-1l-ubo-z rounded-[50px]">
             <div onClick={() => setIsCategoryOpen(false)} className="absolute search top-2.5 left-[161px] w-full font-1440-l2 font-[number:var(--1440-l2-font-weight)] text-ML-tw-1j text-[length:var(--1440-l2-font-size)] tracking-[var(--1440-l2-letter-spacing)] leading-[var(--1440-l2-line-height)] [font-style:var(--1440-l2-font-style)]">
               <input
@@ -345,8 +312,8 @@ export const Header = ({ onClose }) => {
           </p>
         </div>
       </div>
-      <button className="all-[unset] box-border inline-flex gap-2.5 px-[30px] py-[11px] absolute top-[141px] left-[1201px] bg-tx-u7vg items-center justify-center rounded-[50px]">
-        <div className="relative w-fit mt-[-1.00px] font-1440-l1 font-[number:var(--1440-l1-font-weight)] text-x-1l-ubo-z text-[length:var(--1440-l1-font-size)] tracking-[var(--1440-l1-letter-spacing)] leading-[var(--1440-l1-line-height)] [font-style:var(--1440-l1-font-style)]">
+      <button className="text-x-1l-ubo-z hover:bg-[#fff] hover:text-[#41AB95] border cursor-pointer border-transparent hover:border-[#41AB95] duration-200 box-border inline-flex gap-2.5 px-[30px] py-[11px] absolute top-[141px] left-[1201px] bg-tx-u7vg items-center justify-center rounded-[50px]">
+        <div className="relative w-fit mt-[-1.00px] font-1440-l1 font-[number:var(--1440-l1-font-weight)] text-[length:var(--1440-l1-font-size)] tracking-[var(--1440-l1-letter-spacing)] leading-[var(--1440-l1-line-height)] [font-style:var(--1440-l1-font-style)]">
           Заказать звонок
         </div>
       </button>
