@@ -32,25 +32,27 @@ const Home = () => {
   const handleAddToFavorites = (product) => {
     dispatch(addToFavorites(product));
   };
-
-  return (
-    <div className="bg-[#f8f7f3] flex flex-row justify-center w-full">
-      <div className="bg-x-1l-ubo-z w-[1440px] h-[8262px] relative">
-        <Footer />
-        <Form />
-        <Subscription />
-        <News />
-        <About />
-        <Brands />
-        <Clients />
-        <ProductsWrapper />
-        <Offers />
-        <Comprehensive />
-        <Categories />
-        <Banner />
-        <Header />
-      </div>
+const onClose = () => {
+  setIsCategoryOpen(false);
+};
+return (
+  <div className="bg-[#f8f7f3] flex flex-row justify-center w-full">
+    <div className="bg-x-1l-ubo-z w-[1440px] h-[8262px] relative">
+      
+      <Footer />
+      <Form />
+      <Subscription />
+      <News />
+      <Brands />
+      <Clients />
+      <ProductsWrapper />
+      <Offers /><About />
+      <Comprehensive />
+      <Categories />
+      <Banner />
+      <Header />
     </div>
-  );
+  </div>
+);
 };
 export default Home;

@@ -1,7 +1,7 @@
-// src/App.js
 import React, { useState, useEffect } from "react";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Home from "./pages/Home";
+import CatalogPage from "./pages/CatalogPage";
 import Loading from "./components/Loading";
 
 const App = () => {
@@ -10,7 +10,7 @@ const App = () => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setLoading(false);
-    }, 2000); // 2 sekund loading
+    }, 1500); // 2 sekund loading
 
     return () => clearTimeout(timer);
   }, []);
@@ -20,11 +20,12 @@ const App = () => {
   }
 
   return (
-    <BrowserRouter>
+    <Router>
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/catalog/:category" element={<CatalogPage />} />
       </Routes>
-    </BrowserRouter>
+    </Router>
   );
 };
 

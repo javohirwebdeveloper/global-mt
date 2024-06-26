@@ -69,6 +69,7 @@ export const Banner = () => {
             autoPlay={true}
             interval={2500}
             showStatus={false}
+            emulateTouch={true}
             swipeable={true}
             draggable={true}
             renderIndicator={renderIndicator}
