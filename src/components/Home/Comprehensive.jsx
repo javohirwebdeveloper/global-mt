@@ -58,7 +58,7 @@ export const Comprehensive = () => {
         </div>
       </Slider>
       <div className="w-[1310px] top-[698px] left-0 absolute h-[41px]">
-        <button className="all-[unset] box-border inline-flex gap-2.5 px-[30px] py-[11px] absolute top-0 left-[1094px] bg-tx-u7vg items-center justify-center rounded-[50px]">
+        <button className="w-[216px] box-border h-[41px] hover:bg-[#41AB95] duration-200 flex absolute top-0 left-[1094px] bg-tx-u7vg items-center justify-center rounded-[50px]">
           <div className="relative w-fit mt-[-1.00px] font-1440-l1 font-[number:var(--1440-l1-font-weight)] text-x-1l-ubo-z text-[length:var(--1440-l1-font-size)] tracking-[var(--1440-l1-letter-spacing)] leading-[var(--1440-l1-line-height)] [font-style:var(--1440-l1-font-style)]">
             Рассчитать стоимость
           </div>
@@ -83,7 +83,7 @@ export const Comprehensive = () => {
             </div>
           </button>
         </div>
-        <button className="all-[unset] box-border inline-flex gap-2.5 px-[30px] py-[11px] absolute top-0 left-[843px] border border-solid border-[#d5d1e1] items-center justify-center rounded-[50px]">
+        <button className="all-[unset] cursor-pointer box-border inline-flex gap-2.5 px-[30px] py-[11px] absolute top-0 left-[843px] border border-solid border-[#d5d1e1] items-center justify-center rounded-[50px]">
           <div className="relative w-fit mt-[-1.00px] font-1440-l1 font-[number:var(--1440-l1-font-weight)] text-tx-u7vg text-[length:var(--1440-l1-font-size)] tracking-[var(--1440-l1-letter-spacing)] leading-[var(--1440-l1-line-height)] [font-style:var(--1440-l1-font-style)]">
             Бесплатная консультация
           </div>
