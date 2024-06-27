@@ -34,8 +34,8 @@ export const News = () => {
   return (
     <div className="absolute w-[1440px] h-[546px] top-[5892px] left-0 bg-x-1l-ubo-z overflow-hidden">
       <div className="absolute w-[980px] h-[41px] top-[505px] left-[395px]">
-        <button className="all-[unset] box-border inline-flex gap-2.5 px-[30px] py-[11px] absolute top-0 left-[835px] bg-tx-u7vg items-center justify-center rounded-[50px]">
-          <div className="relative w-fit mt-[-1.00px] font-1440-l1 font-[number:var(--1440-l1-font-weight)] text-x-1l-ubo-z text-[length:var(--1440-l1-font-size)] tracking-[var(--1440-l1-letter-spacing)] leading-[var(--1440-l1-line-height)] [font-style:var(--1440-l1-font-style)]">
+        <button className="hover:border-tx-u7vg hover:bg-transparent border text-x-1l-ubo-z hover:text-tx-u7vg border-transparent duration-200 box-border inline-flex gap-2.5 px-[30px] py-[11px] absolute top-0 left-[835px] bg-tx-u7vg items-center justify-center rounded-[50px]">
+          <div className=" text-nowrap relative w-fit mt-[-1.00px] font-1440-l1 font-[number:var(--1440-l1-font-weight)]  text-[length:var(--1440-l1-font-size)] tracking-[var(--1440-l1-letter-spacing)] leading-[var(--1440-l1-line-height)] [font-style:var(--1440-l1-font-style)]">
             Все новости
           </div>
         </button>

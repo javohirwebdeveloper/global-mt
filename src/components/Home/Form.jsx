@@ -1,8 +1,33 @@
 import React from "react";
-
+import { YMaps, Map, Placemark } from "react-yandex-maps";
+import markerIcon from "../../assets/marker.svg"; // Belgi rasmi
 export const Form = () => {
+  const mapState = {
+    center: [41.311151, 69.279737], // Toshkent shahrining koordinatalari
+    zoom: 13,
+  };
+
   return (
     <div className="absolute w-[1310px] h-[612px] top-[6588px] left-[65px]">
+      <YMaps>
+      <Map
+        state={mapState}
+        width="650px"
+        height="612px"
+        options={{
+          suppressMapOpenBlock: true,
+        }}
+      >
+        <Placemark
+          geometry={[41.311151, 69.279737]}
+          options={{
+            iconLayout: "default#image",
+            iconImageHref: markerIcon,
+            iconImageSize: [42, 42],
+          }}
+        />
+      </Map>
+    </YMaps>
       <div className="absolute w-[656px] h-[612px] top-0 left-[660px]">
         <div className="relative w-[650px] h-[612px] bg-z-vq-cz-3 rounded-[10px] border border-solid border-[#e5e2ee]">
           <img className="absolute w-96 h-7 top-[539px] left-[203px]" alt="C" src="c.svg" />
@@ -44,7 +69,6 @@ export const Form = () => {
           </div>
         </div>
       </div>
-      <img className="absolute w-[650px] h-[612px] top-0 left-0 object-cover" alt="Rectangle" src="rectangle-4.png" />
     </div>
   );
 };
