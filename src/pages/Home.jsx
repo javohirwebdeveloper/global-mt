@@ -39,9 +39,9 @@ return (
   <div className="bg-[#f8f7f3] flex flex-row justify-center w-full">
     <div className="bg-x-1l-ubo-z w-[1440px] h-[8262px] relative">
       <Footer />
-      <News />
       <Subscription />
       <Form />
+      <News />
       <About />
       <Brands />
       <Clients />
