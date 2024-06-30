@@ -3,10 +3,9 @@ import Logo from "../assets/logo.svg";
 import './loading.css'
 const Loading = () => {
   return (
-    <div className="loading-container">
-      <div className="flex flex-col justify-center items-center w-full h-screen">
-        <img src={Logo} alt="" className="h-[140px] w-[140px]" />
-        <div className="loader"></div>
+    <div className="wrapper">
+      <div className="main-div">
+        <img src={Logo} className="w-[140px] h-[65px]" alt="" />
       </div>
     </div>
   );

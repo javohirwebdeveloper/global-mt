@@ -22,14 +22,16 @@ const App = () => {
   }
 
   return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/catalog/:category" element={<CatalogPage />} />
-        <Route path="/catalog" element={<Catalog />} />
-        <Route path="/cart" element={<Cart />} />
-      </Routes>
-    </Router>
+    <div className="bg-[#f8f7f3]">
+      <Router>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/catalog/:category" element={<CatalogPage />} />
+          <Route path="/catalog" element={<Catalog />} />
+          <Route path="/cart" element={<Cart />} />
+        </Routes>
+      </Router>
+    </div>
   );
 };
 

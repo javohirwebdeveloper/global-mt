@@ -1111,7 +1111,7 @@ export const products = [
     brand: "Brand A",
     rating: 4.3,
     price: "300 000 руб.",
-    category: "Хирургия",
+    category: "Реанимация",
   },
   {
     name: "Product 83",
@@ -1133,7 +1133,7 @@ export const products = [
     brand: "Brand A",
     rating: 4.1,
     price: "150 000 руб.",
-    category: "Лабораторная диагностика",
+    category: "Реанимация",
   },
   {
     name: "Product 85",
@@ -1144,7 +1144,7 @@ export const products = [
     brand: "Brand A",
     rating: 4.7,
     price: "250 000 руб.",
-    category: "Акушерство и Гинекология",
+    category: "Реанимация",
   },
   {
     name: "Product 86",
@@ -1177,7 +1177,7 @@ export const products = [
     brand: "Brand A",
     rating: 3.9,
     price: "190 000 руб.",
-    category: "Оториноларингология",
+    category: "Реанимация",
   },
   {
     name: "Product 89",
@@ -1188,7 +1188,7 @@ export const products = [
     brand: "Brand A",
     rating: 4.3,
     price: "230 000 руб.",
-    category: "Рентгенология и томография",
+    category: "Реанимация",
   },
   {
     name: "Product 90",
@@ -1475,7 +1475,7 @@ export const products = [
     brand: "Brand A",
     rating: 4.5,
     price: "200 000 руб.",
-    category: "Реанимация",
+    category: "Хирургия",
   },
   {
     name: "Product 114",
@@ -1487,7 +1487,7 @@ export const products = [
     brand: "Brand A",
     rating: 4.3,
     price: "300 000 руб.",
-    category: "Хирургия",
+    category: "Офтальмология",
   },
   {
     name: "Product 115",
@@ -1499,7 +1499,7 @@ export const products = [
     brand: "Brand A",
     rating: 4.0,
     price: "100 000 руб.",
-    category: "Офтальмология",
+    category: "Лабораторная диагностика",
   },
   {
     name: "Product 116",
@@ -1583,7 +1583,7 @@ export const products = [
     brand: "Brand A",
     rating: 4.1,
     price: "270 000 руб.",
-    category: "Косметология",
+    category: "Хирургия",
   },
   {
     name: "Product 123",
@@ -1595,7 +1595,7 @@ export const products = [
     brand: "Brand A",
     rating: 4.1,
     price: "270 000 руб.",
-    category: "Косметология",
+    category: "Акушерство и Гинекология",
   },
   {
     name: "Product 124",
@@ -1607,7 +1607,7 @@ export const products = [
     brand: "Brand A",
     rating: 4.1,
     price: "270 000 руб.",
-    category: "Косметология",
+    category: "Кабинеты под ключ",
   },
   {
     name: "Product 125",
@@ -1619,7 +1619,7 @@ export const products = [
     brand: "Brand A",
     rating: 4.1,
     price: "270 000 руб.",
-    category: "Косметология",
+    category: "Офтальмология",
   },
   {
     name: "Product 126",
@@ -1631,7 +1631,7 @@ export const products = [
     brand: "Brand A",
     rating: 4.1,
     price: "270 000 руб.",
-    category: "Косметология",
+    category: "Оториноларингология",
   },
   {
     name: "Product 127",
@@ -1643,7 +1643,7 @@ export const products = [
     brand: "Brand A",
     rating: 4.1,
     price: "270 000 руб.",
-    category: "Косметология",
+    category: "Лабораторная диагностика",
   },
   {
     name: "Product 128",
@@ -1655,7 +1655,7 @@ export const products = [
     brand: "Brand A",
     rating: 4.1,
     price: "270 000 руб.",
-    category: "Косметология",
+    category: "Акушерство и Гинекология",
   },
   {
     name: "Product 129",
@@ -1667,7 +1667,7 @@ export const products = [
     brand: "Brand A",
     rating: 4.1,
     price: "270 000 руб.",
-    category: "Косметология",
+    category: "Гистология",
   },
   {
     name: "Product 130",
@@ -1679,7 +1679,7 @@ export const products = [
     brand: "Brand A",
     rating: 4.1,
     price: "270 000 руб.",
-    category: "Косметология",
+    category: "Оториноларингология",
   },
   {
     name: "Product 131",
@@ -1691,7 +1691,7 @@ export const products = [
     brand: "Brand A",
     rating: 4.1,
     price: "270 000 руб.",
-    category: "Косметология",
+    category: "Рентгенология и томография",
   },
   {
     name: "Product 132",
@@ -1703,7 +1703,7 @@ export const products = [
     brand: "Brand A",
     rating: 4.1,
     price: "270 000 руб.",
-    category: "Косметология",
+    category: "Стерилизация",
   },
   {
     name: "Product 133",
@@ -1715,7 +1715,7 @@ export const products = [
     brand: "Brand A",
     rating: 4.1,
     price: "270 000 руб.",
-    category: "Косметология",
+    category: "Акушерство и Гинекология",
   },
   {
     name: "Product 134",
@@ -1727,7 +1727,7 @@ export const products = [
     brand: "Brand A",
     rating: 4.1,
     price: "270 000 руб.",
-    category: "Косметология",
+    category: "Хирургия",
   },
   {
     name: "Product 135",
@@ -1775,7 +1775,7 @@ export const products = [
     brand: "Brand A",
     rating: 4.1,
     price: "270 000 руб.",
-    category: "Косметология",
+    category: "Оториноларингология",
   },
   {
     name: "Product 139",
@@ -1787,7 +1787,7 @@ export const products = [
     brand: "Brand A",
     rating: 4.1,
     price: "270 000 руб.",
-    category: "Косметология",
+    category: "Рентгенология и томография",
   },
   {
     name: "Product 140",
@@ -1799,7 +1799,7 @@ export const products = [
     brand: "Brand A",
     rating: 4.1,
     price: "270 000 руб.",
-    category: "Косметология",
+    category: "Стерилизация",
   },
   {
     name: "Product 141",
@@ -1811,7 +1811,7 @@ export const products = [
     brand: "Brand A",
     rating: 4.1,
     price: "270 000 руб.",
-    category: "Косметология",
+    category: "Физиотерапия и реабилитация",
   },
   {
     name: "Product 142",
@@ -1823,7 +1823,7 @@ export const products = [
     brand: "Brand A",
     rating: 4.1,
     price: "270 000 руб.",
-    category: "Косметология",
+    category: "Функциональная диагностика",
   },
   {
     name: "Product 143",
@@ -1835,7 +1835,7 @@ export const products = [
     brand: "Brand A",
     rating: 4.1,
     price: "270 000 руб.",
-    category: "Косметология",
+    category: "Эндоскопия",
   },
   {
     name: "Product 144",
@@ -1847,7 +1847,7 @@ export const products = [
     brand: "Brand A",
     rating: 4.1,
     price: "270 000 руб.",
-    category: "Косметология",
+    category: "Новинки",
   },
   {
     name: "Product 145",
@@ -1859,7 +1859,7 @@ export const products = [
     brand: "Brand A",
     rating: 4.1,
     price: "270 000 руб.",
-    category: "Косметология",
+    category: "Распродажи",
   },
   {
     name: "Product 146",
@@ -1871,7 +1871,7 @@ export const products = [
     brand: "Brand A",
     rating: 4.1,
     price: "270 000 руб.",
-    category: "Косметология",
+    category: "Кабинеты под ключ",
   },
   {
     name: "Product 147",
@@ -1883,7 +1883,7 @@ export const products = [
     brand: "Brand A",
     rating: 4.1,
     price: "270 000 руб.",
-    category: "Косметология",
+    category: "Хирургия",
   },
   {
     name: "Product 148",
@@ -1895,7 +1895,7 @@ export const products = [
     brand: "Brand A",
     rating: 4.1,
     price: "270 000 руб.",
-    category: "Косметология",
+    category: "Офтальмология",
   },
   {
     name: "Product 149",
@@ -1907,7 +1907,7 @@ export const products = [
     brand: "Brand A",
     rating: 4.1,
     price: "270 000 руб.",
-    category: "Косметология",
+    category: "Лабораторная диагностика",
   },
   {
     name: "Product 150",
@@ -1919,7 +1919,7 @@ export const products = [
     brand: "Brand A",
     rating: 4.1,
     price: "270 000 руб.",
-    category: "Косметология",
+    category: "Акушерство и Гинекология",
   },
   {
     name: "Ветеринарное оборудование",

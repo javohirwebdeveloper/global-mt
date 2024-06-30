@@ -67,7 +67,10 @@ const Catalog = () => {
               </section>
             </main>
             <section className="h-[1246px] max-w-[981px] w-full grid grid-cols-3 grid-rows-4 gap-[10px]">
-              <div className="row-span-1 col-span-1 h-auto rounded-[10px] overflow-hidden border-[#E5E2EE] border">
+              <NavLink
+                to={`/product/${product1.id}`}
+                className="row-span-1 col-span-1 h-auto rounded-[10px] cursor-pointer overflow-hidden border-[#E5E2EE] border"
+              >
                 <div className="h-[75%] bg-white w-full flex justify-center items-center">
                   <img
                     src={product1.img}
@@ -78,8 +81,11 @@ const Catalog = () => {
                 <div className="h-[84px]  border-t border-[#E5E2EE] pt-[25px] pl-[25px]">
                   {product1.name}
                 </div>
-              </div>
-              <div className="row-span-1 col-span-1  h-auto rounded-[10px] overflow-hidden border-[#E5E2EE] border">
+              </NavLink>
+              <NavLink
+                to={`/product/${product2.id}`}
+                className="row-span-1 col-span-1  h-auto rounded-[10px] cursor-pointer overflow-hidden border-[#E5E2EE] border"
+              >
                 <div className="h-[75%]  bg-white w-full flex justify-center items-center">
                   <img
                     src={product2.img}
@@ -90,8 +96,11 @@ const Catalog = () => {
                 <div className="h-[84px]  border-t border-[#E5E2EE] pt-[25px] pl-[25px]">
                   {product2.name}
                 </div>
-              </div>
-              <div className="row-span-2 col-span-1  h-auto rounded-[10px] overflow-hidden border-[#E5E2EE] border">
+              </NavLink>
+              <NavLink
+                to={`/product/${product3.id}`}
+                className="row-span-2 col-span-1  h-auto rounded-[10px] cursor-pointer overflow-hidden border-[#E5E2EE] border"
+              >
                 <div className="h-[88%] bg-white w-full flex justify-center items-center">
                   <img
                     src={product3.img}
@@ -102,8 +111,11 @@ const Catalog = () => {
                 <div className="h-[84px]  border-t border-[#E5E2EE] pt-[25px] pl-[25px]">
                   {product3.name}
                 </div>
-              </div>
-              <div className="row-span-1 col-span-1  h-auto rounded-[10px] overflow-hidden border-[#E5E2EE] border">
+              </NavLink>
+              <NavLink
+                to={`/product/${product4.id}`}
+                className="row-span-1 col-span-1  h-auto rounded-[10px] cursor-pointer overflow-hidden border-[#E5E2EE] border"
+              >
                 <div className="h-[75%] bg-white w-full flex justify-center items-center">
                   <img
                     src={product4.img}
@@ -114,8 +126,11 @@ const Catalog = () => {
                 <div className="h-[84px]  border-t border-[#E5E2EE] pt-[25px] pl-[25px]">
                   {product4.name}
                 </div>
-              </div>
-              <div className="row-span-1 col-span-1  h-auto rounded-[10px] overflow-hidden border-[#E5E2EE] border">
+              </NavLink>
+              <NavLink
+                to={`/product/${product5.id}`}
+                className="row-span-1 col-span-1  h-auto rounded-[10px] cursor-pointer overflow-hidden border-[#E5E2EE] border"
+              >
                 <div className="h-[75%] bg-white w-full flex justify-center items-center">
                   <img
                     src={product5.img}
@@ -126,8 +141,11 @@ const Catalog = () => {
                 <div className="h-[84px]  border-t border-[#E5E2EE] pt-[25px] pl-[25px]">
                   {product5.name}
                 </div>
-              </div>
-              <div className="row-span-2 col-span-1  h-auto rounded-[10px] overflow-hidden border-[#E5E2EE] border">
+              </NavLink>
+              <NavLink
+                to={`/product/${product6.id}`}
+                className="row-span-2 col-span-1  h-auto rounded-[10px] cursor-pointer overflow-hidden border-[#E5E2EE] border"
+              >
                 <div className="h-[88%]  bg-white w-full flex justify-center items-center">
                   <img
                     src={product6.img}
@@ -138,8 +156,11 @@ const Catalog = () => {
                 <div className="h-[84px]  border-t border-[#E5E2EE] pt-[25px] pl-[25px]">
                   {product6.name}
                 </div>
-              </div>
-              <div className="row-span-1 col-span-1  h-auto rounded-[10px] overflow-hidden border-[#E5E2EE] border">
+              </NavLink>
+              <NavLink
+                to={`/product/${product7.id}`}
+                className="row-span-1 col-span-1  h-auto rounded-[10px] cursor-pointer overflow-hidden border-[#E5E2EE] border"
+              >
                 <div className="h-[75%]  bg-white w-full flex justify-center items-center">
                   <img
                     src={product7.img}
@@ -150,8 +171,11 @@ const Catalog = () => {
                 <div className="h-[84px]  border-t border-[#E5E2EE] pt-[25px] pl-[25px]">
                   {product7.name}
                 </div>
-              </div>
-              <div className="row-span-1 col-span-1  h-auto rounded-[10px] overflow-hidden border-[#E5E2EE] border">
+              </NavLink>
+              <NavLink
+                to={`/product/${product8.id}`}
+                className="row-span-1 col-span-1  h-auto rounded-[10px] cursor-pointer overflow-hidden border-[#E5E2EE] border"
+              >
                 <div className="h-[75%]  bg-white w-full flex justify-center items-center">
                   <img
                     src={product8.img}
@@ -162,8 +186,11 @@ const Catalog = () => {
                 <div className="h-[84px]  border-t border-[#E5E2EE] pt-[25px] pl-[25px]">
                   {product8.name}
                 </div>
-              </div>
-              <div className="row-span-1 col-span-1  h-auto rounded-[10px] overflow-hidden border-[#E5E2EE] border">
+              </NavLink>
+              <NavLink
+                to={`/product/${product9.id}`}
+                className="row-span-1 col-span-1  h-auto rounded-[10px] cursor-pointer overflow-hidden border-[#E5E2EE] border"
+              >
                 <div className="h-[75%]  bg-white w-full flex justify-center items-center">
                   <img
                     src={product9.img}
@@ -174,8 +201,11 @@ const Catalog = () => {
                 <div className="h-[84px]  border-t border-[#E5E2EE] pt-[25px] pl-[25px]">
                   {product9.name}
                 </div>
-              </div>
-              <div className="row-span-1 col-span-1  h-auto rounded-[10px] overflow-hidden border-[#E5E2EE] border">
+              </NavLink>
+              <NavLink
+                to={`/product/${product10.id}`}
+                className="row-span-1 col-span-1  h-auto rounded-[10px] cursor-pointer overflow-hidden border-[#E5E2EE] border"
+              >
                 <div className="h-[75%]  bg-white w-full flex justify-center items-center">
                   <img
                     src={product10.img}
@@ -186,7 +216,7 @@ const Catalog = () => {
                 <div className="h-[84px]  border-t border-[#E5E2EE] pt-[25px] pl-[25px]">
                   {product10.name}
                 </div>
-              </div>
+              </NavLink>
             </section>
           </div>
         </div>

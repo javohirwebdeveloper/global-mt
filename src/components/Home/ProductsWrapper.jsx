@@ -103,7 +103,7 @@ export const ProductsWrapper = ({ className = "" }) => {
         <Slider
           ref={sliderRef}
           {...settings}
-          className="inline-flex items-start gap-3 top-0 w-[1310px] h-[522px]"
+          className="inline-flex items-start top-0 w-[1310px] h-[522px]"
         >
           {filteredProducts.map((product, index) => (
             <div
@@ -112,9 +112,9 @@ export const ProductsWrapper = ({ className = "" }) => {
             >
               <div className="relative w-80 h-[279px]">
                 <div className="relative h-[279px]">
-                  <div className="absolute w-80 h-[279px] top-0 left-0 bg-z-vq-cz-3 border border-solid border-[#e5e2ee]">
+                  <div className="absolute w-80 bg-[white] h-[279px] top-0 left-0 bg-z-vq-cz-3 border border-solid border-[#e5e2ee]">
                     <img
-                      className="absolute w-[181px] h-[181px] top-[62px] left-[62px] object-cover"
+                      className="absolute w-80 h-[181px] top-[62px] object-contain"
                       alt="Photo"
                       src={product.img}
                     />

@@ -112,7 +112,28 @@ const Header1 = ({ className = "" }) => {
                   src={Logo}
                 />
                 <div className="flex-1 border-2 bg-[#D5D1E1] h-[42px] rounded-[50px] flex flex-row items-center justify-start p-px box-border relative min-w-[399px] max-w-full mq800:flex-wrap mq800:min-w-full">
-                  <div className="w-[146px] h-[39px] bg-[#EFEFEF] rounded-[50px] flex flex-row items-start justify-start relative">
+                  <div
+                    onMouseEnter={() => setIsCategoryOpen(true)}
+                    onMouseLeave={() => setIsCategoryOpen(false)}
+                    className="w-[146px] h-[39px] bg-[#EFEFEF] rounded-[50px] flex flex-row items-start justify-start relative"
+                  >
+                    <div
+                      className={` absolute duration-300  overflow-hidden top-full left-0 z-20 w-[345px] bg-white  border-gray-300 rounded-[5px] shadow-lg ${
+                        isCategoryOpen ? "h-[490px]" : "h-0"
+                      }`}
+                    >
+                      <ul className={`${isCategoryOpen ? "" : "opacity-0"}`}>
+                        {categories.map((category, index) => (
+                          <li
+                            key={index}
+                            onClick={() => handleCategoryClick(category)}
+                            className="px-4 py-[6px] hover:bg-gray-200 cursor-pointer"
+                          >
+                            {category}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>{" "}
                     <button
                       onClick={() => {
                         setIsSearchOpen(false);
@@ -122,8 +143,6 @@ const Header1 = ({ className = "" }) => {
                           setIsCategoryOpen(true);
                         }
                       }}
-                      onMouseEnter={() => setIsCategoryOpen(true)}
-                      onMouseLeave={() => setIsCategoryOpen(false)}
                       className={`categroies z-50 all-[unset] duration-200 cursor-pointer box-border flex-col items-center justify-center gap-2 px-[15px] h-[39px] ${
                         isCategoryOpen ? "bg-[#088269]" : "bg-[#efefef]"
                       }  inline-flex rounded-[50px] w-[146px]`}
@@ -136,25 +155,7 @@ const Header1 = ({ className = "" }) => {
                         >
                           Все категории
                         </div>
-                        <div
-                          className={` absolute duration-300 overflow-hidden top-full left-0 mt-2 z-20 w-[345px] bg-white  border-gray-300 rounded-md shadow-lg ${
-                            isCategoryOpen ? "h-[500px] border" : "h-0"
-                          }`}
-                        >
-                          <ul
-                            className={`${isCategoryOpen ? "" : "opacity-0"}`}
-                          >
-                            {categories.map((category, index) => (
-                              <li
-                                key={index}
-                                onClick={() => handleCategoryClick(category)}
-                                className="px-4 border-t py-[6px] hover:bg-gray-200 cursor-pointer"
-                              >
-                                {category}
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
+
                         <img
                           className="relative w-[13px] h-[13px]"
                           alt="Element down"
@@ -378,7 +379,10 @@ const Header1 = ({ className = "" }) => {
           <div className="flex-1 flex flex-row items-start justify-between max-w-full gap-[20px] mq1350:flex-wrap">
             <div className="w-[719px] flex flex-col items-start justify-start pt-[11px] px-0 pb-0 box-border max-w-full">
               <div className="self-stretch flex flex-row items-start justify-start gap-[25px] mq800:flex-wrap">
-                <NavLink to='/catalog' className="flex flex-row items-start justify-start gap-[5px]">
+                <NavLink
+                  to="/catalog"
+                  className="flex flex-row items-start justify-start gap-[5px]"
+                >
                   <div className="flex flex-col items-start justify-start pt-px px-0 pb-0">
                     <img
                       className="w-[17px] h-[17px] relative overflow-hidden shrink-0"
