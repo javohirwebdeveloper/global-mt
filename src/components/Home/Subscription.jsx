@@ -1,37 +1,70 @@
 import React from "react";
-
-export const Subscription = () => {
+import Vector from "../../assets/Rectangle1.png";
+import { Button } from "@mui/material";
+import PropTypes from "prop-types";
+export const Subscription = ({ className = "" }) => {
   return (
-    <div className="absolute w-[1440px] h-[276px] top-[7350px] left-0 bg-x-7rs-fx border border-solid border-[#e5e4ed]">
-      <div className="absolute w-[544px] h-[206px] top-[34px] left-[724px]">
-        <div className="absolute w-[540px] h-[83px] top-[123px] left-0">
-          <div className="inline-flex items-center gap-2.5 absolute top-[63px] left-0">
-            <div className="relative w-5 h-5 bg-x-1l-ubo-z rounded-[3px] border border-solid border-[#d5d1e1]" />
-            <p className="relative w-fit font-1440-t2 font-[number:var(--1440-t2-font-weight)] text-ws-j7-it text-[length:var(--1440-t2-font-size)] tracking-[var(--1440-t2-letter-spacing)] leading-[var(--1440-t2-line-height)] [font-style:var(--1440-t2-font-style)]">
-              Я даю согласие на обработку своих персональных данных.
-            </p>
+    <div className="mt-[150px] bg-color2 h-[276px] left-0">
+      <section
+        className={`self-stretch w-[1440px] h-full mx-auto overflow-hidden flex flex-row items-start justify-end py-[35px] pt-0 px-[175px] box-border relative max-w-full text-left text-11xl text-color5 font-t2 mq450:pl-5 mq450:pr-5 mq450:box-border mq1125:pl-[87px] mq1125:pr-[87px] mq1125:box-border ${className}`}
+      >
+        <div className="h-full w-full absolute !m-[0] top-[0px] right-[0px] bottom-[0px] left-[0px] box-border border-[1px] border-solid border-color2" />
+        <div className="w-[540px] flex flex-col items-start justify-start gap-[45px] max-w-full z-[1] mq800:gap-[22px]">
+          <div className="flex flex-col items-start justify-start gap-[20px] max-w-full">
+            <h1 className="m-0 relative text-inherit leading-[120%] font-medium font-inherit mq450:text-lg mq450:leading-[22px] mq800:text-5xl mq800:leading-[29px]">
+              Подпишитесь и будьте в курсе!
+            </h1>
+            <div className="relative text-base leading-[140%] font-medium text-color3">
+              Акции, скидки, распродажи ждут!
+            </div>
           </div>
-          <div className="inline-flex flex-col items-start gap-1.5 absolute top-0 left-0">
-            <div className="inline-flex items-center gap-[271px] pl-[25px] pr-0 py-px relative flex-[0_0_auto] bg-x-1l-ubo-z rounded-[50px] overflow-hidden border border-solid border-[#d5d1e1]">
-              <div className="relative w-fit font-1440-l2 font-[number:var(--1440-l2-font-weight)] text-ML-tw-1j text-[length:var(--1440-l2-font-size)] tracking-[var(--1440-l2-letter-spacing)] leading-[var(--1440-l2-line-height)] [font-style:var(--1440-l2-font-style)]">
-                Введите email
-              </div>
-              <button className="all-[unset] box-border inline-flex gap-2.5 px-[30px] py-[11px] relative flex-[0_0_auto] bg-tx-u7vg items-center justify-center rounded-[50px]">
-                <div className="relative w-fit mt-[-1.00px] font-1440-l1 font-[number:var(--1440-l1-font-weight)] text-x-1l-ubo-z text-[length:var(--1440-l1-font-size)] tracking-[var(--1440-l1-letter-spacing)] leading-[var(--1440-l1-line-height)] [font-style:var(--1440-l1-font-style)]">
+          <div className="self-stretch flex flex-col items-start justify-start gap-[20px] max-w-full text-sm text-color3">
+            <div className="self-stretch flex flex-col items-start justify-start">
+              <div className="self-stretch rounded-31xl bg-color overflow-hidden flex flex-row items-center justify-between py-0 pr-0.5 pl-[23px] gap-[20px] border-[1px] border-solid border-color4 mq450:flex-wrap">
+                <input
+                  placeholder="Введите email"
+                  className="relative inline-block outline-none bg-transparent h-full w-full"
+                />
+                <Button
+                  className="h-[41px] w-[151px]"
+                  disableElevation
+                  variant="contained"
+                  sx={{
+                    textTransform: "none",
+                    color: "#f8f7f3",
+                    fontSize: "14",
+                    background: "#088269",
+                    borderRadius: "50px",
+                    "&:hover": { background: "#088269" },
+                    width: 151,
+                    height: 41,
+                  }}
+                >
                   Подписаться
+                </Button>
+              </div>
+            </div>
+            <div className="flex flex-row items-start justify-start gap-[10px] max-w-full text-xs text-color5">
+              <input className="m-0 h-5 w-5 relative" type="checkbox" />
+              <div className="flex flex-col items-start justify-start pt-0.5 px-0 pb-0 box-border max-w-[calc(100%_-_30px)]">
+                <div className="relative font-medium">
+                  Я даю согласие на обработку своих персональных данных.
                 </div>
-              </button>
+              </div>
             </div>
           </div>
         </div>
-        <div className="absolute top-14 left-0 font-1440-t1 font-[number:var(--1440-t1-font-weight)] text-ML-tw-1j text-[length:var(--1440-t1-font-size)] tracking-[var(--1440-t1-letter-spacing)] leading-[var(--1440-t1-line-height)] whitespace-nowrap [font-style:var(--1440-t1-font-style)]">
-          Акции, скидки, распродажи ждут!
-        </div>
-        <p className="absolute top-0 left-0 font-1440-h2 font-[number:var(--1440-h2-font-weight)] text-ws-j7-it text-[length:var(--1440-h2-font-size)] tracking-[var(--1440-h2-letter-spacing)] leading-[var(--1440-h2-line-height)] whitespace-nowrap [font-style:var(--1440-h2-font-style)]">
-          Подпишитесь и будьте в курсе!
-        </p>
-      </div>
-      <img className="absolute w-[571px] h-[276px] -top-px left-[65px]" alt="Vector" src="vector.svg" />
+        <img
+          className="h-[547.7px] w-[595.9px] absolute !m-[0] bottom-[-141.8px] left-[53.6px] object-contain z-[1]"
+          loading="lazy"
+          alt=""
+          src={Vector}
+        />
+      </section>
     </div>
   );
+};
+
+Subscription.propTypes = {
+  className: PropTypes.string,
 };

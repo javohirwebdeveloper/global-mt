@@ -4,8 +4,11 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import LeftArrow from "../../assets/17--arrow---right.svg";
 import { brands } from "../../../public/data";
-export const Brands = () => {
-   const [currentSlide, setCurrentSlide] = useState(0);
+import { Button } from "@mui/material";
+import PropTypes from "prop-types";
+
+export const Brands = ({ className = "" }) => {
+  const [currentSlide, setCurrentSlide] = useState(0);
   const sliderRef = useRef(null);
 
   const settings = {
@@ -28,56 +31,90 @@ export const Brands = () => {
     sliderRef.current.slickNext();
   };
   return (
-    <div className="absolute w-[1440px] h-[361px] top-[4563px] left-0 bg-x-1l-ubo-z overflow-hidden">
-      <div className="w-[980px] top-80 left-[395px] absolute h-[41px]">
-        <div className="inline-flex items-center gap-2.5 absolute top-0 left-0">
-          <div onClick={handlePrev} className="cursor-pointer select-none duration-200 hover:border-[#088269] relative w-[41px] h-[41px] bg-x-1l-ubo-z rounded-[40px] overflow-hidden border border-solid border-[#d5d1e1]">
-            <div className="relative w-[17px] h-[17px] top-3 left-3 rotate-90">
-              <img
-                className="absolute top-0 left-0 -rotate-90 w-[17px] h-[17px]"
-                alt="Element arrow right"
-                src={LeftArrow}
-              />
-            </div>
-          </div>
-          <div onClick={handleNext} className="cursor-pointer select-none duration-200 hover:border-[#088269] relative w-[41px] h-[41px] bg-x-1l-ubo-z rounded-[40px] overflow-hidden border border-solid border-[#d5d1e1] rotate-180">
-            <div className="relative w-[17px] h-[17px] top-3 left-3 rotate-90">
-              <img
-                className="absolute top-0 left-0 -rotate-90 w-[17px] h-[17px]"
-                alt="Element arrow right"
-                src={LeftArrow}
-              />
-            </div>
-          </div>
+    <div
+      className={`mt-[150px] w-full space-x-[110px] mx-auto bg-color overflow-hidden flex items-start py-0 pr-0 pl-[65px] box-border leading-[normal] tracking-[normal] gap-[20px] text-left text-11xl text-color1 font-t1 mq1325:flex-wrap mq1325:p-5 mq1325:box-border ${className}`}
+    >
+      <div className=" w-[330px] flex flex-col items-start justify-start gap-[25px]">
+        <h2 className="m-0 relative text-inherit leading-[120%] font-medium font-inherit inline-block min-w-[112px] mq450:text-[18px] mq450:leading-[22px] mq800:text-[24px] mq800:leading-[29px]">
+          Бренды
+        </h2>
+        <div className="relative text-nowrap text-base leading-[140%] font-medium text-gray">
+          Эксклюзивные поставщики
         </div>
-        <button className="border border-transparent hover:border-[#088269] hover:text-[#088269] hover:bg-white duration-200 cursor-pointer text-x-1l-ubo-z box-border inline-flex gap-2.5 px-[30px] py-[11px] absolute top-0 left-[825px] bg-tx-u7vg items-center justify-center rounded-[50px]">
-          <div className="relative w-fit mt-[-1.00px] font-1440-l1 font-[number:var(--1440-l1-font-weight)] text-[length:var(--1440-l1-font-size)] tracking-[var(--1440-l1-letter-spacing)] leading-[var(--1440-l1-line-height)] [font-style:var(--1440-l1-font-style)]">
-            Сертификаты
-          </div>
-        </button>
       </div>
-      <Slider ref={sliderRef} {...settings} className=" w-[1310px] h-[280px] inline-flex items-start gap-2.5 absolute top-0 left-[395px]">
-        {brands.map((brand, index) => (<div key={index} className="relative w-[322px] h-[280px]">
-          <div className="relative w-80 h-[280px] bg-x-1l-ubo-z rounded-[10px] border border-solid border-[#e5e2ee]">
-            <div className="absolute w-80 h-[196px] top-0 left-0 bg-z-vq-cz-3 rounded-[10px_10px_0px_0px] border border-solid border-[#e5e2ee]">
-              <img
-                className="absolute w-[217px] h-[102px] top-[45px] left-[50px] object-cover"
-                alt="Cropped"
-                src={brand.img}
-              />
+      <section className="flex flex-col items-start justify-start gap-[40px] w-[1310px] text-left text-base text-color1 font-t1 mq800:gap-[20px]">
+        <Slider
+          ref={sliderRef}
+          {...settings}
+          className=" w-[1310px] h-[280px] inline-flex items-start gap-2.5"
+        >
+          {brands.map((brand, index) => (
+            <div key={index} className="relative w-[322px] h-[280px]">
+              <div className="relative w-80 h-[280px] bg-x-1l-ubo-z rounded-[10px] border border-solid border-[#e5e2ee]">
+                <div className="absolute w-80 h-[196px] top-0 left-0 bg-z-vq-cz-3 rounded-[10px_10px_0px_0px] border border-solid border-[#e5e2ee]">
+                  <img
+                    className="absolute w-[217px] h-[102px] top-[45px] left-[50px] object-cover"
+                    alt="Cropped"
+                    src={brand.img}
+                  />
+                </div>
+                <p className="absolute w-[226px] top-[215px] left-6 font-1440-t1 font-[number:var(--1440-t1-font-weight)] text-ws-j7-it text-[length:var(--1440-t1-font-size)] tracking-[var(--1440-t1-letter-spacing)] leading-[var(--1440-t1-line-height)] [font-style:var(--1440-t1-font-style)]">
+                  {brand.name}
+                </p>
+              </div>
             </div>
-            <p className="absolute w-[226px] top-[215px] left-6 font-1440-t1 font-[number:var(--1440-t1-font-weight)] text-ws-j7-it text-[length:var(--1440-t1-font-size)] tracking-[var(--1440-t1-letter-spacing)] leading-[var(--1440-t1-line-height)] [font-style:var(--1440-t1-font-style)]">
-              {brand.name}
-            </p>
+          ))}
+        </Slider>
+        <div className="w-[1000px] flex flex-row items-start justify-between py-0 pr-5 pl-0 box-border gap-[20px] max-w-full mq450:flex-wrap">
+          <div className="flex flex-row items-start justify-start gap-[10px]">
+            <div
+              onClick={handlePrev}
+              className="cursor-pointer select-none duration-200 hover:border-[#088269] relative w-[41px] h-[41px] bg-x-1l-ubo-z rounded-[40px] overflow-hidden border border-solid border-[#d5d1e1]"
+            >
+              <div className="relative w-[17px] h-[17px] top-3 left-3 rotate-90">
+                <img
+                  className="absolute top-0 left-0 -rotate-90 w-[17px] h-[17px]"
+                  alt="Element arrow right"
+                  src={LeftArrow}
+                />
+              </div>
+            </div>
+            <div
+              onClick={handleNext}
+              className="cursor-pointer select-none duration-200 hover:border-[#088269] relative w-[41px] h-[41px] bg-x-1l-ubo-z rounded-[40px] overflow-hidden border border-solid border-[#d5d1e1] rotate-180"
+            >
+              <div className="relative w-[17px] h-[17px] top-3 left-3 rotate-90">
+                <img
+                  className="absolute top-0 left-0 -rotate-90 w-[17px] h-[17px]"
+                  alt="Element arrow right"
+                  src={LeftArrow}
+                />
+              </div>
+            </div>
           </div>
-        </div>))}
-      </Slider>
-      <div className="absolute w-[220px] h-[22px] top-[60px] left-[65px] opacity-50 font-1440-t1 font-[number:var(--1440-t1-font-weight)] text-ws-j7-it text-[length:var(--1440-t1-font-size)] tracking-[var(--1440-t1-letter-spacing)] leading-[var(--1440-t1-line-height)] [font-style:var(--1440-t1-font-style)]">
-        Эксклюзивные поставщики
-      </div>
-      <div className="absolute h-9 -top-px left-[65px] font-1440-h2 font-[number:var(--1440-h2-font-weight)] text-ws-j7-it text-[length:var(--1440-h2-font-size)] tracking-[var(--1440-h2-letter-spacing)] leading-[var(--1440-h2-line-height)] whitespace-nowrap [font-style:var(--1440-h2-font-style)]">
-        Бренды
-      </div>
+          <Button
+            className="h-[41px] w-[155px]"
+            disableElevation
+            variant="contained"
+            sx={{
+              textTransform: "none",
+              color: "#f8f7f3",
+              fontSize: "14",
+              background: "#088269",
+              borderRadius: "50px",
+              "&:hover": { background: "#088269" },
+              width: 155,
+              height: 41,
+            }}
+          >
+            Сертификаты
+          </Button>
+        </div>
+      </section>
     </div>
   );
+};
+
+Brands.propTypes = {
+  className: PropTypes.string,
 };

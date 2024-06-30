@@ -9,12 +9,12 @@ const Cart = () => {
   const handleRemoveFromCart = (productId) => {
     dispatch(removeFromCart(productId));
   };
-
   return (
     <div>
       <h1>Savatcha</h1>
+
       <ul>
-        {cart.map((product) => (
+        {cart.map((product, index) => (
           <li key={product.id}>
             {product.name} ({product.category})
             <button onClick={() => handleRemoveFromCart(product.id)}>
@@ -29,3 +29,5 @@ const Cart = () => {
 };
 
 export default Cart;
+
+

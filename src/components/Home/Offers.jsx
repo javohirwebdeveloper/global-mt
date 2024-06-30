@@ -3,48 +3,39 @@ import Symbol from '../../assets/symbol.png'
 import Symbol1 from '../../assets/symbol-1.png'
 import Symbol3 from '../../assets/symbol-2.png'
 import Symbol2 from '../../assets/symbol-3.png'
-export const Offers = () => {
+import Offer from "./Offer";
+import PropTypes from "prop-types";
+
+export const Offers = ({ className = "" }) => {
   return (
-    <div className="absolute w-[1310px] h-[396px] top-[2428px] left-[65px] bg-x-1l-ubo-z">
-      <div className="inline-flex items-start gap-2.5 absolute top-[76px] left-0">
-        <div className="relative w-[322px] h-80">
-          <div className="relative w-80 h-80 rounded-[10px] border border-solid border-[#e5e2ee]">
-            <div className="absolute h-[22px] top-[204px] left-[87px] font-1440-t1 font-[number:var(--1440-t1-font-weight)] text-ws-j7-it text-[length:var(--1440-t1-font-size)] text-center tracking-[var(--1440-t1-letter-spacing)] leading-[var(--1440-t1-line-height)] whitespace-nowrap [font-style:var(--1440-t1-font-style)]">
-              Быстрая&nbsp;&nbsp;доставка
-            </div>
-            <img className="absolute w-[37px] h-[75px] top-[87px] left-[140px]" alt="Symbol" src={Symbol} />
-          </div>
-        </div>
-        <div className="relative w-[322px] h-80">
-          <div className="relative w-80 h-80 rounded-[10px] border border-solid border-[#e5e2ee]">
-              <div className="relative h-[73px]">
-                <img className="absolute w-[66px] h-[73px] top-24 left-[126px]" alt="Symbol" src={Symbol2} />
-            </div>
-            <div className="absolute w-[148px] h-11 top-[193px] left-[85px] font-1440-t1 font-[number:var(--1440-t1-font-weight)] text-ws-j7-it text-[length:var(--1440-t1-font-size)] text-center tracking-[var(--1440-t1-letter-spacing)] leading-[var(--1440-t1-line-height)] [font-style:var(--1440-t1-font-style)]">
-              Весь товар сертифицирован
-            </div>
-          </div>
-        </div>
-        <div className="relative w-[322px] h-80">
-          <div className="relative w-80 h-80 rounded-[10px] border border-solid border-[#e5e2ee]">
-            <img className="absolute w-[66px] h-[59px] top-24 left-[126px]" alt="Symbol" src={Symbol1} />
-            <div className="absolute w-[148px] h-11 top-[193px] left-[85px] font-1440-t1 font-[number:var(--1440-t1-font-weight)] text-ws-j7-it text-[length:var(--1440-t1-font-size)] text-center tracking-[var(--1440-t1-letter-spacing)] leading-[var(--1440-t1-line-height)] [font-style:var(--1440-t1-font-style)]">
-              Гибкая система скидок
-            </div>
-          </div>
-        </div>
-        <div className="relative w-[322px] h-80 mr-[-2.00px]">
-          <div className="relative w-80 h-80 rounded-[10px] border border-solid border-[#e5e2ee]">
-            <img className="absolute w-[33px] h-[58px] top-[101px] left-[150px]" alt="Symbol" src={Symbol3} />
-            <div className="absolute w-[190px] h-[22px] top-[204px] left-16 font-1440-t1 font-[number:var(--1440-t1-font-weight)] text-ws-j7-it text-[length:var(--1440-t1-font-size)] text-center tracking-[var(--1440-t1-letter-spacing)] leading-[var(--1440-t1-line-height)] [font-style:var(--1440-t1-font-style)]">
-              Лет на рынке
-            </div>
-          </div>
-        </div>
-      </div>
-      <div className="absolute h-9 -top-px left-0 font-1440-h2 font-[number:var(--1440-h2-font-weight)] text-ws-j7-it text-[length:var(--1440-h2-font-size)] tracking-[var(--1440-h2-letter-spacing)] leading-[var(--1440-h2-line-height)] whitespace-nowrap [font-style:var(--1440-h2-font-style)]">
+    <div
+      className={`mt-[150px] bg-color w-[1310px] mx-auto overflow-hidden flex flex-col items-start justify-start gap-[40px] leading-[normal] tracking-[normal] text-left text-11xl text-[#202020] font-t1 mq675:gap-[20px] ${className}`}
+    >
+      <h2 className="m-0 relative text-inherit leading-[120%] font-medium font-inherit inline-block max-w-full mq450:text-[18px] mq450:leading-[22px] mq750:text-[24px] mq750:leading-[29px]">
         Почему выбирают нас?
-      </div>
+      </h2>
+      <section className="w-[1310px] overflow-x-auto flex flex-row items-start justify-start gap-[10px] max-w-full text-center text-base text-color1 font-t1">
+        <Offer symbol={Symbol} prop="Быстрая  доставка" />
+        <Offer
+          symbol={Symbol2}
+          prop="Гибкая система скидок"
+          symbolIconPadding="99px 20px 82px"
+        />
+        <Offer
+          symbol={Symbol1}
+          prop="Гибкая система скидок"
+          symbolIconPadding="99px 20px 82px"
+        />
+        <Offer
+          symbol={Symbol3}
+          prop="Лет на рынке"
+          symbolIconPadding="102.4px 65px 93px"
+        />
+      </section>
     </div>
   );
+};
+
+Offers.propTypes = {
+  className: PropTypes.string,
 };
