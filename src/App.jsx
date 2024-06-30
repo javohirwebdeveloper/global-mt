@@ -5,6 +5,7 @@ import CatalogPage from "./pages/CatalogPage";
 import Catalog from "./pages/Catalog";
 import Cart from "./pages/Cart";
 import Loading from "./components/Loading";
+import Product from "./pages/Product";
 
 const App = () => {
   const [loading, setLoading] = useState(true);
@@ -29,6 +30,7 @@ const App = () => {
           <Route path="/catalog/:category" element={<CatalogPage />} />
           <Route path="/catalog" element={<Catalog />} />
           <Route path="/cart" element={<Cart />} />
+          <Route path="/product/:id" element={<Product />} />
         </Routes>
       </Router>
     </div>

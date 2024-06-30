@@ -26,6 +26,7 @@
     "react-responsive-carousel": "^3.2.23",
     "react-router-dom": "^6.23.1",
     "react-slick": "^0.30.2",
+    "react-star-ratings": "^2.3.0",
     "react-yandex-maps": "^4.6.0",
     "redux": "^5.0.1",
     "slick-carousel": "^1.8.1"

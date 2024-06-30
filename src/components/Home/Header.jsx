@@ -72,23 +72,23 @@ const Header1 = ({ className = "" }) => {
         <div className="w-[1440px] mx-auto self-stretch flex flex-row items-start justify-start py-0 px-[65px] box-border max-w-full mq800:pl-8 mq800:pr-8 mq800:box-border">
           <div className="flex-1 flex flex-row items-start justify-between max-w-full gap-[20px] mq800:flex-wrap">
             <div className="flex flex-row items-start justify-start gap-[20px] max-w-full mq450:flex-wrap">
-              <a className="[text-decoration:none] hover:text-[#202020_!important] text-[#7A7687_!important] duration-200 cursor-pointer relative font-medium inline-block min-w-[68px]">
+              <a className="[text-decoration:none] duration-200 cursor-pointer relative font-medium inline-block min-w-[68px]">
                 О компании
               </a>
-              <a className="[text-decoration:none] hover:text-[#202020_!important] text-[#7A7687_!important] duration-200 cursor-pointer relative font-medium inline-block min-w-[55px]">
+              <a className="[text-decoration:none] duration-200 cursor-pointer relative font-medium inline-block min-w-[55px]">
                 Доставка
               </a>
-              <a className="[text-decoration:none] hover:text-[#202020_!important] text-[#7A7687_!important] duration-200 cursor-pointer relative font-medium inline-block min-w-[43px]">
+              <a className="[text-decoration:none] duration-200 cursor-pointer relative font-medium inline-block min-w-[43px]">
                 Оплата
               </a>
-              <a className="[text-decoration:none] hover:text-[#202020_!important] text-[#7A7687_!important] duration-200 cursor-pointer relative font-medium inline-block min-w-[54px]">
+              <a className="[text-decoration:none] duration-200 cursor-pointer relative font-medium inline-block min-w-[54px]">
                 Гарантии
               </a>
-              <a className="[text-decoration:none] hover:text-[#202020_!important] text-[#7A7687_!important] duration-200 cursor-pointer relative font-medium inline-block min-w-[28px]">
+              <a className="[text-decoration:none] duration-200 cursor-pointer relative font-medium inline-block min-w-[28px]">
                 Блог
               </a>
             </div>
-            <div className="flex flex-row hover:text-[#202020_!important] text-[#7A7687_!important] duration-200 cursor-pointer items-start justify-start gap-[45px] mq450:gap-[22px]">
+            <div className="flex flex-row duration-200 cursor-pointer items-start justify-start gap-[45px] mq450:gap-[22px]">
               <a className="[text-decoration:none] relative font-medium inline-block min-w-[71px] whitespace-nowrap">
                 info@mail.ru
               </a>
@@ -309,7 +309,7 @@ const Header1 = ({ className = "" }) => {
                   </div>
                 </div>
               </div>
-              <div className="flex hover:text-[#202020_!important] text-[#7A7687_!important] duration-200 cursor-pointer flex-col items-start justify-start pt-[5px] px-0 pb-0 text-xs">
+              <div className="flex duration-200 cursor-pointer flex-col items-start justify-start pt-[5px] px-0 pb-0 text-xs">
                 <div className="relative font-medium">
                   <p className="m-0">{`Пн-Пт с 09:00-19:00 `}</p>
                   <p className="m-0">Сб-Вс - выходной</p>
@@ -318,7 +318,7 @@ const Header1 = ({ className = "" }) => {
             </div>
           </div>
           <div className="w-[281px] flex flex-row items-start justify-start gap-[25px] text-xs">
-            <div className="flex flex-col items-start justify-start gap-[4px]">
+            <div className="flex hover:text-[#202020_!important] text-[#7A7687_!important] cursor-pointer flex-col items-start justify-start gap-[4px]">
               <div className="w-[35px] flex flex-row items-start justify-start py-0 px-[5px] box-border">
                 <img
                   className="h-6 w-6 relative overflow-hidden shrink-0"
@@ -327,11 +327,11 @@ const Header1 = ({ className = "" }) => {
                   src={LoginImg}
                 />
               </div>
-              <div className="relative font-medium inline-block hover:text-[#202020_!important] text-[#7A7687_!important] duration-200 cursor-pointer min-w-[35px]">
+              <div className="relative font-medium inline-block duration-200 cursor-pointer min-w-[35px]">
                 Войти
               </div>
             </div>
-            <div className="flex-1 flex flex-col items-start justify-start gap-[4px]">
+            <div className="flex-1 hover:text-[#202020_!important] text-[#7A7687_!important] cursor-pointer flex flex-col items-start justify-start gap-[4px]">
               <div className="flex flex-row items-start justify-start py-0 px-5">
                 <img
                   className="h-6 w-6 relative overflow-hidden shrink-0"
@@ -340,11 +340,11 @@ const Header1 = ({ className = "" }) => {
                   src={LikeImg}
                 />
               </div>
-              <div className="relative font-medium inline-block hover:text-[#202020_!important] text-[#7A7687_!important] duration-200 cursor-pointer min-w-[65px]">
+              <div className="relative font-medium inline-block duration-200 cursor-pointer min-w-[65px]">
                 Избранное
               </div>
             </div>
-            <div className="flex-1 flex flex-col items-start justify-start gap-[4px]">
+            <div className="flex-1 hover:text-[#202020_!important] text-[#7A7687_!important] cursor-pointer flex flex-col items-start justify-start gap-[4px]">
               <div className="flex flex-row items-start justify-start py-0 px-4">
                 <img
                   className="h-6 w-6 relative overflow-hidden shrink-0"
@@ -353,11 +353,11 @@ const Header1 = ({ className = "" }) => {
                   src={CravnitImg}
                 />
               </div>
-              <div className="relative font-medium inline-block hover:text-[#202020_!important] text-[#7A7687_!important] duration-200 cursor-pointer min-w-[57px]">
+              <div className="relative font-medium inline-block duration-200 cursor-pointer min-w-[57px]">
                 Сравнить
               </div>
             </div>
-            <div className="w-[49px] flex flex-col items-start justify-start gap-[4px]">
+            <div className="w-[49px] hover:text-[#202020_!important] text-[#7A7687_!important] cursor-pointer flex flex-col items-start justify-start gap-[4px]">
               <div className="self-stretch flex flex-row items-start justify-start py-0 px-3">
                 <img
                   className="h-6 w-6 relative overflow-hidden shrink-0"
@@ -366,7 +366,7 @@ const Header1 = ({ className = "" }) => {
                   src={BasketImg}
                 />
               </div>
-              <div className="relative font-medium inline-block hover:text-[#202020_!important] text-[#7A7687_!important] duration-200 cursor-pointer min-w-[49px]">
+              <div className="relative font-medium inline-block duration-200 cursor-pointer min-w-[49px]">
                 Корзина
               </div>
             </div>
