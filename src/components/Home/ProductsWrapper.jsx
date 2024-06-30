@@ -173,7 +173,6 @@ export const ProductsWrapper = ({ className = "" }) => {
                     Добавить в корзину
                   </div>
                 </button>
-                <NavLink to="/cart">cart</NavLink>
               </div>
             </div>
           ))}
