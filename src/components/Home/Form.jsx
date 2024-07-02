@@ -1,19 +1,47 @@
-import React from "react";
+import React, { useState } from "react";
 import { YMaps, Map, Placemark } from "react-yandex-maps";
 import markerIcon from "../../assets/marker.svg";
-import {
-  TextField,
-  InputAdornment,
-  Icon,
-  IconButton,
-  Button,
-} from "@mui/material";
+import { TextField, Button, Snackbar } from "@mui/material";
+import { useFormik } from "formik";
+import * as Yup from "yup";
 import PropTypes from "prop-types";
+
+const validationSchema = Yup.object({
+  name: Yup.string().required("Обязательно для заполнения"),
+  phone: Yup.string()
+    .matches(/^\+?[1-9]\d{1,14}$/, "Неверный формат номера")
+    .required("Обязательно для заполнения"),
+  email: Yup.string()
+    .email("Неверный формат email")
+    .required("Обязательно для заполнения"),
+  question: Yup.string().required("Обязательно для заполнения"),
+});
+
 export const Form = ({ className = "" }) => {
+  const [submitted, setSubmitted] = useState(false);
+
   const mapState = {
     center: [41.311151, 69.279737],
     zoom: 13,
   };
+
+  const formik = useFormik({
+    initialValues: {
+      name: "",
+      phone: "",
+      email: "",
+      question: "",
+    },
+    validationSchema: validationSchema,
+    onSubmit: (values, { resetForm }) => {
+      console.log(values);
+      setSubmitted(true);
+      resetForm();
+      setTimeout(() => {
+        setSubmitted(false);
+      }, 2000);
+    },
+  });
 
   return (
     <div className="mt-[150px] space-x-[10px] mx-auto flex h-[612px] pl-[65px]">
@@ -37,7 +65,10 @@ export const Form = ({ className = "" }) => {
         </Map>
       </YMaps>
 
-      <div className="flex-1 flex flex-row items-start justify-start gap-[10px] w-[650px] h-[612px] mq1350:flex-wrap">
+      <form
+        onSubmit={formik.handleSubmit}
+        className="flex-1 flex flex-row items-start justify-start gap-[10px] w-[650px] h-[612px] mq1350:flex-wrap"
+      >
         <div className="flex-[0.8769] flex flex-col items-start justify-start p-10 box-border relative gap-[40px] min-w-[422px] max-w-full mq800:gap-[20px] mq800:pt-[26px] mq800:pb-[26px] mq800:box-border mq800:min-w-full mq1350:flex-1">
           <div className="w-full h-full absolute !m-[0] top-[0px] right-[0px] bottom-[0px] left-[0px] rounded-3xs bg-color6 box-border border-[1px] border-solid border-color7" />
           <div className="w-[417px] flex flex-col items-start justify-start gap-[25px] max-w-full">
@@ -54,6 +85,12 @@ export const Form = ({ className = "" }) => {
               className="[border:none] bg-[transparent] self-stretch h-[31px] font-t2 text-sm text-color3 z-[1]"
               placeholder="Ваше имя"
               variant="standard"
+              name="name"
+              value={formik.values.name}
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+              error={formik.touched.name && Boolean(formik.errors.name)}
+              helperText={formik.touched.name && formik.errors.name}
               sx={{
                 "& .MuiInputBase-root": { height: "31px", fontSize: "14px" },
                 "& .MuiInputBase-input": { color: "#7a7687" },
@@ -63,6 +100,12 @@ export const Form = ({ className = "" }) => {
               className="[border:none] bg-[transparent] self-stretch h-[31px] font-t2 text-sm text-color3 z-[1]"
               placeholder="Ваш телефон"
               variant="standard"
+              name="phone"
+              value={formik.values.phone}
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+              error={formik.touched.phone && Boolean(formik.errors.phone)}
+              helperText={formik.touched.phone && formik.errors.phone}
               sx={{
                 "& .MuiInputBase-root": { height: "31px", fontSize: "14px" },
                 "& .MuiInputBase-input": { color: "#7a7687" },
@@ -72,21 +115,38 @@ export const Form = ({ className = "" }) => {
               className="[border:none] bg-[transparent] self-stretch h-[31px] font-t2 text-sm text-color3 z-[1]"
               placeholder="Ваш email"
               variant="standard"
+              name="email"
+              value={formik.values.email}
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+              error={formik.touched.email && Boolean(formik.errors.email)}
+              helperText={formik.touched.email && formik.errors.email}
               sx={{
                 "& .MuiInputBase-root": { height: "31px", fontSize: "14px" },
                 "& .MuiInputBase-input": { color: "#7a7687" },
               }}
             />
-            <textarea
-              className="[border:none] bg-[transparent] h-[116px] w-auto [outline:none] self-stretch flex flex-col items-start justify-start font-t2 text-sm text-color3 z-[1]"
+            <TextField
+              className="[border:none] bg-[transparent] max-h-[60px_!important] w-auto [outline:none] flex flex-col items-start justify-start font-t2 text-sm text-color3 "
               placeholder="Ваш вопрос"
+              variant="standard"
+              name="question"
+              value={formik.values.question}
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+              error={formik.touched.question && Boolean(formik.errors.question)}
+              helperText={formik.touched.question && formik.errors.question}
+              multiline
               rows={6}
-              cols={29}
+              sx={{
+                "& .MuiInputBase-input": { color: "#7a7687" },
+              }}
             />
           </div>
-          <div className="self-stretch flex flex-row items-start justify-start gap-[30px] max-w-full text-xs text-color3 mq800:flex-wrap">
+          <div className="self-stretch flex mt-[76px] flex-row items-start justify-start gap-[30px] max-w-full text-xs text-color3 mq800:flex-wrap">
             <Button
-              className="h-[41px] w-[134px] z-[1]"
+              className="h-[41px] w-[134px]"
+              type="submit"
               disableElevation
               variant="contained"
               sx={{
@@ -115,7 +175,13 @@ export const Form = ({ className = "" }) => {
             </div>
           </div>
         </div>
-      </div>
+      </form>
+      <Snackbar
+        open={submitted}
+        message="отправил"
+        autoHideDuration={2000}
+        onClose={() => setSubmitted(false)}
+      />
     </div>
   );
 };

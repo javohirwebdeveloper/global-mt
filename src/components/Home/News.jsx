@@ -10,7 +10,7 @@ import "slick-carousel/slick/slick-theme.css";
 import { Button } from "@mui/material";
 import PropTypes from "prop-types";
 
-export const News = ({ className = "" }) => {
+export const News = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const sliderRef = useRef(null);
 
@@ -36,7 +36,7 @@ export const News = ({ className = "" }) => {
   };
   return (
     <div
-      className={`mt-[150px] bg-color w-full overflow-hidden flex flex-row items-start justify-start py-0 pr-0 pl-[65px] box-border gap-[135px] leading-[normal] tracking-[normal] text-left text-11xl text-[#202020] font-t1 mq450:gap-[34px] mq800:gap-[67px] mq1350:flex-wrap mq1350:p-5 mq1350:box-border ${className}`}
+      className={`mx-auto max-w-[1440px] w-full mt-[150px] bg-color overflow-hidden flex flex-row items-start justify-start py-0 pr-0 pl-[65px] box-border gap-[135px] leading-[normal] tracking-[normal] text-left text-11xl text-[#202020] font-t1 mq450:gap-[34px] mq800:gap-[67px] mq1350:flex-wrap mq1350:p-5 mq1350:box-border `}
     >
       <h1 className="m-0 w-[195px] relative text-inherit leading-[120%] font-medium font-inherit flex items-center shrink-0 mq450:text-lg mq450:leading-[22px] mq800:text-[24px] mq800:leading-[29px]">
         Новости компании

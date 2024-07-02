@@ -1,13 +1,13 @@
-import React, {useState, useRef} from "react";
+import React, { useState, useRef } from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import LeftArrow from "../../assets/17--arrow---right.svg";
-import { brands } from "../../../public/data";
+import { products } from "../../../public/data";
 import { Button } from "@mui/material";
 import PropTypes from "prop-types";
 
-export const Brands = () => {
+export const TopCate = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const sliderRef = useRef(null);
 
@@ -32,15 +32,12 @@ export const Brands = () => {
   };
   return (
     <div
-      className={`mx-auto max-w-[1440px] w-full mt-[150px] space-x-[110px] bg-color overflow-hidden flex items-start py-0 pr-0 pl-[65px] box-border leading-[normal] tracking-[normal] gap-[20px] text-left text-11xl text-color1 font-t1 mq1325:flex-wrap mq1325:p-5 mq1325:box-border`}
+      className={`mx-auto max-w-[1440px] w-full mt-[150px] space-x-[110px] bg-color overflow-hidden flex items-start py-0 pr-0 pl-[65px] box-border leading-[normal] tracking-[normal] gap-[20px] text-left text-11x font-t1 mq1325:flex-wrap mq1325:p-5 mq1325:box-border`}
     >
-      <div className=" max-w-[242px] w-full flex flex-col items-start justify-start gap-[25px]">
-        <h2 className="m-0 text-[#202020_!important]  relative text-inherit leading-[120%] font-medium font-inherit inline-block min-w-[112px] mq450:text-[18px] mq450:leading-[22px] mq800:text-[24px] mq800:leading-[29px]">
-          Бренды
+      <div className=" w-[330px] flex flex-col items-start justify-start gap-[25px]">
+        <h2 className="text-[30px] text-[#202020] font-[500] max-w-[242px] w-full">
+          Популярные категории
         </h2>
-        <div className="relative text-[#202020_!important] opacity-50 text-nowrap text-base leading-[140%] font-medium text-gray">
-          Эксклюзивные поставщики
-        </div>
       </div>
       <section className="flex flex-col items-start justify-start gap-[40px] w-[1310px] text-left text-base text-color1 font-t1 mq800:gap-[20px]">
         <Slider
@@ -48,7 +45,7 @@ export const Brands = () => {
           {...settings}
           className=" w-[1310px] h-[280px] inline-flex items-start gap-2.5"
         >
-          {brands.map((brand, index) => (
+          {products.map((brand, index) => (
             <div key={index} className="relative w-[322px] h-[280px]">
               <div className="relative w-80 h-[280px] bg-x-1l-ubo-z rounded-[10px] border border-solid border-[#e5e2ee]">
                 <div className="absolute w-80 h-[196px] top-0 left-0 bg-z-vq-cz-3 rounded-[10px_10px_0px_0px] border border-solid border-[#e5e2ee]">
@@ -59,7 +56,7 @@ export const Brands = () => {
                   />
                 </div>
                 <p className="absolute w-[226px] top-[215px] left-6 font-1440-t1 font-[number:var(--1440-t1-font-weight)] text-ws-j7-it text-[length:var(--1440-t1-font-size)] tracking-[var(--1440-t1-letter-spacing)] leading-[var(--1440-t1-line-height)] [font-style:var(--1440-t1-font-style)]">
-                  {brand.name}
+                  {brand.category}
                 </p>
               </div>
             </div>
@@ -107,10 +104,12 @@ export const Brands = () => {
               height: 41,
             }}
           >
-            Сертификаты
+            Все категории
           </Button>
         </div>
       </section>
     </div>
   );
 };
+
+export default TopCate;

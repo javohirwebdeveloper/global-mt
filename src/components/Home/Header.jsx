@@ -1,16 +1,17 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
+import { AuthContext } from "../../context/AuthContext";
 import Logo from "../../assets/logo.svg";
 import DownImage from "../../assets/13--down.svg";
 import BurgerImg from "../../assets/17--burger.svg";
 import SearchImg from "../../assets/24--search.svg";
 import SearchImg1 from "../../assets/24--search1.svg";
 import { categories, products, brands } from "../../../public/data";
-import { NavLink, useNavigate } from 'react-router-dom';
-import BasketImg from '../../assets/24--basket.svg'
-import LocationImg from '../../assets/13--location.svg'
-import LikeImg from '../../assets/24--favourites.svg'
-import LoginImg from '../../assets/24--login.svg'
-import CravnitImg from '../../assets/comparison.svg'
+import { NavLink, useNavigate } from "react-router-dom";
+import BasketImg from "../../assets/24--basket.svg";
+import LocationImg from "../../assets/13--location.svg";
+import LikeImg from "../../assets/24--favourites.svg";
+import LoginImg from "../../assets/24--login.svg";
+import CravnitImg from "../../assets/comparison.svg";
 
 import {
   TextField,
@@ -25,6 +26,7 @@ import {
   Button,
 } from "@mui/material";
 import PropTypes from "prop-types";
+import AuthModal from "../AuthModal";
 
 const Header1 = ({ className = "" }) => {
   const [isHovered, setIsHovered] = useState(false);
@@ -33,7 +35,15 @@ const Header1 = ({ className = "" }) => {
   const [searchTerm, setSearchTerm] = useState("");
   const [searchResults, setSearchResults] = useState({});
   const navigate = useNavigate();
+  const { isAuthenticated, email, logout } = useContext(AuthContext);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
+  const handleOpenModal = () => setIsModalOpen(true);
+  const handleCloseModal = () => setIsModalOpen(false);
+
+  const getUserInitial = (email) => {
+    return email ? email.charAt(0).toUpperCase() : "";
+  };
   const handleSearch = () => {
     const lowercasedTerm = searchTerm.toLowerCase();
     const filteredBrands = brands.filter((brand) =>
@@ -105,12 +115,14 @@ const Header1 = ({ className = "" }) => {
           <div className="w-[915px] flex flex-col items-start justify-start pt-px px-0 pb-0 box-border max-w-full">
             <div className="self-stretch flex flex-row items-start justify-start gap-[35px] max-w-full mq450:gap-[17px] mq1150:flex-wrap">
               <div className="flex-1 flex flex-row items-start justify-start gap-[50px] max-w-full mq800:flex-wrap mq800:gap-[25px] mq800:min-w-full">
-                <img
-                  className="self-stretch w-24 relative max-h-full overflow-hidden shrink-0 min-h-[41px]"
-                  loading="lazy"
-                  alt=""
-                  src={Logo}
-                />
+                <NavLink to={`/`}>
+                  <img
+                    className="self-stretch w-24 relative max-h-full overflow-hidden shrink-0 min-h-[41px]"
+                    loading="lazy"
+                    alt=""
+                    src={Logo}
+                  />
+                </NavLink>
                 <div className="flex-1 border-2 bg-[#D5D1E1] h-[42px] rounded-[50px] flex flex-row items-center justify-start p-px box-border relative min-w-[399px] max-w-full mq800:flex-wrap mq800:min-w-full">
                   <div
                     onMouseEnter={() => setIsCategoryOpen(true)}
@@ -143,7 +155,7 @@ const Header1 = ({ className = "" }) => {
                           setIsCategoryOpen(true);
                         }
                       }}
-                      className={`categroies z-50 all-[unset] duration-200 cursor-pointer box-border flex-col items-center justify-center gap-2 px-[15px] h-[39px] ${
+                      className={`categroies all-[unset] duration-200 cursor-pointer box-border flex-col items-center justify-center gap-2 px-[15px] h-[39px] ${
                         isCategoryOpen ? "bg-[#088269]" : "bg-[#efefef]"
                       }  inline-flex rounded-[50px] w-[146px]`}
                     >
@@ -291,7 +303,7 @@ const Header1 = ({ className = "" }) => {
                   </div>
                   <div className="flex items-center justify-center w-[68px] -ml-[18px]">
                     <img
-                      className="w-6 h-6 cursor-pointer relative overflow-hidden shrink-0 z-[1]"
+                      className="w-6 h-6 cursor-pointer relative overflow-hidden shrink-0 "
                       loading="lazy"
                       onMouseEnter={() => setIsHovered(true)}
                       onMouseLeave={() => setIsHovered(false)}
@@ -317,19 +329,29 @@ const Header1 = ({ className = "" }) => {
               </div>
             </div>
           </div>
-          <div className="w-[281px] flex flex-row items-start justify-start gap-[25px] text-xs">
+          <div className="w-[281px] flex flex-row items-center justify-start gap-[25px] text-xs">
             <div className="flex hover:text-[#202020_!important] text-[#7A7687_!important] cursor-pointer flex-col items-start justify-start gap-[4px]">
-              <div className="w-[35px] flex flex-row items-start justify-start py-0 px-[5px] box-border">
-                <img
-                  className="h-6 w-6 relative overflow-hidden shrink-0"
-                  loading="lazy"
-                  alt=""
-                  src={LoginImg}
-                />
-              </div>
-              <div className="relative font-medium inline-block duration-200 cursor-pointer min-w-[35px]">
-                Войти
-              </div>
+              {isAuthenticated ? (
+                <div className="h-[42px] w-[42px] text-[19px] relative overflow-hidden shrink-0 flex items-center justify-center rounded-full bg-[#E1EFE6] text-[#23473B]">
+                  {getUserInitial(email)}
+                </div>
+              ) : (
+                <div className="w-[35px] flex flex-row items-start justify-start py-0 px-[5px] box-border">
+                  <img
+                    className="h-6 w-6 relative overflow-hidden shrink-0"
+                    loading="lazy"
+                    alt=""
+                    onClick={handleOpenModal}
+                    src={LoginImg}
+                  />
+                  <div
+                    className="relative font-medium inline-block duration-200 cursor-pointer min-w-[35px]"
+                    onClick={handleOpenModal}
+                  >
+                    {isAuthenticated ? "" : "Войти"}
+                  </div>
+                </div>
+              )}
             </div>
             <div className="flex-1 hover:text-[#202020_!important] text-[#7A7687_!important] cursor-pointer flex flex-col items-start justify-start gap-[4px]">
               <div className="flex flex-row items-start justify-start py-0 px-5">
@@ -468,6 +490,7 @@ const Header1 = ({ className = "" }) => {
         </div>
         <div className="self-stretch h-px relative bg-[#E5E2EE]" />
       </div>
+      <AuthModal isOpen={isModalOpen} onRequestClose={handleCloseModal} />
     </div>
   );
 };

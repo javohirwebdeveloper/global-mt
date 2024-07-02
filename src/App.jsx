@@ -6,7 +6,7 @@ import Catalog from "./pages/Catalog";
 import Cart from "./pages/Cart";
 import Loading from "./components/Loading";
 import Product from "./pages/Product";
-
+import { AuthProvider } from "./context/AuthContext";
 const App = () => {
   const [loading, setLoading] = useState(true);
 
@@ -23,17 +23,19 @@ const App = () => {
   }
 
   return (
-    <div className="bg-[#f8f7f3]">
-      <Router>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/catalog/:category" element={<CatalogPage />} />
-          <Route path="/catalog" element={<Catalog />} />
-          <Route path="/cart" element={<Cart />} />
-          <Route path="/product/:id" element={<Product />} />
-        </Routes>
-      </Router>
-    </div>
+    <AuthProvider>
+      <div className="bg-[#f8f7f3]">
+        <Router>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/catalog/:category" element={<CatalogPage />} />
+            <Route path="/catalog" element={<Catalog />} />
+            <Route path="/cart" element={<Cart />} />
+            <Route path="/product/:id" element={<Product />} />
+          </Routes>
+        </Router>
+      </div>
+    </AuthProvider>
   );
 };
 

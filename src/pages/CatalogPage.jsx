@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useLocation, Link } from "react-router-dom";
+import { Breadcrumbs, Typography } from "@mui/material";
 import { products } from "../../public/data";
 import { FaChevronRight } from "react-icons/fa6";
 import { categories } from "../../public/data";
@@ -17,6 +18,8 @@ import { Footer } from "../components/Home/Footer";
 import { Offers } from "../components/Home/Offers";
 
 const CatalogPage = () => {
+  const location = useLocation();
+  const pathnames = location.pathname.split("/").filter((x) => x);
   const { category } = useParams();
   const filteredProducts = products.filter(
     (product) => product.category === category
@@ -36,13 +39,27 @@ const CatalogPage = () => {
       <Header1 />
       <article className="bg-color pt-[20px]">
         <div className="max-w-[1440px] w-full mx-auto px-[65px]">
-          <h2 className="text-[14px] text-[#7A7687] text-nowrap flex items-center h-[20px] gap-[8px]">
-            <NavLink to="/">Главная</NavLink>
-            <span className="text-[11px] -mb-[2px] ">
-              <FaChevronRight />
-            </span>
-            <span className="text-[#202020]">Каталог</span>
-          </h2>
+          <Breadcrumbs aria-label="breadcrumb" sx={{ margin: "20px 0px" }}>
+            <Link to="/" className="text-decoration-none text-color-inherit">
+              Home
+            </Link>
+            {pathnames.map((value, index) => {
+              const last = index === pathnames.length - 1;
+              const to = `/${pathnames.slice(0, index + 1).join("/")}`;
+
+              return last ? (
+                <Typography></Typography>
+              ) : (
+                <Link
+                  to={to}
+                  key={to}
+                  className="text-decoration-none text-color-inherit"
+                >
+                  {value}
+                </Link>
+              );
+            })}
+          </Breadcrumbs>
           <div className="mt-[19px]  relative flex space-x-[10px] flex-row items-start justify-start leading-[normal] tracking-[normal]">
             <main className="flex-1 rounded-3xs flex flex-col items-start justify-start pt-[13px] pb-[15px] pr-[13px] pl-[19px] gap-[12px] text-left text-sm text-[#202020] font-l2 border-[1px] border-solid border-[#E5E2EE]">
               <div className="w-80 h-[595px] relative rounded-3xs box-border hidden border-[1px] border-solid border-[#E5E2EE]" />

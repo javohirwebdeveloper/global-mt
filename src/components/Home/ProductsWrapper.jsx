@@ -2,12 +2,11 @@ import React, {useState, useRef} from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import LeftArrow from "../../assets/17--arrow---right.svg";
-import { categories, products, brands } from "../../../public/data";
+import { products } from "../../../public/data";
 import "slick-carousel/slick/slick-theme.css";
-import LikeImg from '../../assets/24--favourites.svg'
-import CravnitImg from '../../assets/comparison.svg'
+import LikeImg from "../../assets/24--favourites.svg";
+import CravnitImg from "../../assets/comparison.svg";
 import { Button } from "@mui/material";
-import Product from "./Product";
 import PropTypes from "prop-types";
 import { useSelector, useDispatch } from "react-redux";
 import { addToCart, addToCompare, addToFavorites } from "../../redux/actions";
@@ -64,7 +63,7 @@ export const ProductsWrapper = ({ className = "" }) => {
 
   return (
     <div
-      className={`mt-[150px] bg-color w-full mx-auto overflow-hidden flex items-start py-0 pr-0 pl-[65px] box-border gap-[88px] leading-[normal] tracking-[normal] text-left text-11xl text-[#202020] font-h3 mq450:gap-[22px] mq800:gap-[44px] mq1350:flex-wrap mq1350:pl-5 mq1350:pr-5 mq1350:pb-5 mq1350:box-border ${className}`}
+      className={` max-w-[1440px] mt-[150px] bg-color w-full mx-auto overflow-hidden flex items-start py-0 pr-0 pl-[65px] box-border gap-[88px] leading-[normal] tracking-[normal] text-left text-11xl text-[#202020] font-h3 mq450:gap-[22px] mq800:gap-[44px] mq1350:flex-wrap mq1350:pl-5 mq1350:pr-5 mq1350:pb-5 mq1350:box-border ${className}`}
     >
       <div className="flex flex-col w-[330px] items-start justify-start pt-0.5 px-0 pb-0">
         <div className="flex flex-col items-start justify-start gap-[40px]">
@@ -76,7 +75,7 @@ export const ProductsWrapper = ({ className = "" }) => {
               onClick={() => setCategory("Реанимация")}
               className={`${
                 category === "Реанимация" ? "text-black" : "opacity-50"
-              } relative leading-[140%] font-medium inline-block min-w-[101px]`}
+              } relative leading-[140%] cursor-pointer font-medium inline-block min-w-[101px]`}
             >
               Хиты продаж
             </div>
@@ -84,7 +83,7 @@ export const ProductsWrapper = ({ className = "" }) => {
               onClick={() => setCategory("Новинки")}
               className={`${
                 category === "Новинки" ? "text-black" : "opacity-50"
-              } relative leading-[140%] font-medium inline-block min-w-[66px]`}
+              } relative leading-[140%] cursor-pointer font-medium inline-block min-w-[66px]`}
             >
               Новинки
             </div>
@@ -92,7 +91,7 @@ export const ProductsWrapper = ({ className = "" }) => {
               onClick={() => setCategory("Акции")}
               className={`${
                 category === "Акции" ? "text-black" : "opacity-50"
-              } relative leading-[140%] font-medium inline-block min-w-[48px]`}
+              } relative leading-[140%] cursor-pointer font-medium inline-block min-w-[48px]`}
             >
               Акции
             </div>
@@ -119,16 +118,31 @@ export const ProductsWrapper = ({ className = "" }) => {
                       src={product.img}
                     />
                   </div>
-                  <div className="inline-flex items-center gap-[153px] absolute top-[15px] left-[15px]">
+                  <div className="inline-flex justify-between w-[91%] items-center absolute top-[15px] left-[15px]">
                     <div
                       className={`${
+                        product.sale === true ? "hidden" : "inline-flex"
+                      } ${
                         product.category === "Новинки"
                           ? "inline-flex"
                           : "hidden"
-                      }  items-center justify-center gap-2 px-2.5 py-1 relative flex-[0_0_auto] bg-[#e1efe6] rounded-[60px] border border-solid border-[#088269]`}
+                      } items-center justify-center gap-2 px-2.5 py-1 relative flex-[0_0_auto] bg-[#e1efe6] rounded-[60px] border border-solid border-[#088269]`}
                     >
                       <div className="relative w-fit mt-[-1.00px] font-1440-l1 font-[number:var(--1440-l1-font-weight)] text-[#088269] text-[length:var(--1440-l1-font-size)] tracking-[var(--1440-l1-letter-spacing)] leading-[var(--1440-l1-line-height)] [font-style:var(--1440-l1-font-style)]">
                         Новинка
+                      </div>
+                    </div>
+                    <div
+                      className={`${
+                        (category === "Реанимация") | (category === "Новинки")
+                          ? "hidden"
+                          : "inline-flex"
+                      } ${
+                        product.sale === true ? "inline-flex" : "hidden"
+                      }  items-center justify-center gap-2 px-2.5 py-1 relative flex-[0_0_auto] bg-[#e1efe6] rounded-[60px] border border-solid border-[#088269]`}
+                    >
+                      <div className="relative w-fit mt-[-1.00px] font-1440-l1 font-[number:var(--1440-l1-font-weight)] text-[#088269] text-[length:var(--1440-l1-font-size)] tracking-[var(--1440-l1-letter-spacing)] leading-[var(--1440-l1-line-height)] [font-style:var(--1440-l1-font-style)]">
+                        {product.salePrice}
                       </div>
                     </div>
                     <div className="inline-flex items-start gap-2.5 px-0 py-0.5 relative flex-[0_0_auto]">
