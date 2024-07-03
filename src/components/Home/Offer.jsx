@@ -1,5 +1,4 @@
 import { useMemo } from "react";
-import PropTypes from "prop-types";
 
 const Offer = ({ className = "", symbol, prop, symbolIconPadding }) => {
   const offerStyle = useMemo(() => {
@@ -29,12 +28,4 @@ const Offer = ({ className = "", symbol, prop, symbolIconPadding }) => {
   );
 };
 
-Offer.propTypes = {
-  className: PropTypes.string,
-  symbol: PropTypes.string,
-  prop: PropTypes.string,
-
-  /** Style props */
-  symbolIconPadding: PropTypes.any,
-};
 export default Offer;

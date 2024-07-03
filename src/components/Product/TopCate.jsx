@@ -5,7 +5,6 @@ import "slick-carousel/slick/slick-theme.css";
 import LeftArrow from "../../assets/17--arrow---right.svg";
 import { products } from "../../../public/data";
 import { Button } from "@mui/material";
-import PropTypes from "prop-types";
 
 export const TopCate = () => {
   const [currentSlide, setCurrentSlide] = useState(0);

@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../context/AuthContext";
 import Logo from "../../assets/logo.svg";
 import DownImage from "../../assets/13--down.svg";
@@ -25,10 +25,9 @@ import {
   FormControl,
   Button,
 } from "@mui/material";
-import PropTypes from "prop-types";
 import AuthModal from "../AuthModal";
 
-const Header1 = ({ className = "" }) => {
+const Header1 = () => {
   const [isHovered, setIsHovered] = useState(false);
   const [isCategoryOpen, setIsCategoryOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
@@ -37,13 +36,11 @@ const Header1 = ({ className = "" }) => {
   const navigate = useNavigate();
   const { isAuthenticated, email, logout } = useContext(AuthContext);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const savedImage = localStorage.getItem("profileImage");
 
   const handleOpenModal = () => setIsModalOpen(true);
   const handleCloseModal = () => setIsModalOpen(false);
 
-  const getUserInitial = (email) => {
-    return email ? email.charAt(0).toUpperCase() : "";
-  };
   const handleSearch = () => {
     const lowercasedTerm = searchTerm.toLowerCase();
     const filteredBrands = brands.filter((brand) =>
@@ -74,9 +71,22 @@ const Header1 = ({ className = "" }) => {
     setIsCategoryOpen(false);
     navigate(`/catalog/${category}`);
   };
+  const getUserInitial = (email) => {
+    if (savedImage) {
+      return (
+        <img
+          src={savedImage}
+          alt="Profile"
+          className="rounded-full w-[42px] h-[42px]"
+        />
+      );
+    } else {
+      return email ? email.charAt(0).toUpperCase() : "";
+    }
+  };
   return (
     <div
-      className={` bg-color flex flex-col items-start justify-start pt-2.5 px-0 pb-0 box-border gap-[24.5px] leading-[normal] tracking-[normal] text-left text-sm text-[#202020] font-t2 ${className}`}
+      className={` bg-color flex flex-col items-start justify-start pt-2.5 px-0 pb-0 box-border gap-[24.5px] leading-[normal] tracking-[normal] text-left text-sm text-[#202020] font-t2 `}
     >
       <div className="self-stretch flex flex-col items-start justify-start gap-[10px] max-w-full text-xs">
         <div className="w-[1440px] mx-auto self-stretch flex flex-row items-start justify-start py-0 px-[65px] box-border max-w-full mq800:pl-8 mq800:pr-8 mq800:box-border">
@@ -332,11 +342,14 @@ const Header1 = ({ className = "" }) => {
           <div className="w-[281px] flex flex-row items-center justify-start gap-[25px] text-xs">
             <div className="flex hover:text-[#202020_!important] text-[#7A7687_!important] cursor-pointer flex-col items-start justify-start gap-[4px]">
               {isAuthenticated ? (
-                <div className="h-[42px] w-[42px] text-[19px] relative overflow-hidden shrink-0 flex items-center justify-center rounded-full bg-[#E1EFE6] text-[#23473B]">
+                <NavLink
+                  to="/profile"
+                  className="h-[42px] w-[42px] text-[19px] relative overflow-hidden shrink-0 flex items-center justify-center rounded-full bg-[#E1EFE6] text-[#23473B]"
+                >
                   {getUserInitial(email)}
-                </div>
+                </NavLink>
               ) : (
-                <div className="w-[35px] flex flex-row items-start justify-start py-0 px-[5px] box-border">
+                <div className="w-[35px] flex flex-col items-center gap-y-1 justify-start py-0 px-[5px] box-border">
                   <img
                     className="h-6 w-6 relative overflow-hidden shrink-0"
                     loading="lazy"
@@ -493,10 +506,6 @@ const Header1 = ({ className = "" }) => {
       <AuthModal isOpen={isModalOpen} onRequestClose={handleCloseModal} />
     </div>
   );
-};
-
-Header1.propTypes = {
-  className: PropTypes.string,
 };
 
 export default Header1;

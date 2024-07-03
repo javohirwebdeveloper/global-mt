@@ -7,10 +7,10 @@ import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import "./Product.css";
 import Specifications from "../components/Product/Specifications";
-import Header1 from "../components/Home/Header";
 import { ProductsWrapper } from "../components/Home/ProductsWrapper";
 import { Comprehensive } from "../components/Home/Comprehensive";
 import { Brands } from "../components/Home/Brands";
+import Header1 from "../components/Home/Header";
 import TopCate from "../components/Product/TopCate";
 import { Subscription } from "../components/Home/Subscription";
 import { Footer } from "../components/Home/Footer";
@@ -21,7 +21,9 @@ const Product = () => {
   const product = products.find((p) => p.id == id);
 
   const carouselRef = useRef(null);
-
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   const renderIndicator = (clickHandler, isSelected, index, label) => {
     if (isSelected) {
       return (

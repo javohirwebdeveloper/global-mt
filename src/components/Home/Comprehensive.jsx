@@ -9,9 +9,8 @@ import RightArrow from "../../assets/17--arrow---right-1.svg";
 import Photo3 from "../../assets/photot.png";
 import { Button } from "@mui/material";
 import Comprehensive1 from "./Comprehensive1";
-import PropTypes from "prop-types";
 
-export const Comprehensive = ({ className = "" }) => {
+export const Comprehensive = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const sliderRef = useRef(null);
 
@@ -34,7 +33,7 @@ export const Comprehensive = ({ className = "" }) => {
   };
   return (
     <div
-      className={`mt-[150px] w-[1310px] mx-auto bg-color overflow-hidden flex flex-col items-start justify-start gap-[41.5px] leading-[normal] tracking-[normal] text-left text-11xl text-[#202020] font-t1 mq700:gap-[21px] ${className}`}
+      className={`mt-[150px] w-[1310px] mx-auto bg-color overflow-hidden flex flex-col items-start justify-start gap-[41.5px] leading-[normal] tracking-[normal] text-left text-11xl text-[#202020] font-t1 mq700:gap-[21px] `}
     >
       <h2 className="m-0 relative text-inherit leading-[120%] font-medium font-inherit inline-block max-w-full mq975:text-[24px] mq975:leading-[29px] mq450:text-[18px] mq450:leading-[22px]">
         Комплексное оснащение кабинетов
@@ -113,8 +112,4 @@ export const Comprehensive = ({ className = "" }) => {
       </div>
     </div>
   );
-};
-
-Comprehensive.propTypes = {
-  className: PropTypes.string,
 };

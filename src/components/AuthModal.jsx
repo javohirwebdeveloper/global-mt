@@ -3,7 +3,6 @@ import Modal from "react-modal";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { Button } from "@mui/material";
-import PropTypes from "prop-types";
 import CrossImg from "../assets/20--cross.svg";
 const customStyles = {
   overlay: {
@@ -158,6 +157,7 @@ const AuthModal = ({ isOpen, onRequestClose }) => {
               <input
                 className="m-0 h-5 w-5 relative rounded-[3px] box-border border-[1px] border-solid border-color5"
                 type="checkbox"
+                required
               />
               <div className="flex-1 relative text-xs font-medium font-t1 text-left inline-block min-w-[198px]">
                 <span className="text-[#7A7687]">
@@ -187,9 +187,6 @@ const AuthModal = ({ isOpen, onRequestClose }) => {
   );
 };
 
-AuthModal.propTypes = {
-  isOpen: PropTypes.bool.isRequired,
-  onRequestClose: PropTypes.func.isRequired,
-};
+
 
 export default AuthModal;

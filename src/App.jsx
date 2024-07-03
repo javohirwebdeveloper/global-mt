@@ -7,6 +7,8 @@ import Cart from "./pages/Cart";
 import Loading from "./components/Loading";
 import Product from "./pages/Product";
 import { AuthProvider } from "./context/AuthContext";
+import Profile from "./pages/Profile";
+import About from "./pages/About";
 const App = () => {
   const [loading, setLoading] = useState(true);
 
@@ -32,6 +34,8 @@ const App = () => {
             <Route path="/catalog" element={<Catalog />} />
             <Route path="/cart" element={<Cart />} />
             <Route path="/product/:id" element={<Product />} />
+            <Route path="/profile" element={<Profile />} />
+            <Route path="/about" element={<About />} />
           </Routes>
         </Router>
       </div>

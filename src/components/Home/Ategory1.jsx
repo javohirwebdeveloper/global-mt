@@ -1,5 +1,3 @@
-import PropTypes from "prop-types";
-
 const Ategory1 = ({ className = "", photo, prop }) => {
   return (
     <div
@@ -24,10 +22,4 @@ const Ategory1 = ({ className = "", photo, prop }) => {
   );
 };
 
-Ategory1.propTypes = {
-  className: PropTypes.string,
-  photo: PropTypes.string,
-  prop: PropTypes.string,
-};
-
-export default Ategory1
+export default Ategory1;

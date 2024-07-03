@@ -4,7 +4,6 @@ import markerIcon from "../../assets/marker.svg";
 import { TextField, Button, Snackbar } from "@mui/material";
 import { useFormik } from "formik";
 import * as Yup from "yup";
-import PropTypes from "prop-types";
 
 const validationSchema = Yup.object({
   name: Yup.string().required("Обязательно для заполнения"),
@@ -17,7 +16,7 @@ const validationSchema = Yup.object({
   question: Yup.string().required("Обязательно для заполнения"),
 });
 
-export const Form = ({ className = "" }) => {
+export const Form = () => {
   const [submitted, setSubmitted] = useState(false);
 
   const mapState = {

@@ -159,6 +159,7 @@ import ProductImg157 from "../src/assets/products/102.jpg";
 import ProductImg158 from "../src/assets/products/103.jpg";
 import ProductImg159 from "../src/assets/products/104.jpg";
 import ProductImg160 from "../src/assets/products/105.jpg";
+import sertificatesImg from "../src/assets/About/sertificates.png";
 export const categories = [
   "Реанимация",
   "Хирургия",
@@ -177,7 +178,17 @@ export const categories = [
   "Распродажи",
   "Кабинеты под ключ",
 ];
-
+export const sertificatesData = [
+  sertificatesImg,
+  sertificatesImg,
+  sertificatesImg,
+  sertificatesImg,
+  sertificatesImg,
+  sertificatesImg,
+  sertificatesImg,
+  sertificatesImg,
+  sertificatesImg,
+];
 export const products = [
   {
     name: "Product 1",

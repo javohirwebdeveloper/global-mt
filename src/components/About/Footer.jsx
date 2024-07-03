@@ -2,7 +2,7 @@ import React from "react";
 
 export const Footer = () => {
   return (
-    <footer className=" w-full h-[636px] left-0 bg-tx-u7vg">
+    <footer className="mt-[150px] w-full h-[636px] left-0 bg-tx-u7vg">
       <div
         className={`w-[1310px] bg-color1 overflow-hidden flex flex-col items-start justify-start pt-10 mx-auto pb-5 box-border gap-[60px] leading-[normal] tracking-[normal] text-left text-xs text-[#F8F7F3] font-t3 mq450:gap-[15px] mq800:gap-[30px] mq800:pl-8 mq800:pr-8 mq800:box-border `}
       >

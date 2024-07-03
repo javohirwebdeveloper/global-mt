@@ -12,12 +12,11 @@ import { NavLink } from "react-router-dom";
 import { Button } from "@mui/material";
 import Ategory from "./Ategory";
 import Ategory1 from "./Ategory1";
-import PropTypes from "prop-types";
 
-export const Categories = ({ className = "" }) => {
+export const Categories = () => {
   return (
     <div
-      className={`mt-[100px] max-w-[1310px] w-full mx-auto bg-color overflow-hidden flex flex-col items-start justify-start gap-[40px] leading-[normal] tracking-[normal] text-left text-11xl text-[#202020] font-t1 mq725:gap-[20px] ${className}`}
+      className={`mt-[100px] max-w-[1310px] w-full mx-auto bg-color overflow-hidden flex flex-col items-start justify-start gap-[40px] leading-[normal] tracking-[normal] text-left text-11xl text-[#202020] font-t1 mq725:gap-[20px]`}
     >
       <div className="self-stretch flex flex-row items-start justify-between gap-[20px] max-w-full mq725:flex-wrap">
         <h1 className="m-0 relative text-inherit leading-[120%] font-medium font-inherit inline-block max-w-full mq450:text-[18px] mq450:leading-[22px] mq1000:text-[24px] mq1000:leading-[29px]">
@@ -84,6 +83,4 @@ export const Categories = ({ className = "" }) => {
   );
 };
 
-Categories.propTypes = {
-  className: PropTypes.string,
-};
+

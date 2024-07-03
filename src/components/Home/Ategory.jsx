@@ -1,5 +1,4 @@
 import { useMemo } from "react";
-import PropTypes from "prop-types";
 
 const Ategory = ({ className = "", phtoto, prop, divPadding, divGap }) => {
   const ategoryStyle = useMemo(() => {
@@ -33,13 +32,4 @@ const Ategory = ({ className = "", phtoto, prop, divPadding, divGap }) => {
   );
 };
 
-Ategory.propTypes = {
-  className: PropTypes.string,
-  phtoto: PropTypes.string,
-  prop: PropTypes.string,
-
-  /** Style props */
-  divPadding: PropTypes.any,
-  divGap: PropTypes.any,
-};
-export default Ategory
+export default Ategory;

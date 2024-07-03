@@ -10,7 +10,6 @@ import Carousel3 from "../../assets/carousel/carousel3.png";
 import Carousel4 from "../../assets/carousel/carousel4.png";
 import { IoMdCheckmark } from "react-icons/io";
 import GroupImg from "../../assets/carousel/Group.svg";
-import PropTypes from "prop-types";
 import Slider from "react-slick";
 const Specifications = () => {
   const [openModal, setOpenModal] = useState(false);

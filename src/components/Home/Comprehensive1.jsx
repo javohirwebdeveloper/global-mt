@@ -1,5 +1,3 @@
-import PropTypes from "prop-types";
-
 const Comprehensive1 = ({ className = "", photo, prop }) => {
   return (
     <div
@@ -19,9 +17,4 @@ const Comprehensive1 = ({ className = "", photo, prop }) => {
   );
 };
 
-Comprehensive1.propTypes = {
-  className: PropTypes.string,
-  photo: PropTypes.string,
-  prop: PropTypes.string,
-};
-export default Comprehensive1
+export default Comprehensive1;

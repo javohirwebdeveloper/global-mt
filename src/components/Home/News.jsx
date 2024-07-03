@@ -8,14 +8,12 @@ import Rectangle3 from '../../assets/rectangle-3.png'
 import Rectangle4 from '../../assets/rectangle-4.png'
 import "slick-carousel/slick/slick-theme.css";
 import { Button } from "@mui/material";
-import PropTypes from "prop-types";
 
 export const News = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const sliderRef = useRef(null);
 
   const settings = {
-    dots: false,
     infinite: true,
     dots: false,
     speed: 1000,
@@ -178,6 +176,3 @@ export const News = () => {
   );
 };
 
-News.propTypes = {
-  className: PropTypes.string,
-};

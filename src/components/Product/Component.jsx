@@ -1,5 +1,3 @@
-import PropTypes from "prop-types";
-
 const Component = ({ className = "", serviceIcons, prop }) => {
   return (
     <div
@@ -19,12 +17,6 @@ const Component = ({ className = "", serviceIcons, prop }) => {
       </div>
     </div>
   );
-};
-
-Component.propTypes = {
-  className: PropTypes.string,
-  serviceIcons: PropTypes.string,
-  prop: PropTypes.string,
 };
 
 export default Component;

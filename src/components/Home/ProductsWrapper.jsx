@@ -7,12 +7,11 @@ import "slick-carousel/slick/slick-theme.css";
 import LikeImg from "../../assets/24--favourites.svg";
 import CravnitImg from "../../assets/comparison.svg";
 import { Button } from "@mui/material";
-import PropTypes from "prop-types";
 import { useSelector, useDispatch } from "react-redux";
 import { addToCart, addToCompare, addToFavorites } from "../../redux/actions";
 import { NavLink } from "react-router-dom";
 
-export const ProductsWrapper = ({ className = "" }) => {
+export const ProductsWrapper = () => {
   const [category, setCategory] = useState("Новинки");
 
   const cart = useSelector((state) => state.cart);
@@ -63,7 +62,7 @@ export const ProductsWrapper = ({ className = "" }) => {
 
   return (
     <div
-      className={` max-w-[1440px] mt-[150px] bg-color w-full mx-auto overflow-hidden flex items-start py-0 pr-0 pl-[65px] box-border gap-[88px] leading-[normal] tracking-[normal] text-left text-11xl text-[#202020] font-h3 mq450:gap-[22px] mq800:gap-[44px] mq1350:flex-wrap mq1350:pl-5 mq1350:pr-5 mq1350:pb-5 mq1350:box-border ${className}`}
+      className={` max-w-[1440px] mt-[150px] bg-color w-full mx-auto overflow-hidden flex items-start py-0 pr-0 pl-[65px] box-border gap-[88px] leading-[normal] tracking-[normal] text-left text-11xl text-[#202020] font-h3 mq450:gap-[22px] mq800:gap-[44px] mq1350:flex-wrap mq1350:pl-5 mq1350:pr-5 mq1350:pb-5 mq1350:box-border`}
     >
       <div className="flex flex-col w-[330px] items-start justify-start pt-0.5 px-0 pb-0">
         <div className="flex flex-col items-start justify-start gap-[40px]">
@@ -111,13 +110,16 @@ export const ProductsWrapper = ({ className = "" }) => {
             >
               <div className="relative w-80 h-[279px]">
                 <div className="relative h-[279px]">
-                  <div className="absolute w-80 bg-[white] h-[279px] top-0 left-0 bg-z-vq-cz-3 border border-solid border-[#e5e2ee]">
+                  <NavLink
+                    to={`/product/${product.id}`}
+                    className="absolute w-80 bg-[white] h-[279px] top-0 left-0 bg-z-vq-cz-3 border border-solid border-[#e5e2ee]"
+                  >
                     <img
                       className="absolute w-80 h-[181px] top-[62px] object-contain"
                       alt="Photo"
                       src={product.img}
                     />
-                  </div>
+                  </NavLink>
                   <div className="inline-flex justify-between w-[91%] items-center absolute top-[15px] left-[15px]">
                     <div
                       className={`${
@@ -259,6 +261,3 @@ export const ProductsWrapper = ({ className = "" }) => {
   );
 };
 
-ProductsWrapper.propTypes = {
-  className: PropTypes.string,
-};
