@@ -92,9 +92,12 @@ const Header1 = () => {
         <div className="w-[1440px] mx-auto self-stretch flex flex-row items-start justify-start py-0 px-[65px] box-border max-w-full mq800:pl-8 mq800:pr-8 mq800:box-border">
           <div className="flex-1 flex flex-row items-start justify-between max-w-full gap-[20px] mq800:flex-wrap">
             <div className="flex flex-row items-start justify-start gap-[20px] max-w-full mq450:flex-wrap">
-              <a className="[text-decoration:none] duration-200 cursor-pointer relative font-medium inline-block min-w-[68px]">
+              <NavLink
+                to={`/about`}
+                className="[text-decoration:none] duration-200 cursor-pointer relative font-medium inline-block min-w-[68px]"
+              >
                 О компании
-              </a>
+              </NavLink>
               <a className="[text-decoration:none] duration-200 cursor-pointer relative font-medium inline-block min-w-[55px]">
                 Доставка
               </a>
