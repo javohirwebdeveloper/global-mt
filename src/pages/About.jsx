@@ -1,12 +1,9 @@
 import React, { useState } from "react";
-import Header1 from "../components/Home/Header";
 import Rectangle from "../assets/About/Rectangle.png";
 import Rectangle2 from "../assets/About/Rectangle2.png";
 import Rectangle3 from "../assets/About/Rectangle3.png";
 import Rectangle4 from "../assets/About/Rectangle4.png";
 import Rectangle5 from "../assets/About/Rectangle5.png";
-import { Breadcrumbs, Modal, Typography } from "@mui/material";
-import { useParams, useLocation, Link } from "react-router-dom";
 import LeftArrow from "../assets/17--arrow---right.svg";
 import { Clients } from "../components/Home/Clients";
 import { Offers } from "../components/Home/Offers";
@@ -16,8 +13,6 @@ import { Form } from "../components/Home/Form";
 import { Footer } from "../components/About/Footer";
 
 const About = () => {
-  const location = useLocation();
-  const pathnames = location.pathname.split("/").filter((x) => x);
   const [selectedImage, setSelectedImage] = useState(1);
   const handleNext = () => {
     if (selectedImage < 3) {
@@ -31,34 +26,9 @@ const About = () => {
   };
   return (
     <>
-      <Header1 />
-
       <div
-        className={`max-w-[1440px] mx-auto w-full px-[65px] overflow-hidden flex flex-col items-start justify-start gap-[20px] leading-[normal] tracking-[normal] mq750:gap-[20px]`}
+        className={`max-w-[1440px] mx-auto w-full  md:px-[65px] sm:px-[20px] px-[15px]  overflow-hidden flex flex-col items-start justify-start gap-[20px] leading-[normal] tracking-[normal] mq750:gap-[20px]`}
       >
-        <Breadcrumbs aria-label="breadcrumb" sx={{ margin: "20px 0px" }}>
-          <Link to="/" className="text-decoration-none text-color-inherit">
-            Home
-          </Link>
-          {pathnames.map((value, index) => {
-            const last = index === pathnames.length - 1;
-            const to = `/${pathnames.slice(0, index + 1).join("/")}`;
-
-            return last ? (
-              <Typography color="textPrimary" key={to}>
-                {value}
-              </Typography>
-            ) : (
-              <Link
-                to={to}
-                key={to}
-                className="text-decoration-none text-color-inherit"
-              >
-                {value}
-              </Link>
-            );
-          })}
-        </Breadcrumbs>
         <img
           className="self-stretch relative rounded-[10px] max-w-full overflow-hidden max-h-full object-cover"
           alt=""
@@ -88,21 +58,22 @@ const About = () => {
             </div>
           </div>
         </section>
-
-        <div
-          className={`w-full mt-[150px] overflow-hidden flex flex-row items-start justify-between leading-[normal] tracking-[normal] gap-[20px] text-left text-11xl text-[#202020] font-t1 mq975:flex-wrap`}
-        >
-          <div className="w-[290px] flex flex-col items-start justify-start gap-[25px] min-w-[290px] mq975:flex-1">
-            <h2 className="m-0 relative text-inherit leading-[120%] font-medium font-inherit mq450:text-[18px] mq450:leading-[22px] mq950:text-[24px] mq950:leading-[29px]">
-              Цифры и факты
-            </h2>
-            <div className="self-stretch relative opacity-50 text-base leading-[140%] font-medium text-gray">
-              Мы работаем на результат и продаём только качественную продукцию
-            </div>
+      </div>
+      <div
+        className={`max-w-[1440px] md:mt-[171px] sm:mt-[120px] mt-[60px] md:px-[65px] sm:px-[20px] px-[15px] mx-auto w-full flex flex-row items-start justify-between leading-[normal] tracking-[normal] gap-[20px] text-left text-11xl text-[#202020] font-t1 mq975:flex-wrap `}
+      >
+        <div className="w-[290px] flex flex-col items-start justify-start gap-[25px] min-w-[290px] mq975:flex-1">
+          <h2 className="m-0 relative text-inherit leading-[120%] font-medium font-inherit mq450:text-[18px] mq450:leading-[22px] mq950:text-[24px] mq950:leading-[29px]">
+            Цифры и факты
+          </h2>
+          <div className="self-stretch relative text-base opacity-50 leading-[140%] font-medium text-gray">
+            Мы работаем на результат и продаём только качественную продукцию
           </div>
-          <div className="w-[650px] flex flex-col items-start justify-start gap-[20px] min-w-[650px] max-w-full text-29xl text-color1 mq700:min-w-full mq975:flex-1">
+        </div>
+        <div className="w-[650px] flex flex-col items-start justify-start pt-[21px] px-0 pb-0 box-border min-w-[650px] max-w-full text-29xl text-[#202020]1 mq700:min-w-full mq975:flex-1">
+          <div className="self-stretch flex flex-col items-start justify-start gap-[20px] max-w-full">
             <div className="w-[352px] flex flex-row items-start justify-between py-0 pr-5 pl-0 box-border max-w-full gap-[20px]">
-              <div className="relative leading-[53px] font-medium inline-block min-w-[115px] mq450:text-10xl mq450:leading-[32px] mq950:text-19xl mq950:leading-[42px]">
+              <div className="relative text-[#088269] leading-[53px] font-medium inline-block min-w-[115px] mq450:text-10xl mq450:leading-[32px] mq950:text-19xl mq950:leading-[42px]">
                 7 лет
               </div>
               <div className="flex flex-col items-start justify-start pt-[15px] px-0 pb-0 text-base text-[#202020]">
@@ -111,9 +82,9 @@ const About = () => {
                 </div>
               </div>
             </div>
-            <div className="self-stretch h-px relative bg-[#D5D1E1]" />
+            <div className="self-stretch h-px relative bg-color2" />
             <div className="w-[591px] flex flex-row items-start justify-between py-0 pr-5 pl-0 box-border gap-[20px] max-w-full mq450:flex-wrap">
-              <div className="relative leading-[53px] font-medium inline-block min-w-[116px] mq450:text-10xl mq450:leading-[32px] mq950:text-19xl mq950:leading-[42px]">
+              <div className="relative text-[#088269] leading-[53px] font-medium inline-block min-w-[116px] mq450:text-10xl mq450:leading-[32px] mq950:text-19xl mq950:leading-[42px]">
                 964+
               </div>
               <div className="flex flex-col items-start justify-start pt-[15px] px-0 pb-0 text-base text-[#202020]">
@@ -122,9 +93,9 @@ const About = () => {
                 </div>
               </div>
             </div>
-            <div className="self-stretch h-px relative bg-[#D5D1E1]" />
+            <div className="self-stretch h-px relative bg-color2" />
             <div className="w-[596px] flex flex-row items-start justify-between py-0 pr-5 pl-0 box-border gap-[20px] max-w-full mq450:flex-wrap">
-              <div className="relative leading-[53px] font-medium inline-block min-w-[83px] mq450:text-10xl mq450:leading-[32px] mq950:text-19xl mq950:leading-[42px]">
+              <div className="relative text-[#088269] leading-[53px] font-medium inline-block min-w-[83px] mq450:text-10xl mq450:leading-[32px] mq950:text-19xl mq950:leading-[42px]">
                 23+
               </div>
               <div className="flex flex-col items-start justify-start pt-[15px] px-0 pb-0 text-base text-[#202020]">
@@ -133,9 +104,9 @@ const About = () => {
                 </div>
               </div>
             </div>
-            <div className="self-stretch h-px relative bg-[#D5D1E1]" />
+            <div className="self-stretch h-px relative bg-color2" />
             <div className="w-[482px] flex flex-row items-start justify-between py-0 pr-5 pl-0 box-border gap-[20px] max-w-full mq450:flex-wrap">
-              <div className="relative leading-[53px] font-medium mq450:text-10xl mq450:leading-[32px] mq950:text-19xl mq950:leading-[42px]">
+              <div className="relative text-[#088269] leading-[53px] font-medium mq450:text-10xl mq450:leading-[32px] mq950:text-19xl mq950:leading-[42px]">
                 2452+
               </div>
               <div className="flex flex-col items-start justify-start pt-[15px] px-0 pb-0 text-base text-[#202020]">
@@ -147,11 +118,10 @@ const About = () => {
           </div>
         </div>
       </div>
-
       <div
         className={`w-full mt-[150px] flex flex-row items-start justify-start leading-[normal] tracking-[normal]`}
       >
-        <section className="flex-1 bg-color1 flex flex-row items-start justify-start py-20 px-[65px] box-border gap-[60px] max-w-full text-left text-11xl text-color font-t1 lg:flex-wrap lg:gap-[30px] lg:pl-8 lg:pr-8 lg:box-border mq750:gap-[15px] mq450:pt-[52px] mq450:pb-[52px] mq450:box-border">
+        <section className="flex-1 bg-color1 flex flex-row items-start justify-start py-20  md:px-[65px] sm:px-[20px] px-[15px]  box-border gap-[60px] max-w-full text-left text-11xl text-color font-t1 lg:flex-wrap lg:gap-[30px] lg:pl-8 lg:pr-8 lg:box-border mq750:gap-[15px] mq450:pt-[52px] mq450:pb-[52px] mq450:box-border">
           <div className="h-[505px] w-[1440px] relative bg-color1 hidden max-w-full" />
           <img
             className="w-[600px] relative rounded-[10px] max-h-full object-cover max-w-full z-[1] lg:flex-1"
@@ -179,7 +149,7 @@ const About = () => {
         </section>
       </div>
 
-      <div className="max-w-[1440px] mt-[150px] w-full px-[65px] mx-auto">
+      <div className="max-w-[1440px] mt-[150px] w-full  md:px-[65px] sm:px-[20px] px-[15px]  mx-auto">
         <div
           className={`w-full overflow-hidden flex flex-row items-start justify-start gap-[120px] leading-[normal] tracking-[normal] text-left text-11xl text-[#202020] font-l2 mq450:gap-[30px] mq725:gap-[60px] mq1050:flex-wrap `}
         >

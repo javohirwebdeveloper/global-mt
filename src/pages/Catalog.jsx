@@ -1,11 +1,8 @@
 import React, { useState } from "react";
 import { products } from "../../public/data";
 import { FaChevronRight } from "react-icons/fa6";
-import { useParams, useLocation, Link } from "react-router-dom";
-import { Button, Breadcrumbs, Typography } from "@mui/material";
 import { categories } from "../../public/data";
-import Header1 from "../components/Home/Header";
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import { Comprehensive } from "../components/Home/Comprehensive";
 import { ProductsWrapper } from "../components/Home/ProductsWrapper";
 import { Clients } from "../components/Home/Clients";
@@ -29,35 +26,12 @@ const Catalog = () => {
   const product8 = products.find((p) => p.id === 158);
   const product9 = products.find((p) => p.id === 159);
   const product10 = products.find((p) => p.id === 160);
+  const navigate = useNavigate();
 
   return (
     <div className="bg-color">
-      <Header1 />
       <article className="bg-color pt-[20px]">
-        <div className="max-w-[1440px] w-full mx-auto px-[65px]">
-          <Breadcrumbs aria-label="breadcrumb" sx={{ margin: "20px 0px" }}>
-            <Link to="/" className="text-decoration-none text-color-inherit">
-              Home
-            </Link>
-            {pathnames.map((value, index) => {
-              const last = index === pathnames.length - 1;
-              const to = `/${pathnames.slice(0, index + 1).join("/")}`;
-
-              return last ? (
-                <Typography color="textPrimary" key={to}>
-                  {value}
-                </Typography>
-              ) : (
-                <Link
-                  to={to}
-                  key={to}
-                  className="text-decoration-none text-color-inherit"
-                >
-                  {value}
-                </Link>
-              );
-            })}
-          </Breadcrumbs>
+        <div className="max-w-[1440px] w-full mx-auto  md:px-[65px] sm:px-[20px] px-[15px] ">
           <div className="mt-[19px]  relative flex space-x-[10px] flex-row items-start justify-start leading-[normal] tracking-[normal]">
             <main className="flex-1 rounded-3xs flex flex-col items-start justify-start pt-[13px] pb-[15px] pr-[13px] pl-[19px] gap-[12px] text-left text-sm text-[#202020] font-l2 border-[1px] border-solid border-[#E5E2EE]">
               <div className="w-80 h-[595px] relative rounded-3xs box-border hidden border-[1px] border-solid border-[#E5E2EE]" />
@@ -70,20 +44,23 @@ const Catalog = () => {
                 <div className="h-px flex-1 relative bg-[#E5E2EE] z-[1]" />
               </div>
               <section className="self-stretch flex flex-col items-start justify-start pt-0 px-0 pb-[5px] gap-[12px] text-left text-sm text-[#202020] font-l2">
-                {categories.map((category, index) => (
-                  <NavLink
-                    to={`/catalog/${category}`}
-                    key={index}
-                    className={` hover:text-[#088269] cursor-pointer duration-200 self-stretch flex flex-row items-start justify-between gap-[20px] z-[1]`}
-                  >
-                    <div className={`relative inline-block min-w-[83px]`}>
-                      {category}
+                {categories.map((category, index) => {
+                  const encodedCategory = encodeURIComponent(category);
+                  return (
+                    <div
+                      onClick={() => navigate(`/Каталог/${encodedCategory}`)}
+                      key={index}
+                      className={` hover:text-[#088269] cursor-pointer duration-200 self-stretch flex flex-row items-start justify-between gap-[20px] z-[1]`}
+                    >
+                      <div className={`relative inline-block min-w-[83px]`}>
+                        {category}
+                      </div>
+                      <p className={`text-[13px] duration-200`}>
+                        <FaChevronRight />
+                      </p>
                     </div>
-                    <p className={`text-[13px] duration-200`}>
-                      <FaChevronRight />
-                    </p>
-                  </NavLink>
-                ))}
+                  );
+                })}
               </section>
             </main>
             <section className="h-[1246px] max-w-[981px] w-full grid grid-cols-3 grid-rows-4 gap-[10px]">

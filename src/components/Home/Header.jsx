@@ -1,31 +1,24 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useState } from "react";
 import { AuthContext } from "../../context/AuthContext";
+import { NavLink, useNavigate } from "react-router-dom";
+import { categories, products, brands } from "../../../public/data";
+import { TextField, InputAdornment, IconButton, Button } from "@mui/material";
+import AuthModal from "../AuthModal";
+
 import Logo from "../../assets/logo.svg";
+import PhoneImg from "../../assets/phone.svg";
+import BurgerImg1 from "../../assets/burger.svg";
 import DownImage from "../../assets/13--down.svg";
 import BurgerImg from "../../assets/17--burger.svg";
+import CallImg from "../../assets/Call.svg";
 import SearchImg from "../../assets/24--search.svg";
 import SearchImg1 from "../../assets/24--search1.svg";
-import { categories, products, brands } from "../../../public/data";
-import { NavLink, useNavigate } from "react-router-dom";
 import BasketImg from "../../assets/24--basket.svg";
 import LocationImg from "../../assets/13--location.svg";
 import LikeImg from "../../assets/24--favourites.svg";
 import LoginImg from "../../assets/24--login.svg";
 import CravnitImg from "../../assets/comparison.svg";
-
-import {
-  TextField,
-  InputAdornment,
-  Icon,
-  IconButton,
-  Select,
-  InputLabel,
-  MenuItem,
-  FormHelperText,
-  FormControl,
-  Button,
-} from "@mui/material";
-import AuthModal from "../AuthModal";
+import LocationImg1 from "../../assets/location.svg";
 
 const Header1 = () => {
   const [isHovered, setIsHovered] = useState(false);
@@ -69,8 +62,9 @@ const Header1 = () => {
 
   const handleCategoryClick = (category) => {
     setIsCategoryOpen(false);
-    navigate(`/catalog/${category}`);
+    navigate(`/Каталог/${category}`);
   };
+
   const getUserInitial = (email) => {
     if (savedImage) {
       return (
@@ -84,26 +78,31 @@ const Header1 = () => {
       return email ? email.charAt(0).toUpperCase() : "";
     }
   };
+
   return (
-    <div
-      className={` bg-color flex flex-col items-start justify-start pt-2.5 px-0 pb-0 box-border gap-[24.5px] leading-[normal] tracking-[normal] text-left text-sm text-[#202020] font-t2 `}
-    >
+    <div className="w-full mx-auto bg-color flex flex-col items-start justify-start pt-2.5 pb-0 box-border xl:gap-[24.5px] gap-[10px] leading-[normal] tracking-[normal] text-left text-sm text-[#202020] font-t2">
       <div className="self-stretch flex flex-col items-start justify-start gap-[10px] max-w-full text-xs">
-        <div className="w-[1440px] mx-auto self-stretch flex flex-row items-start justify-start py-0 px-[65px] box-border max-w-full mq800:pl-8 mq800:pr-8 mq800:box-border">
-          <div className="flex-1 flex flex-row items-start justify-between max-w-full gap-[20px] mq800:flex-wrap">
+        <div className="w-full self-stretch mq805:hidden flex flex-row items-start justify-start py-0 box-border max-w-full ">
+          <div className="flex-1 max-w-[1440px] md:px-[65px] sm:px-[20px] px-[15px] mx-auto w-full flex flex-row items-start justify-between gap-[20px]">
             <div className="flex flex-row items-start justify-start gap-[20px] max-w-full mq450:flex-wrap">
               <NavLink
-                to={`/about`}
+                to={`/О компании`}
                 className="[text-decoration:none] duration-200 cursor-pointer relative font-medium inline-block min-w-[68px]"
               >
                 О компании
               </NavLink>
-              <a className="[text-decoration:none] duration-200 cursor-pointer relative font-medium inline-block min-w-[55px]">
+              <NavLink
+                to={`/Доставка`}
+                className="[text-decoration:none] duration-200 cursor-pointer relative font-medium inline-block min-w-[55px]"
+              >
                 Доставка
-              </a>
-              <a className="[text-decoration:none] duration-200 cursor-pointer relative font-medium inline-block min-w-[43px]">
+              </NavLink>
+              <NavLink
+                to={`/Оплата`}
+                className="[text-decoration:none] duration-200 cursor-pointer relative font-medium inline-block min-w-[43px]"
+              >
                 Оплата
-              </a>
+              </NavLink>
               <a className="[text-decoration:none] duration-200 cursor-pointer relative font-medium inline-block min-w-[54px]">
                 Гарантии
               </a>
@@ -121,29 +120,33 @@ const Header1 = () => {
             </div>
           </div>
         </div>
+        <div className="hidden mq805:flex md:px-[65px] sm:px-[20px] px-[15px] mx-auto  justify-between w-full max-w-full">
+          <img src={Logo} className="w-[74px]" alt="" />
+          <div className="flex gap-[20px]">
+            <img src={PhoneImg} className="w-[24px]" alt="" />
+            <img src={BurgerImg1} className="w-[24px]" alt="" />
+          </div>
+        </div>
         <div className="self-stretch h-px relative bg-[#E5E2EE]" />
       </div>
-      <div className="w-[1440px] mx-auto self-stretch flex flex-row items-start justify-start py-0 px-[65px] box-border max-w-full mq800:pl-8 mq800:pr-8 mq800:box-border">
-        <div className="flex-1 flex flex-row items-start justify-between max-w-full gap-[20px] mq1350:flex-wrap">
-          <div className="w-[915px] flex flex-col items-start justify-start pt-px px-0 pb-0 box-border max-w-full">
+
+      <div className="max-w-[1440px] w-full mx-auto self-stretch flex flex-row items-start justify-start py-0 box-border ">
+        <div className="flex-1 max-w-[1440px] md:px-[65px] sm:px-[20px] px-[15px] mx-auto flex flex-row xl:items-start items-center justify-between gap-[20px]">
+          <div className="xl:w-[915px] flex flex-col items-start justify-start pt-px px-0 pb-0 box-border max-w-full">
             <div className="self-stretch flex flex-row items-start justify-start gap-[35px] max-w-full mq450:gap-[17px] mq1150:flex-wrap">
-              <div className="flex-1 flex flex-row items-start justify-start gap-[50px] max-w-full mq800:flex-wrap mq800:gap-[25px] mq800:min-w-full">
-                <NavLink to={`/`}>
+              <div className="flex-1  flex flex-row items-start justify-start xl:gap-[50px] gap-[31px] max-w-full">
+                <NavLink to={`/`} className={`mq805:hidden`}>
                   <img
-                    className="self-stretch w-24 relative max-h-full overflow-hidden shrink-0 min-h-[41px]"
+                    className="self-stretch xl:w-24 w-[73px] relative overflow-hidden shrink-0 min-h-[41px]"
                     loading="lazy"
                     alt=""
                     src={Logo}
                   />
                 </NavLink>
-                <div className="flex-1 border-2 bg-[#D5D1E1] h-[42px] rounded-[50px] flex flex-row items-center justify-start p-px box-border relative min-w-[399px] max-w-full mq800:flex-wrap mq800:min-w-full">
-                  <div
-                    onMouseEnter={() => setIsCategoryOpen(true)}
-                    onMouseLeave={() => setIsCategoryOpen(false)}
-                    className="w-[146px] h-[39px] bg-[#EFEFEF] rounded-[50px] flex flex-row items-start justify-start relative"
-                  >
+                <div className="flex-1 border-2 bg-[#D5D1E1] h-[32px] xl:h-[42px] rounded-[50px] flex flex-row items-center justify-start p-px box-border relative xl:max-w-[614px] mq1280:max-w-[403px] mq805:max-w-[345px] mq490:max-w-full mq490:w-full">
+                  <div className="mq1280:w-[146px]  mq805:w-[117px] h-[30px] xl:h-[39px] bg-[#EFEFEF] rounded-[50px] flex flex-row items-start justify-start relative">
                     <div
-                      className={` absolute duration-300  overflow-hidden top-full left-0 z-20 w-[345px] bg-white  border-gray-300 rounded-[5px] shadow-lg ${
+                      className={`absolute duration-300 overflow-hidden top-full left-0 z-20 w-[345px] bg-white border-gray-300 rounded-[5px] shadow-lg ${
                         isCategoryOpen ? "h-[490px]" : "h-0"
                       }`}
                     >
@@ -158,7 +161,7 @@ const Header1 = () => {
                           </li>
                         ))}
                       </ul>
-                    </div>{" "}
+                    </div>
                     <button
                       onClick={() => {
                         setIsSearchOpen(false);
@@ -168,19 +171,18 @@ const Header1 = () => {
                           setIsCategoryOpen(true);
                         }
                       }}
-                      className={`categroies all-[unset] duration-200 cursor-pointer box-border flex-col items-center justify-center gap-2 px-[15px] h-[39px] ${
+                      className={`categroies all-[unset] duration-200 cursor-pointer box-border flex-col items-center justify-center gap-2 mq700:px-[10px] px-[15px] h-[30px] xl:h-[39px] ${
                         isCategoryOpen ? "bg-[#088269]" : "bg-[#efefef]"
-                      }  inline-flex rounded-[50px] w-[146px]`}
+                      } inline-flex rounded-[50px] mq805:w-[117px] mq1280:w-[146px]`}
                     >
                       <div className="inline-flex items-center gap-[3px] relative flex-[0_0_auto]">
                         <div
-                          className={` ${
+                          className={`${
                             isCategoryOpen ? "text-white" : "text-ML-tw-1j"
-                          } relative text-nowrap w-fit font-1440-l1 font-[number:var(--1440-l1-font-weight)] text-[length:var(--1440-l1-font-size)] tracking-[var(--1440-l1-letter-spacing)] leading-[var(--1440-l1-line-height)] [font-style:var(--1440-l1-font-style)]`}
+                          } relative text-nowrap mq805:text-[12px] w-fit font-1440-l1 font-[number:var(--1440-l1-font-weight)] text-[length:var(--1440-l1-font-size)] tracking-[var(--1440-l1-letter-spacing)] leading-[var(--1440-l1-line-height)] [font-style:var(--1440-l1-font-style)]`}
                         >
                           Все категории
                         </div>
-
                         <img
                           className="relative w-[13px] h-[13px]"
                           alt="Element down"
@@ -198,7 +200,7 @@ const Header1 = () => {
                         isSearchOpen && searchTerm
                           ? ""
                           : "-translate-y-[120%] opacity-0"
-                      } absolute z-50 h-[403px] overflow-y-auto  bg-white top-10 duration-200 flex flex-col w-[345px] items-start gap-2.5 p-[15px] bg-o-hk-1mn rounded-[5px] border border-solid border-[#e5e2ee] custom-scrollbar`}
+                      } absolute z-50 h-[403px] overflow-y-auto bg-white top-10 duration-200 flex flex-col w-[345px] items-start gap-2.5 p-[15px] bg-o-hk-1mn rounded-[5px] border border-solid border-[#e5e2ee] custom-scrollbar`}
                     >
                       {searchResults.brands?.length === 0 &&
                         searchResults.categories?.length === 0 &&
@@ -311,12 +313,12 @@ const Header1 = () => {
                         }
                       }}
                       onKeyPress={handleKeyPress}
-                      className="w-full h-[39px] placeholder:text-[#7A7687] pl-[30px] rounded-r-[50px] -ml-[15px] bg-white outline-none"
+                      className="w-full h-[30px] xl:h-[39px] placeholder:text-[#7A7687] pl-[30px] rounded-r-[50px] -ml-[15px] bg-white outline-none"
                     />
                   </div>
                   <div className="flex items-center justify-center w-[68px] -ml-[18px]">
                     <img
-                      className="w-6 h-6 cursor-pointer relative overflow-hidden shrink-0 "
+                      className="xl:w-6 xl:h-6 h-[17px] w-[17px] cursor-pointer relative overflow-hidden shrink-0 "
                       loading="lazy"
                       onMouseEnter={() => setIsHovered(true)}
                       onMouseLeave={() => setIsHovered(false)}
@@ -334,34 +336,34 @@ const Header1 = () => {
                   </div>
                 </div>
               </div>
-              <div className="flex duration-200 cursor-pointer flex-col items-start justify-start pt-[5px] px-0 pb-0 text-xs">
+              <div className="xl:flex duration-200 cursor-pointer flex-col hidden items-start justify-start pt-[5px] px-0 pb-0 text-xs">
                 <div className="relative font-medium">
-                  <p className="m-0">{`Пн-Пт с 09:00-19:00 `}</p>
+                  <p className="m-0">Пн-Пт с 09:00-19:00</p>
                   <p className="m-0">Сб-Вс - выходной</p>
                 </div>
               </div>
             </div>
           </div>
-          <div className="w-[281px] flex flex-row items-center justify-start gap-[25px] text-xs">
-            <div className="flex hover:text-[#202020_!important] text-[#7A7687_!important] cursor-pointer flex-col items-start justify-start gap-[4px]">
+          <div className="xl:w-[281px] w-[145px] mq790:hidden flex flex-row items-center justify-between text-xs">
+            <div className="flex hover:text-[#202020_!important] text-[#7A7687_!important] cursor-pointer flex-col items-start justify-start xl:gap-[4px]">
               {isAuthenticated ? (
                 <NavLink
-                  to="/profile"
-                  className="h-[42px] w-[42px] text-[19px] relative overflow-hidden shrink-0 flex items-center justify-center rounded-full bg-[#E1EFE6] text-[#23473B]"
+                  to="/Личный кабинет"
+                  className="xl:h-[42px] xl:w-[42px] w-[20px] h-[20px] text-[19px] relative overflow-hidden shrink-0 flex items-center justify-center rounded-full bg-[#E1EFE6] text-[#23473B]"
                 >
                   {getUserInitial(email)}
                 </NavLink>
               ) : (
-                <div className="w-[35px] flex flex-col items-center gap-y-1 justify-start py-0 px-[5px] box-border">
+                <div className="xl:w-[35px] w-[20px] flex flex-col items-center gap-y-1 justify-start py-0 xl:px-[5px] box-border">
                   <img
-                    className="h-6 w-6 relative overflow-hidden shrink-0"
+                    className="xl:h-6 xl:w-6 h-[20px] w-[20px] relative overflow-hidden shrink-0"
                     loading="lazy"
                     alt=""
                     onClick={handleOpenModal}
                     src={LoginImg}
                   />
                   <div
-                    className="relative font-medium inline-block duration-200 cursor-pointer min-w-[35px]"
+                    className="relative font-medium hidden xl:inline-block duration-200 cursor-pointer min-w-[35px]"
                     onClick={handleOpenModal}
                   >
                     {isAuthenticated ? "" : "Войти"}
@@ -369,56 +371,56 @@ const Header1 = () => {
                 </div>
               )}
             </div>
-            <div className="flex-1 hover:text-[#202020_!important] text-[#7A7687_!important] cursor-pointer flex flex-col items-start justify-start gap-[4px]">
-              <div className="flex flex-row items-start justify-start py-0 px-5">
+            <div className="xl:w-[65px] w-[20px] hover:text-[#202020_!important] text-[#7A7687_!important] cursor-pointer flex flex-col items-start justify-start gap-[4px]">
+              <div className="flex flex-row items-start justify-start py-0 xl:px-5">
                 <img
-                  className="h-6 w-6 relative overflow-hidden shrink-0"
+                  className="xl:h-6 xl:w-6 h-[20px] w-[20px] relative"
                   loading="lazy"
                   alt=""
                   src={LikeImg}
                 />
               </div>
-              <div className="relative font-medium inline-block duration-200 cursor-pointer min-w-[65px]">
+              <div className="relative font-medium hidden xl:inline-block duration-200 cursor-pointer min-w-[65px]">
                 Избранное
               </div>
             </div>
-            <div className="flex-1 hover:text-[#202020_!important] text-[#7A7687_!important] cursor-pointer flex flex-col items-start justify-start gap-[4px]">
-              <div className="flex flex-row items-start justify-start py-0 px-4">
+            <div className="xl:w-[57px] w-[20px] hover:text-[#202020_!important] text-[#7A7687_!important] cursor-pointer flex flex-col items-start justify-start gap-[4px]">
+              <div className="flex flex-row items-start justify-start py-0 xl:px-4">
                 <img
-                  className="h-6 w-6 relative overflow-hidden shrink-0"
+                  className="xl:h-6 xl:w-6 h-[20px] w-[20px] relative overflow-hidden shrink-0"
                   loading="lazy"
                   alt=""
                   src={CravnitImg}
                 />
               </div>
-              <div className="relative font-medium inline-block duration-200 cursor-pointer min-w-[57px]">
+              <div className="relative font-medium hidden xl:inline-block duration-200 cursor-pointer min-w-[57px]">
                 Сравнить
               </div>
             </div>
-            <div className="w-[49px] hover:text-[#202020_!important] text-[#7A7687_!important] cursor-pointer flex flex-col items-start justify-start gap-[4px]">
-              <div className="self-stretch flex flex-row items-start justify-start py-0 px-3">
+            <div className="xl:w-[57px] w-[20px] hover:text-[#202020_!important] text-[#7A7687_!important] cursor-pointer flex flex-col items-start justify-start gap-[4px]">
+              <div className="self-stretch flex flex-row items-start justify-start py-0 xl:px-3">
                 <img
-                  className="h-6 w-6 relative overflow-hidden shrink-0"
+                  className="xl:h-6 xl:w-6 h-[20px] w-[20px] relative overflow-hidden shrink-0"
                   loading="lazy"
                   alt=""
                   src={BasketImg}
                 />
               </div>
-              <div className="relative font-medium inline-block duration-200 cursor-pointer min-w-[49px]">
+              <div className="relative font-medium hidden xl:inline-block duration-200 cursor-pointer">
                 Корзина
               </div>
             </div>
           </div>
         </div>
       </div>
-      <div className="self-stretch flex flex-col items-start justify-start gap-[10px] max-w-full text-gray">
-        <div className="self-stretch h-px relative bg-[#E5E2EE]" />
-        <div className="w-[1440px] mx-auto self-stretch flex flex-row items-start justify-start py-0 px-[65px] box-border max-w-full mq800:pl-8 mq800:pr-8 mq800:box-border">
-          <div className="flex-1 flex flex-row items-start justify-between max-w-full gap-[20px] mq1350:flex-wrap">
-            <div className="w-[719px] flex flex-col items-start justify-start pt-[11px] px-0 pb-0 box-border max-w-full">
-              <div className="self-stretch flex flex-row items-start justify-start gap-[25px] mq800:flex-wrap">
+      <div className="self-stretch  flex flex-col items-start justify-start gap-[10px] text-gray">
+        <div className="self-stretch mq805:hidden h-px relative bg-[#E5E2EE]" />
+        <div className="max-w-[1440px] mq805:hidden md:px-[65px] sm:px-[20px] px-[15px] mx-auto w-full self-stretch flex flex-row items-center xl:items-start justify-start py-0 box-border">
+          <div className="flex-1 flex flex-row items-center xl:items-start justify-between gap-[20px]">
+            <div className="max-w-[719px] w-full flex flex-col items-start justify-center xl:justify-start xl:pt-[11px] px-0 pb-0 box-border">
+              <div className="self-stretch flex flex-row items-start justify-start xl:gap-[25px] gap-[15px]">
                 <NavLink
-                  to="/catalog"
+                  to="/Каталог"
                   className="flex flex-row items-start justify-start gap-[5px]"
                 >
                   <div className="flex flex-col items-start justify-start pt-px px-0 pb-0">
@@ -429,31 +431,57 @@ const Header1 = () => {
                       src={BurgerImg}
                     />
                   </div>
-                  <div className="relative hover:text-[#088269_!important] cursor-pointer duration-200 font-semibold inline-block min-w-[56px]">
+                  <div className="relative hover:text-[#088269_!important] mq1280:text-[12px] cursor-pointer duration-200 font-semibold inline-block min-w-[56px]">
                     Каталог
                   </div>
                 </NavLink>
-                <div className="relative hover:text-[#088269_!important] cursor-pointer duration-200 font-semibold inline-block min-w-[109px]">
+                <div className="relative hover:text-[#088269_!important] mq1280:text-[12px] cursor-pointer duration-200 font-semibold inline-block min-w-[109px]">
                   Производители
                 </div>
-                <div className="relative font-semibold hover:text-[#088269_!important] cursor-pointer duration-200">
+                <div className="relative text-nowrap font-semibold mq1280:text-[12px] hover:text-[#088269_!important] cursor-pointer duration-200">
                   Кабинеты под ключ
                 </div>
-                <a className="[text-decoration:none] hover:text-[#088269_!important] cursor-pointer duration-200 relative font-semibold text-[inherit] inline-block min-w-[47px]">
+                <NavLink
+                  to="/Услуги"
+                  className="[text-decoration:none] mq1280:text-[12px] hover:text-[#088269_!important] cursor-pointer duration-200 relative font-semibold text-[inherit] inline-block min-w-[47px]"
+                >
                   Услуги
-                </a>
-                <a className="[text-decoration:none] hover:text-[#088269_!important] cursor-pointer duration-200 relative font-semibold text-[inherit] inline-block min-w-[43px]">
+                </NavLink>
+                <a className="[text-decoration:none] mq1280:text-[12px] hover:text-[#088269_!important] cursor-pointer duration-200 relative font-semibold text-[inherit] inline-block min-w-[43px]">
                   Акции
                 </a>
-                <div className="relative font-semibold hover:text-[#088269_!important] cursor-pointer duration-200 inline-block min-w-[92px]">
+                <div className="relative font-semibold mq1280:text-[12px] hover:text-[#088269_!important] cursor-pointer duration-200 inline-block min-w-[92px]">
                   Покупателям
                 </div>
-                <a className="[text-decoration:none] hover:text-[#088269_!important] cursor-pointer duration-200 relative font-semibold text-[inherit] inline-block min-w-[66px]">
+                <a className="[text-decoration:none] mq1280:text-[12px] hover:text-[#088269_!important] cursor-pointer duration-200 relative font-semibold text-[inherit] inline-block min-w-[66px]">
                   Контакты
                 </a>
               </div>
             </div>
-            <div className="w-[437px] flex flex-row items-start justify-start gap-[10px] max-w-full mq450:flex-wrap">
+            <div
+              className={`w-full xl:hidden flex flex-row items-center justify-start gap-[3px] leading-[normal] tracking-[normal] text-left text-[12px] text-[#202020] font-manrope`}
+            >
+              <div className="flex flex-col items-start justify-center px-0 pb-0">
+                <div className="relative leading-[17px] font-semibold inline-block min-w-[45px]">
+                  Москва
+                </div>
+              </div>
+              <div className="flex flex-col items-start justify-start pb-0 pr-[7px] pl-0">
+                <img
+                  className="w-[13px] h-[13px]"
+                  loading="lazy"
+                  alt=""
+                  src={LocationImg}
+                />
+              </div>
+              <img
+                className="h-8 w-8 relative"
+                loading="lazy"
+                alt=""
+                src={CallImg}
+              />
+            </div>
+            <div className="w-[437px] hidden xl:flex flex-row items-start justify-start gap-[10px] max-w-full mq450:flex-wrap">
               <div className="flex flex-col items-start justify-start pt-[11px] pb-0 pr-[7px] pl-0">
                 <div className="flex flex-row items-start justify-start gap-[3px]">
                   <div className="relative font-semibold hover:text-[#088269_!important] cursor-pointer duration-200 inline-block min-w-[52px]">
@@ -464,7 +492,7 @@ const Header1 = () => {
                       className="w-[13px] h-[13px] relative overflow-hidden shrink-0"
                       loading="lazy"
                       alt=""
-                      src={LocationImg}
+                      src={LocationImg1}
                     />
                   </div>
                 </div>
@@ -486,7 +514,7 @@ const Header1 = () => {
                 +7(495)000-00-00
               </Button>
               <Button
-                className="h-[41px] flex-[0.8636] min-w-[113px] mq450:flex-1"
+                className="h-[41px] xl:flex-[0.8636] hidden min-w-[113px] mq450:flex-1"
                 disableElevation
                 variant="contained"
                 sx={{

@@ -1,7 +1,7 @@
 import React, { useRef, useEffect } from "react";
-import { useParams, useLocation, Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { products } from "../../public/data";
-import { Button, Breadcrumbs, Typography } from "@mui/material";
+import { Button } from "@mui/material";
 import StarRatings from "react-star-ratings";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
@@ -10,7 +10,6 @@ import Specifications from "../components/Product/Specifications";
 import { ProductsWrapper } from "../components/Home/ProductsWrapper";
 import { Comprehensive } from "../components/Home/Comprehensive";
 import { Brands } from "../components/Home/Brands";
-import Header1 from "../components/Home/Header";
 import TopCate from "../components/Product/TopCate";
 import { Subscription } from "../components/Home/Subscription";
 import { Footer } from "../components/Home/Footer";
@@ -76,32 +75,7 @@ const Product = () => {
   }
   return (
     <>
-      <Header1 />
-
-      <div className="max-w-[1440px] px-[65px] mx-auto w-full">
-        <Breadcrumbs aria-label="breadcrumb" sx={{ margin: "20px 0px" }}>
-          <Link to="/" className="text-decoration-none text-color-inherit">
-            Home
-          </Link>
-          {pathnames.map((value, index) => {
-            const last = index === pathnames.length - 1;
-            const to = `/${pathnames.slice(0, index + 1).join("/")}`;
-
-            return last ? (
-              <Typography color="textPrimary" key={to}>
-                {value}
-              </Typography>
-            ) : (
-              <Link
-                to={to}
-                key={to}
-                className="text-decoration-none text-color-inherit"
-              >
-                {value}
-              </Link>
-            );
-          })}
-        </Breadcrumbs>
+      <div className="max-w-[1440px]  md:px-[65px] sm:px-[20px] px-[15px]  mx-auto w-full">
         <div
           className={` w-full flex flex-row items-start justify-start gap-[60px] leading-[normal] tracking-[normal] text-left text-sm text-[#202020] font-t2 mq725:gap-[30px] mq1050:flex-wrap`}
         >

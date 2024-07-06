@@ -1,85 +1,79 @@
 import React, { useState } from "react";
 import CrossImg from "../../assets/20--cross.svg";
-import PlusImg from "../../assets/20--plus.svg";
-import ArrowImg from "../../assets/13--arrow.svg";
+import PlusImg from "../../assets/Delivery/plus.svg";
+import ArrowImg from "../../assets/Delivery/cross.svg";
 
-export const About = () => {
+export const About1 = () => {
   const [isHovered, setIsHovered] = useState(1);
 
   const sections = [
     {
       id: 1,
-      title: "О компании",
+      title: "Юридические лица",
       content:
         "Но синтетическое тестирование, в своём классическом представлении, допускает внедрение поэтапного и последовательного развития общества. В рамках спецификации современных стандартов, сторонники тоталитаризма в науке будут функционально разнесены.",
     },
     {
       id: 2,
-      title: "Преимущества сотрудников",
+      title: "Индивидуальные предприниматели",
       content:
         "Но синтетическое тестирование, в своём классическом представлении, допускает внедрение поэтапного и последовательного развития общества. В рамках спецификации современных стандартов, сторонники тоталитаризма в науке будут функционально разнесены.",
     },
     {
       id: 3,
-      title: "Достижения компании",
-      content:
-        "Но синтетическое тестирование, в своём классическом представлении, допускает внедрение поэтапного и последовательного развития общества. В рамках спецификации современных стандартов, сторонники тоталитаризма в науке будут функционально разнесены.",
-    },
-    {
-      id: 4,
-      title: "Карьерный рост",
+      title: "Физические лица",
       content:
         "Но синтетическое тестирование, в своём классическом представлении, допускает внедрение поэтапного и последовательного развития общества. В рамках спецификации современных стандартов, сторонники тоталитаризма в науке будут функционально разнесены.",
     },
   ];
 
   return (
-    <div className="mt-[150px] w-full bg-tx-u7vg py-10 h-[668px]">
+    <div className="mt-[150px] w-full bg-[#E5E4ED] py-10 h-[534px]">
       <div className="container  mx-auto flex justify-between  md:px-[65px] sm:px-[20px] px-[15px] ">
-        <div className="text-x-1l-ubo-z font-1440-h2 w-[660px] mt-[60px] text-[30px]">
-          Информация о компании
+        <div className="text-[#202020] font-1440-h2 w-[660px] mt-[60px] text-[30px]">
+          <div className="max-w-[395px] w-full font-[600]">
+            Документы, необходимые для получения груза
+          </div>
+          <div className="max-w-[540px] mt-[25px] w-full text-[16px] font-[500]">
+            По копиям доверенностей и доверенностям с незаполненными
+            обязательными реквизитами отгрузка не производится
+          </div>
         </div>
         <div className="flex flex-col gap-4 w-[650px] mt-[60px]">
           {sections.map((section) => (
             <div
               key={section.id}
               onMouseEnter={() => setIsHovered(section.id)}
-              className={`cursor-pointer border-t duration-700 ${
+              className={`cursor-pointer border-t border-[#D5D1E1] duration-700 ${
                 isHovered === section.id ? "h-[251px]" : "h-[74px]"
               } overflow-hidden pt-4`}
             >
               <div className="flex justify-between items-center">
-                <div className="text-x-1l-ubo-z font-1440-h3">
+                <div className="text-[#202020] font-1440-h3 font-[600]">
                   {section.title}
                 </div>
                 <div
                   onClick={() => setIsHovered(0)}
                   className={`w-8 h-8 flex justify-center items-center ${
-                    isHovered === section.id ? "bg-white" : "bg-transparent"
-                  } border border-white rounded-full transition-all duration-200`}
+                    isHovered === section.id
+                      ? "bg-[#088269] "
+                      : "bg-transparent border-[#D5D1E1]"
+                  } border  rounded-full transition-all duration-200`}
                 >
                   <img
-                    className={`w-5 h-5 ${
-                      isHovered === section.id ? "" : "rotate-90"
-                    }`}
+                    className={`w-[14px] h-[14px]`}
                     alt="Toggle"
-                    src={isHovered === section.id ? CrossImg : PlusImg}
+                    src={isHovered === section.id ? ArrowImg : PlusImg}
                   />
                 </div>
               </div>
               <p
                 className={`${
                   isHovered === section.id ? "block" : "hidden"
-                } opacity-80 text-x-1l-ubo-z font-1440-t1 mt-[24px] mb-[40px]`}
+                } opacity-80 text-[#202020] font-1440-t1 mt-[24px] mb-[40px]`}
               >
                 {section.content}
               </p>
-              {isHovered === section.id && (
-                <div className="flex items-center gap-2">
-                  <div className="text-x-1l-ubo-z font-1440-l1">Подробнее</div>
-                  <img className="w-3 h-3" alt="Arrow" src={ArrowImg} />
-                </div>
-              )}
             </div>
           ))}
         </div>

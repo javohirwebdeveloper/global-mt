@@ -10,16 +10,11 @@ import Root3 from "../components/Profile/Root3";
 import Vector2 from "../assets/Profile/Vector2.svg";
 import Vector3 from "../assets/Profile/Vector3.svg";
 import Vector4 from "../assets/Profile/Vector4.svg";
-import { Breadcrumbs, Modal, Typography } from "@mui/material";
-import Header1 from "../components/Home/Header";
 import EditPhoneModal from "../components/Profile/EditPhoneModal";
 import EditEmailModal from "../components/Profile/EditEmailModal";
 import EditPayerDataModal from "../components/Profile/EditPayerDataModal";
-import { useParams, useLocation, Link } from "react-router-dom";
-
+import { Modal } from "@mui/material";
 const Profile = () => {
-  const location = useLocation();
-  const pathnames = location.pathname.split("/").filter((x) => x);
   const [isSelecting, setIsSelecting] = useState(false);
   const [isEditing, setIsEditing] = useState(false);
   const [selectedImage, setSelectedImage] = useState(null);
@@ -124,32 +119,8 @@ const Profile = () => {
 
   return (
     <>
-      <Header1 />
-      <div className="max-w-[1440px] mx-auto w-full relative bg-color overflow-hidden flex flex-col items-start justify-start px-[65px] box-border gap-[150px] leading-[normal] tracking-[normal] text-left text-sm text-color5 font-l1 mq750:gap-[75px] mq750:pl-8 mq750:pr-8 mq750:box-border mq1050:h-auto mq450:gap-[37px]">
+      <div className="max-w-[1440px] mx-auto w-full relative bg-color overflow-hidden flex flex-col items-start justify-start  md:px-[65px] sm:px-[20px] px-[15px]  box-border gap-[150px] leading-[normal] tracking-[normal] text-left text-sm text-color5 font-l1 mq750:gap-[75px] mq750:pl-8 mq750:pr-8 mq750:box-border mq1050:h-auto mq450:gap-[37px]">
         <div className="w-[848px] flex flex-col items-start justify-start gap-[100px] shrink-0 max-w-full mq1050:gap-[50px] mq450:gap-[25px]">
-          <Breadcrumbs aria-label="breadcrumb" sx={{ margin: "20px 0px" }}>
-            <Link to="/" className="text-decoration-none text-color-inherit">
-              Home
-            </Link>
-            {pathnames.map((value, index) => {
-              const last = index === pathnames.length - 1;
-              const to = `/${pathnames.slice(0, index + 1).join("/")}`;
-
-              return last ? (
-                <Typography color="textPrimary" key={to}>
-                  {value}
-                </Typography>
-              ) : (
-                <Link
-                  to={to}
-                  key={to}
-                  className="text-decoration-none text-color-inherit"
-                >
-                  {value}
-                </Link>
-              );
-            })}
-          </Breadcrumbs>
           <div className="self-stretch flex flex-row items-start justify-between max-w-full gap-[20px] text-[80px] text-color8 mq1050:flex-wrap">
             {profileImage ? (
               <div>

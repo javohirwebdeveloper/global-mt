@@ -1,10 +1,8 @@
 import React, { useState } from "react";
-import { useParams, useLocation, Link } from "react-router-dom";
-import { Breadcrumbs, Typography } from "@mui/material";
+import { useParams } from "react-router-dom";
 import { products } from "../../public/data";
 import { FaChevronRight } from "react-icons/fa6";
 import { categories } from "../../public/data";
-import Header1 from "../components/Home/Header";
 import { NavLink } from "react-router-dom";
 import { Comprehensive } from "../components/Home/Comprehensive";
 import { ProductsWrapper } from "../components/Home/ProductsWrapper";
@@ -18,9 +16,8 @@ import { Footer } from "../components/Home/Footer";
 import { Offers } from "../components/Home/Offers";
 
 const CatalogPage = () => {
-  const location = useLocation();
-  const pathnames = location.pathname.split("/").filter((x) => x);
   const { category } = useParams();
+  console.log(category);
   const filteredProducts = products.filter(
     (product) => product.category === category
   );
@@ -36,30 +33,8 @@ const CatalogPage = () => {
   const product10 = products.find((p) => p.id === 160);
   return (
     <div className="bg-color">
-      <Header1 />
       <article className="bg-color pt-[20px]">
-        <div className="max-w-[1440px] w-full mx-auto px-[65px]">
-          <Breadcrumbs aria-label="breadcrumb" sx={{ margin: "20px 0px" }}>
-            <Link to="/" className="text-decoration-none text-color-inherit">
-              Home
-            </Link>
-            {pathnames.map((value, index) => {
-              const last = index === pathnames.length - 1;
-              const to = `/${pathnames.slice(0, index + 1).join("/")}`;
-
-              return last ? (
-                <Typography></Typography>
-              ) : (
-                <Link
-                  to={to}
-                  key={to}
-                  className="text-decoration-none text-color-inherit"
-                >
-                  {value}
-                </Link>
-              );
-            })}
-          </Breadcrumbs>
+        <div className="max-w-[1440px] w-full mx-auto  md:px-[65px] sm:px-[20px] px-[15px] ">
           <div className="mt-[19px]  relative flex space-x-[10px] flex-row items-start justify-start leading-[normal] tracking-[normal]">
             <main className="flex-1 rounded-3xs flex flex-col items-start justify-start pt-[13px] pb-[15px] pr-[13px] pl-[19px] gap-[12px] text-left text-sm text-[#202020] font-l2 border-[1px] border-solid border-[#E5E2EE]">
               <div className="w-80 h-[595px] relative rounded-3xs box-border hidden border-[1px] border-solid border-[#E5E2EE]" />
@@ -74,7 +49,7 @@ const CatalogPage = () => {
               <section className="self-stretch flex flex-col items-start justify-start pt-0 px-0 pb-[5px] gap-[12px] text-left text-sm text-[#202020] font-l2">
                 {categories.map((category1, index) => (
                   <NavLink
-                    to={`/catalog/${category1}`}
+                    to={`/Каталог/${category1}`}
                     key={index}
                     className={`${
                       category1 === category

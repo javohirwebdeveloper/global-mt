@@ -829,7 +829,7 @@ export const products = [
   },
   {
     name: "Product 56",
-    id: 65,
+    id: 56,
     img: ProductImg56,
     vendor: 753456,
     sale: false,

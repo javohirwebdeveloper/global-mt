@@ -7,7 +7,6 @@ import { Clients } from "../components/Home/Clients";
 import { Comprehensive } from "../components/Home/Comprehensive";
 import { Footer } from "../components/Home/Footer";
 import { Form } from "../components/Home/Form";
-import Header1 from "../components/Home/Header";
 import { News } from "../components/Home/News";
 import { Offers } from "../components/Home/Offers";
 import { ProductsWrapper } from "../components/Home/ProductsWrapper";
@@ -38,17 +37,16 @@ const Home = () => {
   return (
     <div className="bg-[#f8f7f3] w-full">
       <div className="bg-x-1l-ubo-z relative">
-        <Header1 />
-        <div className="mx-auto w-[1440px]">
+        <div className="mx-auto w-full max-w-[1440px]">
           <Banner />
         </div>
-        <div className="mx-auto w-[1440px]">
+        <div className="mx-auto w-full max-w-[1440px]">
           <Categories />
         </div>
-        <div className="mx-auto w-[1440px]">
+        <div className="mx-auto w-full max-w-[1440px]">
           <Comprehensive />
         </div>
-        <div className="mx-auto w-[1440px]">
+        <div className="mx-auto w-full max-w-[1440px]">
           <Offers />
         </div>
         <ProductsWrapper />
@@ -56,7 +54,7 @@ const Home = () => {
         <Brands />
         <About />
         <News />
-        <div className="mx-auto w-[1440px]">
+        <div className="mx-auto w-full max-w-[1440px]">
           <Form />
         </div>
         <Subscription />

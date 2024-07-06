@@ -17,11 +17,11 @@ body {
   flex-wrap: wrap;
   justify-content: space-between;
   align-content: space-between;
-  transform: perspective(500px) rotateY(-42deg);
-  -webkit-transform: perspective(500px) rotateY(-42deg);
-  -moz-transform: perspective(500px) rotateY(-42deg);
-  -ms-transform: perspective(500px) rotateY(-42deg);
-  -o-transform: perspective(500px) rotateY(-42deg);
+  transform: perspective(500px) rotateY(-82deg);
+  -webkit-transform: perspective(500px) rotateY(-82deg);
+  -moz-transform: perspective(500px) rotateY(-82deg);
+  -ms-transform: perspective(500px) rotateY(-82deg);
+  -o-transform: perspective(500px) rotateY(-82deg);
   animation-name: rotate-windows;
   animation-iteration-count: infinite;
   animation-duration: 2s;
@@ -30,11 +30,11 @@ body {
 
 @keyframes rotate-windows {
   0% {
-    transform: perspective(500px) rotateY(-42deg);
-    -webkit-transform: perspective(500px) rotateY(-42deg);
-    -moz-transform: perspective(500px) rotateY(-42deg);
-    -ms-transform: perspective(500px) rotateY(-42deg);
-    -o-transform: perspective(500px) rotateY(-42deg);
+    transform: perspective(500px) rotateY(-82deg);
+    -webkit-transform: perspective(500px) rotateY(-82deg);
+    -moz-transform: perspective(500px) rotateY(-82deg);
+    -ms-transform: perspective(500px) rotateY(-82deg);
+    -o-transform: perspective(500px) rotateY(-82deg);
   }
   50% {
     transform: perspective(500px) rotateY(0deg);
@@ -44,10 +44,10 @@ body {
     -o-transform: perspective(500px) rotateY(0deg);
   }
   100% {
-    transform: perspective(500px) rotateY(-42deg);
-    -webkit-transform: perspective(500px) rotateY(-42deg);
-    -moz-transform: perspective(500px) rotateY(-42deg);
-    -ms-transform: perspective(500px) rotateY(-42deg);
-    -o-transform: perspective(500px) rotateY(-42deg);
+    transform: perspective(500px) rotateY(-82deg);
+    -webkit-transform: perspective(500px) rotateY(-82deg);
+    -moz-transform: perspective(500px) rotateY(-82deg);
+    -ms-transform: perspective(500px) rotateY(-82deg);
+    -o-transform: perspective(500px) rotateY(-82deg);
   }
 }
