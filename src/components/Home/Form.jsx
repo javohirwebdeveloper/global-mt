@@ -43,7 +43,7 @@ export const Form = () => {
   });
 
   return (
-    <div className="mt-[150px] space-x-[10px] mx-auto flex h-[612px] pl-[65px]">
+    <div className="max-w-[1440px] xl:mt-[150px] md:mt-[99px] sm:mt-[50px] mt-[40px] md:px-[65px] sm:px-[20px] px-[15px] space-x-[10px] mx-auto flex h-[612px] pl-[65px]">
       <YMaps apikey="db81466a-d9c7-44dd-9078-c65b363da1c8">
         <Map
           state={mapState}

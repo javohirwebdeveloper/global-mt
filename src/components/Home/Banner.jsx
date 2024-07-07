@@ -62,8 +62,11 @@ export const Banner = () => {
   };
 
   return (
-    <div className="banner-container mt-[30px]" data-aos="fade-right">
-      <div className="carousels w-[1310px] h-[367px] left-[65px] rounded-[10px] relative">
+    <div
+      className="max-w-[1440px] h-[367px] rounded-[10px] xl:mt-[30px] mt-[20px] md:px-[65px] sm:px-[20px] px-[15px] mx-auto"
+      data-aos="fade-right"
+    >
+      <div className="carousels  relative">
         <Carousel
           ref={carouselRef}
           showArrows={false}

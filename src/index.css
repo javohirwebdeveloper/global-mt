@@ -102,3 +102,7 @@
     background: #088269;
     border: 3px solid #ffffff;
   }
+  body {
+    overflow: hidden;
+    width: 100%;
+  }

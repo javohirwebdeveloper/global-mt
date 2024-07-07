@@ -2,7 +2,13 @@ import React, { useContext, useState } from "react";
 import { AuthContext } from "../../context/AuthContext";
 import { NavLink, useNavigate } from "react-router-dom";
 import { categories, products, brands } from "../../../public/data";
-import { TextField, InputAdornment, IconButton, Button } from "@mui/material";
+import {
+  TextField,
+  InputAdornment,
+  IconButton,
+  Button,
+  Menu,
+} from "@mui/material";
 import AuthModal from "../AuthModal";
 
 import Logo from "../../assets/logo.svg";
@@ -21,6 +27,8 @@ import CravnitImg from "../../assets/comparison.svg";
 import LocationImg1 from "../../assets/location.svg";
 import HomeImg from "../../assets/home.svg";
 import CatalogImg from "../../assets/catalog.svg";
+import CrossImg from "../../assets/cross.svg";
+import RightImg from "../../assets/right.svg";
 const Header1 = () => {
   const [isHovered, setIsHovered] = useState(false);
   const [isCategoryOpen, setIsCategoryOpen] = useState(false);
@@ -30,6 +38,8 @@ const Header1 = () => {
   const navigate = useNavigate();
   const { isAuthenticated, email, logout } = useContext(AuthContext);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [MenuOpen, setMenuOpen] = useState(false);
+  const [SelectedMenu, setSelectedMenu] = useState(0);
   const savedImage = localStorage.getItem("profileImage");
 
   const handleOpenModal = () => setIsModalOpen(true);
@@ -125,7 +135,12 @@ const Header1 = () => {
           <img src={Logo} className="w-[74px]" alt="" />
           <div className="flex gap-[20px]">
             <img src={PhoneImg} className="w-[24px]" alt="" />
-            <img src={BurgerImg1} className="w-[24px]" alt="" />
+            <img
+              src={BurgerImg1}
+              onClick={() => setMenuOpen(true)}
+              className="w-[24px]"
+              alt=""
+            />
           </div>
         </div>
         <div className="self-stretch block mq790:hidden h-px relative bg-[#E5E2EE]" />
@@ -314,7 +329,7 @@ const Header1 = () => {
                         }
                       }}
                       onKeyPress={handleKeyPress}
-                      className="w-full h-[30px] mq600:text-[12px] xl:h-[39px] placeholder:text-[#7A7687] pl-[30px] rounded-r-[50px] -ml-[15px] bg-white outline-none"
+                      className="w-full h-[30px] mq600:text-[12px] xl:h-[39px] placeholder:text-[#7A7687] pl-[30px] rounded-r-[50px] -ml-[15px] bg-[#F8F7F3] outline-none"
                     />
                   </div>
                   <div className="flex items-center justify-center w-[68px] -ml-[18px]">
@@ -536,6 +551,683 @@ const Header1 = () => {
         <div className="self-stretch h-px relative bg-[#E5E2EE]" />
       </div>
       <AuthModal isOpen={isModalOpen} onRequestClose={handleCloseModal} />
+
+      <div
+        className={`${
+          MenuOpen ? "block" : "hidden"
+        } w-full h-full fixed bg-[#F8F7F3] pt-[10px] z-50 top-0 left-0`}
+      >
+        <div
+          className={`w-full relative ${
+            SelectedMenu === 3 ? "flex" : "hidden"
+          } flex-col items-start overflow-auto h-full -mt-[10px] justify-start pt-0 px-0 pb-[89px] box-border gap-[17px] leading-[normal] tracking-[normal] text-left text-sm text-[#202020] font-manrope`}
+        >
+          <div
+            className={`self-stretch flex flex-col items-start justify-start pt-3.5 px-0 pb-0 box-border gap-[14px] max-w-full text-left text-base text-[#202020] font-manrope`}
+          >
+            <div className="self-stretch flex flex-row items-start justify-start py-0 px-[15px] box-border max-w-full">
+              <div className="flex-1 flex flex-row items-start justify-between max-w-full gap-[20px]">
+                <img
+                  className="h-6 w-6 rotate-180 relative overflow-hidden shrink-0 object-contain min-h-[24px]"
+                  loading="lazy"
+                  alt=""
+                  onClick={() => {
+                    setSelectedMenu(0);
+                  }}
+                  src={RightImg}
+                />
+                <a className="[text-decoration:none] relative font-medium text-[inherit] inline-block min-w-[101px]">
+                  Информация
+                </a>
+                <img
+                  className="h-6 w-6 relative overflow-hidden shrink-0 min-h-[24px]"
+                  loading="lazy"
+                  alt=""
+                  onClick={() => {
+                    setMenuOpen(false);
+                    setSelectedMenu(0);
+                  }}
+                  src={CrossImg}
+                />
+              </div>
+            </div>
+            <div className="self-stretch h-px relative bg-[#E5E2EE]" />
+          </div>
+          <div
+            className={`w-full flex flex-col items-start justify-start gap-[17px] leading-[normal] tracking-[normal] text-left text-sm text-[#202020] font-manrope `}
+          >
+            <div className="flex flex-row items-start justify-start py-0 px-[15px]">
+              <a className="[text-decoration:none] relative font-medium text-[inherit] inline-block min-w-[65px]">
+                Вакансии
+              </a>
+            </div>
+            <div className="self-stretch h-px flex flex-row items-start justify-start py-0 px-[15px] box-border max-w-full">
+              <div className="self-stretch flex-1 relative bg-[#E5E2EE] max-w-full" />
+            </div>
+            <div className="flex flex-row items-start justify-start py-0 px-[15px]">
+              <div className="relative font-medium inline-block min-w-[52px]">
+                Отзывы
+              </div>
+            </div>
+            <div className="self-stretch h-px flex flex-row items-start justify-start py-0 px-[15px] box-border max-w-full">
+              <div className="self-stretch flex-1 relative bg-[#E5E2EE] max-w-full" />
+            </div>
+            <div className="flex flex-row items-start justify-start py-0 px-[15px]">
+              <a className="[text-decoration:none] relative font-medium text-[inherit] inline-block min-w-[64px]">
+                Контакты
+              </a>
+            </div>
+            <div className="self-stretch h-px flex flex-row items-start justify-start py-0 px-[15px] box-border max-w-full">
+              <div className="self-stretch flex-1 relative bg-[#E5E2EE] max-w-full" />
+            </div>
+          </div>
+        </div>
+        <div
+          className={`w-full relative ${
+            SelectedMenu === 2 ? "flex" : "hidden"
+          } flex-col items-start overflow-auto h-full -mt-[10px] justify-start pt-0 px-0 pb-[89px] box-border gap-[17px] leading-[normal] tracking-[normal] text-left text-sm text-[#202020] font-manrope`}
+        >
+          <div
+            className={`self-stretch flex flex-col items-start justify-start pt-3.5 px-0 pb-0 box-border gap-[14px] max-w-full text-left text-base text-[#202020] font-manrope`}
+          >
+            <div className="self-stretch flex flex-row items-start justify-start py-0 px-[15px] box-border max-w-full">
+              <div className="flex-1 flex flex-row items-start justify-between max-w-full gap-[20px]">
+                <img
+                  className="h-6 w-6 rotate-180 relative overflow-hidden shrink-0 object-contain min-h-[24px]"
+                  loading="lazy"
+                  alt=""
+                  onClick={() => {
+                    setSelectedMenu(0);
+                  }}
+                  src={RightImg}
+                />
+                <a className="[text-decoration:none] relative font-medium text-[inherit] inline-block min-w-[101px]">
+                  Информация
+                </a>
+                <img
+                  className="h-6 w-6 relative overflow-hidden shrink-0 min-h-[24px]"
+                  loading="lazy"
+                  alt=""
+                  onClick={() => {
+                    setMenuOpen(false);
+                    setSelectedMenu(0);
+                  }}
+                  src={CrossImg}
+                />
+              </div>
+            </div>
+            <div className="self-stretch h-px relative bg-[#E5E2EE]" />
+          </div>
+          <div className="flex flex-row items-start justify-start py-0 px-[15px]">
+            <div className="relative font-medium inline-block min-w-[64px]">
+              Доставка
+            </div>
+          </div>
+          <div className="self-stretch h-px flex flex-row items-start justify-start py-0 px-[15px] box-border max-w-full">
+            <div className="self-stretch flex-1 h-px relative bg-[#E5E2EE] max-w-full" />
+          </div>
+          <div className="flex flex-row items-start justify-start py-0 px-[15px]">
+            <div className="relative font-medium inline-block min-w-[50px]">
+              Оплата
+            </div>
+          </div>
+          <div className="self-stretch h-px flex flex-row items-start justify-start py-0 px-[15px] box-border max-w-full">
+            <div className="self-stretch flex-1 h-px relative bg-[#E5E2EE] max-w-full" />
+          </div>
+          <div className="flex flex-row items-start justify-start py-0 px-[15px]">
+            <div className="relative font-medium inline-block min-w-[42px]">
+              Акции
+            </div>
+          </div>
+          <div className="self-stretch h-px flex flex-row items-start justify-start py-0 px-[15px] box-border max-w-full">
+            <div className="self-stretch flex-1 h-px relative bg-[#E5E2EE] max-w-full" />
+          </div>
+          <div className="flex flex-row items-start justify-start py-0 px-[15px]">
+            <div className="relative font-medium inline-block min-w-[63px]">
+              Гарантии
+            </div>
+          </div>
+          <div className="self-stretch h-px flex flex-row items-start justify-start py-0 px-[15px] box-border max-w-full">
+            <div className="self-stretch flex-1 h-px relative bg-[#E5E2EE] max-w-full" />
+          </div>
+          <div className="flex flex-row items-start justify-start py-0 px-[15px]">
+            <div className="relative font-medium inline-block min-w-[107px]">
+              Производители
+            </div>
+          </div>
+          <div className="self-stretch h-px flex flex-row items-start justify-start py-0 px-[15px] box-border max-w-full">
+            <div className="self-stretch flex-1 h-px relative bg-[#E5E2EE] max-w-full" />
+          </div>
+          <div className="flex flex-row items-start justify-start py-0 px-[15px]">
+            <div className="relative font-medium inline-block min-w-[32px]">
+              Блог
+            </div>
+          </div>
+          <div className="self-stretch h-px flex flex-row items-start justify-start py-0 px-[15px] box-border max-w-full">
+            <div className="self-stretch flex-1 h-px relative bg-[#E5E2EE] max-w-full" />
+          </div>
+          <div className="flex flex-row items-start justify-start py-0 px-[15px]">
+            <div className="relative font-medium inline-block min-w-[46px]">
+              Услуги
+            </div>
+          </div>
+          <div className="self-stretch h-px flex flex-row items-start justify-start py-0 px-[15px] box-border max-w-full">
+            <div className="self-stretch flex-1 h-px relative bg-[#E5E2EE] max-w-full" />
+          </div>
+          <div className="flex flex-row items-start justify-start py-0 px-[15px]">
+            <div className="relative font-medium inline-block min-w-[91px]">
+              Покупателям
+            </div>
+          </div>
+          <div className="self-stretch h-px flex flex-row items-start justify-start py-0 px-[15px] box-border max-w-full">
+            <div className="self-stretch flex-1 h-px relative bg-[#E5E2EE] max-w-full" />
+          </div>
+          <div className="flex flex-row items-start justify-start py-0 px-[15px]">
+            <div className="relative font-medium inline-block min-w-[93px]">
+              Сертификаты
+            </div>
+          </div>
+          <div className="self-stretch h-px flex flex-row items-start justify-start py-0 px-[15px] box-border max-w-full">
+            <div className="self-stretch flex-1 h-px relative bg-[#E5E2EE] max-w-full" />
+          </div>
+          <div className="flex flex-row items-start justify-start py-0 px-[15px]">
+            <div className="relative font-medium whitespace-pre-wrap">
+              Партнерские программы
+            </div>
+          </div>
+          <div className="self-stretch h-px flex flex-row items-start justify-start py-0 px-[15px] box-border max-w-full">
+            <div className="self-stretch flex-1 h-px relative bg-[#E5E2EE] max-w-full" />
+          </div>
+          <div className="flex flex-row items-start justify-start py-0 px-[15px]">
+            <div className="relative font-medium inline-block min-w-[122px]">
+              Оптовые продажи
+            </div>
+          </div>
+          <div className="self-stretch h-px flex flex-row items-start justify-start py-0 px-[15px] box-border max-w-full">
+            <div className="self-stretch flex-1 h-px relative bg-[#E5E2EE] max-w-full" />
+          </div>
+          <div className="w-[79px] h-[19px] flex flex-row items-start justify-start py-0 px-[15px] box-border">
+            <div className="self-stretch flex-1 relative font-medium">
+              Лизинг
+            </div>
+          </div>
+          <div className="self-stretch h-px flex flex-row items-start justify-start py-0 px-[15px] box-border max-w-full">
+            <div className="self-stretch flex-1 h-px relative bg-[#E5E2EE] max-w-full" />
+          </div>
+        </div>
+        <div
+          className={`w-full ${
+            SelectedMenu === 1 ? "flex" : "hidden"
+          } flex-col items-start justify-start gap-[17px] leading-[normal] tracking-[normal] text-left text-sm text-[#202020] font-manrope `}
+        >
+          <section className="self-stretch flex flex-col items-start justify-start gap-[9px] max-w-full text-left text-sm text-[#202020] font-manrope">
+            <div className=" self-stretch flex flex-row items-start justify-start py-0 px-[15px] box-border max-w-full">
+              <div className="flex-1 flex flex-row flex-wrap items-start justify-start gap-[19px] max-w-full">
+                <div className="flex-1 overflow-hidden border-2 z-50 bg-[#D5D1E1] h-[32px] xl:h-[42px] rounded-[50px] flex flex-row items-center justify-start p-px box-border w-[302px]">
+                  <div
+                    className={`${
+                      isSearchOpen && searchTerm
+                        ? ""
+                        : "-translate-y-[120%] opacity-0"
+                    } absolute z-50 h-[403px] overflow-y-auto bg-white top-10 duration-200 flex flex-col mq390:w-[315px] w-[345px] items-start gap-2.5 p-[15px] bg-o-hk-1mn rounded-[5px] border border-solid border-[#e5e2ee] custom-scrollbar`}
+                  >
+                    {searchResults.brands?.length === 0 &&
+                      searchResults.categories?.length === 0 &&
+                      searchResults.products?.length === 0 && (
+                        <div className="mt-4">
+                          <p>No results found.</p>
+                        </div>
+                      )}
+                    <div className="flex w-full flex-col items-start gap-5 relative flex-[0_0_auto]">
+                      {searchResults.brands &&
+                        searchResults.brands.length > 0 && (
+                          <div className="flex flex-col items-start gap-5 flex-[0_0_auto]">
+                            <div className="relative w-[315px]">
+                              <div className="absolute top-0 left-0">
+                                <div className="text-[#7A7687] text-[length:var(--375-t3-font-size)] leading-[var(--375-t3-line-height)] whitespace-nowrap mt-[-1px] font-375-t3 font-[number:var(--375-t3-font-weight)] tracking-[var(--375-t3-letter-spacing)]">
+                                  Бренд
+                                </div>
+                                <div className="relative w-[315px] h-px bg-x-4o-5s-te mt-2" />
+                              </div>
+                              <div className="flex flex-col border-t border-[#E5E2EE] pt-4 items-start gap-2.5 mt-8">
+                                {searchResults.brands.map((brand, index) => (
+                                  <div
+                                    key={index}
+                                    className="w-full h-[45px] cursor-pointer hover:bg-[#08826a14] inline-flex items-center gap-2.5"
+                                  >
+                                    <img
+                                      className="w-[49px] h-[19px] object-cover"
+                                      alt="Rectangle"
+                                      src={brand.img}
+                                    />
+                                    <div className="font-375-l2 text-x-6cqplh text-[length:var(--375-l2-font-size)] tracking-[var(--375-l2-letter-spacing)] leading-[var(--375-l2-line-height)]">
+                                      {brand.name}
+                                    </div>
+                                  </div>
+                                ))}
+                              </div>
+                            </div>
+                          </div>
+                        )}
+                      {searchResults.categories &&
+                        searchResults.categories.length > 0 && (
+                          <div className="flex flex-col items-start gap-5 flex-[0_0_auto]">
+                            <div className="relative w-[315px]">
+                              <div className="absolute top-0 left-0">
+                                <div className="text-[#7A7687] text-[length:var(--375-t3-font-size)] leading-[var(--375-t3-line-height)] whitespace-nowrap mt-[-1px] font-375-t3 font-[number:var(--375-t3-font-weight)] tracking-[var(--375-t3-letter-spacing)]">
+                                  Подкатегория
+                                </div>
+                                <div className="relative w-[315px] h-px bg-x-4o-5s-te mt-2" />
+                              </div>
+                              <div className="flex flex-col items-start gap-2.5 mt-8 border-t border-[#E5E2EE] pt-4">
+                                {searchResults.categories.map(
+                                  (category, index) => (
+                                    <div
+                                      key={index}
+                                      className="text-x-6cqplh w-full flex items-center h-[35px] cursor-pointer hover:bg-[#08826a14] text-[length:var(--375-l2-font-size)] leading-[var(--375-l2-line-height)] font-375-l2 tracking-[var(--375-l2-letter-spacing)]"
+                                    >
+                                      {category}
+                                    </div>
+                                  )
+                                )}
+                              </div>
+                            </div>
+                          </div>
+                        )}
+                      {searchResults.products &&
+                        searchResults.products.length > 0 && (
+                          <div className="flex flex-col items-start gap-5 flex-[0_0_auto]">
+                            <div className="relative w-[315px]">
+                              <div className="absolute top-0 left-0">
+                                <div className="text-[#7A7687] text-[length:var(--375-t3-font-size)] leading-[var(--375-t3-line-height)] whitespace-nowrap mt-[-1px] font-375-t3 font-[number:var(--375-t3-font-weight)] tracking-[var(--375-t3-letter-spacing)]">
+                                  Бренд
+                                </div>
+                                <div className="relative w-[315px] h-px bg-x-4o-5s-te mt-2" />
+                              </div>
+                              <div className="flex flex-col border-t border-[#E5E2EE] pt-4 items-start mt-8">
+                                {searchResults.products.map(
+                                  (product, index) => (
+                                    <div
+                                      key={index}
+                                      className="inline-flex pl-1 items-center gap-2.5 h-[45px] w-full cursor-pointer hover:bg-[#08826a14] duration-200"
+                                    >
+                                      <img
+                                        className="w-[30px] h-[30px]"
+                                        alt="Rectangle"
+                                        src={product.img}
+                                      />
+                                      <div className="font-375-l2 text-x-6cqplh text-[length:var(--375-l2-font-size)] tracking-[var(--375-l2-letter-spacing)] leading-[var(--375-l2-line-height)]">
+                                        {product.name}
+                                      </div>
+                                    </div>
+                                  )
+                                )}
+                              </div>
+                            </div>
+                          </div>
+                        )}
+                    </div>
+                  </div>
+                  <div
+                    onClick={() => setIsCategoryOpen(false)}
+                    className="search w-full flex items-center font-1440-l2 font-[number:var(--1440-l2-font-weight)] text-ML-tw-1j text-[length:var(--1440-l2-font-size)] tracking-[var(--1440-l2-letter-spacing)] leading-[var(--1440-l2-line-height)] [font-style:var(--1440-l2-font-style)]"
+                  >
+                    <input
+                      type="text"
+                      placeholder="Поиск"
+                      value={searchTerm}
+                      onChange={(e) => {
+                        setSearchTerm(e.target.value);
+                        handleSearch();
+                        if (searchTerm) {
+                          handleSearch();
+                        } else {
+                          setIsSearchOpen(false);
+                        }
+                      }}
+                      onKeyPress={handleKeyPress}
+                      className="w-full h-[30px] mq600:text-[12px] xl:h-[39px] placeholder:text-[#7A7687] pl-[10px] rounded-r-[50px]  bg-[#F8F7F3] outline-none"
+                    />
+                  </div>
+                  <div className="flex items-center justify-center w-[68px] -ml-[18px]">
+                    <img
+                      className="xl:w-6 xl:h-6 h-[17px] w-[17px] ml-3 cursor-pointer relative overflow-hidden shrink-0"
+                      loading="lazy"
+                      onMouseEnter={() => setIsHovered(true)}
+                      onMouseLeave={() => setIsHovered(false)}
+                      onClick={() => {
+                        if (searchTerm === "") {
+                          setIsSearchOpen(false);
+                        } else {
+                          handleSearch();
+                          setIsSearchOpen(true);
+                        }
+                      }}
+                      alt=""
+                      src={isHovered ? SearchImg1 : SearchImg}
+                    />
+                  </div>
+                </div>
+                <div className="flex flex-col items-start justify-start pt-[5px] px-0 pb-0">
+                  <img
+                    className="w-6 h-6 relative overflow-hidden shrink-0"
+                    loading="lazy"
+                    alt=""
+                    onClick={() => {
+                      setSelectedMenu(0);
+                    }}
+                    src={CrossImg}
+                  />
+                </div>
+              </div>
+            </div>
+            <div className="self-stretch h-[9px] flex flex-row items-start justify-start pt-0 px-0 pb-2 box-border max-w-full">
+              <div className="self-stretch flex-1 relative bg-[#E5E2EE] max-w-full" />
+            </div>
+            <div className="self-stretch flex flex-row items-start justify-start pt-0 pb-2 pr-[3px] pl-[15px] box-border max-w-full">
+              <div className="flex-1 flex flex-row flex-wrap items-start justify-start gap-[8px] max-w-full">
+                <div className="flex-1 flex flex-col items-start justify-start gap-[13px] min-w-[224px] max-w-full">
+                  <NavLink
+                    to={`/Каталог/Реанимация`}
+                    onClick={() => {
+                      setSelectedMenu(0);
+                      setMenuOpen(false);
+                    }}
+                    className="relative font-medium inline-block min-w-[84px]"
+                  >
+                    Реанимация
+                  </NavLink>
+                  <div className="self-stretch h-px relative bg-[#E5E2EE]" />
+                  <NavLink
+                    to={`/Каталог/Хирургия`}
+                    onClick={() => {
+                      setSelectedMenu(0);
+                      setMenuOpen(false);
+                    }}
+                    className="relative font-medium inline-block min-w-[64px]"
+                  >
+                    Хирургия
+                  </NavLink>
+                </div>
+                <div className="h-[50px] w-1 relative rounded-[5px] bg-[#E5E2EE]" />
+              </div>
+            </div>
+            <div className="self-stretch h-[9px] flex flex-row items-start justify-start pt-0 px-[15px] pb-2 box-border max-w-full">
+              <div className="self-stretch flex-1 relative bg-[#E5E2EE] max-w-full" />
+            </div>
+            <NavLink
+              to={`/Каталог/Офтальмология`}
+              onClick={() => {
+                setSelectedMenu(0);
+                setMenuOpen(false);
+              }}
+              className="flex flex-row items-start justify-start pt-0 px-[15px] pb-2"
+            >
+              <div className="relative font-medium inline-block min-w-[109px]">
+                Офтальмология
+              </div>
+            </NavLink>
+            <div className="self-stretch h-[9px] flex flex-row items-start justify-start pt-0 px-[15px] pb-2 box-border max-w-full">
+              <div className="self-stretch flex-1 relative bg-[#E5E2EE] max-w-full" />
+            </div>
+            <NavLink
+              to={`/Каталог/Лабораторная диагностика`}
+              onClick={() => {
+                setSelectedMenu(0);
+                setMenuOpen(false);
+              }}
+              className="flex flex-row items-start justify-start pt-0 px-[15px] pb-2"
+            >
+              <div className="relative font-medium">
+                Лабораторная диагностика
+              </div>
+            </NavLink>
+            <div className="self-stretch h-[9px] flex flex-row items-start justify-start pt-0 px-[15px] pb-2 box-border max-w-full">
+              <div className="self-stretch flex-1 relative bg-[#E5E2EE] max-w-full" />
+            </div>
+            <NavLink
+              to={`/Каталог/Акушерство и Гинекология`}
+              onClick={() => {
+                setSelectedMenu(0);
+                setMenuOpen(false);
+              }}
+              className="flex flex-row items-start justify-start pt-0 px-[15px] pb-2"
+            >
+              <div className="relative font-medium inline-block min-w-[83px]">
+                Акушерство
+              </div>
+            </NavLink>
+            <div className="self-stretch h-[9px] flex flex-row items-start justify-start pt-0 px-[15px] pb-2 box-border max-w-full">
+              <div className="self-stretch flex-1 relative bg-[#E5E2EE] max-w-full" />
+            </div>
+            <NavLink
+              to={`/Каталог/Акушерство и Гинекология`}
+              onClick={() => {
+                setSelectedMenu(0);
+                setMenuOpen(false);
+              }}
+              className="flex flex-row items-start justify-start pt-0 px-[15px] pb-2"
+            >
+              <div className="relative font-medium inline-block min-w-[87px]">
+                Гинекология
+              </div>
+            </NavLink>
+            <div className="self-stretch h-[9px] flex flex-row items-start justify-start pt-0 px-[15px] pb-2 box-border max-w-full">
+              <div className="self-stretch flex-1 relative bg-[#E5E2EE] max-w-full" />
+            </div>
+            <NavLink
+              to={`/Каталог/Гистология`}
+              onClick={() => {
+                setSelectedMenu(0);
+                setMenuOpen(false);
+              }}
+              className="flex flex-row items-start justify-start pt-0 px-[15px] pb-2"
+            >
+              <div className="relative font-medium inline-block min-w-[79px]">
+                Гистология
+              </div>
+            </NavLink>
+            <div className="self-stretch h-[9px] flex flex-row items-start justify-start pt-0 px-[15px] pb-2 box-border max-w-full">
+              <div className="self-stretch flex-1 relative bg-[#E5E2EE] max-w-full" />
+            </div>
+            <NavLink
+              to={`/Каталог/Косметология`}
+              onClick={() => {
+                setSelectedMenu(0);
+                setMenuOpen(false);
+              }}
+              className="flex flex-row items-start justify-start pt-0 px-[15px] pb-2"
+            >
+              <div className="relative font-medium inline-block min-w-[97px]">
+                Косметология
+              </div>
+            </NavLink>
+            <div className="self-stretch h-[9px] flex flex-row items-start justify-start pt-0 px-[15px] pb-2 box-border max-w-full">
+              <div className="self-stretch flex-1 relative bg-[#E5E2EE] max-w-full" />
+            </div>
+            <NavLink
+              to={`/Каталог/Оториноларингология`}
+              onClick={() => {
+                setSelectedMenu(0);
+                setMenuOpen(false);
+              }}
+              className="flex flex-row items-start justify-start pt-0 px-[15px] pb-2"
+            >
+              <div className="relative font-medium">Оториноларингология</div>
+            </NavLink>
+            <div className="self-stretch h-px flex flex-row items-start justify-start py-0 px-[15px] box-border max-w-full">
+              <div className="self-stretch flex-1 relative bg-[#E5E2EE] max-w-full" />
+            </div>
+          </section>
+          <NavLink
+            to={`/Каталог/Рентгенология и томография`}
+            onClick={() => {
+              setSelectedMenu(0);
+              setMenuOpen(false);
+            }}
+            className="flex flex-row items-start justify-start py-0 px-[15px]"
+          >
+            <div className="relative font-medium">
+              Рентгенология и томография
+            </div>
+          </NavLink>
+          <div className="self-stretch h-px flex flex-row items-start justify-start py-0 px-[15px] box-border max-w-full">
+            <div className="self-stretch flex-1 relative bg-[#E5E2EE] max-w-full" />
+          </div>
+        </div>
+        <div
+          className={`w-full ${
+            SelectedMenu === 0 ? "flex" : "hidden"
+          } flex-col items-start justify-start gap-[15.8px] leading-[normal] tracking-[normal] text-left text-sm text-[#202020] font-manrope`}
+        >
+          <div className="flex md:px-[65px] sm:px-[20px] px-[15px] mx-auto  justify-between w-full max-w-full">
+            <img src={Logo} className="w-[74px]" alt="" />
+            <div className="flex gap-[20px]">
+              <img src={PhoneImg} className="w-[24px]" alt="" />
+              <img
+                src={CrossImg}
+                onClick={() => setMenuOpen(false)}
+                className="w-[24px]"
+                alt=""
+              />
+            </div>
+          </div>
+          <div className="self-stretch bg-[#E5E4ED] flex flex-row items-start justify-between p-[15px] box-border max-w-full gap-[20px]">
+            <div className="h-[49px] w-[375px] relative bg-color3 hidden max-w-full" />
+            <div className="flex flex-row items-start justify-start gap-[4px]">
+              <div className="flex flex-col items-start justify-start pt-[3px] px-0 pb-0">
+                <img
+                  className="w-[13px] h-[13px] relative overflow-hidden shrink-0 z-[1]"
+                  loading="lazy"
+                  alt=""
+                  src="/13-location.svg"
+                />
+              </div>
+              <a className="[text-decoration:none] relative font-semibold text-[inherit] inline-block min-w-[52px] z-[1]">
+                Москва
+              </a>
+            </div>
+            <div className="flex flex-col items-start justify-start pt-0.5 px-0 pb-0 text-xs text-[#7A7687]">
+              <a className="[text-decoration:none] relative font-semibold text-[inherit] inline-block min-w-[58px] z-[1]">
+                Изменить
+              </a>
+            </div>
+          </div>
+          <div className="self-stretch flex flex-row items-start justify-start py-0 px-[15px] box-border max-w-full">
+            <div className="flex-1 flex flex-col items-start justify-start gap-[2px] max-w-full">
+              <div className="self-stretch flex flex-row items-start justify-between gap-[20px]">
+                <div className="flex flex-col items-start justify-start gap-[2px]">
+                  <div className="relative font-semibold inline-block min-w-[128px]">
+                    +7(495)000-00-00
+                  </div>
+                  <div className="relative text-xs font-semibold inline-block min-w-[73px] whitespace-nowrap">
+                    info@mail.ru
+                  </div>
+                </div>
+                <div className="relative text-xs font-medium text-[#7A7687] text-right">
+                  <p className="m-0">Пн-Пт с 09:00-19:00</p>
+                  <p className="m-0">Сб-Вс - выходной</p>
+                </div>
+              </div>
+              <div className="relative text-xs font-medium text-[#7A7687]">
+                г. Москва, ул. Московская, д. 35
+              </div>
+            </div>
+          </div>
+          <div className="self-stretch h-px flex flex-row items-start justify-start py-0 px-[15px] box-border max-w-full">
+            <div className="self-stretch flex-1 relative bg-color max-w-full" />
+          </div>
+          <div
+            onClick={() => {
+              setSelectedMenu(1);
+            }}
+            className="self-stretch flex flex-row items-start justify-start py-0 pr-2 pl-[15px] box-border max-w-full"
+          >
+            <div className="flex-1 flex flex-row items-start justify-between max-w-full gap-[20px]">
+              <div className="flex flex-col items-start justify-start pt-px px-0 pb-0">
+                <div className="relative font-semibold inline-block min-w-[115px]">
+                  Каталог товаров
+                </div>
+              </div>
+              <img
+                className="h-5 w-5 relative overflow-hidden shrink-0 object-contain min-h-[20px]"
+                loading="lazy"
+                alt=""
+                src={RightImg}
+              />
+            </div>
+          </div>
+          <div className="self-stretch h-px flex flex-row items-start justify-start py-0 px-[15px] box-border max-w-full">
+            <div className="self-stretch flex-1 relative bg-color max-w-full" />
+          </div>
+          <div
+            onClick={() => {
+              setSelectedMenu(2);
+            }}
+            className="self-stretch flex flex-row items-start justify-start py-0 pr-2 pl-[15px] box-border max-w-full"
+          >
+            <div className="flex-1 flex flex-row items-start justify-between max-w-full gap-[20px]">
+              <div className="flex flex-col items-start justify-start pt-px px-0 pb-0">
+                <div className="relative font-medium inline-block min-w-[88px]">
+                  Информация
+                </div>
+              </div>
+              <img
+                className="h-5 w-5 relative overflow-hidden shrink-0 object-contain min-h-[20px]"
+                loading="lazy"
+                alt=""
+                src={RightImg}
+              />
+            </div>
+          </div>
+          <div className="self-stretch h-px flex flex-row items-start justify-start py-0 px-[15px] box-border max-w-full">
+            <div className="self-stretch flex-1 relative bg-color max-w-full" />
+          </div>
+          <div
+            onClick={() => {
+              setSelectedMenu(3);
+            }}
+            className="self-stretch flex flex-row items-start justify-start py-0 pr-2 pl-[15px] box-border max-w-full"
+          >
+            <div className="flex-1 flex flex-row items-start justify-between max-w-full gap-[20px]">
+              <div className="flex flex-col items-start justify-start pt-px px-0 pb-0">
+                <div className="relative font-medium inline-block min-w-[64px]">
+                  Контакты
+                </div>
+              </div>
+              <img
+                className="h-5 w-5 relative overflow-hidden shrink-0 object-contain min-h-[20px]"
+                loading="lazy"
+                alt=""
+                src={RightImg}
+              />
+            </div>
+          </div>
+          <div className="self-stretch h-px flex flex-row items-start justify-start py-0 px-[15px] box-border max-w-full">
+            <div className="self-stretch flex-1 relative bg-color max-w-full" />
+          </div>
+          <NavLink
+            to={`/О компании`}
+            onClick={() => setMenuOpen(false)}
+            className="flex flex-row items-start justify-start py-0 px-[15px]"
+          >
+            <div className="relative font-medium inline-block min-w-[38px]">
+              О нас
+            </div>
+          </NavLink>
+          <div className="self-stretch h-px flex flex-row items-start justify-start py-0 px-[15px] box-border max-w-full">
+            <div className="self-stretch flex-1 relative bg-color max-w-full" />
+          </div>
+          <div className="flex flex-row items-start justify-start py-0 px-[15px]">
+            <div className="relative font-medium inline-block min-w-[76px]">
+              Сравнение
+            </div>
+          </div>
+          <div className="self-stretch h-px flex flex-row items-start justify-start py-0 px-[15px] box-border max-w-full">
+            <div className="self-stretch flex-1 relative bg-color max-w-full" />
+          </div>
+        </div>
+      </div>
 
       <div
         className={`w-full bg-[#F8F7F3] z-50 bottom-0 fixed mq790:flex hidden flex-row items-start justify-start leading-[normal] tracking-[normal] text-left text-xs text-[#7A7687] font-t2`}

@@ -33,7 +33,7 @@ export const Comprehensive = () => {
   };
   return (
     <div
-      className={`mt-[150px] w-[1310px] mx-auto bg-color overflow-hidden flex flex-col items-start justify-start gap-[41.5px] leading-[normal] tracking-[normal] text-left text-11xl text-[#202020] font-t1 mq700:gap-[21px] `}
+      className={`max-w-[1440px] xl:mt-[150px] md:mt-[99px] sm:mt-[50px] mt-[40px] md:px-[65px] sm:px-[20px] px-[15px] mx-auto bg-color overflow-hidden flex flex-col items-start justify-start gap-[41.5px] leading-[normal] tracking-[normal] text-left text-11xl text-[#202020] font-t1 mq700:gap-[21px] `}
     >
       <h2 className="m-0 relative text-inherit leading-[120%] font-medium font-inherit inline-block max-w-full mq975:text-[24px] mq975:leading-[29px] mq450:text-[18px] mq450:leading-[22px]">
         Комплексное оснащение кабинетов
