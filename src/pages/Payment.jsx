@@ -130,7 +130,7 @@ const Payment = () => {
             </div>
           </div>
         </section>
-        <section className="w-[890px] flex flex-col items-start justify-start py-0 pr-5 pl-0 box-border gap-[40px] max-w-full text-left text-29xl text-[#7A7687]1 font-t1 mq450:gap-[20px]">
+        <section className="max-w-[890px] w-full flex flex-col items-start justify-start py-0 pr-5 pl-0 box-border gap-[40px] text-left text-29xl text-[#7A7687]1 font-t1 mq450:gap-[20px]">
           <h1 className="m-0 relative text-inherit leading-[53px] font-medium font-inherit inline-block max-w-full mq450:text-10xl mq450:leading-[32px] mq750:text-19xl mq750:leading-[42px]">
             Условия поставок
           </h1>
@@ -148,7 +148,7 @@ const Payment = () => {
               prop1="Требующим обновления приборов в различных направлениях, от установок компьютерной томографии "
               prop2="Также как постоянное "
               prop3="Также как постоянное обеспечение нашей "
-              propMinWidth="371px"
+              propMinWidth="300px"
             />
           </div>
         </section>

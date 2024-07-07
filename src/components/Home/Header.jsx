@@ -80,7 +80,7 @@ const Header1 = () => {
   };
 
   return (
-    <div className="w-full mx-auto bg-color flex flex-col items-start justify-start pt-2.5 pb-0 box-border xl:gap-[24.5px] gap-[10px] leading-[normal] tracking-[normal] text-left text-sm text-[#202020] font-t2">
+    <div className="w-full mx-auto z-50 bg-color flex flex-col items-start justify-start pt-2.5 pb-0 box-border xl:gap-[24.5px] gap-[10px] leading-[normal] tracking-[normal] text-left text-sm text-[#202020] font-t2">
       <div className="self-stretch flex flex-col items-start justify-start gap-[10px] max-w-full text-xs">
         <div className="w-full self-stretch mq805:hidden flex flex-row items-start justify-start py-0 box-border max-w-full ">
           <div className="flex-1 max-w-[1440px] md:px-[65px] sm:px-[20px] px-[15px] mx-auto w-full flex flex-row items-start justify-between gap-[20px]">
@@ -127,10 +127,10 @@ const Header1 = () => {
             <img src={BurgerImg1} className="w-[24px]" alt="" />
           </div>
         </div>
-        <div className="self-stretch h-px relative bg-[#E5E2EE]" />
+        <div className="self-stretch block mq790:hidden h-px relative bg-[#E5E2EE]" />
       </div>
 
-      <div className="max-w-[1440px] w-full mx-auto self-stretch flex flex-row items-start justify-start py-0 box-border ">
+      <div className="max-w-[1440px]  w-full mx-auto self-stretch flex flex-row items-start justify-start py-0 box-border ">
         <div className="flex-1 max-w-[1440px] md:px-[65px] sm:px-[20px] px-[15px] mx-auto flex flex-row xl:items-start items-center justify-between gap-[20px]">
           <div className="xl:w-[915px] flex flex-col items-start justify-start pt-px px-0 pb-0 box-border max-w-full">
             <div className="self-stretch flex flex-row items-start justify-start gap-[35px] max-w-full mq450:gap-[17px] mq1150:flex-wrap">
@@ -143,64 +143,14 @@ const Header1 = () => {
                     src={Logo}
                   />
                 </NavLink>
-                <div className="flex-1 border-2 bg-[#D5D1E1] h-[32px] xl:h-[42px] rounded-[50px] flex flex-row items-center justify-start p-px box-border relative xl:max-w-[614px] mq1280:max-w-[403px] mq805:max-w-[345px] mq490:max-w-full mq490:w-full">
-                  <div className="mq1280:w-[146px]  mq805:w-[117px] h-[30px] xl:h-[39px] bg-[#EFEFEF] rounded-[50px] flex flex-row items-start justify-start relative">
-                    <div
-                      className={`absolute duration-300 overflow-hidden top-full left-0 z-20 w-[345px] bg-white border-gray-300 rounded-[5px] shadow-lg ${
-                        isCategoryOpen ? "h-[490px]" : "h-0"
-                      }`}
-                    >
-                      <ul className={`${isCategoryOpen ? "" : "opacity-0"}`}>
-                        {categories.map((category, index) => (
-                          <li
-                            key={index}
-                            onClick={() => handleCategoryClick(category)}
-                            className="px-4 py-[6px] hover:bg-gray-200 cursor-pointer"
-                          >
-                            {category}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                    <button
-                      onClick={() => {
-                        setIsSearchOpen(false);
-                        if (isCategoryOpen) {
-                          setIsCategoryOpen(false);
-                        } else {
-                          setIsCategoryOpen(true);
-                        }
-                      }}
-                      className={`categroies all-[unset] duration-200 cursor-pointer box-border flex-col items-center justify-center gap-2 mq700:px-[10px] px-[15px] h-[30px] xl:h-[39px] ${
-                        isCategoryOpen ? "bg-[#088269]" : "bg-[#efefef]"
-                      } inline-flex rounded-[50px] mq805:w-[117px] mq1280:w-[146px]`}
-                    >
-                      <div className="inline-flex items-center gap-[3px] relative flex-[0_0_auto]">
-                        <div
-                          className={`${
-                            isCategoryOpen ? "text-white" : "text-ML-tw-1j"
-                          } relative text-nowrap mq805:text-[12px] w-fit font-1440-l1 font-[number:var(--1440-l1-font-weight)] text-[length:var(--1440-l1-font-size)] tracking-[var(--1440-l1-letter-spacing)] leading-[var(--1440-l1-line-height)] [font-style:var(--1440-l1-font-style)]`}
-                        >
-                          Все категории
-                        </div>
-                        <img
-                          className="relative w-[13px] h-[13px]"
-                          alt="Element down"
-                          src={DownImage}
-                        />
-                      </div>
-                    </button>
-                  </div>
-                  <div
-                    onClick={() => setIsCategoryOpen(false)}
-                    className="search w-full flex items-center font-1440-l2 font-[number:var(--1440-l2-font-weight)] text-ML-tw-1j text-[length:var(--1440-l2-font-size)] tracking-[var(--1440-l2-letter-spacing)] leading-[var(--1440-l2-line-height)] [font-style:var(--1440-l2-font-style)]"
-                  >
+                <div className="flex-1 border-2 z-50 bg-[#D5D1E1] h-[32px] xl:h-[42px] rounded-[50px] flex flex-row items-center justify-start p-px box-border max-w-[614px] mq1280:max-w-[403px] mq805:max-w-[345px] mq490:max-w-[345px]">
+                  <div className="mq1280:w-[146px] mq805:w-[117px] h-[30px] xl:h-[39px] bg-[#EFEFEF] rounded-[50px] flex flex-row items-start justify-start relative">
                     <div
                       className={`${
                         isSearchOpen && searchTerm
                           ? ""
                           : "-translate-y-[120%] opacity-0"
-                      } absolute z-50 h-[403px] overflow-y-auto bg-white top-10 duration-200 flex flex-col w-[345px] items-start gap-2.5 p-[15px] bg-o-hk-1mn rounded-[5px] border border-solid border-[#e5e2ee] custom-scrollbar`}
+                      } absolute z-50 h-[403px] overflow-y-auto bg-white top-10 duration-200 flex flex-col mq390:w-[315px] w-[345px] items-start gap-2.5 p-[15px] bg-o-hk-1mn rounded-[5px] border border-solid border-[#e5e2ee] custom-scrollbar`}
                     >
                       {searchResults.brands?.length === 0 &&
                         searchResults.categories?.length === 0 &&
@@ -299,6 +249,56 @@ const Header1 = () => {
                           )}
                       </div>
                     </div>
+                    <div
+                      className={`absolute duration-300 overflow-hidden top-full left-0 z-50 w-[345px] bg-white border-gray-300 rounded-[5px] shadow-lg ${
+                        isCategoryOpen ? "h-[490px]" : "h-0"
+                      }`}
+                    >
+                      <ul className={`${isCategoryOpen ? "" : "opacity-0"}`}>
+                        {categories.map((category, index) => (
+                          <li
+                            key={index}
+                            onClick={() => handleCategoryClick(category)}
+                            className="px-4 py-[6px] hover:bg-gray-200 cursor-pointer"
+                          >
+                            {category}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                    <button
+                      onClick={() => {
+                        setIsSearchOpen(false);
+                        if (isCategoryOpen) {
+                          setIsCategoryOpen(false);
+                        } else {
+                          setIsCategoryOpen(true);
+                        }
+                      }}
+                      className={`categroies all-[unset] duration-200 cursor-pointer box-border flex-col items-center justify-center gap-2 mq600:px-[10px] px-[15px] h-[30px] xl:h-[39px] ${
+                        isCategoryOpen ? "bg-[#088269]" : "bg-[#efefef]"
+                      } inline-flex rounded-[50px] mq600:w-[117px] w-[146px]`}
+                    >
+                      <div className="inline-flex items-center gap-[3px] relative flex-[0_0_auto]">
+                        <div
+                          className={`${
+                            isCategoryOpen ? "text-white" : "text-ML-tw-1j"
+                          } relative text-nowrap  w-fit mq600:text-[12px] font-1440-l1 font-[number:var(--1440-l1-font-weight)] text-[length:var(--1440-l1-font-size)] tracking-[var(--1440-l1-letter-spacing)] leading-[var(--1440-l1-line-height)] [font-style:var(--1440-l1-font-style)]`}
+                        >
+                          Все категории
+                        </div>
+                        <img
+                          className="relative mq600:w-[10px] mq600:h-[10px] w-[13px] h-[13px]"
+                          alt="Element down"
+                          src={DownImage}
+                        />
+                      </div>
+                    </button>
+                  </div>
+                  <div
+                    onClick={() => setIsCategoryOpen(false)}
+                    className="search w-full flex items-center font-1440-l2 font-[number:var(--1440-l2-font-weight)] text-ML-tw-1j text-[length:var(--1440-l2-font-size)] tracking-[var(--1440-l2-letter-spacing)] leading-[var(--1440-l2-line-height)] [font-style:var(--1440-l2-font-style)]"
+                  >
                     <input
                       type="text"
                       placeholder="Поиск"
@@ -313,12 +313,12 @@ const Header1 = () => {
                         }
                       }}
                       onKeyPress={handleKeyPress}
-                      className="w-full h-[30px] xl:h-[39px] placeholder:text-[#7A7687] pl-[30px] rounded-r-[50px] -ml-[15px] bg-white outline-none"
+                      className="w-full h-[30px] mq600:text-[12px] xl:h-[39px] placeholder:text-[#7A7687] pl-[30px] rounded-r-[50px] -ml-[15px] bg-white outline-none"
                     />
                   </div>
                   <div className="flex items-center justify-center w-[68px] -ml-[18px]">
                     <img
-                      className="xl:w-6 xl:h-6 h-[17px] w-[17px] cursor-pointer relative overflow-hidden shrink-0 "
+                      className="xl:w-6 xl:h-6 h-[17px] w-[17px] cursor-pointer relative overflow-hidden shrink-0"
                       loading="lazy"
                       onMouseEnter={() => setIsHovered(true)}
                       onMouseLeave={() => setIsHovered(false)}

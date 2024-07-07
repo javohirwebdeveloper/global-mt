@@ -35,19 +35,21 @@ const App = () => {
         <Router>
           <div>
             <Header1 />
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/Каталог/:category" element={<CatalogPage />} />
-              <Route path="/Каталог" element={<Catalog />} />
-              <Route path="/cart" element={<Cart />} />
-              <Route path="/product/:id" element={<Product />} />
-              <Route path="/Личный кабинет" element={<Profile />} />
-              <Route path="/О компании" element={<About />} />
-              <Route path="/Доставка" element={<Delivery />} />
-              <Route path="/Услуги" element={<Services />} />
-              <Route path="/Оплата" element={<Payment />} />
-              <Route path="/Страница бренда" element={<BrandPage />} />
-            </Routes>
+            <div className="mt-[100px]">
+              <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/Каталог/:category" element={<CatalogPage />} />
+                <Route path="/Каталог" element={<Catalog />} />
+                <Route path="/cart" element={<Cart />} />
+                <Route path="/product/:id" element={<Product />} />
+                <Route path="/Личный кабинет" element={<Profile />} />
+                <Route path="/О компании" element={<About />} />
+                <Route path="/Доставка" element={<Delivery />} />
+                <Route path="/Услуги" element={<Services />} />
+                <Route path="/Оплата" element={<Payment />} />
+                <Route path="/Страница бренда" element={<BrandPage />} />
+              </Routes>
+            </div>
           </div>
         </Router>
       </div>
