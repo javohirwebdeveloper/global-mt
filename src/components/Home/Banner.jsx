@@ -63,7 +63,7 @@ export const Banner = () => {
 
   return (
     <div
-      className="max-w-[1440px] h-[367px] rounded-[10px] xl:mt-[30px] mt-[20px] md:px-[65px] sm:px-[20px] px-[15px] mx-auto"
+      className="max-w-[1440px] h-[367px] rounded-[10px] xl:mt-[30px] mt-[20px] xl:px-[65px] sm:px-[20px] px-[15px] mx-auto"
       data-aos="fade-right"
     >
       <div className="carousels  relative">

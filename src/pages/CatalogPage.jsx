@@ -34,7 +34,7 @@ const CatalogPage = () => {
   return (
     <div className="bg-color">
       <article className="bg-color pt-[20px]">
-        <div className="max-w-[1440px] w-full mx-auto  md:px-[65px] sm:px-[20px] px-[15px] ">
+        <div className="max-w-[1440px] w-full mx-auto  xl:px-[65px] sm:px-[20px] px-[15px] ">
           <div className="mt-[19px]  relative flex space-x-[10px] flex-row items-start justify-start leading-[normal] tracking-[normal]">
             <main className="flex-1 rounded-3xs flex flex-col items-start justify-start pt-[13px] pb-[15px] pr-[13px] pl-[19px] gap-[12px] text-left text-sm text-[#202020] font-l2 border-[1px] border-solid border-[#E5E2EE]">
               <div className="w-80 h-[595px] relative rounded-3xs box-border hidden border-[1px] border-solid border-[#E5E2EE]" />

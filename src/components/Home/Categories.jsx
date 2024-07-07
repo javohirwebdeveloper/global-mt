@@ -1,23 +1,24 @@
-import React, {useEffect} from "react";
-import AOS from 'aos';
-import 'aos/dist/aos.css';
-import Photo1 from '../../assets/phtoto.png'
-import Photo4 from '../../assets/photo-6.png'
-import Photo2 from '../../assets/photo-4.png'
-import Photo3 from '../../assets/Photo-8.png'
-import Photo6 from '../../assets/photo-7.png'
-import Photo7 from '../../assets/photo-5.png'
-import Photo5 from '../../assets/photo.png'
-import { NavLink } from "react-router-dom";
+import React, { useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
+import Photo1 from "../../assets/phtoto.png";
+import Photo4 from "../../assets/photo-6.png";
+import Photo2 from "../../assets/photo-4.png";
+import Photo3 from "../../assets/Photo-8.png";
+import Photo6 from "../../assets/photo-7.png";
+import Photo7 from "../../assets/photo-5.png";
+import Photo5 from "../../assets/photo.png";
 import { Button } from "@mui/material";
 import Ategory from "./Ategory";
 import Ategory1 from "./Ategory1";
 
 export const Categories = () => {
+  useEffect(() => {
+    AOS.init();
+  }, []);
+
   return (
-    <div
-      className={`max-w-[1440px] xl:mt-[100px] md:mt-[99px] sm:mt-[50px] mt-[40px] md:px-[65px] sm:px-[20px] px-[15px] mx-auto bg-color overflow-hidden flex flex-col items-start justify-start gap-[40px] leading-[normal] tracking-[normal] text-left text-11xl text-[#202020] font-t1 mq725:gap-[20px]`}
-    >
+    <div className="max-w-[1440px] xl:mt-[100px] md:mt-[99px] sm:mt-[50px] mt-[40px] xl:px-[65px] sm:px-[20px] px-[15px] mx-auto bg-color overflow-hidden flex flex-col items-start justify-start gap-[40px] leading-[normal] tracking-[normal] text-left text-11xl text-[#202020] font-t1 mq725:gap-[20px]">
       <div className="self-stretch flex flex-row items-start justify-between gap-[20px] max-w-full mq725:flex-wrap">
         <h1 className="m-0 relative text-inherit leading-[120%] font-medium font-inherit inline-block max-w-full mq450:text-[18px] mq450:leading-[22px] mq1000:text-[24px] mq1000:leading-[29px]">
           Популярные категории
@@ -49,10 +50,10 @@ export const Categories = () => {
             divPadding="22px 25px 31px"
           />
         </div>
-        <div className="flex-[0.8594] hover:scale-105 cursor-pointer duration-200  flex flex-col items-start justify-start pt-0 pb-5 pr-5 pl-[25px] relative gap-[66px] min-w-[290px] max-w-[320px] mq450:gap-[33px] mq450:flex-1">
-          <div className="w-full h-full absolute !m-[0] top-[0px] right-[0px] bottom-[0px] left-[0px]">
-            <div className="absolute h-full w-full top-[0px] right-[0px] bottom-[0px] left-[0px] rounded-3xs box-border border-[1px] border-solid border-[#E5E2EE]" />
-            <div className="absolute top-[0px] left-[0px] rounded-t-3xs rounded-b-none bg-color2 box-border w-80 h-[534px] z-[1] border-[1px] border-solid border-[#E5E2EE]" />
+        <div className="flex-[0.8594] hover:scale-105 cursor-pointer duration-200 flex flex-col items-start justify-start pt-0 pb-5 pr-5 pl-[25px] relative gap-[66px] min-w-[290px] max-w-[320px] mq450:gap-[33px] mq450:flex-1">
+          <div className="w-full h-full absolute top-0 right-0 bottom-0 left-0">
+            <div className="absolute h-full w-full top-0 right-0 bottom-0 left-0 rounded-3xs box-border border-[1px] border-solid border-[#E5E2EE]" />
+            <div className="absolute top-0 left-0 rounded-t-3xs rounded-b-none bg-color2 box-border w-80 h-[534px] z-[1] border-[1px] border-solid border-[#E5E2EE]" />
           </div>
           <div className="w-[232px] flex flex-row items-start justify-start py-0 px-[29px] box-border">
             <img
@@ -82,5 +83,3 @@ export const Categories = () => {
     </div>
   );
 };
-
-

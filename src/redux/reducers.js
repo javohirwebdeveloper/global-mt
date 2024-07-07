@@ -4,6 +4,7 @@ import {
   REMOVE_FROM_CART,
   ADD_TO_COMPARE,
   ADD_TO_FAVORITES,
+  REMOVE_FROM_FAVORITES,
 } from "./actions";
 
 const initialState = {
@@ -36,6 +37,8 @@ const favoritesReducer = (state = initialState.favorites, action) => {
   switch (action.type) {
     case ADD_TO_FAVORITES:
       return [...state, action.payload];
+    case REMOVE_FROM_FAVORITES:
+      return state.filter((product) => product.id !== action.payload);
     default:
       return state;
   }

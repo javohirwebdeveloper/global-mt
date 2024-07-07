@@ -25,7 +25,7 @@ const Services = () => {
   return (
     <>
       <div
-        className={`max-w-[1440px] md:mt-[99px] sm:mt-[50px] mt-[40px] md:px-[65px] sm:px-[20px] px-[15px] mx-auto w-full flex flex-col items-start justify-start gap-[10px] leading-[normal] tracking-[normal] `}
+        className={`max-w-[1440px] md:mt-[99px] sm:mt-[50px] mt-[40px] xl:px-[65px] sm:px-[20px] px-[15px] mx-auto w-full flex flex-col items-start justify-start gap-[10px] leading-[normal] tracking-[normal] `}
       >
         <h2 className="text-[48px] ">Услуги</h2>
 
@@ -115,7 +115,7 @@ const Services = () => {
         </section>
       </div>
       <div
-        className={`max-w-[1440px] md:mt-[171px] sm:mt-[120px] mt-[60px] md:px-[65px] sm:px-[20px] px-[15px] mx-auto w-full flex flex-row items-start justify-between leading-[normal] tracking-[normal] gap-[20px] text-left text-11xl text-[#202020] font-t1 mq975:flex-wrap `}
+        className={`max-w-[1440px] md:mt-[171px] sm:mt-[120px] mt-[60px] xl:px-[65px] sm:px-[20px] px-[15px] mx-auto w-full flex flex-row items-start justify-between leading-[normal] tracking-[normal] gap-[20px] text-left text-11xl text-[#202020] font-t1 mq975:flex-wrap `}
       >
         <div className="w-[290px] flex flex-col items-start justify-start gap-[25px] min-w-[290px] mq975:flex-1">
           <h2 className="m-0 relative text-inherit leading-[120%] font-medium font-inherit mq450:text-[18px] mq450:leading-[22px] mq950:text-[24px] mq950:leading-[29px]">
@@ -174,7 +174,7 @@ const Services = () => {
         </div>
       </div>
       <div
-        className={`max-w-[1440px] md:mt-[171px] sm:mt-[120px] mt-[60px] md:px-[65px] sm:px-[20px] px-[15px] mx-auto w-full flex flex-row items-start justify-between leading-[normal] tracking-[normal] gap-[20px] text-left text-11xl text-gray font-h2 mq1250:flex-wrap`}
+        className={`max-w-[1440px] md:mt-[171px] sm:mt-[120px] mt-[60px] xl:px-[65px] sm:px-[20px] px-[15px] mx-auto w-full flex flex-row items-start justify-between leading-[normal] tracking-[normal] gap-[20px] text-left text-11xl text-gray font-h2 mq1250:flex-wrap`}
       >
         <h2 className="m-0 w-[575px] relative text-inherit leading-[120%] font-medium font-inherit inline-block shrink-0 max-w-full mq450:text-lg mq450:leading-[22px] mq750:text-[24px] mq750:leading-[29px]">
           <span>Вы сможете</span>

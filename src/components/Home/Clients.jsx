@@ -5,9 +5,9 @@ import { NavLink } from "react-router-dom";
 
 export const Clients = () => {
   return (
-    <div className="mt-[150px] w-full  md:px-[65px] sm:px-[20px] px-[15px]  h-[686px] bg-x-7rs-fx overflow-hidden">
+    <div className="mt-[150px] w-full  xl:px-[65px] sm:px-[20px] px-[15px]  h-[686px] bg-x-7rs-fx overflow-hidden">
       <div className="flex flex-col items-center justify-start h-full">
-        <div className="flex justify-between items-start w-full px-10 mt-[100px] mb-[100px]">
+        <div className="flex mq770:flex-col mq770:gap-[50px] justify-between items-start w-full px-10 mq770:mt-[50px] mt-[100px] mb-[100px]">
           <div className="text-ws-j7-it text-[30px] font-1440-h2">
             Наши клиенты
           </div>
@@ -24,7 +24,7 @@ export const Clients = () => {
             <NavLink
               key={index}
               to={`/product/${index}`}
-              className="relative w-[322px] h-[280px]"
+              className="relative w-[322px] mq770:w-[208px] mq770:h-[236px] h-[280px]"
             >
               <div className="relative w-80 h-[280px] bg-x-1l-ubo-z rounded-[10px] border border-solid border-[#e1dfe7]">
                 <div className="w-80 h-[196px] bg-z-vq-cz-3 rounded-t-lg border border-solid border-[#e5e2ee] flex items-center justify-center">

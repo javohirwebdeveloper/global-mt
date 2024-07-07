@@ -35,7 +35,7 @@ export const About = () => {
 
   return (
     <div className="mt-[150px] w-full bg-tx-u7vg py-10 h-[668px]">
-      <div className="container  mx-auto flex justify-between  md:px-[65px] sm:px-[20px] px-[15px] ">
+      <div className="container max-w-[1440px]  mx-auto flex justify-between  xl:px-[65px] sm:px-[20px] px-[15px] ">
         <div className="text-x-1l-ubo-z font-1440-h2 w-[660px] mt-[60px] text-[30px]">
           Информация о компании
         </div>

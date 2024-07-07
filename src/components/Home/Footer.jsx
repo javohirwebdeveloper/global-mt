@@ -6,19 +6,21 @@ import Vk from "../../assets/24--vk.svg";
 import Telegram from "../../assets/24--telegram.svg";
 import Whatsappimg from "../../assets/24--whatsapp.svg";
 import LogoImg from "../../assets/logo1.svg";
+import Arrow13 from "../../assets/13--arrow.svg";
+import { NavLink } from "react-router-dom";
 
 export const Footer = () => {
   return (
     <footer className=" w-full h-[636px] left-0 bg-tx-u7vg">
       <div
-        className={`max-w-[1440px] md:px-[65px] sm:px-[20px] px-[15px] bg-color1 overflow-hidden flex flex-col items-start justify-start pt-10 mx-auto pb-5 box-border gap-[60px] leading-[normal] tracking-[normal] text-left text-xs text-[#F8F7F3] font-t3 mq450:gap-[15px] mq800:gap-[30px] mq800:pl-8 mq800:pr-8 mq800:box-border `}
+        className={`max-w-[1440px] xl:px-[65px] sm:px-[20px] px-[15px] bg-color1 overflow-hidden flex flex-col items-start justify-start pt-10 mx-auto pb-5 box-border gap-[60px] leading-[normal] tracking-[normal] text-left text-xs text-[#F8F7F3] font-t3 mq450:gap-[15px] mq800:gap-[30px] mq800:pl-8 mq800:pr-8 mq800:box-border `}
       >
         <section className="self-stretch flex flex-row items-start justify-between max-w-full gap-[20px] text-left text-sm text-[#F8F7F3] font-t3 mq1350:flex-wrap">
           <div className="w-[210px] flex flex-col items-start justify-start gap-[15px]">
             <div className="relative font-semibold inline-block min-w-[92px]">
               Покупателям
             </div>
-            <div className="self-stretch h-px relative bg-color" />
+            <div className="self-stretch h-px relative bg-[#F8F7F3]" />
             <div className="self-stretch flex flex-row items-start justify-between gap-[20px]">
               <div className="flex flex-col items-start justify-start gap-[8px]">
                 <div className="relative inline-block min-w-[78px]">
@@ -30,11 +32,19 @@ export const Footer = () => {
                 <a className="[text-decoration:none] relative text-[inherit] inline-block min-w-[64px]">
                   Вакансии
                 </a>
-                <div className="relative inline-block min-w-[62px]">
+                <NavLink
+                  to={`/Гарантии`}
+                  className="relative inline-block min-w-[62px]"
+                >
                   Гарантии
-                </div>
+                </NavLink>
                 <div className="relative inline-block min-w-[46px]">Услуги</div>
-                <div className="relative inline-block min-w-[41px]">Акции</div>
+                <NavLink
+                  to={`/Акции`}
+                  className="relative inline-block min-w-[41px]"
+                >
+                  Акции
+                </NavLink>
                 <div className="relative inline-block min-w-[63px]">
                   Доставка
                 </div>
@@ -51,7 +61,12 @@ export const Footer = () => {
                 </a>
                 <div className="relative inline-block min-w-[48px]">Лизинг</div>
                 <div className="relative inline-block min-w-[51px]">Отзывы</div>
-                <div className="relative inline-block min-w-[32px]">Блог</div>
+                <NavLink
+                  to={`/Блог`}
+                  className="relative inline-block min-w-[32px]"
+                >
+                  Блог
+                </NavLink>
               </div>
             </div>
           </div>
@@ -131,7 +146,7 @@ export const Footer = () => {
                     className="w-[13px] h-[13px] relative overflow-hidden shrink-0"
                     loading="lazy"
                     alt=""
-                    src="/13-arrow.svg"
+                    src={Arrow13}
                   />
                 </div>
               </div>

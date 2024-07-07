@@ -6,7 +6,7 @@ const Payment = () => {
   return (
     <>
       <div
-        className={`max-w-[1440px] md:mt-[99px] sm:mt-[50px] mt-[40px] md:px-[65px] sm:px-[20px] px-[15px] mx-auto w-full flex flex-col items-start justify-start gap-[150px] leading-[normal] tracking-[normal] mq450:gap-[37px] mq675:gap-[75px]`}
+        className={`max-w-[1440px] md:mt-[99px] sm:mt-[50px] mt-[40px] xl:px-[65px] sm:px-[20px] px-[15px] mx-auto w-full flex flex-col items-start justify-start gap-[150px] leading-[normal] tracking-[normal] mq450:gap-[37px] mq675:gap-[75px]`}
       >
         <section className="self-stretch flex flex-col items-start justify-start gap-[40px] max-w-full text-left text-29xl text-[#202020] font-t1 mq675:gap-[20px]">
           <h1 className="m-0 relative text-inherit leading-[53px] font-medium font-inherit mq450:text-10xl mq450:leading-[32px] mq750:text-19xl mq750:leading-[42px]">

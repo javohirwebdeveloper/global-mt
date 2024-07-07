@@ -38,7 +38,15 @@ const Home = () => {
     <div className="bg-[#f8f7f3] w-full">
       <div className="bg-x-1l-ubo-z relative">
         <Banner />
-
+        <Categories />
+        <Comprehensive />
+        <Offers />
+        <ProductsWrapper />
+        <Clients />
+        <Brands />
+        <About />
+        <News />
+        <Form />
         <Subscription />
         <Footer />
       </div>

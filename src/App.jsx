@@ -14,6 +14,12 @@ import Services from "./pages/Services";
 import Payment from "./pages/Payment";
 import Header1 from "./components/Home/Header";
 import BrandPage from "./pages/BrandPage";
+import Turnkey from "./pages/Turnkey";
+import TurnkeyPage from "./pages/TurnkeyPage";
+import Guarantees from "./pages/Guarantees";
+import Reviews from "./pages/Reviews";
+import Blog from "./pages/Blog";
+import Stock from "./pages/Stock";
 const App = () => {
   const [loading, setLoading] = useState(true);
 
@@ -47,6 +53,15 @@ const App = () => {
               <Route path="/Услуги" element={<Services />} />
               <Route path="/Оплата" element={<Payment />} />
               <Route path="/Страница бренда" element={<BrandPage />} />
+              <Route path="/Кабинеты под ключ" element={<Turnkey />} />
+              <Route path="/Отзывы" element={<Reviews />} />
+              <Route
+                path="/Страница кабинета под ключ"
+                element={<TurnkeyPage />}
+              />
+              <Route path="/Гарантии" element={<Guarantees />} />
+              <Route path="/Блог" element={<Blog />} />
+              <Route path="/Акции" element={<Stock />} />
             </Routes>
           </div>
         </Router>

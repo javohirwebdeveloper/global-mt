@@ -20,7 +20,7 @@ const Delivery = () => {
   return (
     <>
       <div
-        className={`max-w-[1440px]  md:px-[65px] sm:px-[20px] px-[15px] mx-auto mt-[99px] w-full flex flex-col items-start justify-start gap-[40px] leading-[normal] tracking-[normal] text-left text-[48px] text-[#202020] font-t1 mq675:gap-[20px]`}
+        className={`max-w-[1440px]  xl:px-[65px] sm:px-[20px] px-[15px] mx-auto mt-[99px] w-full flex flex-col items-start justify-start gap-[40px] leading-[normal] tracking-[normal] text-left text-[48px] text-[#202020] font-t1 mq675:gap-[20px]`}
       >
         <h1 className="m-0 w-[650px] max-h-[338px] h-full relative text-inherit leading-[53px] font-medium font-inherit inline-block max-w-full mq450:text-[29px] mq450:leading-[32px] mq750:text-[38px] mq750:leading-[42px]">
           Информация о доставке
@@ -78,7 +78,7 @@ const Delivery = () => {
         </footer>
       </div>
       <div
-        className={`max-w-[1440px]  md:px-[65px] sm:px-[20px] px-[15px]  mx-auto w-full flex flex-col items-start justify-start gap-[40px] leading-[normal] tracking-[normal] text-left text-11xl text-[#202020] font-t1 mq675:gap-[20px]`}
+        className={`max-w-[1440px]  xl:px-[65px] sm:px-[20px] px-[15px]  mx-auto w-full flex flex-col items-start justify-start gap-[40px] leading-[normal] tracking-[normal] text-left text-11xl text-[#202020] font-t1 mq675:gap-[20px]`}
       >
         <h2 className="m-0 relative text-inherit leading-[120%] font-medium font-inherit inline-block max-w-full mq450:text-[18px] mq450:leading-[22px] mq750:text-[24px] mq750:leading-[29px]">
           С нами выгодно и удобно
@@ -125,7 +125,7 @@ const Delivery = () => {
         </div>
       </div>
       <div
-        className={`max-w-[1440px] mt-[150px] mx-auto  md:px-[65px] sm:px-[20px] px-[15px]  w-full overflow-hidden flex flex-row items-start justify-between leading-[normal] tracking-[normal] gap-[20px] text-left text-11xl text-[#202020] font-t1 lg:flex-wrap`}
+        className={`max-w-[1440px] mt-[150px] mx-auto  xl:px-[65px] sm:px-[20px] px-[15px]  w-full overflow-hidden flex flex-row items-start justify-between leading-[normal] tracking-[normal] gap-[20px] text-left text-11xl text-[#202020] font-t1 lg:flex-wrap`}
       >
         <div className="w-[540px] flex flex-col items-start justify-start gap-[25px] min-w-[540px] max-w-full lg:flex-1 mq750:min-w-full">
           <h2 className="m-0 w-[366px] relative text-inherit leading-[120%] font-medium font-inherit inline-block max-w-full mq750:text-[24px] mq750:leading-[29px] mq450:text-lg mq450:leading-[22px]">
@@ -169,7 +169,7 @@ const Delivery = () => {
       </div>
       <About />
       <div
-        className={`max-w-[1440px] mt-[184px]  md:px-[65px] sm:px-[20px] px-[15px]  mx-auto w-full overflow-hidden flex flex-col items-start justify-start gap-[10px] leading-[normal] tracking-[normal] text-left text-[10px] text-color2 font-t1`}
+        className={`max-w-[1440px] mt-[184px]  xl:px-[65px] sm:px-[20px] px-[15px]  mx-auto w-full overflow-hidden flex flex-col items-start justify-start gap-[10px] leading-[normal] tracking-[normal] text-left text-[10px] text-color2 font-t1`}
       >
         <section className="self-stretch flex flex-row flex-wrap items-start justify-start gap-[10px] max-w-full text-left text-11xl text-[#202020] font-t1">
           <div className="flex-1 flex flex-col items-start justify-start pt-[34px] px-0 pb-0 box-border min-w-[422px] max-w-full mq450:min-w-full">

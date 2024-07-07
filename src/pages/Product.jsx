@@ -75,7 +75,7 @@ const Product = () => {
   }
   return (
     <>
-      <div className="max-w-[1440px]  md:px-[65px] sm:px-[20px] px-[15px]  mx-auto w-full">
+      <div className="max-w-[1440px]  xl:px-[65px] sm:px-[20px] px-[15px] mx-auto w-full">
         <div
           className={` w-full flex flex-row items-start justify-start gap-[60px] leading-[normal] tracking-[normal] text-left text-sm text-[#202020] font-t2 mq725:gap-[30px] mq1050:flex-wrap`}
         >

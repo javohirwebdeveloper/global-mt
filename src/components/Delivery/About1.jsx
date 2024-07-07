@@ -29,7 +29,7 @@ export const About1 = () => {
 
   return (
     <div className="mt-[150px] w-full bg-[#E5E4ED] py-10 h-[534px]">
-      <div className="container  mx-auto flex justify-between  md:px-[65px] sm:px-[20px] px-[15px] ">
+      <div className="container  mx-auto flex justify-between  xl:px-[65px] sm:px-[20px] px-[15px] ">
         <div className="text-[#202020] font-1440-h2 w-[660px] mt-[60px] text-[30px]">
           <div className="max-w-[395px] w-full font-[600]">
             Документы, необходимые для получения груза

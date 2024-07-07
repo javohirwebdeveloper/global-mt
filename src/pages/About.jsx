@@ -27,7 +27,7 @@ const About = () => {
   return (
     <>
       <div
-        className={`max-w-[1440px] mx-auto w-full  md:px-[65px] sm:px-[20px] px-[15px]  overflow-hidden flex flex-col items-start justify-start gap-[20px] leading-[normal] tracking-[normal] mq750:gap-[20px]`}
+        className={`max-w-[1440px] mx-auto w-full  xl:px-[65px] sm:px-[20px] px-[15px]  overflow-hidden flex flex-col items-start justify-start gap-[20px] leading-[normal] tracking-[normal] mq750:gap-[20px]`}
       >
         <img
           className="self-stretch relative rounded-[10px] max-w-full overflow-hidden max-h-full object-cover"
@@ -60,7 +60,7 @@ const About = () => {
         </section>
       </div>
       <div
-        className={`max-w-[1440px] md:mt-[171px] sm:mt-[120px] mt-[60px] md:px-[65px] sm:px-[20px] px-[15px] mx-auto w-full flex flex-row items-start justify-between leading-[normal] tracking-[normal] gap-[20px] text-left text-11xl text-[#202020] font-t1 mq975:flex-wrap `}
+        className={`max-w-[1440px] md:mt-[171px] sm:mt-[120px] mt-[60px] xl:px-[65px] sm:px-[20px] px-[15px] mx-auto w-full flex flex-row items-start justify-between leading-[normal] tracking-[normal] gap-[20px] text-left text-11xl text-[#202020] font-t1 mq975:flex-wrap `}
       >
         <div className="w-[290px] flex flex-col items-start justify-start gap-[25px] min-w-[290px] mq975:flex-1">
           <h2 className="m-0 relative text-inherit leading-[120%] font-medium font-inherit mq450:text-[18px] mq450:leading-[22px] mq950:text-[24px] mq950:leading-[29px]">
@@ -121,7 +121,7 @@ const About = () => {
       <div
         className={`w-full mt-[150px] flex flex-row items-start justify-start leading-[normal] tracking-[normal]`}
       >
-        <section className="flex-1 bg-color1 flex flex-row items-start justify-start py-20  md:px-[65px] sm:px-[20px] px-[15px]  box-border gap-[60px] max-w-full text-left text-11xl text-color font-t1 lg:flex-wrap lg:gap-[30px] lg:pl-8 lg:pr-8 lg:box-border mq750:gap-[15px] mq450:pt-[52px] mq450:pb-[52px] mq450:box-border">
+        <section className="flex-1 bg-color1 flex flex-row items-start justify-start py-20  xl:px-[65px] sm:px-[20px] px-[15px]  box-border gap-[60px] max-w-full text-left text-11xl text-color font-t1 lg:flex-wrap lg:gap-[30px] lg:pl-8 lg:pr-8 lg:box-border mq750:gap-[15px] mq450:pt-[52px] mq450:pb-[52px] mq450:box-border">
           <div className="h-[505px] w-[1440px] relative bg-color1 hidden max-w-full" />
           <img
             className="w-[600px] relative rounded-[10px] max-h-full object-cover max-w-full z-[1] lg:flex-1"
@@ -149,7 +149,7 @@ const About = () => {
         </section>
       </div>
 
-      <div className="max-w-[1440px] mt-[150px] w-full  md:px-[65px] sm:px-[20px] px-[15px]  mx-auto">
+      <div className="max-w-[1440px] mt-[150px] w-full  xl:px-[65px] sm:px-[20px] px-[15px]  mx-auto">
         <div
           className={`w-full overflow-hidden flex flex-row items-start justify-start gap-[120px] leading-[normal] tracking-[normal] text-left text-11xl text-[#202020] font-l2 mq450:gap-[30px] mq725:gap-[60px] mq1050:flex-wrap `}
         >

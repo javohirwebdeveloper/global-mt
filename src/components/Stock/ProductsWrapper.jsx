@@ -1,4 +1,4 @@
-import React, {useState, useRef} from "react";
+import React, { useState, useRef } from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import LeftArrow from "../../assets/17--arrow---right.svg";
@@ -31,13 +31,7 @@ export const ProductsWrapper = () => {
     dispatch(addToFavorites(product));
   };
 
-  if ((category === "Новинки") | (category === "Реанимация")) {
-    var filteredProducts = products.filter(
-      (product) => product.category === category
-    );
-  } else {
-    var filteredProducts = products.filter((product) => product.sale === true);
-  }
+  const filteredProducts = products.filter((product) => product.type === 1);
 
   const [currentSlide, setCurrentSlide] = useState(0);
   const sliderRef = useRef(null);
@@ -67,7 +61,7 @@ export const ProductsWrapper = () => {
       <div className="flex flex-col w-[330px] items-start justify-start pt-0.5 px-0 pb-0">
         <div className="flex flex-col items-start justify-start mq790:gap-[20px] gap-[40px]">
           <div className="m-0 relative mq1290:justify-between mq1290:w-full mq1290:flex text-nowrap text-inherit leading-[120%] font-medium font-inherit mq450:text-lg mq450:leading-[22px] mq800:text-[24px] mq800:leading-[29px]">
-            <span>Каталог товаров</span>
+            <span>Ранее смотрели</span>
             <div className="w-[397px] hidden mq770:hidden mq1290:flex flex-row items-start justify-start gap-[10px] max-w-full mq450:flex-wrap">
               <Button
                 className="h-[41px] flex-1 min-w-[162px]"
@@ -104,32 +98,7 @@ export const ProductsWrapper = () => {
               </Button>
             </div>
           </div>
-          <div className="flex mq1290:flex-row flex-col items-start justify-start py-0 pr-5 pl-0 gap-[10px] text-base text-gray">
-            <div
-              onClick={() => setCategory("Реанимация")}
-              className={`${
-                category === "Реанимация" ? "text-black" : "opacity-50"
-              } relative leading-[140%] cursor-pointer font-medium inline-block min-w-[101px]`}
-            >
-              Хиты продаж
-            </div>
-            <div
-              onClick={() => setCategory("Новинки")}
-              className={`${
-                category === "Новинки" ? "text-black" : "opacity-50"
-              } relative leading-[140%] cursor-pointer font-medium inline-block min-w-[66px]`}
-            >
-              Новинки
-            </div>
-            <div
-              onClick={() => setCategory("Акции")}
-              className={`${
-                category === "Акции" ? "text-black" : "opacity-50"
-              } relative leading-[140%] cursor-pointer font-medium inline-block min-w-[48px]`}
-            >
-              Акции
-            </div>
-          </div>
+          <div className="flex mq1290:flex-row flex-col items-start justify-start py-0 pr-5 pl-0 gap-[10px] text-base text-gray"></div>
         </div>
       </div>
       <section className="flex flex-col items-start justify-start w-[1310px] text-left text-sm text-teal font-h3 mq800:gap-[20px]">
@@ -157,42 +126,11 @@ export const ProductsWrapper = () => {
                   </NavLink>
                   <div className="inline-flex justify-between w-[91%] items-center absolute top-[15px] left-[15px]">
                     <div
-                      className={`${
-                        product.sale === true ? "hidden" : "inline-flex"
-                      } ${
-                        product.category === "Новинки"
-                          ? "inline-flex"
-                          : "hidden"
-                      } items-center justify-center gap-2 px-2.5 py-1 relative flex-[0_0_auto] bg-[#e1efe6] rounded-[60px] border border-solid border-[#088269]`}
+                      className={`inline-flex items-center justify-center gap-2 px-2.5 py-1 relative flex-[0_0_auto] bg-[#e1efe6] rounded-[60px] border border-solid border-[#088269]`}
                     >
                       <div className="relative w-fit mt-[-1.00px] font-1440-l1 font-[number:var(--1440-l1-font-weight)] text-[#088269] text-[length:var(--1440-l1-font-size)] tracking-[var(--1440-l1-letter-spacing)] leading-[var(--1440-l1-line-height)] [font-style:var(--1440-l1-font-style)]">
                         Новинка
                       </div>
-                    </div>
-                    <div
-                      className={`${
-                        (category === "Реанимация") | (category === "Новинки")
-                          ? "hidden"
-                          : "inline-flex"
-                      } ${
-                        product.sale === true ? "inline-flex" : "hidden"
-                      }  items-center justify-center gap-2 px-2.5 py-1 relative flex-[0_0_auto] bg-[#e1efe6] rounded-[60px] border border-solid border-[#088269]`}
-                    >
-                      <div className="relative w-fit mt-[-1.00px] font-1440-l1 font-[number:var(--1440-l1-font-weight)] text-[#088269] text-[length:var(--1440-l1-font-size)] tracking-[var(--1440-l1-letter-spacing)] leading-[var(--1440-l1-line-height)] [font-style:var(--1440-l1-font-style)]">
-                        {product.salePrice}
-                      </div>
-                    </div>
-                    <div className="inline-flex items-start gap-2.5 px-0 py-0.5 relative flex-[0_0_auto]">
-                      <img
-                        className="relative cursor-pointer w-6 h-6"
-                        alt="Card icon"
-                        src={CravnitImg}
-                      />
-                      <img
-                        className="relative cursor-pointer w-6 h-6"
-                        src={LikeImg}
-                        alt=""
-                      />
                     </div>
                   </div>
                 </div>
@@ -330,4 +268,3 @@ export const ProductsWrapper = () => {
     </div>
   );
 };
-

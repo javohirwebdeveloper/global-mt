@@ -1,10 +1,18 @@
 import React from "react";
-
+import MasterCard from "../../assets/mastercard.svg";
+import Visa from "../../assets/visa.svg";
+import Mir from "../../assets/mir.svg";
+import Vk from "../../assets/24--vk.svg";
+import Telegram from "../../assets/24--telegram.svg";
+import Whatsappimg from "../../assets/24--whatsapp.svg";
+import LogoImg from "../../assets/logo1.svg";
+import Arrow13 from "../../assets/13--arrow.svg";
+import { NavLink } from "react-router-dom";
 export const Footer = () => {
   return (
-    <footer className="mt-[150px] w-full h-[636px] left-0 bg-tx-u7vg">
+    <footer className=" xl:mt-[150px] md:mt-[99px] sm:mt-[50px] mt-[40px] w-full h-[636px] left-0 bg-tx-u7vg">
       <div
-        className={`w-[1310px] bg-color1 overflow-hidden flex flex-col items-start justify-start pt-10 mx-auto pb-5 box-border gap-[60px] leading-[normal] tracking-[normal] text-left text-xs text-[#F8F7F3] font-t3 mq450:gap-[15px] mq800:gap-[30px] mq800:pl-8 mq800:pr-8 mq800:box-border `}
+        className={`max-w-[1440px] xl:px-[65px] sm:px-[20px] px-[15px] bg-color1 overflow-hidden flex flex-col items-start justify-start pt-10 mx-auto pb-5 box-border gap-[60px] leading-[normal] tracking-[normal] text-left text-xs text-[#F8F7F3] font-t3 mq450:gap-[15px] mq800:gap-[30px] mq800:pl-8 mq800:pr-8 mq800:box-border `}
       >
         <section className="self-stretch flex flex-row items-start justify-between max-w-full gap-[20px] text-left text-sm text-[#F8F7F3] font-t3 mq1350:flex-wrap">
           <div className="w-[210px] flex flex-col items-start justify-start gap-[15px]">
@@ -23,11 +31,19 @@ export const Footer = () => {
                 <a className="[text-decoration:none] relative text-[inherit] inline-block min-w-[64px]">
                   Вакансии
                 </a>
-                <div className="relative inline-block min-w-[62px]">
+                <NavLink
+                  to={`/Гарантии`}
+                  className="relative inline-block min-w-[62px]"
+                >
                   Гарантии
-                </div>
+                </NavLink>
                 <div className="relative inline-block min-w-[46px]">Услуги</div>
-                <div className="relative inline-block min-w-[41px]">Акции</div>
+                <NavLink
+                  to={`/Акции`}
+                  className="relative inline-block min-w-[41px]"
+                >
+                  Акции
+                </NavLink>
                 <div className="relative inline-block min-w-[63px]">
                   Доставка
                 </div>
@@ -44,7 +60,12 @@ export const Footer = () => {
                 </a>
                 <div className="relative inline-block min-w-[48px]">Лизинг</div>
                 <div className="relative inline-block min-w-[51px]">Отзывы</div>
-                <div className="relative inline-block min-w-[32px]">Блог</div>
+                <NavLink
+                  to={`/Блог`}
+                  className="relative inline-block min-w-[32px]"
+                >
+                  Блог
+                </NavLink>
               </div>
             </div>
           </div>
@@ -124,7 +145,7 @@ export const Footer = () => {
                     className="w-[13px] h-[13px] relative overflow-hidden shrink-0"
                     loading="lazy"
                     alt=""
-                    src="/13-arrow.svg"
+                    src={Arrow13}
                   />
                 </div>
               </div>
@@ -158,7 +179,7 @@ export const Footer = () => {
                 className="w-[95.8px] h-[41px] relative overflow-hidden shrink-0"
                 loading="lazy"
                 alt=""
-                src="/logo.svg"
+                src={LogoImg}
               />
               <div className="relative">ООО «ГЛОБАЛ МЕДИКАЛ ТРЕЙД»</div>
             </div>
@@ -171,19 +192,19 @@ export const Footer = () => {
                   className="h-6 w-6 relative min-h-[24px]"
                   loading="lazy"
                   alt=""
-                  src="/24-vk.svg"
+                  src={Vk}
                 />
                 <img
                   className="h-6 w-6 relative min-h-[24px]"
                   loading="lazy"
                   alt=""
-                  src="/24-telegram.svg"
+                  src={Telegram}
                 />
                 <img
                   className="h-6 w-6 relative min-h-[24px]"
                   loading="lazy"
                   alt=""
-                  src="/24-whatsapp.svg"
+                  src={Whatsappimg}
                 />
               </div>
             </div>
@@ -214,14 +235,14 @@ export const Footer = () => {
                       className="h-[30px] w-[49px] relative"
                       loading="lazy"
                       alt=""
-                      src="/mastercard.svg"
+                      src={MasterCard}
                     />
                     <div className="flex-1 flex flex-col items-start justify-start pt-[5px] px-0 pb-0">
                       <img
                         className="self-stretch h-5 relative max-w-full overflow-hidden shrink-0"
                         loading="lazy"
                         alt=""
-                        src="/visa.svg"
+                        src={Visa}
                       />
                     </div>
                     <div className="flex-1 flex flex-col items-start justify-start pt-[5px] px-0 pb-0">
@@ -229,7 +250,7 @@ export const Footer = () => {
                         className="self-stretch h-5 relative max-w-full overflow-hidden shrink-0"
                         loading="lazy"
                         alt=""
-                        src="/mir.svg"
+                        src={Mir}
                       />
                     </div>
                   </div>

@@ -14,12 +14,18 @@ import {
 import { products } from "../../public/data";
 import Img1 from "../assets/BrandPage/1.png";
 import Img2 from "../assets/BrandPage/2.png";
+import Right1x from "../assets/right1x.svg";
+import Right2x from "../assets/right2x.svg";
+import Left1x from "../assets/left1x.svg";
+import LikeImg from "../assets/24--favourites.svg";
+import CravnitImg from "../assets/comparison.svg";
+import Left2x from "../assets/left2x.svg";
 const BrandPage = () => {
   const [burger, setBurger] = useState(4);
   return (
     <>
       <div
-        className={`max-w-[1440px] md:mt-[99px] sm:mt-[50px] mt-[40px] md:px-[65px] sm:px-[20px] px-[15px] mx-auto w-full flex flex-col items-start justify-start gap-[40px] leading-[normal] tracking-[normal] text-left text-[48px] text-[#202020] font-l1 mq675:gap-[20px] `}
+        className={`max-w-[1440px] md:mt-[99px] sm:mt-[50px] mt-[40px] xl:px-[65px] sm:px-[20px] px-[15px] mx-auto w-full flex flex-col items-start justify-start gap-[40px] leading-[normal] tracking-[normal] text-left text-[48px] text-[#202020] font-l1 mq675:gap-[20px] `}
       >
         <h1 className="m-0 relative text-inherit leading-[53px] font-medium font-inherit inline-block max-w-full mq450:text-[29px] mq450:leading-[32px] mq750:text-[38px] mq750:leading-[42px]">
           Медецинское оборудование Draeger
@@ -40,8 +46,24 @@ const BrandPage = () => {
         </div>
         <main className="self-stretch flex flex-col items-end justify-start gap-[147px] max-w-full text-left text-base text-[#202020] font-l1 mq450:gap-[37px] mq675:gap-[73px]">
           <div className="w-[670px] flex flex-col items-start justify-start py-0 pr-0 pl-5 box-border gap-[17px] max-w-full">
-            <div className="self-stretch relative leading-[140%] font-medium">{`Учитывая стремительное развитие мировых медицинских технологий, врачи в Российской Федерации и соседних странах столкнулись с вызовом, требующим обновления приборов в различных направлениях, от установок компьютерной томографии до ультразвуковых сканеров и ЛОР комбайнов. Переход на полностью цифровую платформу при диагностике и лечении заболеваний также стал серьёзным испытанием для большинства больниц и частных клиник. `}</div>
-            <div className="self-stretch relative leading-[140%] font-medium">{`Учитывая стремительное развитие мировых медицинских технологий, врачи в Российской Федерации и соседних странах столкнулись с вызовом, требующим обновления приборов в различных направлениях, от установок компьютерной томографии до ультразвуковых сканеров и ЛОР комбайнов. Переход на полностью цифровую платформу при диагностике и лечении заболеваний также стал серьёзным испытанием для большинства больниц и частных клиник. `}</div>
+            <div className="self-stretch relative leading-[140%] font-medium">
+              Учитывая стремительное развитие мировых медицинских технологий,
+              врачи в Российской Федерации и соседних странах столкнулись с
+              вызовом, требующим обновления приборов в различных направлениях,
+              от установок компьютерной томографии до ультразвуковых сканеров и
+              ЛОР комбайнов. Переход на полностью цифровую платформу при
+              диагностике и лечении заболеваний также стал серьёзным испытанием
+              для большинства больниц и частных клиник.
+            </div>
+            <div className="self-stretch relative leading-[140%] font-medium">
+              Учитывая стремительное развитие мировых медицинских технологий,
+              врачи в Российской Федерации и соседних странах столкнулись с
+              вызовом, требующим обновления приборов в различных направлениях,
+              от установок компьютерной томографии до ультразвуковых сканеров и
+              ЛОР комбайнов. Переход на полностью цифровую платформу при
+              диагностике и лечении заболеваний также стал серьёзным испытанием
+              для большинства больниц и частных клиник.
+            </div>
           </div>
           <section className="self-stretch flex flex-col items-start justify-start gap-[25px] max-w-full text-left text-11xl text-[#202020] font-l1">
             <div className="w-[1150px] flex flex-col items-start justify-start py-0 pr-5 pl-0 box-border gap-[43px] max-w-full mq675:gap-[21px]">
@@ -84,11 +106,24 @@ const BrandPage = () => {
                 >
                   Ветеринарное оборудование
                 </Button>
-                <div className="rounded-[50px] bg-color flex flex-row items-start justify-start py-[9px] px-[30px] whitespace-nowrap border-[1px] border-solid border-lavender-200">
-                  <div className="relative font-semibold">
-                    Мебель медицинская
-                  </div>
-                </div>
+                <Button
+                  className="h-[41px] w-[211px]"
+                  disableElevation
+                  variant="contained"
+                  sx={{
+                    textTransform: "none",
+                    color: "#202020",
+                    fontSize: "14",
+                    background: "#fff",
+                    border: "#d5d1e1 solid 1px",
+                    borderRadius: "50px",
+                    "&:hover": { background: "#fff" },
+                    width: 211,
+                    height: 41,
+                  }}
+                >
+                  Мебель медицинская
+                </Button>
                 <Button
                   className="h-[41px] w-44"
                   disableElevation
@@ -200,8 +235,8 @@ const BrandPage = () => {
                     </Select>
                     <FormHelperText />
                   </FormControl>
-                  <div className="self-stretch rounded-3xs flex flex-col items-start justify-start py-[13px] pr-0.5 pl-3.5 gap-[15px] border-[1px] border-solid border-color1">
-                    <div className="w-80 h-[809px] relative rounded-3xs box-border hidden border-[1px] border-solid border-color1" />
+                  <div className="self-stretch rounded-3xs flex flex-col items-start justify-start py-[13px] pr-0.5 pl-3.5 gap-[15px] border-[1px] border-solid border-[#E5E2EE]">
+                    <div className="w-80 h-[809px] relative rounded-3xs box-border hidden border-[1px] border-solid border-[#E5E2EE]" />
                     <div className="self-stretch flex flex-row items-start justify-start pt-0 pb-2.5 pr-[15px] pl-[5px]">
                       <FormControl
                         className="h-[38px] flex-1 font-l1 font-medium text-base text-[#202020] w-auto"
@@ -286,7 +321,7 @@ const BrandPage = () => {
                             />
                           </div>
                         </div>
-                        <div className="self-stretch flex flex-col items-start justify-start gap-[15px] z-[1] text-xs text-color4">
+                        <div className="self-stretch flex flex-col items-start justify-start gap-[15px] z-[1] text-xs text-[#7A7687]">
                           <div className="self-stretch flex flex-row items-start justify-start gap-[10px]">
                             <div className="flex-1 flex flex-row items-start justify-start">
                               <div className="flex-1 flex flex-col items-start justify-start gap-[2px]">
@@ -352,7 +387,7 @@ const BrandPage = () => {
                         />
                       </div>
                       <TextField
-                        className="[border:none] bg-[transparent] self-stretch h-[39px] font-l1 text-sm text-color4"
+                        className="[border:none] bg-[transparent] self-stretch h-[39px] font-l1 text-sm text-[#7A7687]"
                         placeholder="Поиск по стране"
                         variant="outlined"
                         InputProps={{
@@ -665,8 +700,8 @@ const BrandPage = () => {
                   </Button>
                 </div>
               </div>
-              <div className="flex-1 flex flex-col items-start justify-start gap-[9px] min-w-[637px] max-w-full text-color4 mq750:min-w-full">
-                <div className="self-stretch rounded-8xs overflow-hidden flex flex-col items-center justify-center py-[9px] px-[19px] border-[1px] border-solid border-color1">
+              <div className="flex-1 flex flex-col items-start justify-start gap-[9px] min-w-[637px] max-w-full text-[#7A7687] mq750:min-w-full">
+                <div className="self-stretch rounded-8xs overflow-hidden flex flex-col items-center justify-center py-[9px] px-[19px] border-[1px] border-solid border-[#E5E2EE]">
                   <div className="self-stretch flex flex-row items-center justify-between gap-[20px] mq675:flex-wrap">
                     <FormControl
                       className="h-[19px] w-[139px] font-l1 text-sm text-[#202020]"
@@ -833,29 +868,45 @@ const BrandPage = () => {
                       <div
                         className={`w-80 flex flex-row items-start justify-start text-left text-sm text-color3 font-l1 `}
                       >
-                        <div className="flex-1 rounded-3xs flex flex-col items-start justify-start pt-0 px-0 pb-[13px] gap-[20px] border-[1px] border-solid border-color1">
-                          <div className="self-stretch h-[522px] relative rounded-3xs box-border hidden border-[1px] border-solid border-color1" />
-                          <div className="self-stretch rounded-t-3xs rounded-b-none bg-color flex flex-col items-start justify-start pt-[13px] px-3.5 pb-[33px] gap-[21px] z-[1] border-[1px] border-solid border-color1">
-                            <div className="w-80 h-[279px] relative rounded-t-3xs rounded-b-none bg-color box-border hidden border-[1px] border-solid border-color1" />
+                        <div className="flex-1 rounded-3xs flex flex-col items-start justify-start pt-0 px-0 pb-[13px] gap-[20px] border-[1px] border-solid border-[#E5E2EE]">
+                          <div className="self-stretch h-[522px] relative rounded-3xs box-border hidden border-[1px] border-solid border-[#E5E2EE]" />
+                          <div className="self-stretch rounded-t-3xs rounded-b-none bg-color flex flex-col items-start justify-start pt-[13px] px-3.5 pb-[33px] gap-[21px] z-[1] border-[1px] border-solid border-[#E5E2EE]">
+                            <div className="w-80 h-[279px] relative rounded-t-3xs rounded-b-none bg-color box-border hidden border-[1px] border-solid border-[#E5E2EE]" />
                             <div className="self-stretch flex flex-row items-end justify-between gap-[20px]">
-                              <div className="w-[79px] rounded-41xl bg-honeydew box-border flex flex-row items-start justify-start py-0.5 px-[9px] z-[2] border-[1px] border-solid border-color3">
-                                <div className="relative font-semibold inline-block min-w-[59px]">
-                                  Новинка
-                                </div>
+                              <div
+                                className={`${
+                                  product.type === 1 ? "" : "hidden"
+                                } w-[79px] h-[27px] rounded-41xl text-[#088269] border-[#088269] bg-[#E1EFE6] box-border flex flex-row items-center justify-center z-[2] border-[1px] border-solid`}
+                              >
+                                Новинка
+                              </div>
+                              <div
+                                className={`${
+                                  product.type === 2 ? "" : "hidden"
+                                } w-[100px] h-[27px] rounded-41xl text-[#59599A] border-[#59599A] bg-[#E6E6FD] box-border flex flex-row items-center justify-center z-[2] border-[1px] border-solid`}
+                              >
+                                Хит продаж
+                              </div>
+                              <div
+                                className={`${
+                                  product.type === 3 ? "" : "hidden"
+                                } w-[55px] h-[27px] rounded-41xl text-[#AD7B00] border-[#AD7B00] bg-[#FFE095] box-border flex flex-row items-center justify-center z-[2] border-[1px] border-solid`}
+                              >
+                                -30%
                               </div>
                               <div className="w-[58px] flex flex-col items-start justify-end pt-0 px-0 pb-px box-border">
                                 <div className="self-stretch h-6 relative">
                                   <img
-                                    className="absolute top-[0px] left-[0px] w-6 h-6 overflow-hidden z-[2]"
+                                    className="absolute cursor-pointer top-[0px] left-[0px] w-6 h-6 overflow-hidden z-[2]"
                                     loading="lazy"
                                     alt=""
-                                    src={``}
+                                    src={CravnitImg}
                                   />
                                   <img
-                                    className="absolute top-[0px] left-[34px] w-6 h-6 overflow-hidden z-[2]"
+                                    className="absolute cursor-pointer top-[0px] left-[34px] w-6 h-6 overflow-hidden z-[2]"
                                     loading="lazy"
                                     alt=""
-                                    src={`favourites`}
+                                    src={LikeImg}
                                   />
                                 </div>
                               </div>
@@ -865,7 +916,7 @@ const BrandPage = () => {
                                 className="h-[181px] w-[181px] relative object-cover mix-blend-multiply z-[2]"
                                 loading="lazy"
                                 alt=""
-                                src={`photo`}
+                                src={product.img}
                               />
                             </div>
                           </div>
@@ -878,7 +929,7 @@ const BrandPage = () => {
                                       <p className="m-0">{`Анализатор мочи `}</p>
                                       <p className="m-0">MIND UA-66</p>
                                     </div>
-                                    <div className="flex flex-col items-start justify-start py-0 pr-5 pl-0 gap-[5px] text-xs text-color4">
+                                    <div className="flex flex-col items-start justify-start py-0 pr-5 pl-0 gap-[5px] text-xs text-[#7A7687]">
                                       <div className="relative inline-block min-w-[90px]">
                                         Артикул: 213134
                                       </div>
@@ -893,7 +944,7 @@ const BrandPage = () => {
                                 </div>
                               </div>
                               <Button
-                                className="self-stretch h-[41px] z-[2]"
+                                className="self-stretch h-[41px] text-[#088269] z-[2]"
                                 disableElevation
                                 variant="outlined"
                                 sx={{
@@ -921,61 +972,61 @@ const BrandPage = () => {
         </main>
         <div className="self-stretch flex flex-row items-start justify-center py-0 px-5 box-border max-w-full text-sm">
           <div className="w-[328px] flex flex-row items-start justify-start gap-[5px] max-w-full">
-            <div className="h-8 w-8 rounded-lg bg-color box-border flex flex-col items-center justify-center py-2.5 px-1.5 border-[1px] border-solid border-color1">
+            <div className="h-8 w-8 rounded-lg bg-[#ffffff] box-border flex flex-col items-center justify-center py-2.5 px-1.5 border-[1px] border-solid border-[#E5E2EE]">
               <img
                 className="w-[17px] h-[17px] relative overflow-hidden shrink-0"
                 loading="lazy"
                 alt=""
-                src="/17-two--arrow-left.svg"
+                src={Left2x}
               />
             </div>
-            <div className="h-8 w-8 rounded-lg bg-color box-border flex flex-col items-center justify-center py-2.5 px-1.5 border-[1px] border-solid border-color1">
+            <div className="h-8 w-8 rounded-lg bg-[#ffffff] box-border flex flex-col items-center justify-center py-2.5 px-1.5 border-[1px] border-solid border-[#E5E2EE]">
               <img
                 className="w-[17px] h-[17px] relative overflow-hidden shrink-0"
                 loading="lazy"
                 alt=""
-                src="/17-arrow--left.svg"
+                src={Left1x}
               />
             </div>
-            <div className="rounded-lg bg-color3 flex flex-row items-start justify-start py-[6.5px] px-[13px] text-color">
+            <div className="rounded-lg bg-[#088269] flex flex-row items-start justify-start py-[6.5px] px-[13px] text-color">
               <div className="relative font-semibold inline-block min-w-[6px]">
                 1
               </div>
             </div>
-            <div className="flex-[0.6] rounded-lg bg-color flex flex-row items-start justify-start py-[5px] pr-2.5 pl-[11px] border-[1px] border-solid border-color1">
+            <div className="flex-[0.6] rounded-lg bg-[#FFFFFF] flex flex-row items-start justify-start py-[5px] pr-2.5 pl-[11px] border-[1px] border-solid border-[#E5E2EE]">
               <div className="relative font-semibold inline-block min-w-[9px]">
                 2
               </div>
             </div>
-            <div className="flex-[0.6] rounded-lg bg-color flex flex-row items-start justify-start py-[5px] pr-2.5 pl-[11px] border-[1px] border-solid border-color1">
+            <div className="flex-[0.6] rounded-lg bg-[#FFFFFF] flex flex-row items-start justify-start py-[5px] pr-2.5 pl-[11px] border-[1px] border-solid border-[#E5E2EE]">
               <div className="relative font-semibold inline-block min-w-[9px]">
                 3
               </div>
             </div>
-            <div className="flex-[0.8] rounded-lg bg-color flex flex-row items-start justify-start py-[7px] px-2.5 text-[13px] font-open-sans">
+            <div className="flex-[0.8] rounded-lg bg-[#FFFFFF] flex flex-row items-start justify-start py-[7px] px-2.5 text-[13px] font-open-sans">
               <div className="relative font-semibold inline-block min-w-[11px]">
                 ...
               </div>
             </div>
-            <div className="flex-1 rounded-lg bg-color flex flex-row items-start justify-start py-[5px] pr-[7px] pl-2 border-[1px] border-solid border-color1">
+            <div className="flex-1 rounded-lg bg-[#FFFFFF] flex flex-row items-start justify-start py-[5px] pr-[7px] pl-2 border-[1px] border-solid border-[#E5E2EE]">
               <div className="relative font-semibold inline-block min-w-[15px]">
                 10
               </div>
             </div>
-            <div className="h-8 w-8 rounded-lg bg-color box-border flex flex-col items-center justify-center py-2.5 px-1.5 border-[1px] border-solid border-color1">
+            <div className="h-8 w-8 rounded-lg bg-[#FFFFFF] box-border flex flex-col items-center justify-center py-2.5 px-1.5 border-[1px] border-solid border-[#E5E2EE]">
               <img
                 className="w-[17px] h-[17px] relative overflow-hidden shrink-0"
                 loading="lazy"
                 alt=""
-                src="/17-arrow--right.svg"
+                src={Right1x}
               />
             </div>
-            <div className="h-8 w-8 rounded-lg bg-color box-border flex flex-col items-center justify-center py-2.5 px-1.5 border-[1px] border-solid border-color1">
+            <div className="h-8 w-8 rounded-lg bg-[#FFFFFF] box-border flex flex-col items-center justify-center py-2.5 px-1.5 border-[1px] border-solid border-[#E5E2EE]">
               <img
                 className="w-[17px] h-[17px] relative overflow-hidden shrink-0"
                 loading="lazy"
                 alt=""
-                src="/17-two--arrow-right.svg"
+                src={Right2x}
               />
             </div>
           </div>

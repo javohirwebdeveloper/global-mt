@@ -43,45 +43,45 @@ export const Form = () => {
   });
 
   return (
-    <div className="max-w-[1440px] xl:mt-[150px] md:mt-[99px] sm:mt-[50px] mt-[40px] md:px-[65px] sm:px-[20px] px-[15px] space-x-[10px] mx-auto flex h-[612px] pl-[65px]">
-      <YMaps apikey="db81466a-d9c7-44dd-9078-c65b363da1c8">
-        <Map
-          state={mapState}
-          width="650px"
-          height="612px"
-          options={{
-            suppressMapOpenBlock: true,
-          }}
-        >
-          <Placemark
-            geometry={[41.311151, 69.279737]}
-            options={{
-              iconLayout: "default#image",
-              iconImageHref: markerIcon,
-              iconImageSize: [42, 42],
-            }}
-          />
-        </Map>
-      </YMaps>
+    <div className="max-w-[1440px] w-full xl:mt-[150px] md:mt-[99px] sm:mt-[50px] mt-[40px] xl:px-[65px] sm:px-[20px] px-[15px] mx-auto ">
+      <div className="flex flex-col-reverse lg:flex-row gap-3">
+        <div className="w-full h-80 lg:h-auto">
+          <YMaps apikey="db81466a-d9c7-44dd-9078-c65b363da1c8">
+            <Map
+              state={mapState}
+              width="100%"
+              height="100%"
+              options={{
+                suppressMapOpenBlock: true,
+              }}
+            >
+              <Placemark
+                geometry={[41.311151, 69.279737]}
+                options={{
+                  iconLayout: "default#image",
+                  iconImageHref: markerIcon,
+                  iconImageSize: [42, 42],
+                }}
+              />
+            </Map>
+          </YMaps>
+        </div>
 
-      <form
-        onSubmit={formik.handleSubmit}
-        className="flex-1 flex flex-row items-start justify-start gap-[10px] w-[650px] h-[612px] mq1350:flex-wrap"
-      >
-        <div className="flex-[0.8769] flex flex-col items-start justify-start p-10 box-border relative gap-[40px] min-w-[422px] max-w-full mq800:gap-[20px] mq800:pt-[26px] mq800:pb-[26px] mq800:box-border mq800:min-w-full mq1350:flex-1">
-          <div className="w-full h-full absolute !m-[0] top-[0px] right-[0px] bottom-[0px] left-[0px] rounded-3xs bg-color6 box-border border-[1px] border-solid border-color7" />
-          <div className="w-[417px] flex flex-col items-start justify-start gap-[25px] max-w-full">
-            <h1 className="m-0 relative text-inherit leading-[120%] font-medium font-inherit z-[1] mq450:text-lg mq450:leading-[22px] mq800:text-5xl mq800:leading-[29px]">
-              Остались вопросы?
-            </h1>
-            <div className="self-stretch relative text-base leading-[140%] font-medium text-color3 z-[1]">
+        <form
+          onSubmit={formik.handleSubmit}
+          className="w-full p-4 lg:p-8 bg-white rounded-lg"
+        >
+          <div className="mb-6">
+            <h1 className="text-2xl font-bold mb-4">Остались вопросы?</h1>
+            <p className="text-gray-700">
               Задайте их по номеру телефона +7 (495) 000-00-00 или оставьте свои
               координаты и наш менеджер перезвонит вам через 10 минут
-            </div>
+            </p>
           </div>
-          <div className="self-stretch flex flex-col items-start justify-start gap-[25px]">
+
+          <div className="space-y-4">
             <TextField
-              className="[border:none] bg-[transparent] self-stretch h-[31px] font-t2 text-sm text-color3 z-[1]"
+              className="w-full"
               placeholder="Ваше имя"
               variant="standard"
               name="name"
@@ -96,7 +96,7 @@ export const Form = () => {
               }}
             />
             <TextField
-              className="[border:none] bg-[transparent] self-stretch h-[31px] font-t2 text-sm text-color3 z-[1]"
+              className="w-full"
               placeholder="Ваш телефон"
               variant="standard"
               name="phone"
@@ -111,7 +111,7 @@ export const Form = () => {
               }}
             />
             <TextField
-              className="[border:none] bg-[transparent] self-stretch h-[31px] font-t2 text-sm text-color3 z-[1]"
+              className="w-full"
               placeholder="Ваш email"
               variant="standard"
               name="email"
@@ -126,7 +126,7 @@ export const Form = () => {
               }}
             />
             <TextField
-              className="[border:none] bg-[transparent] max-h-[60px_!important] w-auto [outline:none] flex flex-col items-start justify-start font-t2 text-sm text-color3 "
+              className="w-full"
               placeholder="Ваш вопрос"
               variant="standard"
               name="question"
@@ -142,9 +142,10 @@ export const Form = () => {
               }}
             />
           </div>
-          <div className="self-stretch flex mt-[76px] flex-row items-start justify-start gap-[30px] max-w-full text-xs text-color3 mq800:flex-wrap">
+
+          <div className="mt-6 flex flex-col lg:flex-row items-center lg:items-start space-y-4 lg:space-y-0 lg:space-x-4">
             <Button
-              className="h-[41px] w-[134px]"
+              className="w-full lg:w-auto"
               type="submit"
               disableElevation
               variant="contained"
@@ -161,20 +162,20 @@ export const Form = () => {
             >
               Отправить
             </Button>
-            <div className="flex-1 flex flex-col items-start justify-start pt-[5px] px-0 pb-0 box-border min-w-[264px] max-w-full">
-              <div className="self-stretch relative font-medium z-[1]">
-                <span>
-                  Нажимая «Отправить», я соглашаюсь c обработкой персональных
-                  данных на условиях
-                </span>
-                <span className="text-color5">{` `}</span>
-                <span className="text-color1">Политики конфиденциальности</span>
-                <span>.</span>
-              </div>
+            <div className="text-xs text-gray-600">
+              <span>
+                Нажимая «Отправить», я соглашаюсь c обработкой персональных
+                данных на условиях
+              </span>
+              <span className="text-green-500">
+                {" "}
+                Политики конфиденциальности
+              </span>
+              <span>.</span>
             </div>
           </div>
-        </div>
-      </form>
+        </form>
+      </div>
       <Snackbar
         open={submitted}
         message="отправил"

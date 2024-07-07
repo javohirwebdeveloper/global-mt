@@ -94,7 +94,7 @@ const Header1 = () => {
     <div className="w-full mx-auto z-50 bg-color flex flex-col items-start justify-start pt-2.5 pb-0 box-border xl:gap-[24.5px] gap-[10px] leading-[normal] tracking-[normal] text-left text-sm text-[#202020] font-t2">
       <div className="self-stretch flex flex-col items-start justify-start gap-[10px] max-w-full text-xs">
         <div className="w-full self-stretch mq805:hidden flex flex-row items-start justify-start py-0 box-border max-w-full ">
-          <div className="flex-1 max-w-[1440px] md:px-[65px] sm:px-[20px] px-[15px] mx-auto w-full flex flex-row items-start justify-between gap-[20px]">
+          <div className="flex-1 max-w-[1440px] xl:px-[65px] sm:px-[20px] px-[15px] mx-auto w-full flex flex-row items-start justify-between gap-[20px]">
             <div className="flex flex-row items-start justify-start gap-[20px] max-w-full mq450:flex-wrap">
               <NavLink
                 to={`/О компании`}
@@ -114,12 +114,18 @@ const Header1 = () => {
               >
                 Оплата
               </NavLink>
-              <a className="[text-decoration:none] duration-200 cursor-pointer relative font-medium inline-block min-w-[54px]">
+              <NavLink
+                to={`/Гарантии`}
+                className="[text-decoration:none] duration-200 cursor-pointer relative font-medium inline-block min-w-[54px]"
+              >
                 Гарантии
-              </a>
-              <a className="[text-decoration:none] duration-200 cursor-pointer relative font-medium inline-block min-w-[28px]">
+              </NavLink>
+              <NavLink
+                to={`/Блог`}
+                className="[text-decoration:none] duration-200 cursor-pointer relative font-medium inline-block min-w-[28px]"
+              >
                 Блог
-              </a>
+              </NavLink>
             </div>
             <div className="flex flex-row duration-200 cursor-pointer items-start justify-start gap-[45px] mq450:gap-[22px]">
               <a className="[text-decoration:none] relative font-medium inline-block min-w-[71px] whitespace-nowrap">
@@ -131,7 +137,7 @@ const Header1 = () => {
             </div>
           </div>
         </div>
-        <div className="hidden mq805:flex md:px-[65px] sm:px-[20px] px-[15px] mx-auto  justify-between w-full max-w-full">
+        <div className="hidden mq805:flex xl:px-[65px] sm:px-[20px] px-[15px] mx-auto  justify-between w-full max-w-full">
           <img src={Logo} className="w-[74px]" alt="" />
           <div className="flex gap-[20px]">
             <img src={PhoneImg} className="w-[24px]" alt="" />
@@ -147,7 +153,7 @@ const Header1 = () => {
       </div>
 
       <div className="max-w-[1440px]  w-full mx-auto self-stretch flex flex-row items-start justify-start py-0 box-border ">
-        <div className="flex-1 max-w-[1440px] md:px-[65px] sm:px-[20px] px-[15px] mx-auto flex flex-row xl:items-start items-center justify-between gap-[20px]">
+        <div className="flex-1 max-w-[1440px] xl:px-[65px] sm:px-[20px] px-[15px] mx-auto flex flex-row xl:items-start items-center justify-between gap-[20px]">
           <div className="xl:w-[915px] flex flex-col items-start justify-start pt-px px-0 pb-0 box-border max-w-full">
             <div className="self-stretch flex flex-row items-start justify-start gap-[35px] max-w-full mq450:gap-[17px] mq1150:flex-wrap">
               <div className="flex-1  flex flex-row items-start justify-start xl:gap-[50px] gap-[31px] max-w-full">
@@ -165,7 +171,7 @@ const Header1 = () => {
                       className={`${
                         isSearchOpen && searchTerm
                           ? ""
-                          : "-translate-y-[120%] opacity-0"
+                          : "-translate-y-[140%] opacity-0"
                       } absolute z-50 h-[403px] overflow-y-auto bg-white top-10 duration-200 flex flex-col mq390:w-[315px] w-[345px] items-start gap-2.5 p-[15px] bg-o-hk-1mn rounded-[5px] border border-solid border-[#e5e2ee] custom-scrollbar`}
                     >
                       {searchResults.brands?.length === 0 &&
@@ -431,7 +437,7 @@ const Header1 = () => {
       </div>
       <div className="self-stretch  flex flex-col items-start justify-start gap-[10px] text-gray">
         <div className="self-stretch mq805:hidden h-px relative bg-[#E5E2EE]" />
-        <div className="max-w-[1440px] mq805:hidden md:px-[65px] sm:px-[20px] px-[15px] mx-auto w-full self-stretch flex flex-row items-center xl:items-start justify-start py-0 box-border">
+        <div className="max-w-[1440px] mq805:hidden xl:px-[65px] sm:px-[20px] px-[15px] mx-auto w-full self-stretch flex flex-row items-center xl:items-start justify-start py-0 box-border">
           <div className="flex-1 flex flex-row items-center xl:items-start justify-between gap-[20px]">
             <div className="max-w-[719px] w-full flex flex-col items-start justify-center xl:justify-start xl:pt-[11px] px-0 pb-0 box-border">
               <div className="self-stretch flex flex-row items-start justify-start xl:gap-[25px] gap-[15px]">
@@ -454,18 +460,24 @@ const Header1 = () => {
                 <div className="relative hover:text-[#088269_!important] mq1280:text-[12px] cursor-pointer duration-200 font-semibold inline-block min-w-[109px]">
                   Производители
                 </div>
-                <div className="relative text-nowrap font-semibold mq1280:text-[12px] hover:text-[#088269_!important] cursor-pointer duration-200">
+                <NavLink
+                  to={`/Кабинеты под ключ`}
+                  className="relative text-nowrap font-semibold mq1280:text-[12px] hover:text-[#088269_!important] cursor-pointer duration-200"
+                >
                   Кабинеты под ключ
-                </div>
+                </NavLink>
                 <NavLink
                   to="/Услуги"
                   className="[text-decoration:none] mq1280:text-[12px] hover:text-[#088269_!important] cursor-pointer duration-200 relative font-semibold text-[inherit] inline-block min-w-[47px]"
                 >
                   Услуги
                 </NavLink>
-                <a className="[text-decoration:none] mq1280:text-[12px] hover:text-[#088269_!important] cursor-pointer duration-200 relative font-semibold text-[inherit] inline-block min-w-[43px]">
+                <NavLink
+                  to={`/Акции`}
+                  className="[text-decoration:none] mq1280:text-[12px] hover:text-[#088269_!important] cursor-pointer duration-200 relative font-semibold text-[inherit] inline-block min-w-[43px]"
+                >
                   Акции
-                </a>
+                </NavLink>
                 <div className="relative font-semibold mq1280:text-[12px] hover:text-[#088269_!important] cursor-pointer duration-200 inline-block min-w-[92px]">
                   Покупателям
                 </div>
@@ -604,11 +616,14 @@ const Header1 = () => {
             <div className="self-stretch h-px flex flex-row items-start justify-start py-0 px-[15px] box-border max-w-full">
               <div className="self-stretch flex-1 relative bg-[#E5E2EE] max-w-full" />
             </div>
-            <div className="flex flex-row items-start justify-start py-0 px-[15px]">
+            <NavLink
+              to={`/Отзывы`}
+              className="flex flex-row items-start justify-start py-0 px-[15px]"
+            >
               <div className="relative font-medium inline-block min-w-[52px]">
                 Отзывы
               </div>
-            </div>
+            </NavLink>
             <div className="self-stretch h-px flex flex-row items-start justify-start py-0 px-[15px] box-border max-w-full">
               <div className="self-stretch flex-1 relative bg-[#E5E2EE] max-w-full" />
             </div>
@@ -674,11 +689,14 @@ const Header1 = () => {
           <div className="self-stretch h-px flex flex-row items-start justify-start py-0 px-[15px] box-border max-w-full">
             <div className="self-stretch flex-1 h-px relative bg-[#E5E2EE] max-w-full" />
           </div>
-          <div className="flex flex-row items-start justify-start py-0 px-[15px]">
+          <NavLink
+            to={`/Акции`}
+            className="flex flex-row items-start justify-start py-0 px-[15px]"
+          >
             <div className="relative font-medium inline-block min-w-[42px]">
               Акции
             </div>
-          </div>
+          </NavLink>
           <div className="self-stretch h-px flex flex-row items-start justify-start py-0 px-[15px] box-border max-w-full">
             <div className="self-stretch flex-1 h-px relative bg-[#E5E2EE] max-w-full" />
           </div>
@@ -698,11 +716,14 @@ const Header1 = () => {
           <div className="self-stretch h-px flex flex-row items-start justify-start py-0 px-[15px] box-border max-w-full">
             <div className="self-stretch flex-1 h-px relative bg-[#E5E2EE] max-w-full" />
           </div>
-          <div className="flex flex-row items-start justify-start py-0 px-[15px]">
+          <NavLink
+            to={`/Блог`}
+            className="flex flex-row items-start justify-start py-0 px-[15px]"
+          >
             <div className="relative font-medium inline-block min-w-[32px]">
               Блог
             </div>
-          </div>
+          </NavLink>
           <div className="self-stretch h-px flex flex-row items-start justify-start py-0 px-[15px] box-border max-w-full">
             <div className="self-stretch flex-1 h-px relative bg-[#E5E2EE] max-w-full" />
           </div>
@@ -768,7 +789,7 @@ const Header1 = () => {
                     className={`${
                       isSearchOpen && searchTerm
                         ? ""
-                        : "-translate-y-[120%] opacity-0"
+                        : "-translate-y-[140%] opacity-0"
                     } absolute z-50 h-[403px] overflow-y-auto bg-white top-10 duration-200 flex flex-col mq390:w-[315px] w-[345px] items-start gap-2.5 p-[15px] bg-o-hk-1mn rounded-[5px] border border-solid border-[#e5e2ee] custom-scrollbar`}
                   >
                     {searchResults.brands?.length === 0 &&
@@ -1080,7 +1101,7 @@ const Header1 = () => {
             SelectedMenu === 0 ? "flex" : "hidden"
           } flex-col items-start justify-start gap-[15.8px] leading-[normal] tracking-[normal] text-left text-sm text-[#202020] font-manrope`}
         >
-          <div className="flex md:px-[65px] sm:px-[20px] px-[15px] mx-auto  justify-between w-full max-w-full">
+          <div className="flex xl:px-[65px] sm:px-[20px] px-[15px] mx-auto  justify-between w-full max-w-full">
             <img src={Logo} className="w-[74px]" alt="" />
             <div className="flex gap-[20px]">
               <img src={PhoneImg} className="w-[24px]" alt="" />
