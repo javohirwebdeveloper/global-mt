@@ -19,7 +19,8 @@ import LikeImg from "../../assets/24--favourites.svg";
 import LoginImg from "../../assets/24--login.svg";
 import CravnitImg from "../../assets/comparison.svg";
 import LocationImg1 from "../../assets/location.svg";
-
+import HomeImg from "../../assets/home.svg";
+import CatalogImg from "../../assets/catalog.svg";
 const Header1 = () => {
   const [isHovered, setIsHovered] = useState(false);
   const [isCategoryOpen, setIsCategoryOpen] = useState(false);
@@ -535,6 +536,83 @@ const Header1 = () => {
         <div className="self-stretch h-px relative bg-[#E5E2EE]" />
       </div>
       <AuthModal isOpen={isModalOpen} onRequestClose={handleCloseModal} />
+
+      <div
+        className={`w-full bg-[#F8F7F3] z-50 bottom-0 fixed mq790:flex hidden flex-row items-start justify-start leading-[normal] tracking-[normal] text-left text-xs text-[#7A7687] font-t2`}
+      >
+        <div className="flex-1  overflow-hidden flex flex-col items-start justify-start pt-0 px-0 pb-[9px] box-border gap-[10px] max-w-full">
+          <div className="self-stretch h-px relative" />
+          <div className="self-stretch flex flex-row items-start justify-start py-0 px-[15px] box-border max-w-full">
+            <div className="flex-1 flex flex-row items-start justify-between max-w-full gap-[20px]">
+              <div className="flex flex-col items-start justify-start gap-[4px]">
+                <div className="w-[47px] flex flex-row items-start justify-start py-0 px-[11px] box-border">
+                  <img
+                    className="h-6 w-6 relative overflow-hidden shrink-0"
+                    loading="lazy"
+                    alt=""
+                    src={HomeImg}
+                  />
+                </div>
+                <a className="[text-decoration:none] relative font-medium text-[inherit] inline-block min-w-[47px]">
+                  Главная
+                </a>
+              </div>
+              <div className="flex flex-col items-start justify-start gap-[4px]">
+                <div className="w-[47px] flex flex-row items-start justify-start py-0 px-[11px] box-border">
+                  <img
+                    className="h-6 w-6 relative overflow-hidden shrink-0"
+                    loading="lazy"
+                    alt=""
+                    src={CatalogImg}
+                  />
+                </div>
+                <a className="[text-decoration:none] relative font-medium text-[inherit] inline-block min-w-[47px]">
+                  Каталог
+                </a>
+              </div>
+              <div className="flex flex-col items-start justify-start gap-[4px]">
+                <div className="w-[49px] flex flex-row items-start justify-start py-0 px-3 box-border">
+                  <img
+                    className="h-6 w-6 relative overflow-hidden shrink-0"
+                    loading="lazy"
+                    alt=""
+                    src={BasketImg}
+                  />
+                </div>
+                <a className="[text-decoration:none] relative font-medium text-[inherit] inline-block min-w-[49px]">
+                  Корзина
+                </a>
+              </div>
+              <div className="flex flex-col items-start justify-start gap-[4px]">
+                <div className="flex flex-row items-start justify-start py-0 px-5">
+                  <img
+                    className="h-6 w-6 relative overflow-hidden shrink-0"
+                    loading="lazy"
+                    alt=""
+                    src={LikeImg}
+                  />
+                </div>
+                <a className="[text-decoration:none] relative font-medium text-[inherit] inline-block min-w-[65px]">
+                  Избранное
+                </a>
+              </div>
+              <div className="flex flex-col items-start justify-start gap-[4px]">
+                <div className="w-[35px] flex flex-row items-start justify-start py-0 px-[5px] box-border">
+                  <img
+                    className="h-6 w-6 relative overflow-hidden shrink-0"
+                    loading="lazy"
+                    alt=""
+                    src={LoginImg}
+                  />
+                </div>
+                <a className="[text-decoration:none] relative font-medium text-[inherit] inline-block min-w-[35px]">
+                  Войти
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
