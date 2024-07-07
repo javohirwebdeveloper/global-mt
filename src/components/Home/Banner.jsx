@@ -81,148 +81,116 @@ export const Banner = () => {
           renderIndicator={renderIndicator}
           className="carousels select-none h-full"
         >
-          <div className="carousel1 item relative w-full h-[367px] bg-x-7rs-fx rounded-[10px] overflow-hidden">
-            <div className="w-[100%] h-[100%] flex justify-end items-end">
-              <div className="banner-clip-path h-[100%] w-[60%]">
-                <img
-                  src={Banner3}
-                  alt=""
-                  className="object-cover object-left w-full bottom-0 h-full"
-                />
-              </div>
-            </div>
-
-            <div className="absolute w-[1250px] h-full top-0 left-[60px]">
-              <div className="text-left absolute w-[538px] top-[31px] left-0 font-1440-h1 font-[number:var(--1440-h1-font-weight)] text-ws-j7-it text-[length:var(--1440-h1-font-size)] tracking-[var(--1440-h1-letter-spacing)] leading-[var(--1440-h1-line-height)] [font-style:var(--1440-h1-font-style)]">
+          <div className="carousel1 item relative w-full mq765:h-[406px] h-[367px] bg-x-7rs-fx rounded-[10px] overflow-hidden flex flex-col md:flex-row">
+            <div className="carousel-content w-full md:w-1/2 h-full flex flex-col justify-center items-start p-4 md:p-8">
+              <div className="text-left font-1440-h1 font-bold text-ws-j7-it text-2xl md:text-4xl">
                 Заголовок баннера <br />в пару строк
               </div>
-            </div>
-
-            <div className="hover:bg-[#088269] hover:text-[#fff] text-tx-u7vg duration-200 hover:border-transparent cursor-pointer inline-flex items-center justify-center gap-2.5 px-[30px] py-[11px] absolute top-[272px] left-[245px] rounded-[50px] border border-solid border-[#d5d1e1]">
-              <div className="relative w-fit mt-[-1.00px] font-1440-l1 font-[number:var(--1440-l1-font-weight)] text-[length:var(--1440-l1-font-size)] tracking-[var(--1440-l1-letter-spacing)] leading-[var(--1440-l1-line-height)] [font-style:var(--1440-l1-font-style)]">
-                В каталог
+              <p className="text-left font-1440-t1 font-medium text-ML-tw-1j mt-4">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor
+              </p>
+              <div className="mt-8 flex gap-[10px] md:gap-4">
+                <button className="hover:bg-[#41ab95] flex justify-center items-center w-[147px] h-[33px] text-nowrap duration-200 cursor-pointer bg-tx-u7vg rounded-full text-white">
+                  Запросить цену
+                </button>
+                <button className="hover:bg-[#088269] text-nowrap hover:text-[#fff] w-[147px] h-[33px] flex justify-center items-center duration-200 cursor-pointer border border-[#d5d1e1] rounded-full text-tx-u7vg">
+                  В каталог
+                </button>
               </div>
             </div>
-
-            <button className="hover:bg-[#41ab95] duration-200 cursor-pointer all-[unset] box-border inline-flex items-center justify-center gap-2.5 px-[30px] py-[11px] absolute top-[272px] left-[60px] bg-tx-u7vg rounded-[50px]">
-              <div className="relative w-fit mt-[-1.00px] font-1440-l1 font-[number:var(--1440-l1-font-weight)] text-x-1l-ubo-z text-[length:var(--1440-l1-font-size)] tracking-[var(--1440-l1-letter-spacing)] leading-[var(--1440-l1-line-height)] [font-style:var(--1440-l1-font-style)]">
-                Запросить цену
-              </div>
-            </button>
-
-            <p className="text-left absolute w-[379px] top-[162px] left-[60px] font-1440-t1 font-[number:var(--1440-t1-font-weight)] text-ML-tw-1j text-[length:var(--1440-t1-font-size)] tracking-[var(--1440-t1-letter-spacing)] leading-[var(--1440-t1-line-height)] [font-style:var(--1440-t1-font-style)]">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor
-            </p>
+            <div className="carousel-image banner-clip-path w-full md:w-1/2 h-full flex justify-center items-center">
+              <img
+                src={Banner3}
+                alt=""
+                className="object-cover w-full h-full"
+              />
+            </div>
           </div>
 
-          <div className="carousel2 item relative w-full h-[367px] bg-x-7rs-fx rounded-[10px] overflow-hidden">
-            <div className="w-[100%] h-[100%] flex justify-end items-end">
-              <div className="banner-clip-path h-[100%] w-[60%]">
-                <img
-                  src={Banner2}
-                  alt=""
-                  className="object-cover object-left w-full bottom-0 h-full"
-                />
-              </div>
-            </div>
-
-            <div className="absolute w-[1250px] h-full top-0 left-[60px]">
-              <div className="text-left absolute w-[538px] top-[31px] left-0 font-1440-h1 font-[number:var(--1440-h1-font-weight)] text-ws-j7-it text-[length:var(--1440-h1-font-size)] tracking-[var(--1440-h1-letter-spacing)] leading-[var(--1440-h1-line-height)] [font-style:var(--1440-h1-font-style)]">
-                Заголовок баннера строк
-              </div>
-            </div>
-
-            <div className="hover:bg-[#088269] hover:text-[#fff] text-tx-u7vg duration-200 hover:border-transparent cursor-pointer inline-flex items-center justify-center gap-2.5 px-[30px] py-[11px] absolute top-[272px] left-[245px] rounded-[50px] border border-solid border-[#d5d1e1]">
-              <div className="relative w-fit mt-[-1.00px] font-1440-l1 font-[number:var(--1440-l1-font-weight)] text-[length:var(--1440-l1-font-size)] tracking-[var(--1440-l1-letter-spacing)] leading-[var(--1440-l1-line-height)] [font-style:var(--1440-l1-font-style)]">
-                В каталог
-              </div>
-            </div>
-
-            <button className="hover:bg-[#41ab95] duration-200 cursor-pointer all-[unset] box-border inline-flex items-center justify-center gap-2.5 px-[30px] py-[11px] absolute top-[272px] left-[60px] bg-tx-u7vg rounded-[50px]">
-              <div className="relative w-fit mt-[-1.00px] font-1440-l1 font-[number:var(--1440-l1-font-weight)] text-x-1l-ubo-z text-[length:var(--1440-l1-font-size)] tracking-[var(--1440-l1-letter-spacing)] leading-[var(--1440-l1-line-height)] [font-style:var(--1440-l1-font-style)]">
-                Запросить цену
-              </div>
-            </button>
-
-            <p className="text-left absolute w-[379px] top-[162px] left-[60px] font-1440-t1 font-[number:var(--1440-t1-font-weight)] text-ML-tw-1j text-[length:var(--1440-t1-font-size)] tracking-[var(--1440-t1-letter-spacing)] leading-[var(--1440-t1-line-height)] [font-style:var(--1440-t1-font-style)]">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor
-            </p>
-          </div>
-
-          <div className="carousel3 item relative w-full h-[367px] bg-x-7rs-fx rounded-[10px] overflow-hidden">
-            <div className="w-[100%] h-[100%] flex justify-end items-end">
-              <div className="banner-clip-path h-[100%] w-[60%]">
-                <img
-                  src={Banner1}
-                  alt=""
-                  className="object-cover object-left w-full bottom-0 h-full"
-                />
-              </div>
-            </div>
-
-            <div className="absolute w-[1250px] h-full top-0 left-[60px]">
-              <div className="text-left absolute w-[538px] top-[31px] left-0 font-1440-h1 font-[number:var(--1440-h1-font-weight)] text-ws-j7-it text-[length:var(--1440-h1-font-size)] tracking-[var(--1440-h1-letter-spacing)] leading-[var(--1440-h1-line-height)] [font-style:var(--1440-h1-font-style)]">
+          <div className="carousel1 item relative w-full mq765:h-[406px] h-[367px] bg-x-7rs-fx rounded-[10px] overflow-hidden flex flex-col md:flex-row">
+            <div className="carousel-content w-full md:w-1/2 h-full flex flex-col justify-center items-start p-4 md:p-8">
+              <div className="text-left font-1440-h1 font-bold text-ws-j7-it text-2xl md:text-4xl">
                 Заголовок баннера <br />в пару строк
               </div>
-            </div>
-
-            <div className="hover:bg-[#088269] hover:text-[#fff] text-tx-u7vg duration-200 hover:border-transparent cursor-pointer inline-flex items-center justify-center gap-2.5 px-[30px] py-[11px] absolute top-[272px] left-[245px] rounded-[50px] border border-solid border-[#d5d1e1]">
-              <div className="relative w-fit mt-[-1.00px] font-1440-l1 font-[number:var(--1440-l1-font-weight)] text-[length:var(--1440-l1-font-size)] tracking-[var(--1440-l1-letter-spacing)] leading-[var(--1440-l1-line-height)] [font-style:var(--1440-l1-font-style)]">
-                В каталог
+              <p className="text-left font-1440-t1 font-medium text-ML-tw-1j mt-4">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor
+              </p>
+              <div className="mt-8 flex gap-[10px] md:gap-4">
+                <button className="hover:bg-[#41ab95] flex justify-center items-center w-[147px] h-[33px] text-nowrap duration-200 cursor-pointer bg-tx-u7vg rounded-full text-white">
+                  Запросить цену
+                </button>
+                <button className="hover:bg-[#088269] text-nowrap hover:text-[#fff] w-[147px] h-[33px] flex justify-center items-center duration-200 cursor-pointer border border-[#d5d1e1] rounded-full text-tx-u7vg">
+                  В каталог
+                </button>
               </div>
             </div>
-
-            <button className="hover:bg-[#41ab95] duration-200 cursor-pointer all-[unset] box-border inline-flex items-center justify-center gap-2.5 px-[30px] py-[11px] absolute top-[272px] left-[60px] bg-tx-u7vg rounded-[50px]">
-              <div className="relative w-fit mt-[-1.00px] font-1440-l1 font-[number:var(--1440-l1-font-weight)] text-x-1l-ubo-z text-[length:var(--1440-l1-font-size)] tracking-[var(--1440-l1-letter-spacing)] leading-[var(--1440-l1-line-height)] [font-style:var(--1440-l1-font-style)]">
-                Запросить цену
-              </div>
-            </button>
-
-            <p className="text-left absolute w-[379px] top-[162px] left-[60px] font-1440-t1 font-[number:var(--1440-t1-font-weight)] text-ML-tw-1j text-[length:var(--1440-t1-font-size)] tracking-[var(--1440-t1-letter-spacing)] leading-[var(--1440-t1-line-height)] [font-style:var(--1440-t1-font-style)]">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor
-            </p>
+            <div className="carousel-image banner-clip-path w-full md:w-1/2 h-full flex justify-center items-center">
+              <img
+                src={Banner2}
+                alt=""
+                className="object-cover w-full h-full"
+              />
+            </div>
           </div>
 
-          <div className="carousel4 item relative w-full h-[367px] bg-x-7rs-fx rounded-[10px] overflow-hidden">
-            <div className="w-[100%] h-[100%] flex justify-end items-end">
-              <div className="banner-clip-path h-[100%] w-[60%]">
-                <img
-                  src={Banner4}
-                  alt=""
-                  className="object-cover object-left w-full bottom-0 h-full"
-                />
-              </div>
-            </div>
-
-            <div className="absolute w-[1250px] h-full top-0 left-[60px]">
-              <div className="text-left absolute w-[538px] top-[31px] left-0 font-1440-h1 font-[number:var(--1440-h1-font-weight)] text-ws-j7-it text-[length:var(--1440-h1-font-size)] tracking-[var(--1440-h1-letter-spacing)] leading-[var(--1440-h1-line-height)] [font-style:var(--1440-h1-font-style)]">
+          <div className="carousel1 item relative w-full mq765:h-[406px] h-[367px] bg-x-7rs-fx rounded-[10px] overflow-hidden flex flex-col md:flex-row">
+            <div className="carousel-content w-full md:w-1/2 h-full flex flex-col justify-center items-start p-4 md:p-8">
+              <div className="text-left font-1440-h1 font-bold text-ws-j7-it text-2xl md:text-4xl">
                 Заголовок баннера <br />в пару строк
               </div>
-            </div>
-
-            <div className="hover:bg-[#088269] hover:text-[#fff] text-tx-u7vg duration-200 hover:border-transparent cursor-pointer inline-flex items-center justify-center gap-2.5 px-[30px] py-[11px] absolute top-[272px] left-[245px] rounded-[50px] border border-solid border-[#d5d1e1]">
-              <div className="relative w-fit mt-[-1.00px] font-1440-l1 font-[number:var(--1440-l1-font-weight)] text-[length:var(--1440-l1-font-size)] tracking-[var(--1440-l1-letter-spacing)] leading-[var(--1440-l1-line-height)] [font-style:var(--1440-l1-font-style)]">
-                В каталог
+              <p className="text-left font-1440-t1 font-medium text-ML-tw-1j mt-4">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor
+              </p>
+              <div className="mt-8 flex gap-[10px] md:gap-4">
+                <button className="hover:bg-[#41ab95] flex justify-center items-center w-[147px] h-[33px] text-nowrap duration-200 cursor-pointer bg-tx-u7vg rounded-full text-white">
+                  Запросить цену
+                </button>
+                <button className="hover:bg-[#088269] text-nowrap hover:text-[#fff] w-[147px] h-[33px] flex justify-center items-center duration-200 cursor-pointer border border-[#d5d1e1] rounded-full text-tx-u7vg">
+                  В каталог
+                </button>
               </div>
             </div>
+            <div className="carousel-image banner-clip-path w-full md:w-1/2 h-full flex justify-center items-center">
+              <img
+                src={Banner1}
+                alt=""
+                className="object-cover w-full h-full"
+              />
+            </div>
+          </div>
 
-            <button className="hover:bg-[#41ab95] duration-200 cursor-pointer all-[unset] box-border inline-flex items-center justify-center gap-2.5 px-[30px] py-[11px] absolute top-[272px] left-[60px] bg-tx-u7vg rounded-[50px]">
-              <div className="relative w-fit mt-[-1.00px] font-1440-l1 font-[number:var(--1440-l1-font-weight)] text-x-1l-ubo-z text-[length:var(--1440-l1-font-size)] tracking-[var(--1440-l1-letter-spacing)] leading-[var(--1440-l1-line-height)] [font-style:var(--1440-l1-font-style)]">
-                Запросить цену
+          <div className="carousel1 item relative w-full mq765:h-[406px] h-[367px] bg-x-7rs-fx rounded-[10px] overflow-hidden flex flex-col md:flex-row">
+            <div className="carousel-content w-full md:w-1/2 h-full flex flex-col justify-center items-start p-4 md:p-8">
+              <div className="text-left font-1440-h1 font-bold text-ws-j7-it text-2xl md:text-4xl">
+                Заголовок баннера <br />в пару строк
               </div>
-            </button>
-
-            <p className="text-left absolute w-[379px] top-[162px] left-[60px] font-1440-t1 font-[number:var(--1440-t1-font-weight)] text-ML-tw-1j text-[length:var(--1440-t1-font-size)] tracking-[var(--1440-t1-letter-spacing)] leading-[var(--1440-t1-line-height)] [font-style:var(--1440-t1-font-style)]">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor
-            </p>
+              <p className="text-left font-1440-t1 font-medium text-ML-tw-1j mt-4">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor
+              </p>
+              <div className="mt-8 flex gap-[10px] md:gap-4">
+                <button className="hover:bg-[#41ab95] flex justify-center items-center w-[147px] h-[33px] text-nowrap duration-200 cursor-pointer bg-tx-u7vg rounded-full text-white">
+                  Запросить цену
+                </button>
+                <button className="hover:bg-[#088269] text-nowrap hover:text-[#fff] w-[147px] h-[33px] flex justify-center items-center duration-200 cursor-pointer border border-[#d5d1e1] rounded-full text-tx-u7vg">
+                  В каталог
+                </button>
+              </div>
+            </div>
+            <div className="carousel-image banner-clip-path w-full md:w-1/2 h-full flex justify-center items-center">
+              <img
+                src={Banner4}
+                alt=""
+                className="object-cover w-full h-full"
+              />
+            </div>
           </div>
         </Carousel>
 
-        <div className="absolute bottom-[33px] right-[60px]">
+        <div className="absolute mq780:hidden bottom-[33px] right-[60px]">
           <div className="flex w-[92px] h-[41px] items-center gap-2.5 relative ">
             <div
               className="relative select-none cursor-pointer w-[41px] h-[41px] bg-x-1l-ubo-z rounded-[40px] overflow-hidden border-[1.5px] border-solid border-[#d5d1e1] hover:border-[#088269] duration-200"

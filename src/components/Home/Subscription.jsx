@@ -3,9 +3,9 @@ import Vector from "../../assets/Rectangle1.png";
 import { Button } from "@mui/material";
 export const Subscription = () => {
   return (
-    <div className="mt-[150px] bg-color2 h-[276px] left-0">
+    <div className="xl:mt-[150px] md:mt-[99px] sm:mt-[50px] mt-[40px]  bg-color2 h-[276px] left-0">
       <section
-        className={`self-stretch w-[1440px] h-full mx-auto overflow-hidden flex flex-row items-start justify-end py-[35px] pt-0 px-[175px] box-border relative max-w-full text-left text-11xl text-color5 font-t2 mq450:pl-5 mq450:pr-5 mq450:box-border mq1125:pl-[87px] mq1125:pr-[87px] mq1125:box-border`}
+        className={`self-stretch max-w-[1440px] h-full mx-auto overflow-hidden flex flex-row items-start justify-end py-[35px] pt-0 px-[175px] box-border relative text-left text-11xl text-color5 font-t2 mq450:pl-5 mq450:pr-5 mq450:box-border mq1125:pl-[87px] mq1125:pr-[87px] mq1125:box-border`}
       >
         <div className="h-full w-full absolute !m-[0] top-[0px] right-[0px] bottom-[0px] left-[0px] box-border border-[1px] border-solid border-color2" />
         <div className="w-[540px] flex flex-col items-start justify-start gap-[45px] max-w-full z-[1] mq800:gap-[22px]">
