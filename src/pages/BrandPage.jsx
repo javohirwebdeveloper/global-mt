@@ -14,11 +14,13 @@ import { products } from "../../public/data";
 import Img1 from "../assets/BrandPage/1.png";
 import Img2 from "../assets/BrandPage/2.png";
 import LikeImg from "../assets/24--favourites.svg";
+import FilterImg from "../assets/filter.svg";
 import SearchImg from "../assets/24--search.svg";
 import CravnitImg from "../assets/comparison.svg";
 import DownArrow from "../assets/catalog/down.svg";
 import Pagination from "../components/Pagination";
 import LikeImg1 from "../assets/24--favourites1.svg";
+import CrossImg from "../assets/20--cross.svg";
 import Burger1 from "../assets/catalog/1.svg";
 import Table1 from "../assets/catalog/4.svg";
 import {
@@ -28,8 +30,13 @@ import {
 } from "../redux/actions";
 import Table2 from "../assets/catalog/4-1.svg";
 import Burger2 from "../assets/catalog/1-1.svg";
+import { Brands } from "../components/Home/Brands";
+import { About } from "../components/Home/About";
+import { Form } from "../components/Home/Form";
+import { Footer } from "../components/About/Footer";
 const BrandPage = () => {
   const [burger, setBurger] = useState(4);
+  const [FilterSettings, setFilterSetttings] = useState(false);
   const [category, setCategory] = useState("All");
   const [all, setAll] = useState("");
   const [filteredProducts, setFilteredProducts] = useState([]);
@@ -103,6 +110,573 @@ const BrandPage = () => {
       <div
         className={`max-w-[1440px] md:mt-[99px] sm:mt-[50px] mt-[40px] xl:px-[65px] sm:px-[20px] px-[15px] mx-auto w-full flex flex-col items-start justify-start gap-[40px] leading-[normal] tracking-[normal] text-left text-[48px] text-[#202020] font-l1 mq675:gap-[20px] `}
       >
+        {FilterSettings ? (
+          <div className=" fixed z-50 bg-[#F8F7F3] top-0 h-full overflow-auto !text-[12px] left-0 w-full flex flex-col items-start justify-start gap-[10px]">
+            <div className="py-[15px] w-full px-[10px] flex justify-between items-center bg-[#E5E4ED] ">
+              <div className="text-[12px]">Фильтр</div>
+              <img
+                src={CrossImg}
+                onClick={() => setFilterSetttings(false)}
+                alt=""
+              />
+            </div>
+            <div className="self-stretch flex flex-col items-start -mt-[10px] justify-start gap-[5px]">
+              <FormControl
+                className="self-stretch h-[52px] font-l1 font-medium text-base text-[#202020]"
+                variant="standard"
+                sx={{
+                  borderColor: "#e5e2ee",
+                  borderStyle: "SOLID",
+                  borderTopWidth: "1px",
+                  borderRightWidth: "1px",
+                  borderBottomWidth: "1px",
+                  borderLeftWidth: "1px",
+                  borderRadius: "10px",
+                  width: "100%",
+                  height: "52px",
+                  m: 0,
+                  p: 0,
+                  "& .MuiInputBase-root": {
+                    m: 0,
+                    p: 0,
+                    minHeight: "52px",
+                    justifyContent: "center",
+                    display: "inline-flex",
+                  },
+                  "& .MuiInputLabel-root": {
+                    m: 0,
+                    p: 0,
+                    minHeight: "52px",
+                    display: "inline-flex",
+                  },
+                  "& .MuiMenuItem-root": {
+                    m: 0,
+                    p: 0,
+                    height: "52px",
+                    display: "inline-flex",
+                  },
+                  "& .MuiSelect-select": {
+                    m: 0,
+                    p: 0,
+                    height: "52px",
+                    alignItems: "center",
+                    display: "inline-flex",
+                  },
+                  "& .MuiInput-input": { m: 0, p: 0 },
+                  "& .MuiInputBase-input": {
+                    color: "#202020",
+                    fontSize: 16,
+                    fontWeight: "Medium",
+                    fontFamily: "Manrope",
+                    textAlign: "left",
+                    p: "0 !important",
+                    marginLeft: "20px",
+                  },
+                }}
+              >
+                <InputLabel color="primary" />
+                <Select
+                  color="primary"
+                  disableUnderline
+                  displayEmpty
+                  IconComponent={() => (
+                    <img
+                      width="20px"
+                      height="20px"
+                      src={DownArrow}
+                      style={{ marginRight: "18px" }}
+                    />
+                  )}
+                >
+                  <MenuItem>Направления</MenuItem>
+                </Select>
+                <FormHelperText />
+              </FormControl>
+              <div className="self-stretch rounded-3xs flex flex-col items-start justify-start py-[13px] pr-0.5 pl-3.5 gap-[15px] border-[1px] border-solid border-[#E5E2EE]">
+                <div className="self-stretch flex flex-row items-start justify-start pt-0 pb-2.5 pr-[15px] pl-[5px]">
+                  <FormControl
+                    className="h-[38px] flex-1 font-l1 font-medium text-base text-[#202020] w-auto"
+                    variant="standard"
+                    sx={{
+                      borderTopWidth: "0px",
+                      borderRightWidth: "0px",
+                      borderBottomWidth: "0px",
+                      borderLeftWidth: "0px",
+                      borderRadius: "0px 0px 0px 0px",
+                      width: "98.25783972125436%",
+                      height: "38px",
+                      m: 0,
+                      p: 0,
+                      "& .MuiInputBase-root": {
+                        m: 0,
+                        p: 0,
+                        minHeight: "38px",
+                        justifyContent: "center",
+                        display: "inline-flex",
+                      },
+                      "& .MuiInputLabel-root": {
+                        m: 0,
+                        p: 0,
+                        minHeight: "38px",
+                        display: "inline-flex",
+                      },
+                      "& .MuiMenuItem-root": {
+                        m: 0,
+                        p: 0,
+                        height: "38px",
+                        display: "inline-flex",
+                      },
+                      "& .MuiSelect-select": {
+                        m: 0,
+                        p: 0,
+                        height: "38px",
+                        alignItems: "center",
+                        display: "inline-flex",
+                      },
+                      "& .MuiInput-input": { m: 0, p: 0 },
+                      "& .MuiInputBase-input": {
+                        color: "#202020",
+                        fontSize: 16,
+                        fontWeight: "Medium",
+                        fontFamily: "Manrope",
+                        textAlign: "left",
+                        p: "0 !important",
+                      },
+                    }}
+                  >
+                    <InputLabel color="primary" />
+                    <Select
+                      color="primary"
+                      disableUnderline
+                      displayEmpty
+                      IconComponent={() => (
+                        <img
+                          width="20px"
+                          height="20px"
+                          className="-rotate-180"
+                          src={DownArrow}
+                          style={{}}
+                        />
+                      )}
+                    >
+                      <MenuItem>Фильтр по товарам</MenuItem>
+                    </Select>
+                    <FormHelperText />
+                  </FormControl>
+                </div>
+                <div className="xl:w-[290px] md:w-[210px] flex flex-row items-start justify-start pt-0 px-[5px] pb-5 box-border">
+                  <div className="flex-1 flex flex-col items-start justify-start gap-[15px]">
+                    <div className="self-stretch flex flex-row items-start justify-between gap-[20px] z-[1]">
+                      <div className="relative inline-block min-w-[35px]">
+                        Цена
+                      </div>
+                      <div className="flex flex-col items-start justify-start pt-[3px] px-0 pb-0">
+                        <img
+                          className="w-[20px] h-[20px] rotate-180  relative overflow-hidden shrink-0"
+                          alt=""
+                          src={DownArrow}
+                        />
+                      </div>
+                    </div>
+                    <div className="self-stretch flex flex-col items-start justify-start gap-[15px] z-[1] text-xs text-[#7A7687]">
+                      <div className="self-stretch flex flex-row items-start justify-start gap-[10px]">
+                        <div className="flex-1 flex flex-row items-start justify-start">
+                          <div className="flex-1 flex flex-col items-start justify-start gap-[2px]">
+                            <div className="relative inline-block min-w-[19px]">
+                              От:
+                            </div>
+                            <TextField
+                              className="[border:none] bg-[transparent] self-stretch h-[30px] font-l1 text-sm text-[#202020]"
+                              placeholder="10 000"
+                              variant="standard"
+                              value={minPrice}
+                              onChange={handleMinPriceChange}
+                              sx={{
+                                "& .MuiInputBase-root": {
+                                  height: "30px",
+                                  fontSize: "14px",
+                                },
+                                "& .MuiInputBase-input": {
+                                  color: "#202020",
+                                },
+                              }}
+                            />
+                          </div>
+                        </div>
+                        <div className="flex-1 flex flex-row items-start justify-start">
+                          <div className="flex-1 flex flex-col items-start justify-start gap-[2px]">
+                            <div className="relative inline-block min-w-[20px]">
+                              До:
+                            </div>
+                            <TextField
+                              className="[border:none] bg-[transparent] self-stretch h-[30px] font-l1 text-sm text-[#202020]"
+                              placeholder="1 000 000"
+                              variant="standard"
+                              value={maxPrice}
+                              onChange={handleMaxPriceChange}
+                              sx={{
+                                "& .MuiInputBase-root": {
+                                  height: "30px",
+                                  fontSize: "14px",
+                                },
+                                "& .MuiInputBase-input": {
+                                  color: "#202020",
+                                },
+                              }}
+                            />
+                          </div>
+                        </div>
+                      </div>
+                      <Slider
+                        value={[minPrice, maxPrice]}
+                        onChange={(_, newValue) => {
+                          setMinPrice(newValue[0]);
+                          setMaxPrice(newValue[1]);
+                        }}
+                        min={10000}
+                        max={1000000}
+                        valueLabelDisplay="auto"
+                        aria-labelledby="range-slider"
+                        sx={{
+                          color: "#088269",
+                          "& .MuiSlider-thumb": {
+                            borderColor: "#088269",
+                          },
+                          "& .MuiSlider-track": {
+                            bgcolor: "#088269",
+                          },
+                          "& .MuiSlider-rail": {
+                            bgcolor: "#088269",
+                          },
+                        }}
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div className="self-stretch flex flex-col items-center justify-start py-0 pr-3 pl-0 gap-[15px] z-[1]">
+                  <div className="self-stretch flex flex-row items-center justify-between py-0 px-[5px] gap-[20px]">
+                    <div className="relative inline-block min-w-[50px]">
+                      Страна
+                    </div>
+                    <img
+                      className="h-[13px] w-[13px] relative overflow-hidden shrink-0"
+                      alt=""
+                      src="/13-arrow--up-1.svg"
+                    />
+                  </div>
+                  <TextField
+                    className="[border:none] bg-[transparent] self-stretch h-[39px] font-l1 text-sm text-[#7A7687]"
+                    placeholder="Поиск по стране"
+                    variant="outlined"
+                    InputProps={{
+                      endAdornment: (
+                        <img width="17px" height="17px" src={SearchImg} />
+                      ),
+                    }}
+                    sx={{
+                      "& fieldset": { borderColor: "#e5e2ee" },
+                      "& .MuiInputBase-root": {
+                        height: "39px",
+                        backgroundColor: "#fff",
+                        paddingRight: "15px",
+                        borderRadius: "50px",
+                        fontSize: "14px",
+                      },
+                      "& .MuiInputBase-input": { color: "#7a7687" },
+                    }}
+                  />
+                </div>
+                <div className="self-stretch flex flex-row items-start justify-start pt-0 pb-2.5 pr-0 pl-[5px]">
+                  <div className="flex-1 flex flex-row items-start justify-start gap-[13px]">
+                    <div className="flex-1 flex flex-col items-start justify-start gap-[12px] z-[1]">
+                      <div className="self-stretch flex flex-row items-center justify-start py-0 pl-0 gap-[15px] mq450:pr-5 mq450:box-border">
+                        <input
+                          className="m-0 h-5 w-5 relative"
+                          type="checkbox"
+                        />
+                        <div className="relative inline-block min-w-[71px]">
+                          Австралия
+                        </div>
+                      </div>
+                      <div className="self-stretch flex flex-row items-center justify-start py-0 pl-0 gap-[15px] mq450:pr-5 mq450:box-border">
+                        <input
+                          className="m-0 h-5 w-5 rounded-10xs box-border overflow-hidden shrink-0 border-[1px] border-solid border-color3"
+                          type="checkbox"
+                        />
+                        <div className="relative inline-block min-w-[56px]">
+                          Австрия
+                        </div>
+                      </div>
+                      <div className="self-stretch flex flex-row items-center justify-start py-0 pl-0 gap-[15px] mq450:pr-5 mq450:box-border">
+                        <input
+                          className="m-0 h-5 w-5 rounded-10xs box-border overflow-hidden shrink-0 border-[1px] border-solid border-color3"
+                          type="checkbox"
+                        />
+                        <div className="relative inline-block min-w-[63px]">
+                          Беларусь
+                        </div>
+                      </div>
+                      <div className="self-stretch flex flex-row items-center justify-start py-0 pl-0 gap-[15px] mq450:pr-5 mq450:box-border">
+                        <input
+                          className="m-0 h-5 w-5 relative"
+                          type="checkbox"
+                        />
+                        <div className="relative inline-block min-w-[55px]">
+                          Бельгия
+                        </div>
+                      </div>
+                      <div className="self-stretch flex flex-row items-center justify-start py-0 pl-0 gap-[15px] mq450:pr-5 mq450:box-border">
+                        <input
+                          className="m-0 h-5 w-5 rounded-10xs box-border overflow-hidden shrink-0 border-[1px] border-solid border-color3"
+                          type="checkbox"
+                        />
+                        <div className="relative inline-block min-w-[111px]">
+                          Великобритания
+                        </div>
+                      </div>
+                      <div className="self-stretch flex flex-row items-center justify-start py-0 pl-0 gap-[15px] mq450:pr-5 mq450:box-border">
+                        <input
+                          className="m-0 h-5 w-5 relative"
+                          type="checkbox"
+                        />
+                        <div className="relative inline-block min-w-[65px]">
+                          Германия
+                        </div>
+                      </div>
+                      <div className="self-stretch flex flex-row items-center justify-start py-0  pl-0 gap-[15px] mq450:pr-5 mq450:box-border">
+                        <input
+                          className="m-0 h-5 w-5 rounded-10xs box-border overflow-hidden shrink-0 border-[1px] border-solid border-color3"
+                          type="checkbox"
+                        />
+                        <div className="relative inline-block min-w-[57px]">
+                          Израиль
+                        </div>
+                      </div>
+                      <div className="self-stretch flex flex-row items-center justify-start py-0  pl-0 gap-[15px] mq450:pr-5 mq450:box-border">
+                        <input
+                          className="m-0 h-5 w-5 rounded-10xs box-border overflow-hidden shrink-0 border-[1px] border-solid border-color3"
+                          type="checkbox"
+                        />
+                        <div className="relative inline-block min-w-[58px]">
+                          Испания
+                        </div>
+                      </div>
+                    </div>
+                    <div className="h-[70px] w-1 relative rounded-8xs bg-[#E5E2EE] z-[1]" />
+                  </div>
+                </div>
+                <div className="w-[290px] flex flex-row items-start justify-start py-0 px-[5px] box-border">
+                  <div className="flex-1 flex flex-col items-start justify-start gap-[15px]">
+                    <div className="self-stretch flex flex-col items-start justify-start py-2.5 px-0 gap-[15px] z-[1]">
+                      <div className="self-stretch flex flex-row items-center justify-between gap-[20px]">
+                        <div className="relative inline-block min-w-[74px]">
+                          Состояние
+                        </div>
+                        <img
+                          className="h-[13px] w-[13px] relative overflow-hidden shrink-0"
+                          loading="lazy"
+                          alt=""
+                          src="/13-arrow--up-2.svg"
+                        />
+                      </div>
+                      <div className="self-stretch flex flex-col items-start justify-start gap-[12px]">
+                        <div className="self-stretch flex flex-row items-center justify-start py-0 pr-[202px] pl-0 gap-[15px] mq450:pr-5 mq450:box-border">
+                          <input
+                            className="m-0 h-5 w-5 rounded-10xs box-border overflow-hidden shrink-0 border-[1px] border-solid border-color3"
+                            type="checkbox"
+                          />
+                          <div className="relative inline-block min-w-[43px]">
+                            Новый
+                          </div>
+                        </div>
+                        <div className="self-stretch flex flex-row items-center justify-start py-0 pr-[110px] pl-0 gap-[15px] mq450:pr-5 mq450:box-border">
+                          <input
+                            className="m-0 h-5 w-5 relative"
+                            type="checkbox"
+                          />
+                          <div className="relative">Демонстрационный</div>
+                        </div>
+                      </div>
+                    </div>
+                    <FormControl
+                      className="self-stretch h-[39px] font-l1 text-sm text-[#202020] z-[1]"
+                      variant="standard"
+                      sx={{
+                        borderTopWidth: "1px",
+                        borderRightWidth: "1px",
+                        borderBottomWidth: "1px",
+                        borderLeftWidth: "1px",
+                        borderRadius: "0px 0px 0px 0px",
+                        width: "100%",
+                        height: "39px",
+                        m: 0,
+                        p: 0,
+                        "& .MuiInputBase-root": {
+                          m: 0,
+                          p: 0,
+                          minHeight: "39px",
+                          justifyContent: "center",
+                          display: "inline-flex",
+                        },
+                        "& .MuiInputLabel-root": {
+                          m: 0,
+                          p: 0,
+                          minHeight: "39px",
+                          display: "inline-flex",
+                        },
+                        "& .MuiMenuItem-root": {
+                          m: 0,
+                          p: 0,
+                          height: "39px",
+                          display: "inline-flex",
+                        },
+                        "& .MuiSelect-select": {
+                          m: 0,
+                          p: 0,
+                          height: "39px",
+                          alignItems: "center",
+                          display: "inline-flex",
+                        },
+                        "& .MuiInput-input": { m: 0, p: 0 },
+                        "& .MuiInputBase-input": {
+                          color: "#202020",
+                          fontSize: 14,
+                          fontWeight: "Regular",
+                          fontFamily: "Manrope",
+                          textAlign: "left",
+                          p: "0 !important",
+                        },
+                      }}
+                    >
+                      <InputLabel color="primary" />
+                      <Select
+                        color="primary"
+                        disableUnderline
+                        displayEmpty
+                        IconComponent={() => (
+                          <img
+                            width="13px"
+                            height="13px"
+                            src="/13-arrow--down.svg"
+                            style={{}}
+                          />
+                        )}
+                      >
+                        <MenuItem>Назначение</MenuItem>
+                      </Select>
+                      <FormHelperText />
+                    </FormControl>
+                    <FormControl
+                      className="self-stretch h-[39px] font-l1 text-sm text-[#202020] z-[1]"
+                      variant="standard"
+                      sx={{
+                        borderTopWidth: "1px",
+                        borderRightWidth: "1px",
+                        borderBottomWidth: "1px",
+                        borderLeftWidth: "1px",
+                        borderRadius: "0px 0px 0px 0px",
+                        width: "100%",
+                        height: "39px",
+                        m: 0,
+                        p: 0,
+                        "& .MuiInputBase-root": {
+                          m: 0,
+                          p: 0,
+                          minHeight: "39px",
+                          justifyContent: "center",
+                          display: "inline-flex",
+                        },
+                        "& .MuiInputLabel-root": {
+                          m: 0,
+                          p: 0,
+                          minHeight: "39px",
+                          display: "inline-flex",
+                        },
+                        "& .MuiMenuItem-root": {
+                          m: 0,
+                          p: 0,
+                          height: "39px",
+                          display: "inline-flex",
+                        },
+                        "& .MuiSelect-select": {
+                          m: 0,
+                          p: 0,
+                          height: "39px",
+                          alignItems: "center",
+                          display: "inline-flex",
+                        },
+                        "& .MuiInput-input": { m: 0, p: 0 },
+                        "& .MuiInputBase-input": {
+                          color: "#202020",
+                          fontSize: 14,
+                          fontWeight: "Regular",
+                          fontFamily: "Manrope",
+                          textAlign: "left",
+                          p: "0 !important",
+                        },
+                      }}
+                    >
+                      <InputLabel color="primary" />
+                      <Select
+                        color="primary"
+                        disableUnderline
+                        displayEmpty
+                        IconComponent={() => (
+                          <img
+                            width="13px"
+                            height="13px"
+                            src="/13-arrow--down-1.svg"
+                            style={{}}
+                          />
+                        )}
+                      >
+                        <MenuItem>Комплектация</MenuItem>
+                      </Select>
+                      <FormHelperText />
+                    </FormControl>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="self-stretch flex flex-row items-start justify-start gap-[10px]">
+              <Button
+                className="h-[41px] w-[120px]"
+                disableElevation
+                variant="outlined"
+                sx={{
+                  textTransform: "none",
+                  color: "#202020",
+                  fontSize: "14",
+                  borderColor: "#d5d1e1",
+                  borderRadius: "50px",
+                  "&:hover": { borderColor: "#d5d1e1" },
+                  width: 120,
+                  height: 41,
+                }}
+              >
+                Сбросить
+              </Button>
+              <Button
+                className="h-[41px] flex-1"
+                disableElevation
+                variant="contained"
+                sx={{
+                  textTransform: "none",
+                  color: "#f8f7f3",
+                  fontSize: "14",
+                  background: "#088269",
+                  borderRadius: "50px",
+                  "&:hover": { background: "#088269" },
+                  height: 41,
+                }}
+              >
+                Показать
+              </Button>
+            </div>
+          </div>
+        ) : (
+          ""
+        )}
         <h1 className="m-0 relative text-inherit leading-[53px] font-medium font-inherit inline-block max-w-full mq450:text-[29px] mq450:leading-[32px] mq750:text-[38px] mq750:leading-[42px]">
           Медецинское оборудование Draeger
         </h1>
@@ -874,6 +1448,15 @@ const BrandPage = () => {
                 </div>
               </div>
               <div className="flex-1 flex flex-col items-start justify-start gap-[9px]  max-w-full text-[#7A7687] mq750:min-w-full">
+                <div
+                  onClick={() => setFilterSetttings(true)}
+                  className="md:hidden border border-[#E5E2EE] rounded-[5px] gap-[8px] flex justify-center items-center h-[41px] w-full"
+                >
+                  <span>
+                    <img src={FilterImg} alt="" />
+                  </span>
+                  <span>Фильтр</span>
+                </div>
                 <div className="self-stretch rounded-8xs overflow-hidden flex flex-col items-center justify-center py-[9px] px-[19px] border-[1px] border-solid border-[#E5E2EE]">
                   <div className="self-stretch flex flex-row items-center justify-between gap-[20px] mq675:flex-wrap">
                     <FormControl
@@ -1057,7 +1640,7 @@ const BrandPage = () => {
                           className={`xl:w-80 md:w-[236px] w-[168px] flex flex-row items-start justify-start text-left text-sm text-color3 font-l1 `}
                         >
                           <div className="flex-1 rounded-3xs flex flex-col items-start justify-start pt-0 px-0 pb-[13px] gap-[20px] border-[1px] border-solid border-[#E5E2EE]">
-                            <div className="self-stretch rounded-t-3xs rounded-b-none bg-color flex flex-col items-start justify-start pt-[13px] px-3.5 pb-[33px] gap-[21px] z-[1] border-[1px] border-solid border-[#E5E2EE]">
+                            <div className="self-stretch rounded-t-3xs rounded-b-none bg-color flex flex-col items-start justify-start pt-[13px] md:px-3.5 px-1 pb-[33px] gap-[21px] z-[1] border-[1px] border-solid border-[#E5E2EE]">
                               <div className="self-stretch flex flex-row items-end justify-between gap-[20px]">
                                 <div
                                   className={`${
@@ -1109,7 +1692,7 @@ const BrandPage = () => {
                                   </div>
                                 </div>
                               </div>
-                              <div className="flex flex-row items-start justify-start py-0 px-12 mq450:pl-5 mq450:pr-5 mq450:box-border">
+                              <div className="flex flex-row items-start justify-start py-0 md:px-12 mq450:pl-5 mq450:pr-5 mq450:box-border">
                                 <img
                                   className="md:w-[133px] md:h-[133px] w-[114px] h-[114px] xl:h-[181px] xl:w-[181px] relative object-cover mix-blend-multiply z-[2]"
                                   loading="lazy"
@@ -1118,7 +1701,7 @@ const BrandPage = () => {
                                 />
                               </div>
                             </div>
-                            <div className="self-stretch flex flex-row items-start justify-start py-0 px-3 text-lg text-[#202020]">
+                            <div className="self-stretch flex flex-row items-start justify-start py-0 px-1 md:px-3 text-lg text-[#202020]">
                               <div className="flex-1 flex flex-col items-start justify-start gap-[15px]">
                                 <div className="xl:w-[283px] md:w-[167px] flex flex-row items-start justify-start py-0 px-[3px] box-border">
                                   <div className="flex-1 flex flex-col items-start justify-start gap-[30px] z-[2]">
@@ -1142,7 +1725,7 @@ const BrandPage = () => {
                                   </div>
                                 </div>
                                 <Button
-                                  className="self-stretch h-[41px] text-[#088269] z-[2]"
+                                  className="self-stretch text-nowrap md:text-[16px] text-[12px] h-[41px] text-[#088269] z-[2]"
                                   disableElevation
                                   variant="outlined"
                                   sx={{
@@ -1291,6 +1874,11 @@ const BrandPage = () => {
           onPageChange={handlePageChange}
         />
       </div>
+
+      {/* <Brands />
+      <About />
+      <Form />
+      <Footer /> */}
     </>
   );
 };
