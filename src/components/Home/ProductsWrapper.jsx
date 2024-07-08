@@ -128,7 +128,7 @@ export const ProductsWrapper = () => {
         </div>
       </div>
       <section className="flex flex-col items-start justify-start w-[1310px] text-left text-sm text-teal font-h3 mq800:gap-[20px]">
-        <Slider ref={sliderRef} {...settings} className="carousel">
+        <Slider ref={sliderRef} {...settings} className="carousel ">
           {FilterProduct.map((product, index) => (
             <div
               key={index}

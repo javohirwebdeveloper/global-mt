@@ -26,6 +26,7 @@ import { About } from "../components/Home/About";
 import { Form } from "../components/Home/Form";
 import { Subscription } from "../components/Home/Subscription";
 import { Footer } from "../components/Home/Footer";
+import { NavLink } from "react-router-dom";
 const Manufacturers = () => {
   return (
     <>
@@ -269,7 +270,8 @@ const Manufacturers = () => {
         <div className="flex-1 flex flex-col items-start justify-start gap-[10px] min-w-[422px] max-w-full mq450:min-w-full">
           <div className="grid xl:grid-cols-3 grid-cols-2 gap-[10px] w-full">
             {brands.map((brand, index) => (
-              <div
+              <NavLink
+                to={`/Страница бренда`}
                 key={index}
                 className="relative w-full xl:h-[280px] rounded-[10px] overflow-hidden md:h-[216px] h-[164px]"
               >
@@ -285,7 +287,7 @@ const Manufacturers = () => {
                     {brand.name}
                   </p>
                 </div>
-              </div>
+              </NavLink>
             ))}
           </div>
           <div className="self-stretch mt-[40px] max-w-[328px] mx-auto w-full flex flex-row items-start justify-center py-0 px-5 box-border text-sm">
