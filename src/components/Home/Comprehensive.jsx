@@ -41,7 +41,7 @@ export const Comprehensive = () => {
       <Slider
         ref={sliderRef}
         {...settings}
-        className=" w-[1310px] h-[579px] gap-[10px] max-w-full"
+        className=" w-[1310px] h-[579px] carousel gap-[10px] max-w-full"
       >
         <Comprehensive1 photo={Photo1} prop="Экспресс лаборатория" />
         <Comprehensive1 photo={Photo2} prop="Лазерная терапия" />

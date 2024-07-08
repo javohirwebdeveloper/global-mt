@@ -45,10 +45,13 @@ export const Brands = () => {
         <Slider
           ref={sliderRef}
           {...settings}
-          className=" w-[1310px] h-[280px] inline-flex items-start gap-2.5"
+          className="carousel w-[1310px] h-[280px] inline-flex items-start gap-2.5"
         >
           {brands.map((brand, index) => (
-            <div key={index} className="relative w-[322px] h-[280px]">
+            <div
+              key={index}
+              className="relative carousel-item item w-[322px] h-[280px]"
+            >
               <div className="relative w-80 h-[280px] bg-x-1l-ubo-z rounded-[10px] border border-solid border-[#e5e2ee]">
                 <div className="absolute w-80 h-[196px] top-0 left-0 bg-z-vq-cz-3 rounded-[10px_10px_0px_0px] border border-solid border-[#e5e2ee]">
                   <img

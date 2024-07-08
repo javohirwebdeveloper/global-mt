@@ -265,7 +265,7 @@ const Specifications = () => {
                 <Slider
                   ref={sliderRef}
                   {...settings}
-                  className=" w-[1260px] gap-[10px] "
+                  className=" w-[1260px] carousel gap-[10px] "
                 >
                   <Component serviceIcons={Carousel1} prop="Апробация" />
                   <Component

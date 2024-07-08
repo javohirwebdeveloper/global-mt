@@ -43,9 +43,9 @@ export const News = () => {
         <Slider
           ref={sliderRef}
           {...settings}
-          className=" w-[1310px] h-[465px] inline-flex items-start gap-2.5"
+          className=" w-[1310px] carousel h-[465px] inline-flex items-start gap-2.5"
         >
-          <div className="relative w-[322px] h-[465px]">
+          <div className="relative carousel-item w-[322px] h-[465px]">
             <div className="relative w-80 h-[465px] rounded-[10px] border border-solid border-[#e5e2ee]">
               <p className="absolute w-[270px] h-11 top-[400px] left-3.5 font-1440-t1 font-[number:var(--1440-t1-font-weight)] text-ML-tw-1j text-[length:var(--1440-t1-font-size)] tracking-[var(--1440-t1-letter-spacing)] leading-[var(--1440-t1-line-height)] [font-style:var(--1440-t1-font-style)]">
                 Допускает внедрение поэтапного и развития общества.
@@ -65,7 +65,7 @@ export const News = () => {
               </div>
             </div>
           </div>
-          <div className="relative w-[322px] h-[465px]">
+          <div className="relative carousel-item w-[322px] h-[465px]">
             <div className="relative w-80 h-[465px] rounded-[10px] border border-solid border-[#e5e2ee]">
               <img
                 className="absolute w-80 h-80 -top-px -left-px object-cover"
@@ -85,7 +85,7 @@ export const News = () => {
               </div>
             </div>
           </div>
-          <div className="relative w-[322px] h-[465px]">
+          <div className="relative carousel-item w-[322px] h-[465px]">
             <div className="relative w-80 h-[465px] rounded-[10px] border border-solid border-[#e5e2ee]">
               <img
                 className="absolute w-80 h-80 -top-px -left-px object-cover"
@@ -105,7 +105,7 @@ export const News = () => {
               </div>
             </div>
           </div>
-          <div className="relative w-[322px] h-[465px] mr-[-2.00px]">
+          <div className="relative carousel-item w-[322px] h-[465px] mr-[-2.00px]">
             <div className="relative w-80 h-[465px] rounded-[10px] border border-solid border-[#e5e2ee]">
               <img
                 className=" w-80 h-80 object-cover"

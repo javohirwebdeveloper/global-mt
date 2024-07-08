@@ -1,9 +1,9 @@
 import React, {useState, useRef} from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 import LeftArrow from "../../assets/17--arrow---right.svg";
 import { products } from "../../../public/data";
-import "slick-carousel/slick/slick-theme.css";
 import LikeImg from "../../assets/24--favourites.svg";
 import CravnitImg from "../../assets/comparison.svg";
 import { Button } from "@mui/material";
@@ -40,6 +40,8 @@ export const ProductsWrapper = () => {
     speed: 500,
     slidesToShow: 4,
     slidesToScroll: 1,
+    swipeToSlide: true,
+    touchThreshold: 15,
     beforeChange: (current, next) => setCurrentSlide(next),
     arrows: false,
   };
@@ -126,28 +128,21 @@ export const ProductsWrapper = () => {
         </div>
       </div>
       <section className="flex flex-col items-start justify-start w-[1310px] text-left text-sm text-teal font-h3 mq800:gap-[20px]">
-        <Slider
-          ref={sliderRef}
-          {...settings}
-          className="inline-flex items-start top-0 w-[1310px] h-[522px]"
-        >
+        <Slider ref={sliderRef} {...settings} className="carousel">
           {FilterProduct.map((product, index) => (
             <div
               key={index}
-              className="inline-flex flex-col items-center gap-5 pt-0 pb-[15px] px-0 relative flex-[0_0_auto] rounded-[10px] border border-solid border-[#e5e2ee]"
+              className="carousel-item inline-flex flex-col items-center gap-5 pt-0 pb-[15px] px-0 relative flex-[0_0_auto] rounded-[10px] border border-solid border-[#e5e2ee]"
             >
               <div className="relative w-80 h-[279px]">
                 <div className="relative h-[279px]">
-                  <NavLink
-                    to={`/product/${product.id}`}
-                    className="absolute w-80 bg-[white] h-[279px] top-0 left-0 bg-z-vq-cz-3 border border-solid border-[#e5e2ee]"
-                  >
+                  <div className="absolute w-80 bg-[white] h-[279px] top-0 left-0 bg-z-vq-cz-3 border border-solid border-[#e5e2ee]">
                     <img
                       className="absolute w-80 h-[181px] top-[62px] object-contain"
                       alt="Photo"
                       src={product.img}
                     />
-                  </NavLink>
+                  </div>
                   <div className="inline-flex justify-between w-[91%] items-center absolute top-[15px] left-[15px]">
                     <div
                       className={`${

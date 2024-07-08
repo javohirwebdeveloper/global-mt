@@ -1,7 +1,7 @@
 const Component = ({ className = "", serviceIcons, prop }) => {
   return (
     <div
-      className={`h-[204px] w-[308px] rounded-8xs box-border flex flex-col items-start justify-start pt-0 px-0 pb-5 gap-[20px] z-[2] text-left text-base text-[#202020] font-t2 border-[1px] border-solid border-color2 ${className}`}
+      className={`h-[204px] carousel-item w-[308px] rounded-8xs box-border flex flex-col items-start justify-start pt-0 px-0 pb-5 gap-[20px] z-[2] text-left text-base text-[#202020] font-t2 border-[1px] border-solid border-color2 ${className}`}
     >
       <div className="self-stretch h-[204px] relative rounded-8xs box-border hidden border-[1px] border-solid border-color2" />
       <img

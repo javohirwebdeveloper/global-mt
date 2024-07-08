@@ -42,10 +42,13 @@ export const Sertificates = () => {
         <Slider
           ref={sliderRef}
           {...settings}
-          className=" w-[1310px] h-[280px] inline-flex items-start gap-2.5"
+          className="carousel w-[1310px] carousel h-[280px] inline-flex items-start gap-2.5"
         >
           {sertificatesData.map((sertificate, index) => (
-            <div key={index} className="relative w-[322px] h-[280px]">
+            <div
+              key={index}
+              className="relative carousel-item w-[322px] h-[280px]"
+            >
               <div className="relative w-[210px] flex justify-center bg-[white] items-center h-[280px] rounded-[10px] border border-solid border-[#e5e2ee]">
                 <img
                   className="object-contain"
