@@ -12,8 +12,8 @@ import { addToCart, addToCompare, addToFavorites } from "../../redux/actions";
 import { NavLink } from "react-router-dom";
 
 export const ProductsWrapper = () => {
-  const [category, setCategory] = useState("Новинки");
-
+  const [category, setCategory] = useState(1);
+  const FilterProduct = products.filter((product) => product.type === category);
   const cart = useSelector((state) => state.cart);
   const compare = useSelector((state) => state.compare);
   const favorites = useSelector((state) => state.favorites);
@@ -30,14 +30,6 @@ export const ProductsWrapper = () => {
   const handleAddToFavorites = (product) => {
     dispatch(addToFavorites(product));
   };
-
-  if ((category === "Новинки") | (category === "Реанимация")) {
-    var filteredProducts = products.filter(
-      (product) => product.category === category
-    );
-  } else {
-    var filteredProducts = products.filter((product) => product.sale === true);
-  }
 
   const [currentSlide, setCurrentSlide] = useState(0);
   const sliderRef = useRef(null);
@@ -59,6 +51,7 @@ export const ProductsWrapper = () => {
   const handleNext = () => {
     sliderRef.current.slickNext();
   };
+  console.log(category);
 
   return (
     <div
@@ -106,25 +99,25 @@ export const ProductsWrapper = () => {
           </div>
           <div className="flex mq1290:flex-row flex-col items-start justify-start py-0 pr-5 pl-0 gap-[10px] text-base text-gray">
             <div
-              onClick={() => setCategory("Реанимация")}
+              onClick={() => setCategory(2)}
               className={`${
-                category === "Реанимация" ? "text-black" : "opacity-50"
+                category === 2 ? "text-black" : "opacity-50"
               } relative leading-[140%] cursor-pointer font-medium inline-block min-w-[101px]`}
             >
               Хиты продаж
             </div>
             <div
-              onClick={() => setCategory("Новинки")}
+              onClick={() => setCategory(1)}
               className={`${
-                category === "Новинки" ? "text-black" : "opacity-50"
+                category === 1 ? "text-black" : "opacity-50"
               } relative leading-[140%] cursor-pointer font-medium inline-block min-w-[66px]`}
             >
               Новинки
             </div>
             <div
-              onClick={() => setCategory("Акции")}
+              onClick={() => setCategory(3)}
               className={`${
-                category === "Акции" ? "text-black" : "opacity-50"
+                category === 3 ? "text-black" : "opacity-50"
               } relative leading-[140%] cursor-pointer font-medium inline-block min-w-[48px]`}
             >
               Акции
@@ -138,7 +131,7 @@ export const ProductsWrapper = () => {
           {...settings}
           className="inline-flex items-start top-0 w-[1310px] h-[522px]"
         >
-          {filteredProducts.map((product, index) => (
+          {FilterProduct.map((product, index) => (
             <div
               key={index}
               className="inline-flex flex-col items-center gap-5 pt-0 pb-[15px] px-0 relative flex-[0_0_auto] rounded-[10px] border border-solid border-[#e5e2ee]"
@@ -158,29 +151,24 @@ export const ProductsWrapper = () => {
                   <div className="inline-flex justify-between w-[91%] items-center absolute top-[15px] left-[15px]">
                     <div
                       className={`${
-                        product.sale === true ? "hidden" : "inline-flex"
-                      } ${
-                        product.category === "Новинки"
-                          ? "inline-flex"
-                          : "hidden"
-                      } items-center justify-center gap-2 px-2.5 py-1 relative flex-[0_0_auto] bg-[#e1efe6] rounded-[60px] border border-solid border-[#088269]`}
+                        product.type === 1 ? "" : "hidden"
+                      } w-[79px] h-[27px] rounded-41xl text-[#088269] border-[#088269] bg-[#E1EFE6] box-border flex flex-row items-center justify-center z-[2] border-[1px] border-solid`}
                     >
-                      <div className="relative w-fit mt-[-1.00px] font-1440-l1 font-[number:var(--1440-l1-font-weight)] text-[#088269] text-[length:var(--1440-l1-font-size)] tracking-[var(--1440-l1-letter-spacing)] leading-[var(--1440-l1-line-height)] [font-style:var(--1440-l1-font-style)]">
-                        Новинка
-                      </div>
+                      Новинка
                     </div>
                     <div
                       className={`${
-                        (category === "Реанимация") | (category === "Новинки")
-                          ? "hidden"
-                          : "inline-flex"
-                      } ${
-                        product.sale === true ? "inline-flex" : "hidden"
-                      }  items-center justify-center gap-2 px-2.5 py-1 relative flex-[0_0_auto] bg-[#e1efe6] rounded-[60px] border border-solid border-[#088269]`}
+                        product.type === 2 ? "" : "hidden"
+                      } w-[100px] h-[27px] rounded-41xl text-[#59599A] border-[#59599A] bg-[#E6E6FD] box-border flex flex-row items-center justify-center z-[2] border-[1px] border-solid`}
                     >
-                      <div className="relative w-fit mt-[-1.00px] font-1440-l1 font-[number:var(--1440-l1-font-weight)] text-[#088269] text-[length:var(--1440-l1-font-size)] tracking-[var(--1440-l1-letter-spacing)] leading-[var(--1440-l1-line-height)] [font-style:var(--1440-l1-font-style)]">
-                        {product.salePrice}
-                      </div>
+                      Хит продаж
+                    </div>
+                    <div
+                      className={`${
+                        product.type === 3 ? "" : "hidden"
+                      } xl:w-[55px] xl:h-[27px] w-[46px] h-[21px] xl:text-[14px] text-[12px] rounded-41xl text-[#AD7B00] border-[#AD7B00] bg-[#FFE095] box-border flex flex-row items-center justify-center z-[2] border-[1px] border-solid`}
+                    >
+                      -30%
                     </div>
                     <div className="inline-flex items-start gap-2.5 px-0 py-0.5 relative flex-[0_0_auto]">
                       <img

@@ -457,9 +457,12 @@ const Header1 = () => {
                     Каталог
                   </div>
                 </NavLink>
-                <div className="relative hover:text-[#088269_!important] mq1280:text-[12px] cursor-pointer duration-200 font-semibold inline-block min-w-[109px]">
+                <NavLink
+                  to={`/Производители`}
+                  className="relative hover:text-[#088269_!important] mq1280:text-[12px] cursor-pointer duration-200 font-semibold inline-block min-w-[109px]"
+                >
                   Производители
-                </div>
+                </NavLink>
                 <NavLink
                   to={`/Кабинеты под ключ`}
                   className="relative text-nowrap font-semibold mq1280:text-[12px] hover:text-[#088269_!important] cursor-pointer duration-200"
@@ -481,9 +484,12 @@ const Header1 = () => {
                 <div className="relative font-semibold mq1280:text-[12px] hover:text-[#088269_!important] cursor-pointer duration-200 inline-block min-w-[92px]">
                   Покупателям
                 </div>
-                <a className="[text-decoration:none] mq1280:text-[12px] hover:text-[#088269_!important] cursor-pointer duration-200 relative font-semibold text-[inherit] inline-block min-w-[66px]">
+                <NavLink
+                  to={`/Контакты`}
+                  className="[text-decoration:none] mq1280:text-[12px] hover:text-[#088269_!important] cursor-pointer duration-200 relative font-semibold text-[inherit] inline-block min-w-[66px]"
+                >
                   Контакты
-                </a>
+                </NavLink>
               </div>
             </div>
             <div
@@ -627,11 +633,17 @@ const Header1 = () => {
             <div className="self-stretch h-px flex flex-row items-start justify-start py-0 px-[15px] box-border max-w-full">
               <div className="self-stretch flex-1 relative bg-[#E5E2EE] max-w-full" />
             </div>
-            <div className="flex flex-row items-start justify-start py-0 px-[15px]">
-              <a className="[text-decoration:none] relative font-medium text-[inherit] inline-block min-w-[64px]">
+            <NavLink
+              to={`/Контакты`}
+              className="flex flex-row items-start justify-start py-0 px-[15px]"
+            >
+              <NavLink
+                to={`/Контакты`}
+                className="[text-decoration:none] relative font-medium text-[inherit] inline-block min-w-[64px]"
+              >
                 Контакты
-              </a>
-            </div>
+              </NavLink>
+            </NavLink>
             <div className="self-stretch h-px flex flex-row items-start justify-start py-0 px-[15px] box-border max-w-full">
               <div className="self-stretch flex-1 relative bg-[#E5E2EE] max-w-full" />
             </div>

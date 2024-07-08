@@ -25,7 +25,7 @@ const Delivery = () => {
         <h1 className="m-0 w-[650px] max-h-[338px] h-full relative text-inherit leading-[53px] font-medium font-inherit inline-block max-w-full mq450:text-[29px] mq450:leading-[32px] mq750:text-[38px] mq750:leading-[42px]">
           Информация о доставке
         </h1>
-        <div className="self-stretch rounded-3xs border overflow-hidden border-[#E5E2EE] w-full h-[389px] box-border relative max-w-full mq450:pt-[204px] mq450:box-border">
+        <div className="self-stretch rounded-3xs border overflow-hidden border-[#E5E2EE] w-full h-[208px] md:h-[264px] xl:h-[389px] box-border relative max-w-full  mq450:box-border">
           <YMaps apikey="db81466a-d9c7-44dd-9078-c65b363da1c8">
             <Map
               state={mapState}

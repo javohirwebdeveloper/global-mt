@@ -123,9 +123,12 @@ export const Footer = () => {
             </div>
           </div>
           <div className="w-[210px] flex flex-col items-start justify-start gap-[15px]">
-            <a className="[text-decoration:none] relative font-semibold text-[inherit] inline-block min-w-[66px]">
+            <NavLink
+              to={`/Контакты`}
+              className="[text-decoration:none] relative font-semibold text-[inherit] inline-block min-w-[66px]"
+            >
               Контакты
-            </a>
+            </NavLink>
             <div className="self-stretch flex flex-col items-start justify-start gap-[25px]">
               <div className="self-stretch flex flex-col items-start justify-start gap-[15px]">
                 <div className="self-stretch h-px relative bg-color2" />

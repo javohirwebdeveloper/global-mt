@@ -14,8 +14,6 @@ import TopCate from "../components/Product/TopCate";
 import { Subscription } from "../components/Home/Subscription";
 import { Footer } from "../components/Home/Footer";
 const Product = () => {
-  const location = useLocation();
-  const pathnames = location.pathname.split("/").filter((x) => x);
   const { id } = useParams();
   const product = products.find((p) => p.id == id);
 

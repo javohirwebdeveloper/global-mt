@@ -20,6 +20,8 @@ import Guarantees from "./pages/Guarantees";
 import Reviews from "./pages/Reviews";
 import Blog from "./pages/Blog";
 import Stock from "./pages/Stock";
+import Manufacturers from "./pages/Manufacturers";
+import Contact from "./pages/Contact";
 const App = () => {
   const [loading, setLoading] = useState(true);
 
@@ -62,6 +64,8 @@ const App = () => {
               <Route path="/Гарантии" element={<Guarantees />} />
               <Route path="/Блог" element={<Blog />} />
               <Route path="/Акции" element={<Stock />} />
+              <Route path="/Производители" element={<Manufacturers />} />
+              <Route path="/Контакты" element={<Contact />} />
             </Routes>
           </div>
         </Router>

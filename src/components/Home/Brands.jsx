@@ -31,7 +31,7 @@ export const Brands = () => {
   };
   return (
     <div
-      className={`mx-auto max-w-[1440px] w-full mt-[150px] space-x-[110px] bg-color overflow-hidden flex items-start py-0 pr-0 pl-[65px] box-border leading-[normal] tracking-[normal] gap-[20px] text-left text-11xl text-color1 font-t1 mq1325:flex-wrap mq1325:p-5 mq1325:box-border`}
+      className={`mx-auto max-w-[1440px] w-full mt-[150px] space-x-[110px] bg-color overflow-hidden flex items-start py-0 pr-0  box-border leading-[normal] tracking-[normal] gap-[20px] text-left text-11xl text-color1 font-t1 mq1325:flex-wrap mq1325:p-5 mq1325:box-border`}
     >
       <div className=" max-w-[242px] w-full flex flex-col items-start justify-start gap-[25px]">
         <h2 className="m-0 text-[#202020_!important]  relative text-inherit leading-[120%] font-medium font-inherit inline-block min-w-[112px] mq450:text-[18px] mq450:leading-[22px] mq800:text-[24px] mq800:leading-[29px]">
