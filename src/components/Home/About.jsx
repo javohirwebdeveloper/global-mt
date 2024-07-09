@@ -35,11 +35,11 @@ export const About = () => {
 
   return (
     <div className="mt-[150px] w-full bg-tx-u7vg py-10 h-[668px]">
-      <div className="container max-w-[1440px]  mx-auto flex justify-between  xl:px-[65px] sm:px-[20px] px-[15px] ">
-        <div className="text-x-1l-ubo-z font-1440-h2 w-[660px] mt-[60px] text-[30px]">
+      <div className="container max-w-[1440px]  mx-auto flex md:flex-row flex-col justify-between  xl:px-[65px] sm:px-[20px] px-[15px] ">
+        <div className="text-x-1l-ubo-z font-1440-h2 md:w-[650px] w-full md:mt-[60px] mt-[20px] text-[18px] md:text-[30px]">
           Информация о компании
         </div>
-        <div className="flex flex-col gap-4 w-[650px] mt-[60px]">
+        <div className="flex flex-col gap-4 md:w-[650px] w-full mt-[60px]">
           {sections.map((section) => (
             <div
               key={section.id}
@@ -49,17 +49,17 @@ export const About = () => {
               } overflow-hidden pt-4`}
             >
               <div className="flex justify-between items-center">
-                <div className="text-x-1l-ubo-z font-1440-h3">
+                <div className="text-x-1l-ubo-z md:text-[18px] text-[16px] font-1440-h3">
                   {section.title}
                 </div>
                 <div
                   onClick={() => setIsHovered(0)}
-                  className={`w-8 h-8 flex justify-center items-center ${
+                  className={`md:w-8 md:h-8 w-[27px] h-[27px] flex justify-center items-center ${
                     isHovered === section.id ? "bg-white" : "bg-transparent"
                   } border border-white rounded-full transition-all duration-200`}
                 >
                   <img
-                    className={`w-5 h-5 ${
+                    className={`md:w-5 md:h-5 w-[17px] h-[17px] ${
                       isHovered === section.id ? "" : "rotate-90"
                     }`}
                     alt="Toggle"
@@ -70,7 +70,7 @@ export const About = () => {
               <p
                 className={`${
                   isHovered === section.id ? "block" : "hidden"
-                } opacity-80 text-x-1l-ubo-z font-1440-t1 mt-[24px] mb-[40px]`}
+                } opacity-80 text-x-1l-ubo-z md:text-[16px] text-[12px] font-1440-t1 mt-[24px] mb-[40px]`}
               >
                 {section.content}
               </p>

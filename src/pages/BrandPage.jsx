@@ -77,27 +77,22 @@ const BrandPage = () => {
     setFilteredProducts(filtered);
   }, [minPrice, maxPrice]);
 
-  // Calculate total pages
   const totalPages = Math.ceil(filteredProducts.length / itemsPerPage);
 
-  // Get products for the current page
   const displayedProducts = filteredProducts.slice(
     (currentPage - 1) * itemsPerPage,
     currentPage * itemsPerPage
   );
 
-  // Handle page change
   const handlePageChange = (pageNumber) => {
     setCurrentPage(pageNumber);
   };
 
-  // Handle items per page change
   const handleItemsPerPageChange = (event) => {
     setItemsPerPage(event.target.value);
-    setCurrentPage(1); // Reset to first page
+    setCurrentPage(1);
   };
 
-  // Handle price range change
   const handleMinPriceChange = (event) => {
     setMinPrice(event.target.value);
   };
@@ -1875,10 +1870,10 @@ const BrandPage = () => {
         />
       </div>
 
-      {/* <Brands />
+      <Brands />
       <About />
       <Form />
-      <Footer /> */}
+      <Footer />
     </>
   );
 };
