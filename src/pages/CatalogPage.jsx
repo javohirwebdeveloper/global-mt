@@ -94,7 +94,7 @@ const CatalogPage = () => {
               </div>
               <section className="h-[1246px] mt-[60px] max-w-[981px] w-full grid grid-cols-3 grid-rows-4 gap-[10px]">
                 <NavLink
-                  to={`/product/${product1.id}`}
+                  to={`/Категория`}
                   className="row-span-1 col-span-1 h-auto rounded-[10px] cursor-pointer overflow-hidden border-[#E5E2EE] border"
                 >
                   <div className="h-[75%] bg-white w-full flex justify-center items-center">
@@ -109,7 +109,7 @@ const CatalogPage = () => {
                   </div>
                 </NavLink>
                 <NavLink
-                  to={`/product/${product2.id}`}
+                  to={`/Категория`}
                   className="row-span-1 col-span-1  h-auto rounded-[10px] cursor-pointer overflow-hidden border-[#E5E2EE] border"
                 >
                   <div className="h-[75%]  bg-white w-full flex justify-center items-center">
@@ -124,7 +124,7 @@ const CatalogPage = () => {
                   </div>
                 </NavLink>
                 <NavLink
-                  to={`/product/${product3.id}`}
+                  to={`/Категория`}
                   className="row-span-2 col-span-1  h-auto rounded-[10px] cursor-pointer overflow-hidden border-[#E5E2EE] border"
                 >
                   <div className="h-[88%] bg-white w-full flex justify-center items-center">
@@ -139,7 +139,7 @@ const CatalogPage = () => {
                   </div>
                 </NavLink>
                 <NavLink
-                  to={`/product/${product4.id}`}
+                  to={`/Категория`}
                   className="row-span-1 col-span-1  h-auto rounded-[10px] cursor-pointer overflow-hidden border-[#E5E2EE] border"
                 >
                   <div className="h-[75%] bg-white w-full flex justify-center items-center">
@@ -154,7 +154,7 @@ const CatalogPage = () => {
                   </div>
                 </NavLink>
                 <NavLink
-                  to={`/product/${product5.id}`}
+                  to={`/Категория`}
                   className="row-span-1 col-span-1  h-auto rounded-[10px] cursor-pointer overflow-hidden border-[#E5E2EE] border"
                 >
                   <div className="h-[75%] bg-white w-full flex justify-center items-center">
@@ -169,7 +169,7 @@ const CatalogPage = () => {
                   </div>
                 </NavLink>
                 <NavLink
-                  to={`/product/${product6.id}`}
+                  to={`/Категория`}
                   className="row-span-2 col-span-1  h-auto rounded-[10px] cursor-pointer overflow-hidden border-[#E5E2EE] border"
                 >
                   <div className="h-[88%]  bg-white w-full flex justify-center items-center">
@@ -184,7 +184,7 @@ const CatalogPage = () => {
                   </div>
                 </NavLink>
                 <NavLink
-                  to={`/product/${product7.id}`}
+                  to={`/Категория`}
                   className="row-span-1 col-span-1  h-auto rounded-[10px] cursor-pointer overflow-hidden border-[#E5E2EE] border"
                 >
                   <div className="h-[75%]  bg-white w-full flex justify-center items-center">
@@ -199,7 +199,7 @@ const CatalogPage = () => {
                   </div>
                 </NavLink>
                 <NavLink
-                  to={`/product/${product8.id}`}
+                  to={`/Категория`}
                   className="row-span-1 col-span-1  h-auto rounded-[10px] cursor-pointer overflow-hidden border-[#E5E2EE] border"
                 >
                   <div className="h-[75%]  bg-white w-full flex justify-center items-center">
@@ -214,7 +214,7 @@ const CatalogPage = () => {
                   </div>
                 </NavLink>
                 <NavLink
-                  to={`/product/${product9.id}`}
+                  to={`/Категория`}
                   className="row-span-1 col-span-1  h-auto rounded-[10px] cursor-pointer overflow-hidden border-[#E5E2EE] border"
                 >
                   <div className="h-[75%]  bg-white w-full flex justify-center items-center">
@@ -229,7 +229,7 @@ const CatalogPage = () => {
                   </div>
                 </NavLink>
                 <NavLink
-                  to={`/product/${product10.id}`}
+                  to={`/Категория`}
                   className="row-span-1 col-span-1  h-auto rounded-[10px] cursor-pointer overflow-hidden border-[#E5E2EE] border"
                 >
                   <div className="h-[75%]  bg-white w-full flex justify-center items-center">

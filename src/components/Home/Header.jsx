@@ -250,7 +250,8 @@ const Header1 = () => {
                                 <div className="flex flex-col border-t border-[#E5E2EE] pt-4 items-start mt-8">
                                   {searchResults.products.map(
                                     (product, index) => (
-                                      <div
+                                      <NavLink
+                                        to={`/product/${product.id}`}
                                         key={index}
                                         className="inline-flex pl-1 items-center gap-2.5 h-[45px] w-full cursor-pointer hover:bg-[#08826a14] duration-200"
                                       >
@@ -262,7 +263,7 @@ const Header1 = () => {
                                         <div className="font-375-l2 text-x-6cqplh text-[length:var(--375-l2-font-size)] tracking-[var(--375-l2-letter-spacing)] leading-[var(--375-l2-line-height)]">
                                           {product.name}
                                         </div>
-                                      </div>
+                                      </NavLink>
                                     )
                                   )}
                                 </div>
@@ -880,7 +881,8 @@ const Header1 = () => {
                               <div className="flex flex-col border-t border-[#E5E2EE] pt-4 items-start mt-8">
                                 {searchResults.products.map(
                                   (product, index) => (
-                                    <div
+                                    <NavLink
+                                      to={`/product/${product.id}`}
                                       key={index}
                                       className="inline-flex pl-1 items-center gap-2.5 h-[45px] w-full cursor-pointer hover:bg-[#08826a14] duration-200"
                                     >
@@ -892,7 +894,7 @@ const Header1 = () => {
                                       <div className="font-375-l2 text-x-6cqplh text-[length:var(--375-l2-font-size)] tracking-[var(--375-l2-letter-spacing)] leading-[var(--375-l2-line-height)]">
                                         {product.name}
                                       </div>
-                                    </div>
+                                    </NavLink>
                                   )
                                 )}
                               </div>

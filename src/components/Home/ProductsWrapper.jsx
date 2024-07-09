@@ -183,9 +183,12 @@ export const ProductsWrapper = () => {
               <div className="inline-flex pt-[20px] pl-[15px] flex-col items-start gap-[15px] relative flex-[0_0_auto]">
                 <div className="inline-flex flex-col items-start gap-[30px] pl-[3px] pr-0 py-0 relative flex-[0_0_auto]">
                   <div className="inline-flex flex-col items-start gap-2.5 relative flex-[0_0_auto]">
-                    <div className="relative w-[277px] mt-[-1.00px] font-1440-h3 font-[number:var(--1440-h3-font-weight)] text-ws-j7-it text-[length:var(--1440-h3-font-size)] tracking-[var(--1440-h3-letter-spacing)] leading-[var(--1440-h3-line-height)] [font-style:var(--1440-h3-font-style)]">
+                    <NavLink
+                      to={`/product/${product.id}`}
+                      className="relative w-[277px] mt-[-1.00px] font-1440-h3 font-[number:var(--1440-h3-font-weight)] text-ws-j7-it text-[length:var(--1440-h3-font-size)] tracking-[var(--1440-h3-letter-spacing)] leading-[var(--1440-h3-line-height)] [font-style:var(--1440-h3-font-style)]"
+                    >
                       {product.name}
-                    </div>
+                    </NavLink>
                     <div className="inline-flex flex-col items-start gap-[5px] relative flex-[0_0_auto]">
                       <div className="mt-[-1.00px] font-1440-t3 font-[number:var(--1440-t3-font-weight)] text-ML-tw-1j text-[length:var(--1440-t3-font-size)] relative w-fit tracking-[var(--1440-t3-letter-spacing)] leading-[var(--1440-t3-line-height)] [font-style:var(--1440-t3-font-style)]">
                         Артикул: {product.vendor}

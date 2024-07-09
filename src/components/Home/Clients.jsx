@@ -23,7 +23,7 @@ export const Clients = () => {
           {products.map((product, index) => (
             <NavLink
               key={index}
-              to={`/product/${index}`}
+              to={`/product/${product.id}`}
               className="relative w-[322px] mq770:w-[208px] mq770:h-[236px] h-[280px]"
             >
               <div className="relative w-80 h-[280px] bg-x-1l-ubo-z rounded-[10px] border border-solid border-[#e1dfe7]">
@@ -34,9 +34,12 @@ export const Clients = () => {
                     src={product.img}
                   />
                 </div>
-                <p className="absolute w-[226px] top-[215px] left-6 font-1440-t1 text-ws-j7-it">
+                <NavLink
+                  to={`/product/${product.id}`}
+                  className="absolute w-[226px] top-[215px] left-6 font-1440-t1 text-ws-j7-it"
+                >
                   {product.name}
-                </p>
+                </NavLink>
               </div>
             </NavLink>
           ))}

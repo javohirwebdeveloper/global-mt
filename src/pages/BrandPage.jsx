@@ -34,6 +34,7 @@ import { Brands } from "../components/Home/Brands";
 import { About } from "../components/Home/About";
 import { Form } from "../components/Home/Form";
 import { Footer } from "../components/About/Footer";
+import { NavLink } from "react-router-dom";
 const BrandPage = () => {
   const [burger, setBurger] = useState(4);
   const [FilterSettings, setFilterSetttings] = useState(false);
@@ -711,7 +712,7 @@ const BrandPage = () => {
             </div>
           </div>
           <section className="self-stretch flex flex-col items-start justify-start gap-[25px] max-w-full text-left text-11xl text-[#202020] font-l1">
-            <div className="w-[1150px] flex flex-col items-start justify-start py-0 pr-5 pl-0 box-border gap-[43px] max-w-full mq675:gap-[21px]">
+            <div className="max-w-[1150px] w-full flex flex-col items-start justify-start py-0 pr-5 pl-0 box-border gap-[43px] mq675:gap-[21px]">
               <h1 className="m-0 relative text-inherit leading-[120%] font-medium font-inherit inline-block max-w-full mq450:text-lg mq450:leading-[22px] mq750:text-[24px] mq750:leading-[29px]">
                 Оборудование Draeger
               </h1>
@@ -732,6 +733,7 @@ const BrandPage = () => {
                     borderRadius: "50px",
                     "&:hover": { background: "#fff" },
                     height: 41,
+                    maxWidth: 306,
                   }}
                 >
                   Дерматологическое оборудование
@@ -804,6 +806,7 @@ const BrandPage = () => {
                       borderRadius: "50px",
                       "&:hover": { borderColor: "#d5d1e1" },
                       height: 41,
+                      maxWidth: 184,
                     }}
                   >
                     Показать все
@@ -823,6 +826,7 @@ const BrandPage = () => {
                         borderRadius: "50px",
                         "&:hover": { borderColor: "#d5d1e1" },
                         height: 41,
+                        width: 144,
                       }}
                     >
                       Скрыть
@@ -1700,7 +1704,10 @@ const BrandPage = () => {
                               <div className="flex-1 flex flex-col items-start justify-start gap-[15px]">
                                 <div className="xl:w-[283px] md:w-[167px] flex flex-row items-start justify-start py-0 px-[3px] box-border">
                                   <div className="flex-1 flex flex-col items-start justify-start gap-[30px] z-[2]">
-                                    <div className="self-stretch flex flex-col items-start justify-start gap-[10px]">
+                                    <NavLink
+                                      to={`/product/${product.id}`}
+                                      className="self-stretch flex flex-col items-start justify-start gap-[10px]"
+                                    >
                                       <div className="self-stretch relative font-semibold">
                                         <p className="m-0">{`Анализатор мочи `}</p>
                                         <p className="m-0">MIND UA-66</p>
@@ -1713,7 +1720,7 @@ const BrandPage = () => {
                                           В наличии
                                         </div>
                                       </div>
-                                    </div>
+                                    </NavLink>
                                     <div className="relative font-semibold inline-block min-w-[112px]">
                                       {product.price}
                                     </div>
@@ -1814,7 +1821,10 @@ const BrandPage = () => {
                             <div className="self-stretch flex flex-row items-start justify-start py-0 px-3 text-lg text-[#202020]">
                               <div className="flex-1 xl:py-[20px] py-[15px] flex flex-col items-start h-full justify-between">
                                 <div className="xl:w-[283px] md:w-[180px] w-[149px] flex flex-row items-start justify-start py-0 px-[3px] box-border">
-                                  <div className="flex-1 flex flex-col items-start justify-start gap-[30px] z-[2]">
+                                  <NavLink
+                                    to={`/product/${product.id}`}
+                                    className="flex-1 flex flex-col items-start justify-start gap-[30px] z-[2]"
+                                  >
                                     <div className="self-stretch flex flex-col items-start justify-start gap-[10px]">
                                       <div className="self-stretch relative font-semibold">
                                         <p className="m-0">{`Анализатор мочи `}</p>
@@ -1829,7 +1839,7 @@ const BrandPage = () => {
                                         </div>
                                       </div>
                                     </div>
-                                  </div>
+                                  </NavLink>
                                 </div>
                                 <div className="w-full flex md:flex-row flex-col justify-between mq765:gap-[14px] items-start md:items-center">
                                   <div className="relative font-semibold inline-block min-w-[112px]">

@@ -22,6 +22,7 @@ import Blog from "./pages/Blog";
 import Stock from "./pages/Stock";
 import Manufacturers from "./pages/Manufacturers";
 import Contact from "./pages/Contact";
+import Category from "./pages/Category.jsx";
 const App = () => {
   const [loading, setLoading] = useState(true);
 
@@ -66,6 +67,7 @@ const App = () => {
               <Route path="/Акции" element={<Stock />} />
               <Route path="/Производители" element={<Manufacturers />} />
               <Route path="/Контакты" element={<Contact />} />
+              <Route path="/Категория" element={<Category />} />
             </Routes>
           </div>
         </Router>
