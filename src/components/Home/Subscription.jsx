@@ -8,7 +8,7 @@ export const Subscription = () => {
         className={`self-stretch max-w-[1440px] h-full mx-auto overflow-hidden flex flex-row items-start justify-end py-[35px] pt-0 px-[175px] box-border relative text-left text-11xl text-color5 font-t2 mq450:pl-5 mq450:pr-5 mq450:box-border mq1125:pl-[87px] mq1125:pr-[87px] mq1125:box-border`}
       >
         <div className="h-full w-full absolute !m-[0] top-[0px] right-[0px] bottom-[0px] left-[0px] box-border border-[1px] border-solid border-color2" />
-        <div className="w-[540px] flex flex-col items-start justify-start gap-[45px] max-w-full z-[1] mq800:gap-[22px]">
+        <div className="w-[540px] z-40 flex flex-col items-start justify-start gap-[45px] max-w-full  mq800:gap-[22px]">
           <div className="flex flex-col items-start justify-start gap-[20px] max-w-full">
             <h1 className="m-0 relative text-inherit leading-[120%] font-medium font-inherit mq450:text-lg mq450:leading-[22px] mq800:text-5xl mq800:leading-[29px]">
               Подпишитесь и будьте в курсе!

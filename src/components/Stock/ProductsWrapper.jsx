@@ -5,10 +5,16 @@ import LeftArrow from "../../assets/17--arrow---right.svg";
 import { products } from "../../../public/data";
 import "slick-carousel/slick/slick-theme.css";
 import LikeImg from "../../assets/24--favourites.svg";
+import LikeImg1 from "../../assets/24--favourites1.svg";
 import CravnitImg from "../../assets/comparison.svg";
 import { Button } from "@mui/material";
 import { useSelector, useDispatch } from "react-redux";
-import { addToCart, addToCompare, addToFavorites } from "../../redux/actions";
+import {
+  addToCart,
+  addToCompare,
+  addToFavorites,
+  removeFromFavorites,
+} from "../../redux/actions";
 import { NavLink } from "react-router-dom";
 
 export const ProductsWrapper = () => {
@@ -30,7 +36,15 @@ export const ProductsWrapper = () => {
   const handleAddToFavorites = (product) => {
     dispatch(addToFavorites(product));
   };
-
+  const handleFavoriteClick = (product) => {
+    dispatch(addToFavorites(product));
+  };
+  const handleCompareClick = (product) => {
+    dispatch(addToCompare(product));
+  };
+  const handleRemoveFromFavorites = (productId) => {
+    dispatch(removeFromFavorites(productId));
+  };
   const filteredProducts = products.filter((product) => product.type === 1);
 
   const [currentSlide, setCurrentSlide] = useState(0);

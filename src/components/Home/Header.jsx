@@ -1352,13 +1352,20 @@ const Header1 = () => {
                 </a>
               </div>
               <div className="flex flex-col items-start justify-start gap-[4px]">
-                <div className="flex flex-row items-start justify-start py-0 px-5">
+                <div className="flex relative flex-row items-start justify-start py-0 px-5">
                   <img
                     className="h-6 w-6 relative overflow-hidden shrink-0"
                     loading="lazy"
                     alt=""
                     src={LikeImg}
                   />
+                  {favorites.length > 0 ? (
+                    <span className="h-[20px] text-white flex items-center justify-center text-[14px] font-[600] w-[20px] bg-[#088269] absolute right-3 rounded-full z-20 -top-2">
+                      {favorites.length}
+                    </span>
+                  ) : (
+                    ""
+                  )}
                 </div>
                 <a className="[text-decoration:none] relative font-medium text-[inherit] inline-block min-w-[65px]">
                   Избранное

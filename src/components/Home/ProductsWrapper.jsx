@@ -5,10 +5,16 @@ import "slick-carousel/slick/slick-theme.css";
 import LeftArrow from "../../assets/17--arrow---right.svg";
 import { products } from "../../../public/data";
 import LikeImg from "../../assets/24--favourites.svg";
+import LikeImg1 from "../../assets/24--favourites1.svg";
 import CravnitImg from "../../assets/comparison.svg";
 import { Button } from "@mui/material";
 import { useSelector, useDispatch } from "react-redux";
-import { addToCart, addToCompare, addToFavorites } from "../../redux/actions";
+import {
+  addToCart,
+  addToCompare,
+  addToFavorites,
+  removeFromFavorites,
+} from "../../redux/actions";
 import { NavLink } from "react-router-dom";
 
 export const ProductsWrapper = () => {
@@ -30,10 +36,24 @@ export const ProductsWrapper = () => {
   const handleAddToFavorites = (product) => {
     dispatch(addToFavorites(product));
   };
-
+  const handleFavoriteClick = (product) => {
+    if (isFavorite(product.id)) {
+      handleRemoveFromFavorites(product.id);
+    } else {
+      handleAddToFavorites(product);
+    }
+  };
+  const handleCompareClick = (product) => {
+    dispatch(addToCompare(product));
+  };
+  const handleRemoveFromFavorites = (productId) => {
+    dispatch(removeFromFavorites(productId));
+  };
   const [currentSlide, setCurrentSlide] = useState(0);
   const sliderRef = useRef(null);
-
+  const isFavorite = (productId) => {
+    return favorites.some((product) => product.id === productId);
+  };
   const settings = {
     dots: false,
     infinite: true,
@@ -170,11 +190,6 @@ export const ProductsWrapper = () => {
                         alt="Card icon"
                         src={CravnitImg}
                       />
-                      <img
-                        className="relative cursor-pointer w-6 h-6"
-                        src={LikeImg}
-                        alt=""
-                      />
                     </div>
                   </div>
                 </div>
@@ -209,6 +224,12 @@ export const ProductsWrapper = () => {
                     Добавить в корзину
                   </div>
                 </button>
+                <img
+                  className=" cursor-pointer top-[0px] left-[34px] w-6 h-6"
+                  alt=""
+                  src={isFavorite(product.id) ? LikeImg1 : LikeImg}
+                  onClick={() => handleFavoriteClick(product)}
+                />
               </div>
             </div>
           ))}

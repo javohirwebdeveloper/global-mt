@@ -23,7 +23,9 @@ const Home = () => {
         <ProductsWrapper />
         <Clients />
         <Brands />
-
+        <About />
+        <News />
+        <Form />
         <Subscription />
         <Footer />
       </div>
