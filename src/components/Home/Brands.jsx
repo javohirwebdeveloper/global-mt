@@ -41,26 +41,26 @@ export const Brands = () => {
           Эксклюзивные поставщики
         </div>
       </div>
-      <section className="flex flex-col items-start justify-start gap-[40px] w-[1310px] text-left text-base text-color1 font-t1 mq800:gap-[20px]">
+      <section className="flex flex-col md:ml-0 -ml-[40px] items-start justify-start xl:gap-[40px] w-[1310px] text-left text-base text-color1 font-t1 mq800:gap-[20px]">
         <Slider
           ref={sliderRef}
           {...settings}
-          className="carousel w-[1310px] h-[280px] inline-flex items-start gap-2.5"
+          className="carousel md:w-[1310px] w-[768px] xl:h-[280px] h-[216px] inline-flex items-start gap-2.5"
         >
           {brands.map((brand, index) => (
             <div
               key={index}
-              className="relative carousel-item item w-[322px] h-[280px]"
+              className="relative carousel-item item xl:w-[322px] w-[236px] xl:h-[280px] h-[216px]"
             >
-              <div className="relative w-80 h-[280px] bg-x-1l-ubo-z rounded-[10px] border border-solid border-[#e5e2ee]">
-                <div className="absolute w-80 h-[196px] top-0 left-0 bg-z-vq-cz-3 rounded-[10px_10px_0px_0px] border border-solid border-[#e5e2ee]">
+              <div className="relativexl:w-[322px] w-[236px] xl:h-[280px] h-[216px] bg-x-1l-ubo-z rounded-[10px] border border-solid border-[#e5e2ee]">
+                <div className="xl:w-[322px] w-[236px] h-[152px] xl:h-[196px] flex justify-center items-center bg-z-vq-cz-3 rounded-[10px_10px_0px_0px] border border-solid border-[#e5e2ee]">
                   <img
-                    className="absolute w-[217px] h-[102px] top-[45px] left-[50px] object-cover"
+                    className=" xl:w-[217px] w-[157px]  xl:h-[102px] "
                     alt="Cropped"
                     src={brand.img}
                   />
                 </div>
-                <p className="absolute w-[226px] top-[215px] left-6 font-1440-t1 font-[number:var(--1440-t1-font-weight)] text-ws-j7-it text-[length:var(--1440-t1-font-size)] tracking-[var(--1440-t1-letter-spacing)] leading-[var(--1440-t1-line-height)] [font-style:var(--1440-t1-font-style)]">
+                <p className="xl:w-[226px] xl:text-[16px] md:text-[14px] text-[14px] xl:px-[25px] xl:py-[20px] px-[15px] md:py-[15px] py-[14px] w-[134px] font-1440-t1 font-[number:var(--1440-t1-font-weight)] text-ws-j7-it tracking-[var(--1440-t1-letter-spacing)] leading-[var(--1440-t1-line-height)] [font-style:var(--1440-t1-font-style)]">
                   {brand.name}
                 </p>
               </div>
@@ -68,7 +68,7 @@ export const Brands = () => {
           ))}
         </Slider>
         <div className="w-[1000px] flex flex-row items-start justify-between py-0 pr-5 pl-0 box-border gap-[20px] max-w-full mq450:flex-wrap">
-          <div className="flex flex-row items-start justify-start gap-[10px]">
+          <div className="xl:flex hidden flex-row items-start justify-start gap-[10px]">
             <div
               onClick={handlePrev}
               className="cursor-pointer select-none duration-200 hover:border-[#088269] relative w-[41px] h-[41px] bg-x-1l-ubo-z rounded-[40px] overflow-hidden border border-solid border-[#d5d1e1]"

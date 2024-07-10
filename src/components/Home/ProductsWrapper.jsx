@@ -60,7 +60,7 @@ export const ProductsWrapper = () => {
     >
       <div className="flex flex-col w-[330px] items-start justify-start pt-0.5 px-0 pb-0">
         <div className="flex flex-col items-start justify-start mq790:gap-[20px] gap-[40px]">
-          <div className="m-0 relative mq1290:justify-between mq1290:w-full mq1290:flex text-nowrap text-inherit leading-[120%] font-medium font-inherit mq450:text-lg mq450:leading-[22px] mq800:text-[24px] mq800:leading-[29px]">
+          <div className="m-0 relative mq1290:!justify-between mq1290:w-full mq1290:flex text-nowrap text-inherit leading-[120%] font-medium font-inherit mq450:text-lg mq450:leading-[22px] mq800:text-[24px] mq800:leading-[29px]">
             <span>Каталог товаров</span>
             <div className="w-[397px] hidden mq770:hidden mq1290:flex flex-row items-start justify-start gap-[10px] max-w-full mq450:flex-wrap">
               <Button

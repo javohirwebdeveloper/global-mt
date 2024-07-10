@@ -21,6 +21,8 @@ const Home = () => {
         <Comprehensive />
         <Offers />
         <ProductsWrapper />
+        <Clients />
+        <Brands />
 
         <Subscription />
         <Footer />

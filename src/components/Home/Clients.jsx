@@ -12,14 +12,14 @@ export const Clients = () => {
             Наши клиенты
           </div>
           <div className="text-left">
-            <div className="text-ws-j7-it font-1440-h1 text-[48px] leading-[var(--1440-h1-line-height)]">
+            <div className="text-ws-j7-it font-1440-h1 text-[28px] xl:text-[48px] leading-[var(--1440-h1-line-height)]">
               БОЛЕЕ <span className="text-[#088269]">5000</span>
               <br />
               УСПЕШНЫХ ПРОЕКТОВ
             </div>
           </div>
         </div>
-        <div className="marquee flex gap-2.5 overflow-hidden">
+        <div className="marquee flex gap-32 md:gap-2.5 overflow-hidden">
           {products.map((product, index) => (
             <NavLink
               key={index}
