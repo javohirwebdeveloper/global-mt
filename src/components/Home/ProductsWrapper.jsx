@@ -53,7 +53,6 @@ export const ProductsWrapper = () => {
   const handleNext = () => {
     sliderRef.current.slickNext();
   };
-  console.log(category);
 
   return (
     <div

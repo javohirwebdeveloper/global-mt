@@ -34,6 +34,7 @@ import { Brands } from "../components/Home/Brands";
 import { About } from "../components/Home/About";
 import { Form } from "../components/Home/Form";
 import { Footer } from "../components/About/Footer";
+import { addToCart } from "../redux/actions";
 import { NavLink } from "react-router-dom";
 const BrandPage = () => {
   const [burger, setBurger] = useState(4);
@@ -48,6 +49,9 @@ const BrandPage = () => {
   const dispatch = useDispatch();
   const favorites = useSelector((state) => state.favorites);
 
+  const handleAddToCart = (product) => {
+    dispatch(addToCart(product));
+  };
   const handleFavoriteClick = (product) => {
     dispatch(addToFavorites(product));
   };
@@ -1729,6 +1733,7 @@ const BrandPage = () => {
                                 <Button
                                   className="self-stretch text-nowrap md:text-[16px] text-[12px] h-[41px] text-[#088269] z-[2]"
                                   disableElevation
+                                  onClick={() => handleAddToCart(product)}
                                   variant="outlined"
                                   sx={{
                                     textTransform: "none",

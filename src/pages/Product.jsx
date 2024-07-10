@@ -1,5 +1,6 @@
-import React, { useRef, useEffect } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 import { products } from "../../public/data";
 import { Button } from "@mui/material";
 import StarRatings from "react-star-ratings";
@@ -13,14 +14,24 @@ import { Brands } from "../components/Home/Brands";
 import TopCate from "../components/Product/TopCate";
 import { Subscription } from "../components/Home/Subscription";
 import { Footer } from "../components/Home/Footer";
+import { addToCart, updateCartItemQuantity } from "../redux/actions";
+import MinusImg from "../assets/minus.svg";
+import PlusImg from "../assets/plus.svg";
 const Product = () => {
   const { id } = useParams();
   const product = products.find((p) => p.id == id);
+  const cartItems = useSelector((state) => state.cart);
 
+  const dispatch = useDispatch();
+  const cartItem = cartItems.find((item) => item.product.id === product.id);
+  const initialQuantity = cartItem ? cartItem.quantity : 1;
   const carouselRef = useRef(null);
+  const [quantity, setQuantity] = useState(cartItem ? cartItem.quantity : 1);
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+
   const renderIndicator = (clickHandler, isSelected, index, label) => {
     if (isSelected) {
       return (
@@ -55,22 +66,40 @@ const Product = () => {
       </div>
     );
   };
+  useEffect(() => {
+    setQuantity(initialQuantity);
+  }, [initialQuantity]);
 
-  const handlePrev = () => {
-    if (carouselRef.current) {
-      carouselRef.current.decrement();
-    }
+  const incrementCount = () => {
+    const newQuantity = quantity + 1;
+    setQuantity(newQuantity);
+    handleQuantityChange(newQuantity);
   };
 
-  const handleNext = () => {
-    if (carouselRef.current) {
-      carouselRef.current.increment();
+  const decrementCount = () => {
+    const newQuantity = quantity > 1 ? quantity - 1 : 1;
+    setQuantity(newQuantity);
+    handleQuantityChange(newQuantity);
+  };
+  const cart = useSelector((state) => state.cart);
+
+  const productFind = cart.find((p) => p.product.id === product.id);
+
+  const handleAddToCart = () => {
+    if (productFind) {
+      handleQuantityChange(quantity);
+    } else {
+      dispatch(addToCart(product));
     }
+  };
+  const handleQuantityChange = (newQuantity) => {
+    dispatch(updateCartItemQuantity(product.id, newQuantity));
   };
 
   if (!product) {
     return <div>Product not found</div>;
   }
+
   return (
     <>
       <div className="max-w-[1440px]  xl:px-[65px] sm:px-[20px] px-[15px] mx-auto w-full">
@@ -168,24 +197,30 @@ const Product = () => {
                 </div>
               </div>
               <div className="self-stretch flex flex-row items-start justify-start pt-0 px-0 pb-[5px] gap-[10px] text-sm text-[#202020] mq450:flex-wrap">
-                <div className="w-24 rounded-[50px] box-border flex flex-row items-start justify-start py-[9px] px-[19px] gap-[15px] border-[1px] border-solid border-lavender">
-                  <div className="flex flex-col items-start justify-start pt-[4.5px] px-0 pb-0">
+                <div className="productCount text-[#07745E] w-24 rounded-[50px] box-border flex flex-row items-start justify-start py-[9px] px-[19px] gap-[15px] border-[1px] border-solid border-lavender">
+                  <div
+                    className="flex flex-col items-start justify-start pt-[4.5px] px-0 pb-0 cursor-pointer"
+                    onClick={decrementCount}
+                  >
                     <img
                       className="w-2.5 h-2.5 relative"
                       loading="lazy"
                       alt=""
-                      src="/10-minus.svg"
+                      src={MinusImg}
                     />
                   </div>
                   <div className="relative font-semibold inline-block min-w-[6px]">
-                    1
+                    {quantity}
                   </div>
-                  <div className="flex flex-col items-start justify-start pt-[4.5px] px-0 pb-0">
+                  <div
+                    className="flex flex-col items-start justify-start pt-[4.5px] px-0 pb-0 cursor-pointer"
+                    onClick={incrementCount}
+                  >
                     <img
                       className="w-2.5 h-2.5 relative"
                       loading="lazy"
                       alt=""
-                      src="/10-plus.svg"
+                      src={PlusImg}
                     />
                   </div>
                 </div>
@@ -218,6 +253,9 @@ const Product = () => {
                     borderRadius: "50px",
                     "&:hover": { background: "#088269" },
                     height: 41,
+                  }}
+                  onClick={() => {
+                    handleAddToCart(handleAddToCart);
                   }}
                 >
                   Добавить в корзину

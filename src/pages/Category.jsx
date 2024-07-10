@@ -28,6 +28,8 @@ import {
   removeFromFavorites,
   addToCompare,
 } from "../redux/actions";
+import { addToCart } from "../redux/actions";
+
 import Table2 from "../assets/catalog/4-1.svg";
 import Burger2 from "../assets/catalog/1-1.svg";
 import { Brands } from "../components/Home/Brands";
@@ -53,6 +55,9 @@ const Category = () => {
   const dispatch = useDispatch();
   const favorites = useSelector((state) => state.favorites);
 
+  const handleAddToCart = (product) => {
+    dispatch(addToCart(product));
+  };
   const handleFavoriteClick = (product) => {
     dispatch(addToFavorites(product));
   };
@@ -1682,6 +1687,7 @@ self-stretch flex flex-col items-start justify-start gap-[25px]  text-left text-
                             <Button
                               className="self-stretch text-nowrap md:text-[16px] text-[12px] h-[41px] text-[#088269] z-[2]"
                               disableElevation
+                              onClick={() => handleAddToCart(product)}
                               variant="outlined"
                               sx={{
                                 textTransform: "none",
@@ -1799,6 +1805,7 @@ self-stretch flex flex-col items-start justify-start gap-[25px]  text-left text-
                               <Button
                                 className="self-stretch  md:w-[250px] w-[147px] md:text-[16px] text-[12px] text-nowrap h-[41px] text-[#088269] z-[2]"
                                 disableElevation
+                                onClick={() => handleAddToCart(product)}
                                 variant="outlined"
                                 sx={{
                                   textTransform: "none",

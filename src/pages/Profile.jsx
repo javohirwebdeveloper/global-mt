@@ -5,15 +5,34 @@ import EditImg from "../assets/Profile/edit.svg";
 import EditImg2 from "../assets/Profile/edit2.svg";
 import Vector from "../assets/Profile/Vector.svg";
 import Vector5 from "../assets/Profile/Vector5.svg";
+import DownImage from "../assets/right1x.svg";
 import Root4 from "../components/Profile/Root4";
 import Root3 from "../components/Profile/Root3";
 import Vector2 from "../assets/Profile/Vector2.svg";
+import { Button } from "@mui/material";
 import Vector3 from "../assets/Profile/Vector3.svg";
 import Vector4 from "../assets/Profile/Vector4.svg";
 import EditPhoneModal from "../components/Profile/EditPhoneModal";
 import EditEmailModal from "../components/Profile/EditEmailModal";
 import EditPayerDataModal from "../components/Profile/EditPayerDataModal";
 import { Modal } from "@mui/material";
+import Root35 from "../components/Profile/Root35";
+const customStyles = {
+  overlay: {
+    backgroundColor: "rgba(0,0,0,0.10)",
+    zIndex: 1000,
+  },
+  content: {
+    top: "50%",
+    left: "50%",
+    right: "auto",
+    bottom: "auto",
+    marginRight: "-50%",
+    borderRadius: "10px",
+    padding: "0",
+    border: "none",
+  },
+};
 const Profile = () => {
   const [isSelecting, setIsSelecting] = useState(false);
   const [isEditing, setIsEditing] = useState(false);
@@ -33,6 +52,8 @@ const Profile = () => {
     lastName: "",
     vk: "",
   });
+  const saveddPayerData = JSON.parse(localStorage.getItem("payerData"));
+
   const savedPhoneNumber = localStorage.getItem("phoneNumber");
   useEffect(() => {
     const savedImage = localStorage.getItem("profileImage");
@@ -116,14 +137,23 @@ const Profile = () => {
   };
 
   const { firstName, lastName } = getFirstAndLastName(user.email);
+  const [isPasswordModalOpen, setIsPasswordModalOpen] = useState(false);
+
+  const handlePasswordEdit = () => {
+    setIsPasswordModalOpen(true);
+  };
+
+  const handlePasswordSave = () => {
+    setIsPasswordModalOpen(false);
+  };
 
   return (
     <>
-      <div className="max-w-[1440px] mx-auto w-full relative bg-color overflow-hidden flex flex-col items-start justify-start  xl:px-[65px] sm:px-[20px] px-[15px]  box-border gap-[150px] leading-[normal] tracking-[normal] text-left text-sm text-color5 font-l1 mq750:gap-[75px] mq750:pl-8 mq750:pr-8 mq750:box-border mq1050:h-auto mq450:gap-[37px]">
+      <div className="max-w-[1440px] mx-auto w-full relative bg-color overflow-hidden flex flex-col items-start justify-start  xl:px-[65px] sm:px-[20px] px-[15px] xl:mt-[99px] md:mt-[50px] mt-[20px]  box-border gap-[150px] leading-[normal] tracking-[normal] text-left text-sm text-color5 font-l1 mq750:gap-[75px] mq750:pl-8 mq750:pr-8 mq750:box-border mq1050:h-auto mq450:gap-[37px]">
         <div className="w-[848px] flex flex-col items-start justify-start gap-[100px] shrink-0 max-w-full mq1050:gap-[50px] mq450:gap-[25px]">
           <div className="self-stretch flex flex-row items-start justify-between max-w-full gap-[20px] text-[80px] text-color8 mq1050:flex-wrap">
             {profileImage ? (
-              <div>
+              <div className=" relative">
                 <img
                   src={profileImage}
                   alt="Profile"
@@ -132,33 +162,33 @@ const Profile = () => {
                 <div
                   onMouseEnter={() => setEditMenuVisible(true)}
                   onMouseLeave={() => setEditMenuVisible(false)}
-                  className="flex flex-col items-center justify-start"
+                  className="flex absolute flex-col items-center justify-center w-full bottom-3"
                 >
-                  <div className="h-8 w-8 cursor-pointer rounded-31xl bg-[#07745E] flex flex-col items-center box-border justify-center pt-1  z-[2]">
+                  <div className="h-8 w-8 relative cursor-pointer rounded-31xl bg-[#07745E] flex flex-col items-center box-border justify-center pt-1  z-[2]">
                     <img
                       className="h-6 w-6 relative overflow-hidden shrink-0"
                       loading="lazy"
                       alt=""
                       src={EditImg}
                     />
-                  </div>
-                  <div
-                    className={`${
-                      editMenuVisible ? "flex" : "hidden"
-                    } flex-row items-start z-40 bg-white justify-end py-0 text-xs text-[#202020]`}
-                  >
-                    <div className="rounded-[5px] bg-white overflow-hidden flex flex-col items-start justify-start py-2 px-[11px] z-[2] border-[1px] border-solid border-[#E5E2EE]">
-                      <div
-                        className="w-full h-[20px] hover:bg-[#E5E2EE] cursor-pointer relative inline-block min-w-[87px]"
-                        onClick={() => setIsSelecting(true)}
-                      >
-                        Редактировать
-                      </div>
-                      <div
-                        className="relative h-[20px] w-full hover:bg-[#E5E2EE] cursor-pointer text-firebrick text-[#C13515] inline-block min-w-[78px]"
-                        onClick={handleDeleteProfilePicture}
-                      >
-                        Удалить фото
+                    <div
+                      className={`${
+                        editMenuVisible ? "flex" : "hidden"
+                      } flex-row absolute  top-8 items-start z-40 bg-white justify-end py-0 text-xs text-[#202020]`}
+                    >
+                      <div className="rounded-[5px] bg-white overflow-hidden flex flex-col items-start justify-start py-2 px-[11px] z-[2] border-[1px] border-solid border-[#E5E2EE]">
+                        <div
+                          className="w-full h-[20px] hover:bg-[#E5E2EE] cursor-pointer relative inline-block min-w-[87px]"
+                          onClick={() => setIsSelecting(true)}
+                        >
+                          Редактировать
+                        </div>
+                        <div
+                          className="relative h-[20px] w-full hover:bg-[#E5E2EE] cursor-pointer text-firebrick text-[#C13515] inline-block min-w-[78px]"
+                          onClick={handleDeleteProfilePicture}
+                        >
+                          Удалить фото
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -216,14 +246,20 @@ const Profile = () => {
                   <div className="flex flex-col items-start justify-start gap-[20px] max-w-full">
                     <div className="flex flex-row items-start justify-start gap-[9px] max-w-full mq750:flex-wrap">
                       <h2 className="m-0 relative text-inherit leading-[120%] font-medium font-inherit mq1050:text-5xl mq1050:leading-[29px] mq450:text-lg mq450:leading-[22px]">
-                        {firstName}
+                        {saveddPayerData.firstName
+                          ? saveddPayerData.firstName
+                          : "Константин"}
                       </h2>
                       <h2 className="m-0 relative text-inherit leading-[120%] font-medium font-inherit inline-block max-w-full mq1050:text-5xl mq1050:leading-[29px] mq450:text-lg mq450:leading-[22px]">
-                        {lastName}
+                        {saveddPayerData.lastName
+                          ? saveddPayerData.lastName
+                          : "Константинопольский"}
                       </h2>
                     </div>
                     <div className="flex flex-row items-start justify-start gap-[15px]">
-                      <NavLink to="https://vk.com/">
+                      <NavLink
+                        to={payerData.vk ? payerData.vk : "https://vk.com/"}
+                      >
                         <img
                           className="h-6 w-6 relative overflow-hidden shrink-0 min-h-[24px]"
                           loading="lazy"
@@ -231,7 +267,13 @@ const Profile = () => {
                           src={Vector}
                         />
                       </NavLink>
-                      <NavLink to="https://facebook.com/">
+                      <NavLink
+                        to={
+                          payerData.face
+                            ? payerData.face
+                            : "https://facebook.com/"
+                        }
+                      >
                         <img
                           className="h-6 w-6 relative overflow-hidden shrink-0 min-h-[24px]"
                           loading="lazy"
@@ -239,7 +281,13 @@ const Profile = () => {
                           src={Vector2}
                         />
                       </NavLink>
-                      <NavLink to="https://www.instagram.com/">
+                      <NavLink
+                        to={
+                          payerData.insta
+                            ? payerData.insta
+                            : "https://www.instagram.com/"
+                        }
+                      >
                         <img
                           className="h-6 w-6 relative overflow-hidden shrink-0 min-h-[24px]"
                           loading="lazy"
@@ -247,7 +295,13 @@ const Profile = () => {
                           src={Vector3}
                         />
                       </NavLink>
-                      <NavLink to="https://x.com/?lang=ru">
+                      <NavLink
+                        to={
+                          payerData.twit
+                            ? payerData.twit
+                            : "https://x.com/?lang=ru"
+                        }
+                      >
                         <img
                           className="h-6 w-6 relative overflow-hidden shrink-0 min-h-[24px]"
                           loading="lazy"
@@ -255,7 +309,9 @@ const Profile = () => {
                           src={Vector4}
                         />
                       </NavLink>
-                      <NavLink to="https://ok.ru/">
+                      <NavLink
+                        to={payerData.ok ? payerData.ok : "https://ok.ru/"}
+                      >
                         <img
                           className="h-6 w-6 relative overflow-hidden shrink-0 min-h-[24px]"
                           loading="lazy"
@@ -265,20 +321,30 @@ const Profile = () => {
                       </NavLink>
                     </div>
                   </div>
-                  <button
-                    className="rounded-31xl flex flex-row items-center justify-center py-[9px] px-[19px] whitespace-nowrap text-sm border-[1px] border-solid border-[#D5D1E1]"
-                    onClick={() => setIsEditModalOpen(true)}
-                  >
-                    <div className="relative font-semibold">
-                      Изменить персональную информацию
-                    </div>
-                  </button>
+                  <div className="flex gap-3">
+                    <button
+                      className="rounded-31xl flex flex-row items-center justify-center py-[9px] px-[19px] whitespace-nowrap text-sm border-[1px] border-solid border-[#D5D1E1]"
+                      onClick={handlePayerDataEdit}
+                    >
+                      <div className="relative font-semibold">
+                        Изменить персональную информацию
+                      </div>
+                    </button>
+                    <button
+                      className="rounded-31xl flex flex-row items-center justify-center py-[9px] px-[19px] whitespace-nowrap text-sm border-[1px] border-solid border-[#D5D1E1]"
+                      onClick={handlePasswordEdit}
+                    >
+                      <div className="relative font-semibold">
+                        Изменить пароль
+                      </div>
+                    </button>
+                  </div>
                 </div>
                 <div className="self-stretch flex flex-row items-start justify-between gap-[20px] text-base mq450:flex-wrap">
                   <div className="flex flex-col items-start justify-start gap-[5px]">
                     <div className="flex flex-row items-center justify-start gap-[10px]">
                       <div className="relative leading-[140%] font-medium">
-                        {savedPhoneNumber}
+                        {savedPhoneNumber ? savedPhoneNumber : "--"}
                       </div>
                       <img
                         className="h-6 w-6 cursor-pointer relative overflow-hidden shrink-0 min-h-[24px]"
@@ -350,7 +416,6 @@ const Profile = () => {
                   <img
                     className="h-6 w-6 relative overflow-hidden shrink-0"
                     loading="lazy"
-                    onClick={handlePayerDataEdit}
                     alt=""
                     src={EditImg2}
                   />
@@ -404,13 +469,8 @@ const Profile = () => {
               </div>
             </div>
             <div className="w-[230px] rounded-31xl bg-color1 flex flex-row items-center justify-center py-[11px] px-[19px] box-border text-sm text-color">
-              <div className="flex-1 flex flex-row items-center justify-start gap-[10px]">
-                <img
-                  className="h-5 w-5 relative min-h-[20px]"
-                  alt=""
-                  src="/frame.svg"
-                />
-                <div className="h-[19px] flex-1 relative font-semibold inline-block">
+              <div className=" flex flex-row items-center justify-center ">
+                <div className="h-[19px] relative font-semibold inline-block">
                   Добавить плательщика
                 </div>
               </div>
@@ -438,16 +498,250 @@ const Profile = () => {
           </div>
         </Modal>
         <Modal
-          open={isPayerDataModalOpen}
-          onClose={() => setIsPayerDataModalOpen(false)}
+          open={isPasswordModalOpen}
+          onClose={() => setIsPasswordModalOpen(false)}
         >
           <div className="modal-content">
+            <Root35 onSave={handlePasswordSave} />
+          </div>
+        </Modal>
+        <Modal
+          open={isPayerDataModalOpen}
+          style={customStyles}
+          onClose={() => setIsPayerDataModalOpen(false)}
+        >
+          <div className="modal-content h-full">
             <EditPayerDataModal
               currentData={payerData}
+              style={customStyles}
+              onClose={() => setIsPayerDataModalOpen(false)}
               onSave={handlePayerDataSave}
             />
           </div>
         </Modal>
+        <div
+          className={`w-full flex flex-col items-start justify-start gap-[150px] leading-[normal] tracking-[normal] mq725:gap-[75px] mq450:gap-[37px]`}
+        >
+          <section className="self-stretch flex flex-row flex-wrap items-start justify-start gap-[181px] max-w-full text-left text-lg text-[#202020] font-t1 mq725:gap-[90px] mq450:gap-[45px]">
+            <div className="relative font-semibold">История заказов</div>
+            <div className="flex-1 flex flex-col items-start justify-start gap-[10px] min-w-[637px] max-w-full text-base text-black mq725:min-w-full">
+              <div className="self-stretch rounded-3xs bg-[white] box-border flex flex-col items-end justify-start py-[23px] px-0 gap-[25px] max-w-full border-[1px] border-solid border-color4 mq450:pt-5 mq450:pb-5 mq450:box-border">
+                <div className="self-stretch flex flex-row items-start justify-end py-0 px-[25px] box-border max-w-full">
+                  <div className="flex-1 flex flex-row items-start justify-between max-w-full gap-[20px]">
+                    <div className="flex flex-col items-start justify-start gap-[9px] max-w-[calc(100%_-_40px)]">
+                      <div className="relative leading-[23px] font-medium z-[1]">
+                        Заказ № 3456-09 от 12 марта 2023, 2 товара на сумму 900
+                        000 руб.
+                      </div>
+                      <div className="flex flex-row items-start justify-start gap-[10px] text-sm text-[#7A7687]">
+                        <div className="flex flex-col items-start justify-start pt-[3px] px-0 pb-0">
+                          <a className="[text-decoration:none] relative font-semibold text-[inherit] inline-block min-w-[53px] z-[1]">
+                            Статус:
+                          </a>
+                        </div>
+                        <div className="rounded-[76px] bg-khaki text-[#855E00] flex flex-row items-start justify-start py-[3px] px-2.5 whitespace-nowrap z-[1] text-darkgoldenrod">
+                          <a className="[text-decoration:none] relative font-semibold text-[inherit] inline-block min-w-[61px]">
+                            В работе
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="flex flex-col items-start justify-start pt-px px-0 pb-0">
+                      <img
+                        className="w-5 -rotate-90 h-5 relative overflow-hidden shrink-0 object-contain z-[1]"
+                        loading="lazy"
+                        alt=""
+                        src={DownImage}
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div className="self-stretch h-px relative bg-color4 z-[1]" />
+                <div className="self-stretch flex flex-row items-start justify-end py-0 pr-6 pl-[25px] box-border max-w-full text-[#7A7687]">
+                  <div className="flex-1 flex flex-row items-start justify-between max-w-full gap-[20px] mq975:flex-wrap">
+                    <div className="w-[389px] flex flex-col items-start justify-start gap-[25px] min-w-[389px] max-w-full mq725:min-w-full mq975:flex-1">
+                      <div
+                        className={`flex flex-row items-start justify-start gap-[40px] max-w-full text-left text-base text-[#202020] font-t1 mq450:flex-wrap mq450:gap-[20px] `}
+                      >
+                        <img
+                          className="h-16 w-16 relative object-cover mix-blend-multiply z-[1]"
+                          loading="lazy"
+                          alt=""
+                          src="/photo@2x.png"
+                        />
+                        <div className="flex flex-col items-start justify-start pt-[21px] px-0 pb-0">
+                          <div className="relative leading-[140%] font-medium z-[1]">
+                            Анализатор мочи MIND UA-66
+                          </div>
+                        </div>
+                      </div>
+                      <div
+                        className={`flex flex-row items-start justify-start gap-[40px] max-w-full text-left text-base text-[#202020] font-t1 mq450:flex-wrap mq450:gap-[20px] `}
+                      >
+                        <img
+                          className="h-16 w-16 relative object-cover mix-blend-multiply z-[1]"
+                          loading="lazy"
+                          alt=""
+                          src="/photo-1@2x.png"
+                        />
+                        <div className="flex flex-col items-start justify-start pt-[21px] px-0 pb-0">
+                          <div className="relative leading-[140%] font-medium z-[1]">
+                            УЗИ аппарат Chison Qbit5 New Matrix
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="w-[332px] flex flex-col items-start justify-start pt-[21px] px-0 pb-0 box-border min-w-[332px] max-w-full mq975:flex-1">
+                      <div className="self-stretch flex flex-col items-end justify-start gap-[66px] max-w-full mq450:gap-[33px]">
+                        <div className="w-[212px] flex flex-row items-start justify-between gap-[20px]">
+                          <div className="relative leading-[23px] font-medium inline-block min-w-[35px] z-[1]">
+                            1 шт.
+                          </div>
+                          <div className="relative leading-[23px] font-medium text-[#202020] inline-block min-w-[99px] z-[1]">
+                            600 000 руб.
+                          </div>
+                        </div>
+                        <div className="self-stretch flex flex-col items-end justify-start gap-[79px] max-w-full mq450:gap-[39px]">
+                          <div className="w-[212px] flex flex-row items-start justify-between gap-[20px]">
+                            <div className="relative leading-[23px] font-medium inline-block min-w-[35px] z-[1]">
+                              1 шт.
+                            </div>
+                            <div className="relative leading-[23px] font-medium text-[#202020] inline-block min-w-[98px] z-[1]">
+                              300 000 руб.
+                            </div>
+                          </div>
+                          <div className="self-stretch flex flex-row items-start justify-end py-0 pr-px pl-0 box-border max-w-full text-lg text-[#202020]">
+                            <div className="flex-1 flex flex-row items-start justify-start gap-[55px] max-w-full mq450:flex-wrap mq450:gap-[27px]">
+                              <div className="relative font-semibold z-[1]">
+                                Товаров на сумму:
+                              </div>
+                              <div className="relative font-semibold inline-block min-w-[113px] z-[1]">
+                                900 000 руб.
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="self-stretch rounded-3xs bg-[white] box-border flex flex-row items-start justify-between py-[23px] pr-[26px] pl-6 max-w-full gap-[20px] border-[1px] border-solid border-color4">
+                <div className="h-[107px] w-[980px] relative rounded-3xs bg-color3 box-border hidden max-w-full border-[1px] border-solid border-color4" />
+                <div className="flex flex-col items-start justify-start gap-[9px] max-w-[calc(100%_-_40px)]">
+                  <div className="relative leading-[23px] font-medium z-[1]">
+                    Заказ № 3456-09 от 12 марта 2023, 2 товара на сумму 900 000
+                    руб.
+                  </div>
+                  <div className="flex flex-row items-start justify-start gap-[10px] text-sm text-[#7A7687]">
+                    <div className="flex flex-col items-start justify-start pt-[3px] px-0 pb-0">
+                      <div className="relative font-semibold inline-block min-w-[53px] z-[1]">
+                        Статус:
+                      </div>
+                    </div>
+                    <div className="rounded-[60px] bg-honeydew flex flex-row items-start justify-start py-[3px] px-2.5 z-[1] text-color1">
+                      <div className="relative font-semibold inline-block min-w-[84px]">
+                        Доставлено
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div className="flex flex-col items-start justify-start pt-px px-0 pb-0">
+                  <img
+                    className="w-5 rotate-90 h-5 relative overflow-hidden shrink-0 object-contain z-[1]"
+                    loading="lazy"
+                    alt=""
+                    src={DownImage}
+                  />
+                </div>
+              </div>
+            </div>
+          </section>
+          <footer className="w-[991px] flex flex-col items-start justify-start py-0 pr-5 pl-0 box-border gap-[100px] max-w-full text-left text-lg text-[#202020] font-t1 mq725:gap-[25px] mq1000:gap-[50px]">
+            <div className="self-stretch flex flex-row items-start justify-between max-w-full gap-[20px] mq975:flex-wrap">
+              <div className="relative font-semibold inline-block min-w-[96px]">
+                Настройки
+              </div>
+              <div className="w-[641px] flex flex-row items-start justify-start gap-[159px] max-w-full mq725:flex-wrap mq725:gap-[79px] mq450:gap-[40px]">
+                <div className="flex flex-col items-start justify-start gap-[20px] min-w-[207px] mq725:flex-1">
+                  <div className="relative font-semibold">
+                    Показывать в профиле:
+                  </div>
+                  <div className="flex flex-col items-start justify-start gap-[10px] text-base">
+                    <div className="flex flex-row items-center justify-start gap-[20px]">
+                      <input
+                        className="m-0 h-5 w-5 rounded-10xs box-border overflow-hidden shrink-0 border-[1px] border-solid border-color1"
+                        type="checkbox"
+                      />
+                      <div className="relative leading-[140%] font-medium inline-block min-w-[32px]">
+                        Имя
+                      </div>
+                    </div>
+                    <div className="flex flex-row items-center justify-start gap-[20px]">
+                      <input
+                        className="m-0 h-5 w-5 rounded-10xs box-border overflow-hidden shrink-0 border-[1px] border-solid border-color1"
+                        type="checkbox"
+                      />
+                      <div className="relative leading-[140%] font-medium inline-block min-w-[69px]">
+                        Фамилия
+                      </div>
+                    </div>
+                    <div className="flex flex-row items-center justify-start gap-[20px]">
+                      <input className="m-0 h-5 w-5 relative" type="checkbox" />
+                      <div className="relative leading-[140%] font-medium inline-block min-w-[68px]">
+                        Телефон
+                      </div>
+                    </div>
+                    <div className="flex flex-row items-center justify-start gap-[20px]">
+                      <input className="m-0 h-5 w-5 relative" type="checkbox" />
+                      <div className="relative leading-[140%] font-medium inline-block min-w-[41px]">
+                        Email
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div className="flex-1 flex flex-col items-start justify-start gap-[20px] min-w-[179px]">
+                  <div className="relative font-semibold">
+                    Получать рассылку по темам:
+                  </div>
+                  <div className="self-stretch flex flex-col items-start justify-start gap-[10px] text-base">
+                    <div className="flex flex-row items-center justify-start gap-[20px]">
+                      <input className="m-0 h-5 w-5 relative" type="checkbox" />
+                      <div className="relative leading-[140%] font-medium inline-block min-w-[118px]">
+                        Скидки и акции
+                      </div>
+                    </div>
+                    <div className="self-stretch flex flex-row items-center justify-start gap-[20px]">
+                      <input className="m-0 h-5 w-5 relative" type="checkbox" />
+                      <div className="relative leading-[140%] font-medium">
+                        Снизилась цена на избранное
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="w-[863px] flex flex-row items-start justify-center py-0 px-5 box-border max-w-full">
+              <Button
+                className="h-[41px] w-[203px]"
+                disableElevation
+                variant="contained"
+                sx={{
+                  textTransform: "none",
+                  color: "#f8f7f3",
+                  fontSize: "14",
+                  background: "#088269",
+                  borderRadius: "50px",
+                  "&:hover": { background: "#088269" },
+                  width: 203,
+                  height: 41,
+                }}
+              >
+                Выйти
+              </Button>
+            </div>
+          </footer>
+        </div>
       </div>
     </>
   );

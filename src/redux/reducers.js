@@ -5,6 +5,7 @@ import {
   ADD_TO_COMPARE,
   ADD_TO_FAVORITES,
   REMOVE_FROM_FAVORITES,
+  UPDATE_CART_ITEM_QUANTITY,
 } from "./actions";
 
 const initialState = {
@@ -16,9 +17,35 @@ const initialState = {
 const cartReducer = (state = initialState.cart, action) => {
   switch (action.type) {
     case ADD_TO_CART:
-      return [...state, action.payload];
-    case REMOVE_FROM_CART:
-      return state.filter((product) => product.id !== action.payload);
+      const existingProductIndex = state.findIndex(
+        (item) => item.product.id === action.payload.product.id
+      );
+      if (existingProductIndex !== -1) {
+        const updatedCart = [...state];
+        updatedCart[existingProductIndex].quantity += action.payload.quantity;
+        return updatedCart;
+      } else {
+        return [
+          ...state,
+          {
+            product: action.payload.product,
+            quantity: action.payload.quantity,
+          },
+        ];
+      }
+    case UPDATE_CART_ITEM_QUANTITY:
+      const updatedCart = [...state];
+      const itemIndex = updatedCart.findIndex(
+        (item) => item.product.id === action.payload.productId
+      );
+      if (itemIndex !== -1) {
+        updatedCart[itemIndex].quantity = action.payload.newQuantity;
+      }
+      return updatedCart;
+    case "REMOVE_FROM_CART":
+      return state.filter(
+        (item) => item.product.id !== action.payload.productId
+      );
     default:
       return state;
   }

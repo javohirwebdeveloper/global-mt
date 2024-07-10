@@ -5,6 +5,7 @@ import "slick-carousel/slick/slick-theme.css";
 import LeftArrow from "../../assets/17--arrow---right.svg";
 import { sertificatesData } from "../../../public/data";
 import { Button } from "@mui/material";
+import { NavLink } from "react-router-dom";
 
 export const Sertificates = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -45,7 +46,8 @@ export const Sertificates = () => {
           className="carousel w-[1310px] carousel h-[280px] inline-flex items-start gap-2.5"
         >
           {sertificatesData.map((sertificate, index) => (
-            <div
+            <NavLink
+              to={`/Сертификаты`}
               key={index}
               className="relative carousel-item w-[322px] h-[280px]"
             >
@@ -56,7 +58,7 @@ export const Sertificates = () => {
                   src={sertificate}
                 />
               </div>
-            </div>
+            </NavLink>
           ))}
         </Slider>
         <div className="w-[1000px] flex flex-row items-start justify-between py-0 pr-5 pl-0 box-border gap-[20px] max-w-full mq450:flex-wrap">

@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../context/AuthContext";
 import { NavLink, useNavigate } from "react-router-dom";
 import { categories, products, brands } from "../../../public/data";
@@ -29,10 +29,15 @@ import HomeImg from "../../assets/home.svg";
 import CatalogImg from "../../assets/catalog.svg";
 import CrossImg from "../../assets/cross.svg";
 import RightImg from "../../assets/right.svg";
+import { useDispatch, useSelector } from "react-redux";
 const Header1 = () => {
+  const favorites = useSelector((state) => state.favorites);
+  const dispatch = useDispatch();
+  const cart = useSelector((state) => state.cart);
   const [isHovered, setIsHovered] = useState(false);
   const [isCategoryOpen, setIsCategoryOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const [profileImage, setProfileImage] = useState(null);
   const [searchTerm, setSearchTerm] = useState("");
   const [searchResults, setSearchResults] = useState({});
   const navigate = useNavigate();
@@ -89,7 +94,12 @@ const Header1 = () => {
       return email ? email.charAt(0).toUpperCase() : "";
     }
   };
-
+  useEffect(() => {
+    const savedImage = localStorage.getItem("profileImage");
+    if (savedImage) {
+      setProfileImage(savedImage);
+    }
+  }, []);
   return (
     <div className="w-full mx-auto z-50 bg-color flex flex-col items-start justify-start pt-2.5 pb-0 box-border xl:gap-[24.5px] gap-[10px] leading-[normal] tracking-[normal] text-left text-sm text-[#202020] font-t2">
       <div className="self-stretch flex flex-col items-start justify-start gap-[10px] max-w-full text-xs">
@@ -374,7 +384,15 @@ const Header1 = () => {
                   to="/Личный кабинет"
                   className="xl:h-[42px] xl:w-[42px] w-[20px] h-[20px] text-[19px] relative overflow-hidden shrink-0 flex items-center justify-center rounded-full bg-[#E1EFE6] text-[#23473B]"
                 >
-                  {getUserInitial(email)}
+                  {profileImage ? (
+                    <img
+                      src={profileImage}
+                      alt="Profile"
+                      className="rounded-full w-[42px] h-[42px]"
+                    />
+                  ) : (
+                    email.charAt(0).toUpperCase()
+                  )}
                 </NavLink>
               ) : (
                 <div className="xl:w-[35px] w-[20px] flex flex-col items-center gap-y-1 justify-start py-0 xl:px-[5px] box-border">
@@ -394,7 +412,17 @@ const Header1 = () => {
                 </div>
               )}
             </div>
-            <div className="xl:w-[65px] w-[20px] hover:text-[#202020_!important] text-[#7A7687_!important] cursor-pointer flex flex-col items-start justify-start gap-[4px]">
+            <NavLink
+              to={`/Избранное`}
+              className="xl:w-[65px] relative w-[20px] hover:text-[#202020_!important] text-[#7A7687_!important] cursor-pointer flex flex-col items-start justify-start gap-[4px]"
+            >
+              {favorites.length > 0 ? (
+                <span className="h-[20px] text-white flex items-center justify-center text-[14px] font-[600] w-[20px] bg-[#088269] absolute right-3 rounded-full z-20 -top-2">
+                  {favorites.length}
+                </span>
+              ) : (
+                ""
+              )}
               <div className="flex flex-row items-start justify-start py-0 xl:px-5">
                 <img
                   className="xl:h-6 xl:w-6 h-[20px] w-[20px] relative"
@@ -406,7 +434,7 @@ const Header1 = () => {
               <div className="relative font-medium hidden xl:inline-block duration-200 cursor-pointer min-w-[65px]">
                 Избранное
               </div>
-            </div>
+            </NavLink>
             <div className="xl:w-[57px] w-[20px] hover:text-[#202020_!important] text-[#7A7687_!important] cursor-pointer flex flex-col items-start justify-start gap-[4px]">
               <div className="flex flex-row items-start justify-start py-0 xl:px-4">
                 <img
@@ -420,7 +448,17 @@ const Header1 = () => {
                 Сравнить
               </div>
             </div>
-            <div className="xl:w-[57px] w-[20px] hover:text-[#202020_!important] text-[#7A7687_!important] cursor-pointer flex flex-col items-start justify-start gap-[4px]">
+            <NavLink
+              to={`/Корзина`}
+              className="xl:w-[57px] relative w-[20px] hover:text-[#202020_!important] text-[#7A7687_!important] cursor-pointer flex flex-col items-start justify-start gap-[4px]"
+            >
+              {cart.length > 0 ? (
+                <span className="h-[20px] text-white flex items-center justify-center text-[14px] font-[600] w-[20px] bg-[#088269] absolute right-3 rounded-full z-20 -top-2">
+                  {cart.length}
+                </span>
+              ) : (
+                ""
+              )}
               <div className="self-stretch flex flex-row items-start justify-start py-0 xl:px-3">
                 <img
                   className="xl:h-6 xl:w-6 h-[20px] w-[20px] relative overflow-hidden shrink-0"
@@ -432,7 +470,7 @@ const Header1 = () => {
               <div className="relative font-medium hidden xl:inline-block duration-200 cursor-pointer">
                 Корзина
               </div>
-            </div>
+            </NavLink>
           </div>
         </div>
       </div>
@@ -756,11 +794,14 @@ const Header1 = () => {
           <div className="self-stretch h-px flex flex-row items-start justify-start py-0 px-[15px] box-border max-w-full">
             <div className="self-stretch flex-1 h-px relative bg-[#E5E2EE] max-w-full" />
           </div>
-          <div className="flex flex-row items-start justify-start py-0 px-[15px]">
+          <NavLink
+            to={`/Сертификаты`}
+            className="flex flex-row items-start justify-start py-0 px-[15px]"
+          >
             <div className="relative font-medium inline-block min-w-[93px]">
               Сертификаты
             </div>
-          </div>
+          </NavLink>
           <div className="self-stretch h-px flex flex-row items-start justify-start py-0 px-[15px] box-border max-w-full">
             <div className="self-stretch flex-1 h-px relative bg-[#E5E2EE] max-w-full" />
           </div>

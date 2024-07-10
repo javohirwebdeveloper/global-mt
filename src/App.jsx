@@ -23,6 +23,9 @@ import Stock from "./pages/Stock";
 import Manufacturers from "./pages/Manufacturers";
 import Contact from "./pages/Contact";
 import Category from "./pages/Category.jsx";
+import Favorites from "./pages/Favorites.jsx";
+import Sertificate from "./pages/Sertificate.jsx";
+
 const App = () => {
   const [loading, setLoading] = useState(true);
 
@@ -48,7 +51,7 @@ const App = () => {
               <Route path="/" element={<Home />} />
               <Route path="/Каталог/:category" element={<CatalogPage />} />
               <Route path="/Каталог" element={<Catalog />} />
-              <Route path="/cart" element={<Cart />} />
+              <Route path="/Корзина" element={<Cart />} />
               <Route path="/product/:id" element={<Product />} />
               <Route path="/Личный кабинет" element={<Profile />} />
               <Route path="/О компании" element={<About />} />
@@ -68,6 +71,8 @@ const App = () => {
               <Route path="/Производители" element={<Manufacturers />} />
               <Route path="/Контакты" element={<Contact />} />
               <Route path="/Категория" element={<Category />} />
+              <Route path="/Избранное" element={<Favorites />} />
+              <Route path="/Сертификаты" element={<Sertificate />} />
             </Routes>
           </div>
         </Router>

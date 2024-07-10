@@ -8,6 +8,7 @@ import RightI from "../assets/Blog/right.svg";
 import { Button } from "@mui/material";
 import FilterImg from "../assets/filter.svg";
 import { addToFavorites, removeFromFavorites } from "../redux/actions";
+import { addToCart, addToCompare } from "../redux/actions";
 import { Comprehensive } from "../components/Home/Comprehensive";
 import { ProductsWrapper } from "../components/Stock/ProductsWrapper";
 import { ProductsWrapper1 } from "../components/Stock/ProductsWrapper1";
@@ -35,7 +36,9 @@ const Stock = () => {
   };
 
   const Product = products.filter((product) => product.type === 3);
-
+  const handleAddToCart = (product) => {
+    dispatch(addToCart(product));
+  };
   return (
     <>
       <div
@@ -171,7 +174,7 @@ const Stock = () => {
                               </div>
                               <div className="flex flex-col items-start justify-start py-0 pr-5 pl-0 gap-[5px] text-xs text-[#7A7687]">
                                 <div className="relative inline-block min-w-[90px]">
-                                  Артикул: 213134
+                                  Артикул: {product.vendor}
                                 </div>
                                 <div className="relative inline-block min-w-[58px]">
                                   В наличии
@@ -179,13 +182,14 @@ const Stock = () => {
                               </div>
                             </div>
                             <div className="relative font-semibold inline-block min-w-[112px]">
-                              300 000 руб.
+                              {product.price}
                             </div>
                           </div>
                         </div>
                         <Button
                           className="self-stretch xl:text-[14px] text-[12px] text-nowrap xl:w-[296px] md:w-[220px] w-[148px] h-[33px] xl:h-[41px] text-[#088269] z-[2]"
                           disableElevation
+                          onClick={() => handleAddToCart(product)}
                           variant="outlined"
                           sx={{
                             textTransform: "none",

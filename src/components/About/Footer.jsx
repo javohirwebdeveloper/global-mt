@@ -25,9 +25,12 @@ export const Footer = () => {
                 <div className="relative inline-block min-w-[78px]">
                   О компании
                 </div>
-                <div className="relative inline-block min-w-[91px]">
+                <NavLink
+                  to={`/Сертификаты`}
+                  className="relative inline-block min-w-[91px]"
+                >
                   Сертификаты
-                </div>
+                </NavLink>
                 <a className="[text-decoration:none] relative text-[inherit] inline-block min-w-[64px]">
                   Вакансии
                 </a>
