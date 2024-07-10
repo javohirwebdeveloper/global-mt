@@ -13,23 +13,11 @@ export const Offers = () => {
       <h2 className="m-0 relative text-inherit leading-[120%] font-medium font-inherit inline-block max-w-full mq450:text-[18px] mq450:leading-[22px] mq750:text-[24px] mq750:leading-[29px]">
         Почему выбирают нас?
       </h2>
-      <section className="w-[1310px] overflow-x-auto flex flex-row items-start justify-start gap-[10px] max-w-full text-center text-base text-color1 font-t1">
+      <section className="w-full grid md:grid-cols-4 grid-cols-2 gap-[10px] text-center text-base text-color1 font-t1">
         <Offer symbol={Symbol} prop="Быстрая  доставка" />
-        <Offer
-          symbol={Symbol2}
-          prop="Гибкая система скидок"
-          symbolIconPadding="99px 20px 82px"
-        />
-        <Offer
-          symbol={Symbol1}
-          prop="Гибкая система скидок"
-          symbolIconPadding="99px 20px 82px"
-        />
-        <Offer
-          symbol={Symbol3}
-          prop="Лет на рынке"
-          symbolIconPadding="102.4px 65px 93px"
-        />
+        <Offer symbol={Symbol2} prop="Гибкая система скидок" />
+        <Offer symbol={Symbol1} prop="Гибкая система скидок" />
+        <Offer symbol={Symbol3} prop="Лет на рынке" />
       </section>
     </div>
   );

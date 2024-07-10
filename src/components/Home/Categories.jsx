@@ -116,7 +116,7 @@ export const Categories = () => {
           </div>
         </div>
       </section>
-      <div className="mx-auto !md:hidden">
+      <div className="mx-auto md:hidden">
         <Button
           className="h-[41px] text-nowrap w-40"
           disableElevation

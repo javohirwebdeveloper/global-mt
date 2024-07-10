@@ -56,7 +56,7 @@ export const ProductsWrapper = () => {
 
   return (
     <div
-      className={` max-w-[1440px] mt-[150px] bg-color w-full mx-auto overflow-hidden flex items-start py-0 pr-0 pl-[65px] box-border gap-[88px] leading-[normal] tracking-[normal] text-left text-11xl text-[#202020] font-h3 mq450:gap-[22px] mq800:gap-[44px] mq1350:flex-wrap mq1350:pl-5 mq1350:pr-5 mq1350:pb-5 mq1350:box-border`}
+      className={` max-w-[1440px] mt-[150px] bg-color w-full mx-auto overflow-hidden flex items-start py-0 pr-0 pl-[65px] box-border gap-[19px] xl:gap-[88px] leading-[normal] tracking-[normal] text-left text-11xl text-[#202020] font-h3 mq450:gap-[22px] mq800:gap-[44px] mq1350:flex-wrap mq1350:pl-5 mq1350:pr-5 mq1350:pb-5 mq1350:box-border`}
     >
       <div className="flex flex-col w-[330px] items-start justify-start pt-0.5 px-0 pb-0">
         <div className="flex flex-col items-start justify-start mq790:gap-[20px] gap-[40px]">

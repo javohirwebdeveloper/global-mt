@@ -41,14 +41,14 @@ export const Comprehensive = () => {
       <Slider
         ref={sliderRef}
         {...settings}
-        className=" w-[1310px] h-[579px] carousel gap-[10px] max-w-full"
+        className=" md:w-[1310px] xl:h-[579px] w-[768px] md:h-[423px] h-[410px] carousel gap-[10px]"
       >
         <Comprehensive1 photo={Photo1} prop="Экспресс лаборатория" />
         <Comprehensive1 photo={Photo2} prop="Лазерная терапия" />
         <Comprehensive1 photo={Photo3} prop="Операционный блок" />
       </Slider>
       <div className="self-stretch flex flex-row items-start justify-between max-w-full gap-[20px] mq700:flex-wrap">
-        <div className="flex flex-row items-start justify-start gap-[10px]">
+        <div className="xl:flex hidden flex-row items-start justify-start gap-[10px]">
           <div
             className="relative select-none cursor-pointer w-[41px] h-[41px] bg-x-1l-ubo-z rounded-[40px] overflow-hidden border-[1.5px] border-solid border-[#d5d1e1] hover:border-[#088269] duration-200"
             onClick={handlePrev}
@@ -74,7 +74,7 @@ export const Comprehensive = () => {
             </div>
           </div>
         </div>
-        <div className="w-[467px] flex flex-row items-start justify-start gap-[10px] max-w-full mq450:flex-wrap">
+        <div className="max-w-[467px] justify-center items-center  w-full flex flex-col md:flex-row md:items-start md:justify-start gap-[10px] mq450:flex-wrap">
           <Button
             className="h-[41px] flex-1 min-w-[157px]"
             disableElevation

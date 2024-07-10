@@ -18,6 +18,9 @@ const Home = () => {
       <div className="bg-x-1l-ubo-z relative">
         <Banner />
         <Categories />
+        <Comprehensive />
+        <Offers />
+        <ProductsWrapper />
 
         <Subscription />
         <Footer />
