@@ -25,6 +25,7 @@ import Contact from "./pages/Contact";
 import Category from "./pages/Category.jsx";
 import Favorites from "./pages/Favorites.jsx";
 import Sertificate from "./pages/Sertificate.jsx";
+import Breadcrumb from "./components/Breadcrumb.jsx";
 
 const App = () => {
   const [loading, setLoading] = useState(true);
@@ -47,6 +48,7 @@ const App = () => {
         <Router>
           <div>
             <Header1 />
+            <Breadcrumb />
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/Каталог/:category" element={<CatalogPage />} />

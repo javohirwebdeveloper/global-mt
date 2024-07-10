@@ -10,8 +10,10 @@ import Banner4 from "../../assets/banner4.png";
 import "./Banner.css";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import { useNavigate } from "react-router-dom";
 
 export const Banner = () => {
+  const navigate = useNavigate();
   useEffect(() => {
     AOS.init();
   }, []);
@@ -63,7 +65,7 @@ export const Banner = () => {
 
   return (
     <div
-      className="max-w-[1440px] h-[367px] rounded-[10px] xl:mt-[30px] mt-[20px] xl:px-[65px] sm:px-[20px] px-[15px] mx-auto"
+      className="max-w-[1440px] h-[367px] rounded-[10px]  mt-[20px] xl:px-[65px] sm:px-[20px] px-[15px] mx-auto"
       data-aos="fade-right"
     >
       <div className="carousels  relative">
@@ -83,10 +85,10 @@ export const Banner = () => {
         >
           <div className="carousel1 item relative w-full mq765:h-[406px] h-[367px] bg-x-7rs-fx rounded-[10px] overflow-hidden flex flex-col md:flex-row">
             <div className="carousel-content w-full md:w-1/2 h-full flex flex-col justify-center items-start p-4 md:p-8">
-              <div className="text-left font-1440-h1 font-bold text-ws-j7-it text-2xl md:text-4xl">
+              <div className="text-left xl:text-[48px] font-1440-h1 font-bold text-ws-j7-it text-2xl md:text-4xl">
                 Заголовок баннера <br />в пару строк
               </div>
-              <p className="text-left font-1440-t1 font-medium text-ML-tw-1j mt-4">
+              <p className="text-left max-w-[379px] xl:mt-[20px] xl:mb-[40px] font-1440-t1 font-medium text-ML-tw-1j mt-4">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor
               </p>
@@ -94,7 +96,10 @@ export const Banner = () => {
                 <button className="hover:bg-[#41ab95] flex justify-center items-center w-[147px] h-[33px] text-nowrap duration-200 cursor-pointer bg-tx-u7vg rounded-full text-white">
                   Запросить цену
                 </button>
-                <button className="hover:bg-[#088269] text-nowrap hover:text-[#fff] w-[147px] h-[33px] flex justify-center items-center duration-200 cursor-pointer border border-[#d5d1e1] rounded-full text-tx-u7vg">
+                <button
+                  onClick={() => navigate(`/Каталог`)}
+                  className="hover:bg-[#088269] text-nowrap hover:text-[#fff] w-[147px] h-[33px] flex justify-center items-center duration-200 cursor-pointer border border-[#d5d1e1] rounded-full text-tx-u7vg"
+                >
                   В каталог
                 </button>
               </div>
@@ -110,18 +115,21 @@ export const Banner = () => {
 
           <div className="carousel1 item relative w-full mq765:h-[406px] h-[367px] bg-x-7rs-fx rounded-[10px] overflow-hidden flex flex-col md:flex-row">
             <div className="carousel-content w-full md:w-1/2 h-full flex flex-col justify-center items-start p-4 md:p-8">
-              <div className="text-left font-1440-h1 font-bold text-ws-j7-it text-2xl md:text-4xl">
+              <div className="text-left xl:text-[48px] font-1440-h1 font-bold text-ws-j7-it text-2xl md:text-4xl">
                 Заголовок баннера <br />в пару строк
               </div>
-              <p className="text-left font-1440-t1 font-medium text-ML-tw-1j mt-4">
+              <p className="text-left max-w-[379px] xl:mt-[20px] xl:mb-[40px] font-1440-t1 font-medium text-ML-tw-1j mt-4">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor
               </p>
               <div className="mt-8 flex gap-[10px] md:gap-4">
-                <button className="hover:bg-[#41ab95] flex justify-center items-center w-[147px] h-[33px] text-nowrap duration-200 cursor-pointer bg-tx-u7vg rounded-full text-white">
+                <button className="hover:bg-[#41ab95] xl:!h-[41px] flex justify-center items-center w-[147px] h-[33px] text-nowrap duration-200 cursor-pointer bg-tx-u7vg rounded-full text-white">
                   Запросить цену
                 </button>
-                <button className="hover:bg-[#088269] text-nowrap hover:text-[#fff] w-[147px] h-[33px] flex justify-center items-center duration-200 cursor-pointer border border-[#d5d1e1] rounded-full text-tx-u7vg">
+                <button
+                  onClick={() => navigate(`/Каталог`)}
+                  className="hover:bg-[#088269] text-nowrap hover:text-[#fff] w-[147px] h-[33px] flex justify-center items-center duration-200 cursor-pointer border border-[#d5d1e1] rounded-full text-tx-u7vg"
+                >
                   В каталог
                 </button>
               </div>
@@ -137,10 +145,10 @@ export const Banner = () => {
 
           <div className="carousel1 item relative w-full mq765:h-[406px] h-[367px] bg-x-7rs-fx rounded-[10px] overflow-hidden flex flex-col md:flex-row">
             <div className="carousel-content w-full md:w-1/2 h-full flex flex-col justify-center items-start p-4 md:p-8">
-              <div className="text-left font-1440-h1 font-bold text-ws-j7-it text-2xl md:text-4xl">
+              <div className="text-left xl:text-[48px] font-1440-h1 font-bold text-ws-j7-it text-2xl md:text-4xl">
                 Заголовок баннера <br />в пару строк
               </div>
-              <p className="text-left font-1440-t1 font-medium text-ML-tw-1j mt-4">
+              <p className="text-left max-w-[379px] xl:mt-[20px] xl:mb-[40px] font-1440-t1 font-medium text-ML-tw-1j mt-4">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor
               </p>
@@ -148,7 +156,10 @@ export const Banner = () => {
                 <button className="hover:bg-[#41ab95] flex justify-center items-center w-[147px] h-[33px] text-nowrap duration-200 cursor-pointer bg-tx-u7vg rounded-full text-white">
                   Запросить цену
                 </button>
-                <button className="hover:bg-[#088269] text-nowrap hover:text-[#fff] w-[147px] h-[33px] flex justify-center items-center duration-200 cursor-pointer border border-[#d5d1e1] rounded-full text-tx-u7vg">
+                <button
+                  onClick={() => navigate(`/Каталог`)}
+                  className="hover:bg-[#088269] text-nowrap hover:text-[#fff] w-[147px] h-[33px] flex justify-center items-center duration-200 cursor-pointer border border-[#d5d1e1] rounded-full text-tx-u7vg"
+                >
                   В каталог
                 </button>
               </div>
@@ -164,10 +175,10 @@ export const Banner = () => {
 
           <div className="carousel1 item relative w-full mq765:h-[406px] h-[367px] bg-x-7rs-fx rounded-[10px] overflow-hidden flex flex-col md:flex-row">
             <div className="carousel-content w-full md:w-1/2 h-full flex flex-col justify-center items-start p-4 md:p-8">
-              <div className="text-left font-1440-h1 font-bold text-ws-j7-it text-2xl md:text-4xl">
+              <div className="text-left xl:text-[48px] font-1440-h1 font-bold text-ws-j7-it text-2xl md:text-4xl">
                 Заголовок баннера <br />в пару строк
               </div>
-              <p className="text-left font-1440-t1 font-medium text-ML-tw-1j mt-4">
+              <p className="text-left max-w-[379px] xl:mt-[20px] xl:mb-[40px] font-1440-t1 font-medium text-ML-tw-1j mt-4">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor
               </p>
@@ -175,7 +186,10 @@ export const Banner = () => {
                 <button className="hover:bg-[#41ab95] flex justify-center items-center w-[147px] h-[33px] text-nowrap duration-200 cursor-pointer bg-tx-u7vg rounded-full text-white">
                   Запросить цену
                 </button>
-                <button className="hover:bg-[#088269] text-nowrap hover:text-[#fff] w-[147px] h-[33px] flex justify-center items-center duration-200 cursor-pointer border border-[#d5d1e1] rounded-full text-tx-u7vg">
+                <button
+                  onClick={() => navigate(`/Каталог`)}
+                  className="hover:bg-[#088269] text-nowrap hover:text-[#fff] w-[147px] h-[33px] flex justify-center items-center duration-200 cursor-pointer border border-[#d5d1e1] rounded-full text-tx-u7vg"
+                >
                   В каталог
                 </button>
               </div>

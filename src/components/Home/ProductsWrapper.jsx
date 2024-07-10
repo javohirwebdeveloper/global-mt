@@ -190,6 +190,16 @@ export const ProductsWrapper = () => {
                         alt="Card icon"
                         src={CravnitImg}
                       />
+                      <div
+                        onClick={() => handleFavoriteClick(product)}
+                        className="w-12 cursor-pointer h-12"
+                      >
+                        <img
+                          className=" cursor-pointer  w-6 h-6 overflow-hidden z-[2]"
+                          alt=""
+                          src={isFavorite(product.id) ? LikeImg1 : LikeImg}
+                        />
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -224,12 +234,6 @@ export const ProductsWrapper = () => {
                     Добавить в корзину
                   </div>
                 </button>
-                <img
-                  className=" cursor-pointer top-[0px] left-[34px] w-6 h-6"
-                  alt=""
-                  src={isFavorite(product.id) ? LikeImg1 : LikeImg}
-                  onClick={() => handleFavoriteClick(product)}
-                />
               </div>
             </div>
           ))}

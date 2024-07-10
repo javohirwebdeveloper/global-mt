@@ -1312,7 +1312,10 @@ const Header1 = () => {
           <div className="self-stretch h-px relative" />
           <div className="self-stretch flex flex-row items-start justify-start py-0 px-[15px] box-border max-w-full">
             <div className="flex-1 flex flex-row items-start justify-between max-w-full gap-[20px]">
-              <div className="flex flex-col items-start justify-start gap-[4px]">
+              <NavLink
+                to={`/`}
+                className="flex flex-col items-start justify-start gap-[4px]"
+              >
                 <div className="w-[47px] flex flex-row items-start justify-start py-0 px-[11px] box-border">
                   <img
                     className="h-6 w-6 relative overflow-hidden shrink-0"
@@ -1324,8 +1327,11 @@ const Header1 = () => {
                 <a className="[text-decoration:none] relative font-medium text-[inherit] inline-block min-w-[47px]">
                   Главная
                 </a>
-              </div>
-              <div className="flex flex-col items-start justify-start gap-[4px]">
+              </NavLink>
+              <NavLink
+                to={`/Каталог`}
+                className="flex flex-col items-start justify-start gap-[4px]"
+              >
                 <div className="w-[47px] flex flex-row items-start justify-start py-0 px-[11px] box-border">
                   <img
                     className="h-6 w-6 relative overflow-hidden shrink-0"
@@ -1337,9 +1343,19 @@ const Header1 = () => {
                 <a className="[text-decoration:none] relative font-medium text-[inherit] inline-block min-w-[47px]">
                   Каталог
                 </a>
-              </div>
-              <div className="flex flex-col items-start justify-start gap-[4px]">
-                <div className="w-[49px] flex flex-row items-start justify-start py-0 px-3 box-border">
+              </NavLink>
+              <NavLink
+                to={`/Корзина`}
+                className="flex flex-col items-start justify-start gap-[4px]"
+              >
+                <div className="w-[49px] relative flex flex-row items-start justify-start py-0 px-3 box-border">
+                  {cart.length > 0 ? (
+                    <span className="h-[20px] text-white flex items-center justify-center text-[14px] font-[600] w-[20px] bg-[#088269] absolute right-3 rounded-full z-20 -top-2">
+                      {cart.length}
+                    </span>
+                  ) : (
+                    ""
+                  )}
                   <img
                     className="h-6 w-6 relative overflow-hidden shrink-0"
                     loading="lazy"
@@ -1350,8 +1366,11 @@ const Header1 = () => {
                 <a className="[text-decoration:none] relative font-medium text-[inherit] inline-block min-w-[49px]">
                   Корзина
                 </a>
-              </div>
-              <div className="flex flex-col items-start justify-start gap-[4px]">
+              </NavLink>
+              <NavLink
+                to={`/Избранное`}
+                className="flex flex-col items-start justify-start gap-[4px]"
+              >
                 <div className="flex relative flex-row items-start justify-start py-0 px-5">
                   <img
                     className="h-6 w-6 relative overflow-hidden shrink-0"
@@ -1370,20 +1389,37 @@ const Header1 = () => {
                 <a className="[text-decoration:none] relative font-medium text-[inherit] inline-block min-w-[65px]">
                   Избранное
                 </a>
-              </div>
-              <div className="flex flex-col items-start justify-start gap-[4px]">
-                <div className="w-[35px] flex flex-row items-start justify-start py-0 px-[5px] box-border">
-                  <img
-                    className="h-6 w-6 relative overflow-hidden shrink-0"
-                    loading="lazy"
-                    alt=""
-                    src={LoginImg}
-                  />
+              </NavLink>
+              {isAuthenticated ? (
+                <NavLink
+                  to="/Личный кабинет"
+                  className="w-[35px] h-[35px] text-[12px] relative overflow-hidden shrink-0 flex items-center justify-center rounded-full bg-[#E1EFE6] text-[#23473B]"
+                >
+                  {profileImage ? (
+                    <img
+                      src={profileImage}
+                      alt="Profile"
+                      className="rounded-full w-[35px] h-[35px]"
+                    />
+                  ) : (
+                    email.charAt(0).toUpperCase()
+                  )}
+                </NavLink>
+              ) : (
+                <div className="flex flex-col items-start justify-start gap-[4px]">
+                  <div className="w-[35px] flex flex-row items-start justify-start py-0 px-[5px] box-border">
+                    <img
+                      className="h-[35px] w-[35px] relative overflow-hidden shrink-0"
+                      loading="lazy"
+                      alt=""
+                      src={LoginImg}
+                    />
+                  </div>
+                  <a className="[text-decoration:none] relative font-medium text-[inherit] inline-block min-w-[35px]">
+                    Войти
+                  </a>
                 </div>
-                <a className="[text-decoration:none] relative font-medium text-[inherit] inline-block min-w-[35px]">
-                  Войти
-                </a>
-              </div>
+              )}
             </div>
           </div>
         </div>
