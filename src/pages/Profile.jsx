@@ -52,7 +52,7 @@ const Profile = () => {
     lastName: "",
     vk: "",
   });
-  const saveddPayerData = JSON.parse(localStorage.getItem("payerData"));
+  const saveddPayerData = JSON.parse(localStorage.getItem("payerData")) || {};
 
   const savedPhoneNumber = localStorage.getItem("phoneNumber");
   useEffect(() => {
@@ -246,12 +246,12 @@ const Profile = () => {
                   <div className="flex flex-col items-start justify-start gap-[20px] max-w-full">
                     <div className="flex flex-row items-start justify-start gap-[9px] max-w-full mq750:flex-wrap">
                       <h2 className="m-0 relative text-inherit leading-[120%] font-medium font-inherit mq1050:text-5xl mq1050:leading-[29px] mq450:text-lg mq450:leading-[22px]">
-                        {saveddPayerData.firstName
+                        {saveddPayerData && saveddPayerData.firstName
                           ? saveddPayerData.firstName
                           : "Константин"}
                       </h2>
                       <h2 className="m-0 relative text-inherit leading-[120%] font-medium font-inherit inline-block max-w-full mq1050:text-5xl mq1050:leading-[29px] mq450:text-lg mq450:leading-[22px]">
-                        {saveddPayerData.lastName
+                        {saveddPayerData && saveddPayerData.lastName
                           ? saveddPayerData.lastName
                           : "Константинопольский"}
                       </h2>
