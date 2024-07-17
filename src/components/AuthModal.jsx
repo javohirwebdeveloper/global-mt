@@ -62,7 +62,7 @@ const AuthModal = ({ isOpen, onRequestClose }) => {
       className="modal-content w-full h-full flex justify-center items-center"
     >
       <div
-        className={`max-w-[500px] w-full rounded-[10px] bg-[white] z-50 box-border overflow-hidden flex flex-col items-start justify-start pt-[18px] px-0 pb-0 gap-[30px] leading-[normal] tracking-[normal] text-left text-lg text-[#202020] font-t1`}
+        className={` max-w-[500px]  xl:ml-0 md:ml-0 ml-[15px] xl:mr-0 md:mr-0 mr-[15px] w-full rounded-[10px] bg-[white] z-50 box-border overflow-hidden flex flex-col items-start justify-start pt-[18px] px-0 pb-0 gap-[30px] leading-[normal] tracking-[normal] text-left text-lg text-[#202020] font-t1`}
       >
         <div className="self-stretch flex flex-row items-start justify-start pt-0 px-[25px] pb-2.5 box-border max-w-full">
           <div className="flex-1 flex flex-row items-start justify-between max-w-full gap-[20px]">

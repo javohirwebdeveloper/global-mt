@@ -4,6 +4,7 @@ import { AuthContext } from "../context/AuthContext";
 import EditImg from "../assets/Profile/edit.svg";
 import EditImg2 from "../assets/Profile/edit2.svg";
 import Vector from "../assets/Profile/Vector.svg";
+import { Footer } from "../components/About/Footer";
 import Vector5 from "../assets/Profile/Vector5.svg";
 import DownImage from "../assets/right1x.svg";
 import Root4 from "../components/Profile/Root4";
@@ -104,11 +105,19 @@ const Profile = () => {
     setCroppedImage(croppedImageData);
     setIsEditing(false);
   };
-
+  const handleRemoveStore = () => {
+    localStorage.removeItem("payerData");
+    localStorage.removeItem("payerData2");
+    localStorage.removeItem("profileImage");
+    localStorage.removeItem("user");
+    setPayerData({ firstName: "", lastName: "", vk: "" });
+    window.location.href = "/";
+  };
   const handleDeleteProfilePicture = () => {
     localStorage.removeItem("profileImage");
     setProfileImage(null);
     window.location.reload();
+    window.location.href = "/";
   };
 
   const getUserInitial = (email) => {
@@ -169,33 +178,42 @@ const Profile = () => {
         <div className="w-[848px] flex flex-col items-start justify-start gap-[100px] shrink-0 max-w-full mq1050:gap-[50px] mq450:gap-[25px]">
           <div className="self-stretch flex flex-row items-start justify-between max-w-full gap-[20px] text-[80px] text-color8 mq1050:flex-wrap">
             {profileImage ? (
-              <div className=" relative">
+              <div className=" relative flex flex-col items-center justify-center gap-[19px] self-stretch xl:w-[210px] xl:h-[210px] md:w-[180px] md:h-[180px] w-[140px] h-[140px]">
                 <img
                   src={profileImage}
                   alt="Profile"
-                  className="rounded-full  w-[210px] h-[210px] mq1050:w-[150px] mq1050:h-[150px] mq450:w-[100px] mq450:h-[100px] "
+                  className="rounded-full md:w-[180px] md:h-[180px] w-[140px] h-[140px] xl:w-[210px] xl:h-[210px]  "
                 />
-                <div
-                  onMouseEnter={() => setEditMenuVisible(true)}
-                  onMouseLeave={() => setEditMenuVisible(false)}
-                  className="flex absolute flex-col items-center justify-center w-full bottom-3"
-                >
-                  <div className="h-8 w-8 relative cursor-pointer rounded-31xl bg-[#07745E] flex flex-col items-center box-border justify-center pt-1  z-[2]">
-                    <img
-                      className="h-6 w-6 relative overflow-hidden shrink-0"
-                      loading="lazy"
-                      alt=""
-                      src={EditImg}
-                    />
+
+                <div className="flex absolute flex-col bottom-2 justify-start">
+                  <div className="relative">
+                    <div
+                      onClick={() => {
+                        editMenuVisible
+                          ? setEditMenuVisible(false)
+                          : setEditMenuVisible(true);
+                      }}
+                      className="h-8 w-8 cursor-pointer rounded-31xl bg-[#07745E] flex flex-col items-center box-border justify-center pt-1  z-[2]"
+                    >
+                      <img
+                        className="h-6 w-6 relative overflow-hidden shrink-0"
+                        loading="lazy"
+                        alt=""
+                        src={EditImg}
+                      />
+                    </div>
                     <div
                       className={`${
                         editMenuVisible ? "flex" : "hidden"
-                      } flex-row absolute  top-8 items-start z-40 bg-white justify-end py-0 text-xs text-[#202020]`}
+                      } flex-row absolute md:mt-[5px] mt-[3px] -ml-[120%] items-start z-40 bg-white justify-end py-0 text-xs text-[#202020]`}
                     >
                       <div className="rounded-[5px] bg-white overflow-hidden flex flex-col items-start justify-start py-2 px-[11px] z-[2] border-[1px] border-solid border-[#E5E2EE]">
                         <div
                           className="w-full h-[20px] hover:bg-[#E5E2EE] cursor-pointer relative inline-block min-w-[87px]"
-                          onClick={() => setIsSelecting(true)}
+                          onClick={() => {
+                            setIsSelecting(true);
+                            setEditMenuVisible(false);
+                          }}
                         >
                           Редактировать
                         </div>
@@ -211,44 +229,52 @@ const Profile = () => {
                 </div>
               </div>
             ) : (
-              <div className="w-[210px] flex flex-col items-end justify-start min-w-[210px] mq1050:flex-1">
+              <div className="xl:w-[210px] md:w-[180px] w-[140px] flex flex-col items-end justify-start min-w-[210px] mq1050:flex-1">
                 <div
-                  className={` self-stretch w-[210px] h-[210px] rounded-481xl bg-[#E1EFE6] rounded-[50%] flex flex-col items-center justify-start pt-[61px] pb-2.5 pr-5 pl-[21px] gap-[19px]`}
+                  className={`relative self-stretch xl:w-[210px] xl:h-[210px] md:w-[180px] md:h-[180px] w-[140px] h-[140px] rounded-481xl bg-[#E1EFE6] rounded-[50%] flex flex-col items-center justify-center gap-[19px]`}
                 >
-                  <h1 className="m-0 relative text-inherit leading-[110%] font-medium font-inherit inline-block z-[1] mq1050:text-[40px] mq1050:leading-[53px] mq450:text-5xl mq450:leading-[35px]">
+                  <h1 className="m-0 relative font-medium  inline-block z-[1] md:text-[40px] text-[44px] ">
                     {getUserInitial(email)}
                   </h1>
 
-                  <div
-                    onMouseEnter={() => setEditMenuVisible(true)}
-                    onMouseLeave={() => setEditMenuVisible(false)}
-                    className="flex flex-col items-center justify-start"
-                  >
-                    <div className="h-8 w-8 cursor-pointer rounded-31xl bg-[#07745E] flex flex-col items-center box-border justify-center pt-1  z-[2]">
-                      <img
-                        className="h-6 w-6 relative overflow-hidden shrink-0"
-                        loading="lazy"
-                        alt=""
-                        src={EditImg}
-                      />
-                    </div>
-                    <div
-                      className={`${
-                        editMenuVisible ? "flex" : "hidden"
-                      } flex-row items-start z-40 bg-white justify-end py-0 text-xs text-[#202020]`}
-                    >
-                      <div className="rounded-[5px] bg-white overflow-hidden flex flex-col items-start justify-start py-2 px-[11px] z-[2] border-[1px] border-solid border-[#E5E2EE]">
-                        <div
-                          className="w-full h-[20px] hover:bg-[#E5E2EE] cursor-pointer relative inline-block min-w-[87px]"
-                          onClick={() => setIsSelecting(true)}
-                        >
-                          Редактировать
-                        </div>
-                        <div
-                          className="relative h-[20px] w-full hover:bg-[#E5E2EE] cursor-pointer text-firebrick text-[#C13515] inline-block min-w-[78px]"
-                          onClick={handleDeleteProfilePicture}
-                        >
-                          Удалить фото
+                  <div className="flex absolute flex-col bottom-2 justify-start">
+                    <div className="relative">
+                      <div
+                        onClick={() => {
+                          editMenuVisible
+                            ? setEditMenuVisible(false)
+                            : setEditMenuVisible(true);
+                        }}
+                        className="h-8 w-8 cursor-pointer rounded-31xl bg-[#07745E] flex flex-col items-center box-border justify-center pt-1  z-[2]"
+                      >
+                        <img
+                          className="h-6 w-6 relative overflow-hidden shrink-0"
+                          loading="lazy"
+                          alt=""
+                          src={EditImg}
+                        />
+                      </div>
+                      <div
+                        className={`${
+                          editMenuVisible ? "flex" : "hidden"
+                        } flex-row absolute md:mt-[5px] mt-[3px] -ml-[120%] items-start z-40 bg-white justify-end py-0 text-xs text-[#202020]`}
+                      >
+                        <div className="rounded-[5px] bg-white overflow-hidden flex flex-col items-start justify-start py-2 px-[11px] z-[2] border-[1px] border-solid border-[#E5E2EE]">
+                          <div
+                            className="w-full h-[20px] hover:bg-[#E5E2EE] cursor-pointer relative inline-block min-w-[87px]"
+                            onClick={() => {
+                              setIsSelecting(true);
+                              setEditMenuVisible(false);
+                            }}
+                          >
+                            Редактировать
+                          </div>
+                          <div
+                            className="relative h-[20px] w-full hover:bg-[#E5E2EE] cursor-pointer text-firebrick text-[#C13515] inline-block min-w-[78px]"
+                            onClick={handleDeleteProfilePicture}
+                          >
+                            Удалить фото
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -337,7 +363,7 @@ const Profile = () => {
                       </NavLink>
                     </div>
                   </div>
-                  <div className="flex gap-3">
+                  <div className="flex gap-3 md:flex-row flex-col">
                     <button
                       className="rounded-31xl flex flex-row items-center justify-center py-[9px] px-[19px] whitespace-nowrap text-sm border-[1px] border-solid border-[#D5D1E1]"
                       onClick={handlePayerDataEdit}
@@ -359,7 +385,7 @@ const Profile = () => {
                 <div className="self-stretch flex flex-row items-start justify-between gap-[20px] text-base mq450:flex-wrap">
                   <div className="flex flex-col items-start justify-start gap-[5px]">
                     <div className="flex flex-row items-center justify-start gap-[10px]">
-                      <div className="relative leading-[140%] font-medium">
+                      <div className="relative xl:text-[16px] md:text-[14px] text-[12px] leading-[140%] font-medium">
                         {savedPhoneNumber ? savedPhoneNumber : "--"}
                       </div>
                       <img
@@ -370,13 +396,13 @@ const Profile = () => {
                         onClick={handlePhoneEdit}
                       />
                     </div>
-                    <div className="relative leading-[140%] font-medium text-color5 inline-block min-w-[68px]">
+                    <div className="relative leading-[140%] font-medium xl:text-[16px] md:text-[14px] text-[12px] text-[#7A7687] inline-block min-w-[68px]">
                       Телефон
                     </div>
                   </div>
                   <div className="flex flex-col items-start justify-start gap-[5px]">
                     <div className="flex flex-row items-center justify-start gap-[10px]">
-                      <div className="relative leading-[140%] font-medium inline-block whitespace-nowrap">
+                      <div className="relativ0e xl:text-[16px] md:text-[14px] text-[12px] leading-[140%] font-medium inline-block whitespace-nowrap">
                         {user.email}
                       </div>
                       <img
@@ -387,7 +413,7 @@ const Profile = () => {
                         onClick={handleEmailEdit}
                       />
                     </div>
-                    <div className="relative leading-[140%] font-medium text-color5 inline-block min-w-[41px]">
+                    <div className="relative leading-[140%] font-medium xl:text-[16px] md:text-[14px] text-[12px] text-[#7A7687] inline-block min-w-[41px]">
                       Email
                     </div>
                   </div>
@@ -423,7 +449,7 @@ const Profile = () => {
                 <div className="self-stretch flex flex-row items-start justify-between gap-[20px]">
                   <div className="flex flex-col items-start justify-start gap-[10px]">
                     <div className="relative font-semibold">
-                      Название компании
+                      {payerData.companyName || "Название компании"}
                     </div>
                     <div className="relative text-base leading-[140%] font-medium inline-block min-w-[121px]">
                       ИНН {payerData2.inn || 9717039181}
@@ -444,7 +470,8 @@ const Profile = () => {
                         Адрес доставки
                       </div>
                       <div className="self-stretch h-[22px] relative leading-[140%] font-medium text-[#202020] flex items-center">
-                        Россия, г. Москва, ул. Докукина, 8, стр. 2
+                        {payerData2.address ||
+                          "Россия, г. Москва, ул. Докукина, 8, стр. 2"}
                       </div>
                     </div>
                     <div className="w-[93px] flex flex-col items-start justify-start">
@@ -452,7 +479,7 @@ const Profile = () => {
                         Сайт
                       </div>
                       <div className="self-stretch h-[22px] relative leading-[140%] font-medium text-[#202020] flex items-center">
-                        global-mt.ru
+                        {payerData2.website || "global-mt.ru"}
                       </div>
                     </div>
                     <div className="w-[95px] flex flex-col items-start justify-start">
@@ -460,7 +487,7 @@ const Profile = () => {
                         Email
                       </div>
                       <div className="self-stretch h-[22px] relative leading-[140%] font-medium text-[#202020] flex items-center whitespace-nowrap">
-                        info@mail.ru
+                        {payerData2.email || "info@mail.ru"}
                       </div>
                     </div>
                   </div>
@@ -470,7 +497,7 @@ const Profile = () => {
                         Ваша должность
                       </div>
                       <div className="self-stretch h-[22px] relative leading-[140%] font-medium text-[#202020] flex items-center">
-                        Менеджер по закупкам
+                        {payerData2.position || "Менеджер по закупкам"}
                       </div>
                     </div>
                     <div className="w-[149px] flex flex-col items-start justify-start">
@@ -478,7 +505,7 @@ const Profile = () => {
                         Тип организации
                       </div>
                       <div className="self-stretch h-[22px] relative leading-[140%] font-medium text-[#202020] flex items-center">
-                        Юридическое лицо
+                        {payerData2.organizationType || "Юридическое лицо"}
                       </div>
                     </div>
                   </div>
@@ -552,141 +579,6 @@ const Profile = () => {
         <div
           className={`w-full flex flex-col items-start justify-start gap-[150px] leading-[normal] tracking-[normal] mq725:gap-[75px] mq450:gap-[37px]`}
         >
-          <section className="self-stretch flex flex-row flex-wrap items-start justify-start gap-[181px] max-w-full text-left text-lg text-[#202020] font-t1 mq725:gap-[90px] mq450:gap-[45px]">
-            <div className="relative font-semibold">История заказов</div>
-            <div className="flex-1 flex flex-col items-start justify-start gap-[10px] min-w-[637px] max-w-full text-base text-black mq725:min-w-full">
-              <div className="self-stretch rounded-3xs bg-[white] box-border flex flex-col items-end justify-start py-[23px] px-0 gap-[25px] max-w-full border-[1px] border-solid border-color4 mq450:pt-5 mq450:pb-5 mq450:box-border">
-                <div className="self-stretch flex flex-row items-start justify-end py-0 px-[25px] box-border max-w-full">
-                  <div className="flex-1 flex flex-row items-start justify-between max-w-full gap-[20px]">
-                    <div className="flex flex-col items-start justify-start gap-[9px] max-w-[calc(100%_-_40px)]">
-                      <div className="relative leading-[23px] font-medium z-[1]">
-                        Заказ № 3456-09 от 12 марта 2023, 2 товара на сумму 900
-                        000 руб.
-                      </div>
-                      <div className="flex flex-row items-start justify-start gap-[10px] text-sm text-[#7A7687]">
-                        <div className="flex flex-col items-start justify-start pt-[3px] px-0 pb-0">
-                          <a className="[text-decoration:none] relative font-semibold text-[inherit] inline-block min-w-[53px] z-[1]">
-                            Статус:
-                          </a>
-                        </div>
-                        <div className="rounded-[76px] bg-khaki text-[#855E00] flex flex-row items-start justify-start py-[3px] px-2.5 whitespace-nowrap z-[1] text-darkgoldenrod">
-                          <a className="[text-decoration:none] relative font-semibold text-[inherit] inline-block min-w-[61px]">
-                            В работе
-                          </a>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="flex flex-col items-start justify-start pt-px px-0 pb-0">
-                      <img
-                        className="w-5 -rotate-90 h-5 relative overflow-hidden shrink-0 object-contain z-[1]"
-                        loading="lazy"
-                        alt=""
-                        src={DownImage}
-                      />
-                    </div>
-                  </div>
-                </div>
-                <div className="self-stretch h-px relative bg-color4 z-[1]" />
-                <div className="self-stretch flex flex-row items-start justify-end py-0 pr-6 pl-[25px] box-border max-w-full text-[#7A7687]">
-                  <div className="flex-1 flex flex-row items-start justify-between max-w-full gap-[20px] mq975:flex-wrap">
-                    <div className="w-[389px] flex flex-col items-start justify-start gap-[25px] min-w-[389px] max-w-full mq725:min-w-full mq975:flex-1">
-                      <div
-                        className={`flex flex-row items-start justify-start gap-[40px] max-w-full text-left text-base text-[#202020] font-t1 mq450:flex-wrap mq450:gap-[20px] `}
-                      >
-                        <img
-                          className="h-16 w-16 relative object-cover mix-blend-multiply z-[1]"
-                          loading="lazy"
-                          alt=""
-                          src="/photo@2x.png"
-                        />
-                        <div className="flex flex-col items-start justify-start pt-[21px] px-0 pb-0">
-                          <div className="relative leading-[140%] font-medium z-[1]">
-                            Анализатор мочи MIND UA-66
-                          </div>
-                        </div>
-                      </div>
-                      <div
-                        className={`flex flex-row items-start justify-start gap-[40px] max-w-full text-left text-base text-[#202020] font-t1 mq450:flex-wrap mq450:gap-[20px] `}
-                      >
-                        <img
-                          className="h-16 w-16 relative object-cover mix-blend-multiply z-[1]"
-                          loading="lazy"
-                          alt=""
-                          src="/photo-1@2x.png"
-                        />
-                        <div className="flex flex-col items-start justify-start pt-[21px] px-0 pb-0">
-                          <div className="relative leading-[140%] font-medium z-[1]">
-                            УЗИ аппарат Chison Qbit5 New Matrix
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="w-[332px] flex flex-col items-start justify-start pt-[21px] px-0 pb-0 box-border min-w-[332px] max-w-full mq975:flex-1">
-                      <div className="self-stretch flex flex-col items-end justify-start gap-[66px] max-w-full mq450:gap-[33px]">
-                        <div className="w-[212px] flex flex-row items-start justify-between gap-[20px]">
-                          <div className="relative leading-[23px] font-medium inline-block min-w-[35px] z-[1]">
-                            1 шт.
-                          </div>
-                          <div className="relative leading-[23px] font-medium text-[#202020] inline-block min-w-[99px] z-[1]">
-                            600 000 руб.
-                          </div>
-                        </div>
-                        <div className="self-stretch flex flex-col items-end justify-start gap-[79px] max-w-full mq450:gap-[39px]">
-                          <div className="w-[212px] flex flex-row items-start justify-between gap-[20px]">
-                            <div className="relative leading-[23px] font-medium inline-block min-w-[35px] z-[1]">
-                              1 шт.
-                            </div>
-                            <div className="relative leading-[23px] font-medium text-[#202020] inline-block min-w-[98px] z-[1]">
-                              300 000 руб.
-                            </div>
-                          </div>
-                          <div className="self-stretch flex flex-row items-start justify-end py-0 pr-px pl-0 box-border max-w-full text-lg text-[#202020]">
-                            <div className="flex-1 flex flex-row items-start justify-start gap-[55px] max-w-full mq450:flex-wrap mq450:gap-[27px]">
-                              <div className="relative font-semibold z-[1]">
-                                Товаров на сумму:
-                              </div>
-                              <div className="relative font-semibold inline-block min-w-[113px] z-[1]">
-                                900 000 руб.
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="self-stretch rounded-3xs bg-[white] box-border flex flex-row items-start justify-between py-[23px] pr-[26px] pl-6 max-w-full gap-[20px] border-[1px] border-solid border-color4">
-                <div className="h-[107px] w-[980px] relative rounded-3xs bg-color3 box-border hidden max-w-full border-[1px] border-solid border-color4" />
-                <div className="flex flex-col items-start justify-start gap-[9px] max-w-[calc(100%_-_40px)]">
-                  <div className="relative leading-[23px] font-medium z-[1]">
-                    Заказ № 3456-09 от 12 марта 2023, 2 товара на сумму 900 000
-                    руб.
-                  </div>
-                  <div className="flex flex-row items-start justify-start gap-[10px] text-sm text-[#7A7687]">
-                    <div className="flex flex-col items-start justify-start pt-[3px] px-0 pb-0">
-                      <div className="relative font-semibold inline-block min-w-[53px] z-[1]">
-                        Статус:
-                      </div>
-                    </div>
-                    <div className="rounded-[60px] bg-honeydew flex flex-row items-start justify-start py-[3px] px-2.5 z-[1] text-color1">
-                      <div className="relative font-semibold inline-block min-w-[84px]">
-                        Доставлено
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div className="flex flex-col items-start justify-start pt-px px-0 pb-0">
-                  <img
-                    className="w-5 rotate-90 h-5 relative overflow-hidden shrink-0 object-contain z-[1]"
-                    loading="lazy"
-                    alt=""
-                    src={DownImage}
-                  />
-                </div>
-              </div>
-            </div>
-          </section>
           <footer className="w-[991px] flex flex-col items-start justify-start py-0 pr-5 pl-0 box-border gap-[100px] max-w-full text-left text-lg text-[#202020] font-t1 mq725:gap-[25px] mq1000:gap-[50px]">
             <div className="self-stretch flex flex-row items-start justify-between max-w-full gap-[20px] mq975:flex-wrap">
               <div className="relative font-semibold inline-block min-w-[96px]">
@@ -756,6 +648,7 @@ const Profile = () => {
               <Button
                 className="h-[41px] w-[203px]"
                 disableElevation
+                onClick={handleRemoveStore}
                 variant="contained"
                 sx={{
                   textTransform: "none",
@@ -774,6 +667,7 @@ const Profile = () => {
           </footer>
         </div>
       </div>
+      <Footer />
     </>
   );
 };

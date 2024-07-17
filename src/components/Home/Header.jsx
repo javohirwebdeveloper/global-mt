@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../context/AuthContext";
+import LoginImg1 from "../../assets/Vector.svg";
 import { NavLink, useNavigate } from "react-router-dom";
 import { categories, products, brands } from "../../../public/data";
 import {
@@ -383,7 +384,7 @@ const Header1 = () => {
               {isAuthenticated ? (
                 <NavLink
                   to="/Личный кабинет"
-                  className="xl:h-[42px] xl:w-[42px] w-[20px] h-[20px] text-[19px] relative overflow-hidden shrink-0 flex items-center justify-center rounded-full bg-[#E1EFE6] text-[#23473B]"
+                  className="xl:h-[42px] xl:w-[42px] w-[20px] h-[20px] text-[10px] xl:text-[19px] relative overflow-hidden shrink-0 flex items-center justify-center rounded-full bg-[#E1EFE6] text-[#23473B]"
                 >
                   {profileImage ? (
                     <img
@@ -396,7 +397,10 @@ const Header1 = () => {
                   )}
                 </NavLink>
               ) : (
-                <div className="xl:w-[35px] w-[20px] flex flex-col items-center gap-y-1 justify-start py-0 xl:px-[5px] box-border">
+                <div
+                  onClick={handleOpenModal}
+                  className="xl:w-[35px] w-[20px] flex flex-col items-center gap-y-1 justify-start py-0 xl:px-[5px] box-border"
+                >
                   <img
                     className="xl:h-6 xl:w-6 h-[20px] w-[20px] relative overflow-hidden shrink-0"
                     loading="lazy"
@@ -1407,16 +1411,19 @@ const Header1 = () => {
                   )}
                 </NavLink>
               ) : (
-                <div className="flex flex-col items-start justify-start gap-[4px]">
-                  <div className="w-[35px] flex flex-row items-start justify-start py-0 px-[5px] box-border">
+                <div
+                  onClick={handleOpenModal}
+                  className="flex flex-col items-start justify-start gap-[4px]"
+                >
+                  <div className="w-7 flex flex-row items-start justify-start py-0 px-[5px] box-border">
                     <img
-                      className="h-[35px] w-[35px] relative overflow-hidden shrink-0"
+                      className="h-6 w-7 relative overflow-hidden shrink-0"
                       loading="lazy"
                       alt=""
-                      src={LoginImg}
+                      src={LoginImg1}
                     />
                   </div>
-                  <a className="[text-decoration:none] relative font-medium text-[inherit] inline-block min-w-[35px]">
+                  <a className="[text-decoration:none] relative font-medium text-[inherit] inline-block ">
                     Войти
                   </a>
                 </div>

@@ -19,7 +19,7 @@ export const Subscription = () => {
           </div>
           <div className="self-stretch flex flex-col items-start justify-start gap-[20px] max-w-full text-sm text-color3">
             <div className="self-stretch flex flex-col items-start justify-start">
-              <div className="self-stretch rounded-31xl bg-color overflow-hidden flex flex-row items-center justify-between py-0 pr-0.5 pl-[23px] gap-[20px] border-[1px] border-solid border-color4 mq450:flex-wrap">
+              <div className="self-stretch rounded-31xl bg-color overflow-hidden flex flex-row items-center justify-between py-0 pr-0.5 pl-[23px] gap-[20px] border-[1px] border-solid border-color4">
                 <input
                   placeholder="Введите email"
                   className="relative inline-block outline-none bg-transparent h-full w-full"

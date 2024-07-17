@@ -23,7 +23,7 @@ const Root4 = ({
 
   return (
     <div
-      className={`max-w-[500px] w-full rounded-[10px] bg-color box-border overflow-hidden flex flex-col items-end justify-start pt-[18px] px-6 pb-[23px] gap-[40px] leading-[normal] tracking-[normal] text-left text-lg text-[#202020] font-h3 border-[1px] border-solid border-color1 ${className}`}
+      className={`xl:max-w-[500px] xl:h-[641px] h-[495px] md:max-w-[358px] max-w-[345px] w-full rounded-[10px] bg-color box-border overflow-hidden flex flex-col items-end justify-start xl:px-[25px] px-[20px] py-[25px] gap-[30px] xl:gap-[40px] leading-[normal] tracking-[normal] text-left text-lg text-[#202020] font-h3 border-[1px] border-solid border-color1 ${className}`}
     >
       <div className="self-stretch flex flex-row items-start justify-between gap-[20px]">
         <a className="[text-decoration:none] relative font-semibold text-[inherit]">
@@ -40,20 +40,38 @@ const Root4 = ({
         </div>
       </div>
       <div className="self-stretch h-[450px] relative">
-        <Cropper
-          src={imageSrc}
-          style={{ height: 450, width: 450 }}
-          aspectRatio={1 / 1}
-          guides={false}
-          cropBoxMovable={true}
-          cropBoxResizable={true}
-          ref={cropperRef}
-          viewMode={2}
-          dragMode="move"
-          initialAspectRatio={1}
-          autoCropArea={1}
-          checkOrientation={false}
-        />
+        <div className="xl:inline hidden">
+          <Cropper
+            src={imageSrc}
+            style={{ height: 450, width: 450 }}
+            aspectRatio={1 / 1}
+            guides={false}
+            cropBoxMovable={true}
+            cropBoxResizable={true}
+            ref={cropperRef}
+            viewMode={2}
+            dragMode="move"
+            initialAspectRatio={1}
+            autoCropArea={1}
+            checkOrientation={false}
+          />
+        </div>{" "}
+        <div className="inline xl:hidden">
+          <Cropper
+            src={imageSrc}
+            style={{ height: 318, width: "100%" }}
+            aspectRatio={1 / 1}
+            guides={false}
+            cropBoxMovable={true}
+            cropBoxResizable={true}
+            ref={cropperRef}
+            viewMode={2}
+            dragMode="move"
+            initialAspectRatio={1}
+            autoCropArea={1}
+            checkOrientation={false}
+          />
+        </div>
       </div>
       <div className="w-[277px] flex flex-row items-start justify-start gap-[10px]">
         <Button
