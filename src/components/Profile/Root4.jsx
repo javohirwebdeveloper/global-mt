@@ -17,7 +17,9 @@ const Root4 = ({
       .getCroppedCanvas()
       .toDataURL();
     onApply(croppedImageData);
+    window.location.reload(); 
   };
+
 
   return (
     <div

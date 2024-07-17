@@ -263,6 +263,7 @@ const Header1 = () => {
                                       <NavLink
                                         to={`/product/${product.id}`}
                                         key={index}
+                                        onClick={() => setIsSearchOpen(false)}
                                         className="inline-flex pl-1 items-center gap-2.5 h-[45px] w-full cursor-pointer hover:bg-[#08826a14] duration-200"
                                       >
                                         <img

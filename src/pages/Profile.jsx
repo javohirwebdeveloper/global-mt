@@ -12,6 +12,7 @@ import Vector2 from "../assets/Profile/Vector2.svg";
 import { Button } from "@mui/material";
 import Vector3 from "../assets/Profile/Vector3.svg";
 import Vector4 from "../assets/Profile/Vector4.svg";
+import EditPayerDataModal2 from "../components/Profile/EditPayerDataModal2";
 import EditPhoneModal from "../components/Profile/EditPhoneModal";
 import EditEmailModal from "../components/Profile/EditEmailModal";
 import EditPayerDataModal from "../components/Profile/EditPayerDataModal";
@@ -19,7 +20,7 @@ import { Modal } from "@mui/material";
 import Root35 from "../components/Profile/Root35";
 const customStyles = {
   overlay: {
-    backgroundColor: "rgba(0,0,0,0.10)",
+    backgroundColor: "rgba(0,0,0,0.1) !important",
     zIndex: 1000,
   },
   content: {
@@ -46,7 +47,21 @@ const Profile = () => {
   const [isPayerDataModalOpen, setIsPayerDataModalOpen] = useState(false);
   const [IsEditModalOpen, setIsEditModalOpen] = useState(false);
   const user = JSON.parse(localStorage.getItem("user"));
+  const [isPayerDataModalOpen2, setIsPayerDataModalOpen2] = useState(false);
+  const [payerData2, setPayerData2] = useState({});
 
+  useEffect(() => {
+    const storedData = JSON.parse(localStorage.getItem("payerData2")) || {};
+    setPayerData2(storedData);
+  }, []);
+
+  const handlePayerDataEdit2 = () => {
+    setIsPayerDataModalOpen2(true);
+  };
+
+  const handlePayerDataSave2 = (newData) => {
+    setPayerData2(newData);
+  };
   const [payerData, setPayerData] = useState({
     firstName: "",
     lastName: "",
@@ -93,6 +108,7 @@ const Profile = () => {
   const handleDeleteProfilePicture = () => {
     localStorage.removeItem("profileImage");
     setProfileImage(null);
+    window.location.reload();
   };
 
   const getUserInitial = (email) => {
@@ -410,12 +426,13 @@ const Profile = () => {
                       Название компании
                     </div>
                     <div className="relative text-base leading-[140%] font-medium inline-block min-w-[121px]">
-                      ИНН 9717039181
+                      ИНН {payerData2.inn || 9717039181}
                     </div>
                   </div>
                   <img
                     className="h-6 w-6 relative overflow-hidden shrink-0"
                     loading="lazy"
+                    onClick={() => setIsPayerDataModalOpen2(true)}
                     alt=""
                     src={EditImg2}
                   />
@@ -477,13 +494,18 @@ const Profile = () => {
             </div>
           </div>
         </section>
-
+        <EditPayerDataModal2
+          open={isPayerDataModalOpen2}
+          onClose={() => setIsPayerDataModalOpen2(false)}
+          onSave={handlePayerDataSave2}
+        />
         <Modal
           open={isPhoneModalOpen}
           onClose={() => setIsPhoneModalOpen(false)}
         >
           <div className="modal-content">
             <EditPhoneModal
+              onClose={() => setIsPhoneModalOpen(false)}
               currentPhoneNumber={savedPhoneNumber}
               onSave={handlePhoneSave}
             />
@@ -494,15 +516,23 @@ const Profile = () => {
           onClose={() => setIsEmailModalOpen(false)}
         >
           <div className="modal-content">
-            <EditEmailModal currentEmail={email} onSave={handleEmailSave} />
+            <EditEmailModal
+              onClose={() => setIsEmailModalOpen(false)}
+              currentEmail={email}
+              onSave={handleEmailSave}
+            />
           </div>
         </Modal>
         <Modal
+          style={customStyles}
           open={isPasswordModalOpen}
           onClose={() => setIsPasswordModalOpen(false)}
         >
           <div className="modal-content">
-            <Root35 onSave={handlePasswordSave} />
+            <Root35
+              onClose={() => setIsPasswordModalOpen(false)}
+              onSave={handlePasswordSave}
+            />
           </div>
         </Modal>
         <Modal
@@ -700,6 +730,7 @@ const Profile = () => {
                     </div>
                   </div>
                 </div>
+
                 <div className="flex-1 flex flex-col items-start justify-start gap-[20px] min-w-[179px]">
                   <div className="relative font-semibold">
                     Получать рассылку по темам:

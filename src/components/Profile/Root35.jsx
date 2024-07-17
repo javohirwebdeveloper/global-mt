@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { Button, Modal, TextField } from "@mui/material";
 import PropTypes from "prop-types";
+import { RxCross2 } from "react-icons/rx";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 
-const Root35 = ({ className = "", onSave }) => {
+const Root35 = ({ className = "", onSave, onClose }) => {
   const [open, setOpen] = useState(false);
 
   const user = JSON.parse(localStorage.getItem("user"));
@@ -44,23 +45,21 @@ const Root35 = ({ className = "", onSave }) => {
   };
 
   return (
-    <Modal open={open} onClose={handleClose}>
+    <div className="w-full fixed h-full flex justify-center items-center">
       <div
-        className={`w-full flex flex-row items-start justify-start leading-[normal] tracking-[normal] text-left text-lg text-color3 font-l2 ${className}`}
+        className={`xl:max-w-[500px] md:max-w-[358px] max-w-[345px]  w-full flex flex-row items-start justify-start leading-[normal] tracking-[normal] text-left text-lg text-[#202020] font-l2 `}
       >
-        <div className="flex-1 rounded-[10px] bg-color box-border overflow-hidden flex flex-col items-start justify-start pt-[18px] px-6 pb-[23px] gap-[30px] max-w-full border-[1px] border-solid border-color1">
-          <div className="self-stretch flex flex-row items-start justify-start pt-0 px-0 pb-2.5 box-border max-w-full">
+        <div className="flex-1 rounded-[10px] bg-white box-border   overflow-hidden flex flex-col items-start justify-start xl:px-[25px] px-[20px] py-[20px] gap-[30px] max-w-full border-[1px] border-solid border-[#E5E2EE]">
+          <div className="self-stretch flex flex-row items-start justify-start box-border max-w-full">
             <div className="flex-1 flex flex-row items-start justify-between max-w-full gap-[20px]">
               <div className="relative font-semibold">Изменить пароль</div>
               <div
                 className="flex flex-col items-start justify-start pt-[2.5px] px-0 pb-0"
-                onClick={handleClose}
+                onClick={onClose}
               >
-                <img
-                  className="w-5 h-5 relative overflow-hidden shrink-0 cursor-pointer"
-                  loading="lazy"
-                  alt=""
-                  src="/close.svg"
+                <RxCross2
+                  onClick={onClose}
+                  className="cursor-pointer hover:text-[#07745E]"
                 />
               </div>
             </div>
@@ -70,60 +69,58 @@ const Root35 = ({ className = "", onSave }) => {
             validationSchema={validationSchema}
             onSubmit={handleSubmit}
           >
-            {({ isSubmitting }) => (
-              <Form className="self-stretch flex flex-col items-start justify-start gap-[25px] max-w-full text-sm text-color2">
+            {({ isSubmitting, handleBlur, handleChange, errors, touched }) => (
+              <Form className="self-stretch flex flex-col items-start justify-start xl:gap-[25px] gap-[15px] max-w-full text-sm text-color2">
                 <div className="self-stretch flex flex-row items-start justify-start max-w-full">
-                  <div className="flex-1 flex flex-col items-start justify-start gap-[11px] max-w-full">
-                    <div className="relative inline-block min-w-[114px]">
-                      Текущий пароль*
-                    </div>
-                    <Field
-                      as={TextField}
-                      variant="outlined"
+                  <div className="flex-1 flex flex-col items-start justify-start gap-[5px] max-w-full">
+                    <input
+                      placeholder="Текущий пароль"
+                      className="bg-[transparent] w-full xl:text-[14px] text-[12px] xl:pb-[11px] pb-[10px] outline-none text-[#7A7687] border-b"
                       type="password"
                       name="currentPassword"
-                      fullWidth
+                      onChange={handleChange}
+                      onBlur={handleBlur}
                     />
                     <ErrorMessage
                       name="currentPassword"
                       component="div"
-                      className="text-red-500"
+                      className="text-red-500 text-[10px]"
                     />
                   </div>
                 </div>
                 <div className="self-stretch flex flex-row items-start justify-start max-w-full">
-                  <div className="flex-1 flex flex-col items-start justify-start gap-[11px] max-w-full">
-                    <div className="relative inline-block min-w-[100px]">
-                      Новый пароль*
-                    </div>
-                    <Field
-                      as={TextField}
+                  <div className="flex-1 flex flex-col items-start justify-start gap-[5px] max-w-full">
+                    <input
+                      className="bg-[transparent] w-full xl:text-[14px] text-[12px] xl:pb-[11px] pb-[10px] outline-none text-[#7A7687] border-b"
+                      placeholder="Новый пароль*"
                       variant="outlined"
                       type="password"
                       name="newPassword"
-                      fullWidth
+                      onChange={handleChange}
+                      onBlur={handleBlur}
                     />
                     <ErrorMessage
                       name="newPassword"
                       component="div"
-                      className="text-red-500"
+                      className="text-red-500 text-[10px]"
                     />
                   </div>
                 </div>
                 <div className="self-stretch flex flex-row items-start justify-start max-w-full">
-                  <div className="flex-1 flex flex-col items-start justify-start gap-[11px] max-w-full">
-                    <div className="relative">Повторите новый пароль*</div>
-                    <Field
-                      as={TextField}
+                  <div className="flex-1 flex flex-col items-start justify-start gap-[5px] max-w-full">
+                    <input
+                      className="bg-[transparent] w-full xl:text-[14px] text-[12px] xl:pb-[11px] pb-[10px] outline-none text-[#7A7687] border-b"
                       variant="outlined"
                       type="password"
+                      placeholder="Подтвердите пароль*"
                       name="confirmPassword"
-                      fullWidth
+                      onChange={handleChange}
+                      onBlur={handleBlur}
                     />
                     <ErrorMessage
                       name="confirmPassword"
                       component="div"
-                      className="text-red-500"
+                      className="text-red-500 text-[10px]"
                     />
                   </div>
                 </div>
@@ -150,7 +147,7 @@ const Root35 = ({ className = "", onSave }) => {
           </Formik>
         </div>
       </div>
-    </Modal>
+    </div>
   );
 };
 
